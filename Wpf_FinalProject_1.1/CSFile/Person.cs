@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wpf_FinalProject_1._1
+namespace Wpf_FinalProject_1._1.CSFile
 {
     class Person
     {
         // Fields
-        private Enterprise_Infor EfEnter_Infor;
+        protected Enterprise_Infor EfEnter_Infor;
         // ... personal information
-        private Name NmPerson;
-        private string sPhoneNum;
-        private string sGender;
-        private string sIdentityCard;
-        private string sPermanentResidence;
-        private string sAddress;
-        private DateTime dtDateBorn;
+        protected Name NmPerson;
+        protected string sPhoneNum;
+        protected string sGender;
+        protected string sIdentityCard;
+        protected string sPermanentResidence;
+        protected string sAddress;
+        protected DateTime dtDateBorn;
         // Properties
         public Enterprise_Infor Enter_Infor
         {
@@ -63,9 +63,9 @@ namespace Wpf_FinalProject_1._1
             Address = address;
             DateBorn = dateBorn;
         }
-        public Person(Enterprise_Infor enter_Infor) 
+        public Person(Enterprise_Infor enter_Infor)
         {
-            this.Enter_Infor = enter_Infor;
+            Enter_Infor = enter_Infor;
         }
     }
 }

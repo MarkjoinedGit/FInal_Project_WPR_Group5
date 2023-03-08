@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wpf_FinalProject_1._1
+namespace Wpf_FinalProject_1._1.CSFile
 {
     class Enterprise_Infor
     {
@@ -43,11 +43,7 @@ namespace Wpf_FinalProject_1._1
         // Finalizers
         ~Enterprise_Infor() { }
         //Methods
-        public Enterprise_Infor(string ID,
-        string Title,
-        string Email,
-        string NickName,
-       string Password)
+        public Enterprise_Infor(string ID, string Title, string Email, string NickName, string Password)
         {
             this.ID = ID;
             this.Title = Title;

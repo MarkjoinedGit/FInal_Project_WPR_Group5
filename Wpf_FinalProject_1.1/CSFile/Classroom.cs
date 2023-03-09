@@ -8,79 +8,68 @@ namespace Wpf_FinalProject_1._1.CSFile
 {
     class Classroom
     {
-        private string sIdTeacher;
-        private string sIdClassroom;
-        private string sRoomNum;
-        private int sNumStudent;
-        private string sIdCourse;
-        private DateTime dtStartingDate;
-        private DateTime dtEndingDate;
-        private string sMeet;
+        private string IdTeacher;
+        private string IdClassroom;
+        private string RoomNum;
+        private int NumStudent;
+        private string IdCourse;
+        private DateTime StartingDate;
+        private DateTime EndingDate;
+        private string Meet;
 
-        public string IdTeacher
+        public string idTeacher
         {
-            get { return sIdTeacher; }
-            set { sIdTeacher = value; }
+            get { return IdTeacher; }
+            set { IdTeacher = value; }
         }
 
-        public string IdClassroom
+        public string idClassroom
         {
-            get { return sIdClassroom; }
-            set { sIdClassroom = value; }
+            get { return IdClassroom; }
+            set { IdClassroom = value; }
         }
 
-        public string RoomNum
+        public string roomNum
         {
-            get { return sRoomNum; }
-            set { sRoomNum = value; }
+            get { return RoomNum; }
+            set { RoomNum = value; }
         }
 
-        public string IdCourse
+        public string idCourse
         {
-            get { return sIdCourse; }
-            set { sIdCourse = value; }
+            get { return IdCourse; }
+            set { IdCourse = value; }
         }
 
-        public DateTime StartingDate
+        public DateTime startingDate
         {
-            get { return dtStartingDate; }
-            set { dtStartingDate = value; }
+            get { return StartingDate; }
+            set { StartingDate = value; }
         }
 
-        public DateTime EndingDate
+        public DateTime endingDate
         {
-            get { return dtEndingDate; }
+            get { return EndingDate; }
             set { EndingDate = value; }
         }
 
-        public string Meet
+        public string meet
         {
-            get { return sMeet; }
-            set { sMeet = value; }
+            get { return Meet; }
+            set { Meet = value; }
         }
 
         ~Classroom() { }
-        //... Properties using to show for Manager
-        public Classroom(string sIdTeacher, string sIdClassroom, string sRoomNum, int sNumStudent,
-        string sIdCourse, DateTime dtStartingDate, DateTime dtEndingDate, string sMeet)
+        public Classroom(string IdTeacher, string IdClassroom, string RoomNum, int sNumStudent,
+        string IdCourse, DateTime StartingDate, DateTime EndingDate, string Meet)
         {
-            IdTeacher = sIdTeacher;
-            IdClassroom = sIdClassroom;
-            RoomNum = sRoomNum;
-            IdCourse = sIdCourse;
-            StartingDate = dtStartingDate;
-            EndingDate = dtEndingDate;
-            Meet = sMeet;
-        }
-
-        //... Properties using to show for students
-        public Classroom(string sIdClassroom, string sIdTeacher, string sIdCourse, string sMeet, string sRoomNum)
-        {
-            IdClassroom = sIdClassroom;
-            IdTeacher = sIdTeacher;
-            IdCourse = sIdCourse;
-            Meet = sMeet;
-            this.sRoomNum = sRoomNum;
-        }
+            idTeacher = IdTeacher;
+            idClassroom = IdClassroom;
+            roomNum = RoomNum;
+            idCourse = IdCourse;
+            startingDate = StartingDate;
+            endingDate = EndingDate;
+            meet = Meet;
+        }       
     }
 }

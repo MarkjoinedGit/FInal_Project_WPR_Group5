@@ -26,6 +26,11 @@ namespace Wpf_FinalProject_1._1.CSFile
             set { sLastName = value; }
         }
 
+        public string getFullName()
+        {
+            return FirstName + " " + LastName;    
+        }
+
         // Methods
         public Name(string FirstName, string LastName)
         {

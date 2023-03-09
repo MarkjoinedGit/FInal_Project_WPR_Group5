@@ -18,43 +18,51 @@ namespace Wpf_FinalProject_1._1.CSFile
         protected string sPermanentResidence;
         protected string sAddress;
         protected DateTime dtDateBorn;
+
         // Properties
         public Enterprise_Infor Enter_Infor
         {
             get { return EfEnter_Infor; }
             set { EfEnter_Infor = value; }
         }
+
         public Name NamePerson
         {
             get { return NmPerson; }
             set { NmPerson = value; }
         }
+
         public string PhoneNum
         {
             get { return sPhoneNum; }
             set { sPhoneNum = value; }
         }
+
         public string Gender
         {
             get { return sGender; }
             set { sGender = value; }
         }
+
         public string IdentityCard
         {
             get { return sIdentityCard; }
             set { IdentityCard = value; }
         }
+
         public string Address
         {
             get { return sAddress; }
             set { sAddress = value; }
         }
+
         public DateTime DateBorn
         {
             get { return dtDateBorn; }
             set { dtDateBorn = value; }
         }
-        public Person(Name namePerson, string phoneNum, string gender, string identityCard, string address, DateTime dateBorn)
+
+        public Person(Enterprise_Infor enter_Infor, Name namePerson, string phoneNum, string gender, string identityCard, string address, DateTime dateBorn)
         {
             NamePerson = namePerson;
             PhoneNum = phoneNum;
@@ -62,9 +70,6 @@ namespace Wpf_FinalProject_1._1.CSFile
             IdentityCard = identityCard;
             Address = address;
             DateBorn = dateBorn;
-        }
-        public Person(Enterprise_Infor enter_Infor)
-        {
             Enter_Infor = enter_Infor;
         }
     }

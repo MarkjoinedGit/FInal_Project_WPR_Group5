@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wpf_FinalProject_1._1.CSFile
 {
-    class Enterprise_Infor
+    public class Enterprise_Infor
     {
         // Fields - Information that's used in organization
         private string sID;

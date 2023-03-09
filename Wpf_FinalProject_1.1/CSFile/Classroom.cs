@@ -16,20 +16,49 @@ namespace Wpf_FinalProject_1._1.CSFile
         private DateTime dtStartingDate;
         private DateTime dtEndingDate;
         private string sMeet;
+
         public string IdTeacher
-        { get { return sIdTeacher; } set { sIdTeacher = value; } }
+        {
+            get { return sIdTeacher; }
+            set { sIdTeacher = value; }
+        }
+
         public string IdClassroom
-        { get { return sIdClassroom; } set { sIdClassroom = value; } }
+        {
+            get { return sIdClassroom; }
+            set { sIdClassroom = value; }
+        }
+
         public string RoomNum
-        { get { return sRoomNum; } set { sRoomNum = value; } }
+        {
+            get { return sRoomNum; }
+            set { sRoomNum = value; }
+        }
+
         public string IdCourse
-        { get { return sIdCourse; } set { sIdCourse = value; } }
+        {
+            get { return sIdCourse; }
+            set { sIdCourse = value; }
+        }
+
         public DateTime StartingDate
-        { get { return dtStartingDate; } set { dtStartingDate = value; } }
+        {
+            get { return dtStartingDate; }
+            set { dtStartingDate = value; }
+        }
+
         public DateTime EndingDate
-        { get { return dtEndingDate; } set { EndingDate = value; } }
+        {
+            get { return dtEndingDate; }
+            set { EndingDate = value; }
+        }
+
         public string Meet
-        { get { return sMeet; } set { sMeet = value; } }
+        {
+            get { return sMeet; }
+            set { sMeet = value; }
+        }
+
         ~Classroom() { }
         //... Properties using to show for Manager
         public Classroom(string sIdTeacher, string sIdClassroom, string sRoomNum, int sNumStudent,
@@ -43,6 +72,7 @@ namespace Wpf_FinalProject_1._1.CSFile
             EndingDate = dtEndingDate;
             Meet = sMeet;
         }
+
         //... Properties using to show for students
         public Classroom(string sIdClassroom, string sIdTeacher, string sIdCourse, string sMeet, string sRoomNum)
         {

@@ -4,32 +4,32 @@ namespace EnglishCentreManagement.Model
 {
     class Notice
     {
-        private string IDSender;
-        private string IDReceiver;
-        private string Description;
-        public string idsender
+        private string idSender;
+        private string idReceiver;
+        private string description;
+        public string IDSender
         {
-            get { return this.IDSender; }
+            get { return this.idSender; }
             set
             {
                 if (value == null)
                     throw new ArgumentOutOfRangeException($"{nameof(value)} must be not null");
-                this.IDSender = value;
+                this.idSender = value;
             }
         }
-        public string idreceiver
+        public string IDReceiver
         {
-            get { return this.IDReceiver; }
+            get { return this.idReceiver; }
             set
             {
                 if (value == null)
                     throw new ArgumentOutOfRangeException($"{nameof(value)} must be not null");
-                this.IDReceiver = value;
+                this.idReceiver = value;
             }
         }
-        public string description
+        public string Description
         {
-            get { return this.Description; }
+            get { return this.description; }
             set { this.description = value; }
         }
     }

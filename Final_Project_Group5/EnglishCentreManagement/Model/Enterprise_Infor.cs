@@ -3,47 +3,47 @@
     public class Enterprise_Infor
     {
         // Fields - Information that's used in organization
-        private string ID;
-        private string Title;
-        private string Email;
-        private string NickName;
-        private string Password;
+        private string id;
+        private string title;
+        private string email;
+        private string userName;
+        private string password;
         // Properties 
-        public string id
+        public string ID
         {
-            get { return this.ID; }
-            set { this.ID = value; }
+            get { return this.id; }
+            set { this.id = value; }
         }
-        public string title
+        public string Title
         {
-            get { return this.Title; }
-            set { this.Title = value; }
+            get { return this.title; }
+            set { this.title = value; }
         }
-        public string email
+        public string Email
         {
-            get { return this.Email; }
-            set { this.Email = value; }
+            get { return this.email; }
+            set { this.email = value; }
         }
-        public string nickname
+        public string UserName
         {
-            get { return this.NickName; }
-            set { this.NickName = value; }
+            get { return this.userName; }
+            set { this.userName = value; }
         }
-        public string password
+        public string Password
         {
-            get { return this.Password; }
-            set { this.Password = value; }
+            get { return this.password; }
+            set { this.password = value; }
         }
         // Finalizers
         ~Enterprise_Infor() { }
         //Methods
-        public Enterprise_Infor(string ID, string Title, string Email, string NickName, string Password)
+        public Enterprise_Infor(string ID, string Title, string Email, string UserName, string Password)
         {
-            this.id = ID;
-            this.title = Title;
-            this.email = Email;
-            this.nickname = NickName;
-            this.password = Password;
+            this.ID = ID;
+            this.Title = Title;
+            this.Email = Email;
+            this.UserName = UserName;
+            this.Password = Password;
         }
     }
 }

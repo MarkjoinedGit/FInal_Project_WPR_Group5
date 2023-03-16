@@ -4,43 +4,43 @@ namespace EnglishCentreManagement.Model
 {
     class Teacher : Person
     {
-        private long Salary;
-        private string BankAdd;
-        private double LevelIelts;
-        public long salary
+        private long salary;
+        private string bankAdd;
+        private double level;
+        public long Salary
         {
-            get { return this.Salary; }
+            get { return this.salary; }
             set
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException($"{nameof(value)} must be greater than 0");
-                this.Salary = value;
+                this.salary = value;
             }
         }
 
-        public string bankadd
+        public string BankAdd
         {
-            get { return this.BankAdd; }
-            set { this.BankAdd = value; }
+            get { return this.bankAdd; }
+            set { this.bankAdd = value; }
         }
 
-        public double levelielts
+        public double Level
         {
-            get { return this.LevelIelts; }
+            get { return this.Level; }
             set
             {
                 if (value < 7.5)
                     throw new ArgumentOutOfRangeException($"{nameof(value)} must be greater than 7.5.");
-                this.LevelIelts = value;
+                this.Level = value;
             }
         }
 
-        public Teacher(Enterprise_Infor enterprise_Infor, Name namePerson, string phoneNum, string gender, string identityCard, string address, DateTime dateBorn, double LevelIelts, long Salary, string Bank)
-            : base(enterprise_Infor, namePerson, phoneNum, gender, identityCard, address, dateBorn)
+        public Teacher(Enterprise_Infor Enterprise_Infor, Name NamePerson, string PhoneNum, string Gender, string IdentityCard, string Address, DateTime DateBorn, double Level, long Salary, string Bank)
+            : base(Enterprise_Infor, NamePerson, PhoneNum, Gender, IdentityCard, Address, DateBorn)
         {
-            this.salary = Salary;
-            this.bankadd = Bank;
-            this.levelielts = LevelIelts;
+            this.Salary = Salary;
+            this.BankAdd = Bank;
+            this.Level = Level;
         }
 
     }

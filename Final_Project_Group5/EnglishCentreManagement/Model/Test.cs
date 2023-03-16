@@ -5,37 +5,37 @@ namespace EnglishCentreManagement.Model
 {
     class Test
     {
-        private string IdTest;
-        private DateTime TimeTesting;
-        private string IdTeacher;
-        private Dictionary<string, double> Point;
-        public string idtest
+        private string idTest;
+        private DateTime timeTesting;
+        private string idTeacher;
+        private Dictionary<string, double> point;
+        public string IDTest
         {
-            get { return this.IdTest; }
-            set { this.IdTest = value; }
+            get { return this.idTest; }
+            set { this.idTest = value; }
         }
-        public DateTime timetesting
+        public DateTime TimeTesting
         {
-            get { return this.TimeTesting; }
-            set { this.TimeTesting = value; }
+            get { return this.timeTesting; }
+            set { this.timeTesting = value; }
         }
-        public string idteacher
+        public string IDTeacher
         {
-            get { return this.IdTeacher; }
-            set { this.IdTeacher = value; }
+            get { return this.idTeacher; }
+            set { this.idTeacher = value; }
         }
-        public Dictionary<string, double> point
+        public Dictionary<string, double> Point
         {
-            get { return this.Point; }
-            set { this.Point = value; }
+            get { return this.point; }
+            set { this.point = value; }
         }
         ~Test() { }
-        public Test(string sIdTest, DateTime dtTimeTesting, string sIdTeacher, Dictionary<string, double> dicPoint)
+        public Test(string IDTest, DateTime TimeTesting, string IDTeacher, Dictionary<string, double> Point)
         {
-            this.idtest = sIdTest;
-            this.timetesting = dtTimeTesting;
-            this.idteacher = sIdTeacher;
-            this.point = dicPoint;
+            this.IDTest = IDTest;
+            this.TimeTesting = TimeTesting;
+            this.IDTeacher = IDTeacher;
+            this.Point = Point;
         }
     }
 }

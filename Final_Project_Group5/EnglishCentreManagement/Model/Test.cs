@@ -1,4 +1,7 @@
-﻿namespace Code_Final_Object.CSFile
+﻿using System;
+using System.Collections.Generic;
+
+namespace EnglishCentreManagement.Model
 {
     class Test
     {

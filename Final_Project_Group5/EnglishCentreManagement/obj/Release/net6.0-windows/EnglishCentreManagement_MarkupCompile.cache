@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Release\net6.0-windows\
 EnglishCentreManagement
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\App.xaml
 7-1809625467
 

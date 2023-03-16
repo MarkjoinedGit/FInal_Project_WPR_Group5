@@ -1,4 +1,4 @@
-﻿namespace Code_Final_Object.CSFile
+﻿namespace EnglishCentreManagement.Model
 {
     public class Enterprise_Infor
     {

@@ -1,4 +1,6 @@
-﻿namespace Code_Final_Object.CSFile
+﻿using System;
+
+namespace EnglishCentreManagement.Model
 {
     class Notice
     {

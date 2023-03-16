@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EnglishCentreManagement.Database
 {
-    internal class TeacherDAO
+    public class TeacherDAO
     {
+
     }
 }

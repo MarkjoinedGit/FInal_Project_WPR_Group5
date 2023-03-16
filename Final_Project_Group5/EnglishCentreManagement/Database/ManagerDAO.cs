@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnglishCentreManagement.Database
 {
-    internal class ManagerDAO
+    public class ManagerDAO
     {
     }
 }

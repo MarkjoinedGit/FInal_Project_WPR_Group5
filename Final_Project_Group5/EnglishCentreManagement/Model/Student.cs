@@ -4,32 +4,32 @@ namespace EnglishCentreManagement.Model
 {
     class Student : Person
     {
-        private string Status;
-        private string ClassID;
-        private string RankLevel;
-        public string status
+        private string status;
+        private string classID;
+        private string rankLevel;
+        public string Status
         {
-            get { return this.Status; }
-            set { this.Status = value; }
+            get { return this.status; }
+            set { this.status = value; }
         }
-        public string classid
+        public string ClassID
         {
-            get { return this.ClassID; }
-            set { this.ClassID = value; }
+            get { return this.classID; }
+            set { this.classID = value; }
         }
-        private string ranklevel
+        private string RankLevel
         {
-            get { return this.RankLevel; }
-            set { this.RankLevel = value; }
+            get { return this.rankLevel; }
+            set { this.rankLevel = value; }
         }
         ~Student() { }
-        public Student(Enterprise_Infor enter_Infor, Name namePerson, string phoneNum, string gender,
-            string identityCard, string address, DateTime dateBorn, string status, string rank, string classid) : base(enter_Infor, namePerson, phoneNum, gender,
-            identityCard, address, dateBorn)
+        public Student(Enterprise_Infor Enter_Infor, Name NamePerson, string PhoneNum, string Gender,
+            string IdentityCard, string Address, DateTime DateBorn, string Status, string RankLevel, string ClassID) : base(Enter_Infor, NamePerson, PhoneNum, Gender,
+            IdentityCard, Address, DateBorn)
         {
-            this.ranklevel = rank;
-            this.status = status;
-            this.classid = classid;
+            this.Status = status;
+            this.RankLevel = RankLevel;
+            this.ClassID = ClassID;
         }
     }
 }

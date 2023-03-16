@@ -2,45 +2,45 @@
 {
     class Course
     {
-        private string IdCourse;
-        private double LowestLevel;
-        private double HighestLevel;
-        private int NumOfWeek;
-        private double RequestLevelOfTeacher;
-        public string idcourse
+        private string idCourse;
+        private double lowestLevel;
+        private double highestLevel;
+        private int numOfWeek;
+        private double requestLevelOfTeacher;
+        public string IdCourse
         {
-            get { return this.IdCourse; }
-            set { this.IdCourse = value; }
+            get { return this.idCourse; }
+            set { this.idCourse = value; }
         }
-        public double lowestlevel
+        public double LowestLevel
         {
-            get { return this.LowestLevel; }
-            set { this.LowestLevel = value; }
+            get { return this.lowestLevel; }
+            set { this.lowestLevel = value; }
         }
-        public double highestlevel
+        public double HighestLevel
         {
-            get { return this.HighestLevel; }
-            set { this.HighestLevel = value; }
+            get { return this.highestLevel; }
+            set { this.highestLevel = value; }
         }
-        public double requestlevelofteacher
+        public double RequestLevelOfTeacher
         {
-            get { return this.RequestLevelOfTeacher; }
-            set { this.RequestLevelOfTeacher = value; }
+            get { return this.requestLevelOfTeacher; }
+            set { this.requestLevelOfTeacher = value; }
         }
-        public int numofweek
+        public int NumOfWeek
         {
-            get { return this.NumOfWeek; }
-            set { this.NumOfWeek = value; }
+            get { return this.numOfWeek; }
+            set { this.numOfWeek = value; }
         }
         ~Course() { }
         public Course(string IdCourse, int NumOfWeek, double LowestLevel
-            , double HighestLevel, double requestlevelofteacher)
+            , double HighestLevel, double RequestLevelOfTeacher)
         {
-            this.idcourse = IdCourse;
-            this.numofweek = NumOfWeek;
-            this.lowestlevel = LowestLevel;
+            this.IdCourse = IdCourse;
+            this.NumOfWeek = NumOfWeek;
+            this.LowestLevel = LowestLevel;
             this.HighestLevel = HighestLevel;
-            this.requestlevelofteacher = requestlevelofteacher;
+            this.RequestLevelOfTeacher = RequestLevelOfTeacher;
         }
     }
 }

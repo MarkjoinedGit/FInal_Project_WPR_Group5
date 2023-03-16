@@ -3,24 +3,24 @@
     public class Name
     {
         // Fields
-        private string FirstName;
-        private string LastName;
+        private string firstName;
+        private string lastName;
         // Properties
-        public string firstname
+        public string FirstName
         {
-            get { return this.FirstName; }
-            set { this.FirstName = value; }
+            get { return this.firstName; }
+            set { this.firstName = value; }
         }
-        public string lastname
+        public string LastName
         {
-            get { return this.LastName; }
-            set { this.LastName = value; }
+            get { return this.lastName; }
+            set { this.lastName = value; }
         }
         // Methods
         public Name(string FirstName, string LastName)
         {
-            this.firstname = FirstName;
-            this.lastname = LastName;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
         }
     }
 }

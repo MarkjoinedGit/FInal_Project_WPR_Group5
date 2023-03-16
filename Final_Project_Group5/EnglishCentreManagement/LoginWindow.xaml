@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:EnglishCentreManagement"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -42,16 +43,25 @@
                     <TextBox
                     VerticalAlignment="Center"
                     materialDesign:HintAssist.Hint="Username, email, phone number"
+                    Text="{Binding UserName}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </Grid>
                 <Grid Grid.Row="1">
                     <PasswordBox
-                    x:Name="Password"
+                    x:Name="txbPassword"
                     VerticalAlignment="Center"
                     materialDesign:HintAssist.Foreground="Green"
                     materialDesign:HintAssist.Hint="Floating Password"
                     materialDesign:TextFieldAssist.UnderlineBrush="Green"
-                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction 
+                                    Command="{Binding PasswordChangedCommand}"                     CommandParameter="{Binding ElementName=txbPassword}"
+                            />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
                 </Grid>
                 <Grid Grid.Row="2" Height="100">
                     <ListBox VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="rbgSelectRole" Style="{StaticResource MaterialDesignChoiceChipPrimaryListBox}" Width="300">

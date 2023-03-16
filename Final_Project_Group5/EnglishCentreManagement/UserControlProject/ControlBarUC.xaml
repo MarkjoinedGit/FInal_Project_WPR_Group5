@@ -9,7 +9,9 @@
              mc:Ignorable="d" 
              xmlns:uc="clr-namespace:EnglishCentreManagement.UserControlProject"         
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             DataContext="{StaticResource ControlBarVM}"
+             >
              <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding ElementName=ucControlBar}"/>
@@ -18,15 +20,19 @@
     <Grid>
         <materialDesign:ColorZone Padding="16" Mode="PrimaryLight">
             <DockPanel>
-                <materialDesign:PopupBox DockPanel.Dock="Right"     PlacementMode="BottomAndAlignRightEdges">
-                    <ListBox>
-                        <ListBoxItem Content="Hello World" />
-                        <ListBoxItem Content="Nice Popup" />
-                        <ListBoxItem Content="Goodbye" />
-                    </ListBox>
+                <materialDesign:PopupBox DockPanel.Dock="Right"     PlacementMode="BottomAndAlignRightEdges" >
+                    <materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon Kind="Account" DockPanel.Dock="Right" VerticalAlignment="Center" />
+                    </materialDesign:PopupBox.ToggleContent>
+                    <StackPanel Width="150">
+                        <Button Content="Account"></Button>
+                        <Button Content="Setting"></Button>
+                        <Button Content="Logout"></Button>
+                    </StackPanel>
                 </materialDesign:PopupBox>
+                
                 <StackPanel Orientation="Horizontal">
-                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                    <ToggleButton x:Name="tbtnMenu" Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
                     <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" Text="{Binding Tag, ElementName=ucControlBar}" />
                 </StackPanel>
             </DockPanel>

@@ -79,6 +79,8 @@
                     <Grid Grid.Column="1">
                         <Button
                         Content="Exit"
+                        Command="{Binding ExitCommand}"
+                        CommandParameter="{Binding ElementName=loginWindow}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                             Background="OrangeRed"

@@ -13,10 +13,12 @@ namespace EnglishCentreManagement.ViewModel
     {
         public bool IsLogin { get; set; }
         public ICommand LoginCommand { get; set; }
+        public ICommand ExitCommand { get; set; }
         public LoginViewModel() 
         {
             IsLogin = false;
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { onClickLogin(p); });
+            ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
         }   
 
         void onClickLogin(Window p)

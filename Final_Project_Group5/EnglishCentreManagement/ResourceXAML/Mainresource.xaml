@@ -3,5 +3,6 @@
                     xmlns:viewmodel="clr-namespace:EnglishCentreManagement.ViewModel">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:ControlBarViewModel x:Key="ControlBarVM"></viewmodel:ControlBarViewModel>
 
 </ResourceDictionary>

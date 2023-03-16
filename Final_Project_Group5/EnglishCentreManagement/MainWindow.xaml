@@ -37,11 +37,7 @@
             <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarUC>
         </Grid>
         <Grid Grid.Row="1">
-            <Button
-            Content="_LIGHT"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+            
         </Grid>
 
     </Grid>

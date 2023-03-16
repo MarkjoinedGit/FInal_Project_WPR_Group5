@@ -8,6 +8,6 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class ControlBarViewModel : BaseViewModel
     {
-
+        
     }
 }

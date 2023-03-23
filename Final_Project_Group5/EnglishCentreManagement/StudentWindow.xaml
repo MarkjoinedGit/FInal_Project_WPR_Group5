@@ -15,8 +15,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Name="studentWindow"
-        Title="Student" Height="450" Width="800"
-        >
+        Title="Student" Height="450" Width="800">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,8 +28,12 @@
                 <ColumnDefinition Width="579*"/>
                 <ColumnDefinition Width="218*"/>
             </Grid.ColumnDefinitions>
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=studentWindow}" Grid.ColumnSpan="2" ></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=studentWindow}" Grid.ColumnSpan="2" Loaded="ControlBarUC_Loaded" ></uc:ControlBarUC>
         </Grid>
-
+        <ContentControl
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10"
+                 />
     </Grid>
 </Window>

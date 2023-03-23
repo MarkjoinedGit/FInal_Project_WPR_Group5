@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace EnglishCentreManagement.ViewModel
 {
+    // BaseViewModel is similar to observableObject
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;

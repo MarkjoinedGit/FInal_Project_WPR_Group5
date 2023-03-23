@@ -22,6 +22,24 @@
     <Compile Update="UserControlProject\ControlBarUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlProject\ControlCancelCourse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlProject\ControlMyOption.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlProject\ControlRegisterForACourse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlProject\ControlMyTextBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlProject\ControlResultTesting.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlProject\ControlSchedule.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="LoginWindow.xaml">
@@ -43,6 +61,24 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\ControlCancelCourse.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\ControlMyOption.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\ControlRegisterForACourse.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\ControlMyTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\ControlResultTesting.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\ControlSchedule.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

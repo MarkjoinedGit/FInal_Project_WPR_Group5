@@ -51,7 +51,7 @@ CREATE TABLE NGQUANLY
 INSERT INTO HOCVIEN (TenHocVien, MaHocVien, NgaySinh, DiaChi, SoDienThoai, ChungMinhNhanDan) VALUES ('A','12B','24/3','HCM','027376482','1244243');
 INSERT INTO GIAOVIEN(TenGiaoVien, MaGiaoVien, NgaySinh, DiaChi, SoDienThoai, ChungMinhNhanDan) VALUES ('B','12T','11/04/2003','HCM','0123456789','04040007');
 INSERT INTO NGQUANLY(TenNguoiQuanLy, MaNguoiQuanLy, NgaySinh, DiaChi, SoDienThoai, ChungMinhNhanDan) VALUES ('C','12M','11/04/2003','BIENHOA','0455654789','07500203002794');
-INSERT INTO DANGNHAP(TenDangNhap, MatKhau, ChucVu, MaNguoiDangNhap) VALUES ('anhkhoa110403','motngaybuon','manager', '12M')
+INSERT INTO DANGNHAP(TenDangNhap, MatKhau, ChucVu, MaNguoiDangNhap) VALUES ('admin','admin','manager', '12M')
 DROP TABLE HOCVIEN;
 DROP TABLE GIAOVIEN;
 DROP TABLE LOPHOC;

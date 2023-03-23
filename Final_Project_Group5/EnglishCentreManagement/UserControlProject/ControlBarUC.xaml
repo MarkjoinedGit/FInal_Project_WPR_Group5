@@ -18,26 +18,89 @@
                 </i:EventTrigger>
              </i:Interaction.Triggers>
     <Grid>
-        <materialDesign:ColorZone Padding="16" Mode="PrimaryLight">
-            <DockPanel>
-                <materialDesign:PopupBox DockPanel.Dock="Right"     PlacementMode="BottomAndAlignRightEdges" >
-                    <materialDesign:PopupBox.ToggleContent>
-                        <materialDesign:PackIcon Kind="Account" DockPanel.Dock="Right" VerticalAlignment="Center" />
-                    </materialDesign:PopupBox.ToggleContent>
-                    <StackPanel Width="150">
-                        <Button Content="Account"></Button>
-                        <Button Content="Setting"></Button>
-                        <Button Content="Notifycation"></Button>
-                        <Separator></Separator>
-                        <Button Content="Logout"></Button>
+        <materialDesign:DrawerHost>
+            <materialDesign:DrawerHost.Style>
+                <Style     
+                    TargetType="materialDesign:DrawerHost"     
+                    BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
+                    <Style.Triggers>
+                        <DataTrigger         
+                            Binding="{Binding IsChecked, ElementName=BackgroundToggle}"         
+                            Value="True">
+                            <Setter           
+                                Property="OverlayBackground"            
+                                Value="{DynamicResource PrimaryHueMidBrush}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:DrawerHost.Style>
+            <materialDesign:ColorZone Padding="16" Mode="PrimaryLight">
+                <DockPanel>
+                    <materialDesign:PopupBox 
+                        DockPanel.Dock="Right"                        
+                        PlacementMode="BottomAndAlignRightEdges" >
+                        <materialDesign:PopupBox.ToggleContent>
+                            <materialDesign:PackIcon Kind="Account" DockPanel.Dock="Right" VerticalAlignment="Center" />
+                        </materialDesign:PopupBox.ToggleContent>
+                        <StackPanel Width="150">
+                            <Button Content="Account"></Button>
+                            <Button Content="Setting"></Button>
+                            <Button Content="Notifycation"></Button>
+                            <Separator></Separator>
+                            <Button Content="Logout"></Button>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton 
+                                x:Name="tbtnMenu" 
+                                Style="{StaticResource MaterialDesignHamburgerToggleButton}"
+                                Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Left}"/>
+                        <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" Text="{Binding Tag, ElementName=ucControlBar}" />
                     </StackPanel>
-                </materialDesign:PopupBox>
-                
-                <StackPanel Orientation="Horizontal">
-                    <ToggleButton x:Name="tbtnMenu" Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
-                    <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" Text="{Binding Tag, ElementName=ucControlBar}" />
+                </DockPanel>
+            </materialDesign:ColorZone>
+
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <StackPanel
+                    Margin="16">
+                    <Button 
+                        Content="Home"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button 
+                        Content="Watch the schedule"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button 
+                        Content="Take attendance"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button 
+                        Content="Create a test"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button 
+                        Content="Add students'point"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button 
+                        Content="Watch the test result"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button 
+                        Content="Watch the salary"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button 
+                        Content="User information"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        />
                 </StackPanel>
-            </DockPanel>
-        </materialDesign:ColorZone>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            
+        </materialDesign:DrawerHost>
     </Grid>
 </UserControl>

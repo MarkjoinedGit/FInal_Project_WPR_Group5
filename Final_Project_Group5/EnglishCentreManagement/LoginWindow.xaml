@@ -14,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"   
         DataContext="{StaticResource LoginVM}"
-        
+                WindowStartupLocation="CenterScreen"
         Title="Login" Height="500" Width="700"
         Name="loginWindow"
 

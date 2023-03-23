@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="EnglishCentreManagement.UserControlProject.ControlRegisterForACourseUC"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EnglishCentreManagement.UserControlProject"
+             xmlns:uc="clr-namespace:EnglishCentreManagement.UserControlProject"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d" 
+             d:DesignHeight="588" d:DesignWidth="998">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#ffd500" Padding="30">
+            <StackPanel VerticalAlignment="Center">
+                <DockPanel>
+                    <Border Height="140" Width="140" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10 20 0 0 ">
+                        <!--<Ellipse>
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/ResourceXAML/Image/graduating-student.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>-->
+                    </Border>
+                </DockPanel>
+                <TextBlock Text="Let's get you say up "
+                           TextAlignment="Center"
+                           FontWeight="SemiBold"
+                           FontSize="28"
+                           Foreground="#363636"
+                           />
+                <TextBlock TextWrapping="Wrap" 
+                           FontSize="16" 
+                           TextAlignment="Center" 
+                           Foreground="#363636"
+                           Margin="0 20 0 20"
+                           Text="it should only a couple of minutes to pair with you watch"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1" 
+                Padding="20"
+                Background="#ffffff"
+                MouseDown="Border_MouseDown">
+            <Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Full Name" Style="{StaticResource text}" Margin="0 20 0 10"/>
+                    <TextBlock Grid.Row="1" Text="Date Of Brirth" Style="{StaticResource text}" Margin="0 20 0 10"/>
+                    <TextBlock Grid.Row="2" Text="Age" Style="{StaticResource text}" Margin="0 20 0 10"/>
+                    <TextBlock Grid.Row="3" Text="Gender" Style="{StaticResource text}" Margin="0 20 0 10"/>
+                    <TextBlock Grid.Row="4" Text="Email" Style="{StaticResource text}" Margin="0 20 0 10"/>
+                    <TextBlock Grid.Row="5" Text="Phone Number" Style="{StaticResource text}" Margin="0 20 0 10"/>
+                    <TextBlock Grid.Row="6" Text="Current Level" Style="{StaticResource text}" Margin="0 20 0 10"/>
+                    <TextBlock Grid.Row="7" Text="Avaible Classroom" Style="{StaticResource text }" Margin="0 20 0 10"/>
+                    <uc:ControlMyTextBoxUC Grid.Column="1" Grid.Row="0" Hint="Nguyen Huu Cong"/>
+                    <uc:ControlMyTextBoxUC Grid.Column="1" Grid.Row="1" Hint="09/11/2003"/>
+                    <uc:ControlMyTextBoxUC Grid.Column="1" Grid.Row="2" Hint="20"/>
+                    <uc:ControlMyTextBoxUC Grid.Column="1" Grid.Row="4" Hint="congnguyenhuu2703@gmail.com"/>
+                    <uc:ControlMyTextBoxUC Grid.Column="1" Grid.Row="5" Hint="0908048178"/>
+                    <uc:ControlMyTextBoxUC Grid.Column="1" Grid.Row="6" Hint="6.0"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Margin="0 10">
+                        <uc:ControlMyOptionUC Icon="Male" Text="Male"/>
+                        <uc:ControlMyOptionUC Icon="Female" Text="Female"/>
+                    </StackPanel>
+                    <Grid Grid.Column="1" Grid.Row="7">
+                        <ComboBox Margin="5" Style="{StaticResource MaterialDesignComboBox}">
+                        </ComboBox>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="8" Margin="0 50 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button  Grid.Column="0" Content="Delete" Style="{StaticResource buttonMain}" HorizontalAlignment="Left" Width="150" />
+                        <Button  Grid.Column="1" Content="Save" Width="150"  Style="{StaticResource buttonMainGreen}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

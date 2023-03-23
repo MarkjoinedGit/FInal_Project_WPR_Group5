@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace EnglishCentreManagement.ViewModel
 {
-    public class TeacherViewModel
+    public class TeacherViewModel : BaseViewModel
     {
-        public TeacherViewModel() 
-        { 
-            TeacherWindow teacherWindow = new TeacherWindow();
-            teacherWindow.ShowDialog();
-        }
+       
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace EnglishCentreManagement.ViewModel
@@ -12,9 +7,10 @@ namespace EnglishCentreManagement.ViewModel
     {
         public bool isLoaded = false;
         public ICommand LoadedWindowCommand { get; set; }
-        public MainViewModel() 
+        public MainViewModel()
         {
-            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
                 isLoaded = true;
                 if (p == null)
                     return;
@@ -29,7 +25,7 @@ namespace EnglishCentreManagement.ViewModel
                     return;
                 if (loginVM.IsLogin)
                 {
-                    if(loginWindow.lbiStudent.IsSelected)
+                    if (loginWindow.lbiStudent.IsSelected)
                     {
                         StudentWindow q = new StudentWindow();
                         q.Show();

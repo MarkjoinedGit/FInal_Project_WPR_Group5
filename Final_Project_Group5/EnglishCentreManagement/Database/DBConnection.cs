@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows;
 
 namespace EnglishCentreManagement.Database
@@ -21,7 +17,7 @@ namespace EnglishCentreManagement.Database
         {
             get
             {
-                if(ins == null)
+                if (ins == null)
                     ins = new DBConnection();
                 return ins;
             }
@@ -30,7 +26,7 @@ namespace EnglishCentreManagement.Database
 
         private DBConnection()
         {
-             conn = new SqlConnection(Properties.Settings.Default.connStr);
+            conn = new SqlConnection(Properties.Settings.Default.connStr);
             //DBConnection.ins.conn
         }
 

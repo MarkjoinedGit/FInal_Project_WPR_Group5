@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Data.SqlClient;
 
 namespace EnglishCentreManagement.ViewModel
 {
@@ -37,15 +31,15 @@ namespace EnglishCentreManagement.ViewModel
         public ICommand LoginCommand { get; set; }
         public ICommand ExitCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
-        public LoginViewModel() 
+        public LoginViewModel()
         {
             IsLogin = false;
             Password = "";
             UserName = "";
-            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { onClickLogin(p); });
             ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
+            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { onClickLogin(p); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
-        }   
+        }
 
         void onClickLogin(Window p)
         {

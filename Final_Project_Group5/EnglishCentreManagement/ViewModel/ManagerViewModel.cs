@@ -12,16 +12,20 @@ namespace EnglishCentreManagement.ViewModel
         public ICommand ShowHomeView { get; }
         public ICommand ShowManageClassroomView { get; }
         public ICommand ShowUserInforView { get; }
+        public ICommand ShowAddStudentView { get; }
+        public ICommand ShowAddTeacherView { get; }
 
-        public ManagerViewModel()
+    public ManagerViewModel()
         {
            
             ShowHomeView = new RelayCommand<object>((p) => { return true; }, (p) => { ExecuteShowHomeViewCommand(); });
             ShowUserInforView = new RelayCommand<object>((p) => { return true; }, (p) => { ExecuteShowUserInforViewCommand(); });
             ShowManageClassroomView = new RelayCommand<object>((p) => { return true; }, (p) => { ExecuteShowManageClassroomViewCommand(); });
-            ExecuteShowHomeViewCommand();
-            
+            ShowAddStudentView = new RelayCommand<object>((p) => { return true; }, (p) => { ExecuteShowAddStudentViewCommand(); });
+            ShowAddTeacherView = new RelayCommand<object>((p) => { return true; }, (p) => { ExecuteShowAddTeacherViewCommand(); });
+
             //Default view
+            ExecuteShowHomeViewCommand();
         }
 
         private void ExecuteShowHomeViewCommand()
@@ -38,13 +42,26 @@ namespace EnglishCentreManagement.ViewModel
             Icon = PackIconKind.GoogleClassroom;
         }
 
+        private void ExecuteShowAddStudentViewCommand()
+        {
+            CurrentChildView = new AddStudentViewModel();
+            Caption = "Add student";
+            Icon = PackIconKind.AccountSchoolOutline;
+        }
+
+        private void ExecuteShowAddTeacherViewCommand()
+        {
+            CurrentChildView = new AddTeacherViewModel();
+            Caption = "Add teacher";
+            Icon = PackIconKind.HumanMaleBoard;
+        }
+
         private void ExecuteShowUserInforViewCommand()
         {
             CurrentChildView = new UserInforViewModel();
             Caption = "User information";
             Icon = PackIconKind.AccountBoxOutline;
         }
-
 
         public BaseViewModel CurrentChildView 
         {
@@ -65,6 +82,7 @@ namespace EnglishCentreManagement.ViewModel
                 OnPropertyChanged(nameof(Caption));
             }
         }
+
         public PackIconKind Icon 
         { 
             get => _icon;

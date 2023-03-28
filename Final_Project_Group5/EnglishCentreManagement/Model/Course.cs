@@ -1,45 +1,29 @@
 ﻿namespace EnglishCentreManagement.Model
 {
-    class Course
+    public class Course
     {
         private string idCourse;
-        private double lowestLevel;
-        private double highestLevel;
+        private string nameCourse;
+        private double inputLevel;
+        private double ouputLevel;
         private int numOfWeek;
         private double requestLevelOfTeacher;
-        public string IdCourse
-        {
-            get { return this.idCourse; }
-            set { this.idCourse = value; }
-        }
-        public double LowestLevel
-        {
-            get { return this.lowestLevel; }
-            set { this.lowestLevel = value; }
-        }
-        public double HighestLevel
-        {
-            get { return this.highestLevel; }
-            set { this.highestLevel = value; }
-        }
-        public double RequestLevelOfTeacher
-        {
-            get { return this.requestLevelOfTeacher; }
-            set { this.requestLevelOfTeacher = value; }
-        }
-        public int NumOfWeek
-        {
-            get { return this.numOfWeek; }
-            set { this.numOfWeek = value; }
-        }
-        ~Course() { }
-        public Course(string IdCourse, int NumOfWeek, double LowestLevel
-            , double HighestLevel, double RequestLevelOfTeacher)
+
+        public string IdCourse { get => idCourse; set => idCourse = value; }
+        public string NameCourse { get => nameCourse; set => nameCourse = value; }
+        public double InputLevel { get => inputLevel; set => inputLevel = value; }
+        public double OuputLevel { get => ouputLevel; set => ouputLevel = value; }
+        public int NumOfWeek { get => numOfWeek; set => numOfWeek = value; }
+        public double RequestLevelOfTeacher { get => requestLevelOfTeacher; set => requestLevelOfTeacher=value; }
+
+        public Course(string IdCourse, string NameCourse, int NumOfWeek, double InputLevel
+            , double OuputLevel, double RequestLevelOfTeacher)
         {
             this.IdCourse = IdCourse;
+            this.NameCourse = NameCourse;
             this.NumOfWeek = NumOfWeek;
-            this.LowestLevel = LowestLevel;
-            this.HighestLevel = HighestLevel;
+            this.InputLevel = InputLevel;
+            this.OuputLevel = OuputLevel;
             this.RequestLevelOfTeacher = RequestLevelOfTeacher;
         }
     }

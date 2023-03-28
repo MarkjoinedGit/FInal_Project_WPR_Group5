@@ -74,3 +74,7 @@ E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\ControlScheduleUC.baml
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\AddStudentUC.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\AddStudentUC.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\AddTeacherUC.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\AddTeacherUC.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\TagUC.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\TagUC.baml

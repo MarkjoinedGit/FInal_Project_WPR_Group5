@@ -34,7 +34,15 @@
         <DataTemplate DataType="{x:Type viewmodel:ManageClassroomViewModel}">
             <usercontrol:ManageClassroomUC/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type viewmodel:AddStudentViewModel}">
+            <usercontrol:AddStudentUC/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodel:AddTeacherViewModel}">
+            <usercontrol:AddTeacherUC/>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewmodel:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>
@@ -106,7 +114,9 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#f5bd13">
+                             Tag="#f5bd13"
+                             Command="{Binding ShowAddStudentView}"
+                             >
 
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="AccountSchoolOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -116,7 +126,8 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#FBA2D0">
+                             Tag="#FBA2D0"
+                             Command="{Binding ShowAddTeacherView}">
 
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="HumanMaleBoard" Style="{StaticResource menuButtonIcon}"/>

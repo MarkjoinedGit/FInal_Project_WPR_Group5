@@ -2,69 +2,40 @@
 
 namespace EnglishCentreManagement.Model
 {
-    class Classroom
+    public class Classroom
     {
-        private string idTeacher;
+        private Teacher classTeacher;
         private string idClassroom;
         private string roomNum;
         private int numStudent;
-        private string idCourse;
+        private Course classCourse;
         private DateTime startingDate;
         private DateTime endingDate;
-        private string meet;
-        public string IdTeacher
+        private string studyDate;
+        private Shift classShift;
+
+        public Teacher ClassTeacher { get => classTeacher; set => classTeacher=value; }
+        public string IDClassroom { get => idClassroom; set => idClassroom = value; }
+        public string RoomNum { get => roomNum; set => roomNum = value; }
+        public int NumStudent { get => numStudent; set => numStudent = value; }
+        public Course ClassCourse { get => classCourse; set => classCourse=value; }
+        public DateTime StartingDate { get => startingDate; set => startingDate = value; }
+        public DateTime EndingDate { get => endingDate; set => endingDate = value; }
+        public string StudyDate { get => studyDate; set => studyDate=value; }
+        public Shift ClassShift { get => classShift; set => classShift=value; }
+
+        public Classroom(Teacher ClassTeacher, string IDClassroom, string RoomNum, int NumStudent,
+        Course ClassCourse, DateTime StartingDate, DateTime EndingDate, string StudyDate, Shift ClassShift)
         {
-            get { return this.idTeacher; }
-            set { this.idTeacher = value; }
-        }
-        public string IdClassroom
-        {
-            get { return this.idClassroom; }
-            set { this.idClassroom = value; }
-        }
-        public int NumStudent
-        {
-            get { return this.numStudent; }
-            set { this.numStudent = value; }
-        }
-        public string RoomNum
-        {
-            get { return this.roomNum; }
-            set { this.roomNum = value; }
-        }
-        public string IdCourse
-        {
-            get { return this.idCourse; }
-            set { this.idCourse = value; }
-        }
-        public DateTime StartingDate
-        {
-            get { return this.startingDate; }
-            set { this.startingDate = value; }
-        }
-        public DateTime EndingDate
-        {
-            get { return this.endingDate; }
-            set { this.endingDate = value; }
-        }
-        public string Meet
-        {
-            get { return this.meet; }
-            set { this.meet = value; }
-        }
-        ~Classroom() { }
-        //... Properties using to show for Manager
-        public Classroom(string IdTeacher, string IdClassroom, string RoomNum, int NumStudent,
-        string IdCourse, DateTime StartingDate, DateTime EndingDate, string Meet)
-        {
-            this.IdTeacher = IdTeacher;
-            this.IdClassroom = IdClassroom;
-            this.IdCourse = IdCourse;
+            this.ClassTeacher = ClassTeacher;
+            this.IDClassroom = IDClassroom;
+            this.ClassCourse = ClassCourse;
             this.RoomNum = RoomNum;
             this.EndingDate = EndingDate;
-            this.Meet = Meet;
+            this.StudyDate = StudyDate;
             this.StartingDate = StartingDate;
             this.NumStudent = NumStudent;
+            this.ClassShift = ClassShift;
         }
     }
 }

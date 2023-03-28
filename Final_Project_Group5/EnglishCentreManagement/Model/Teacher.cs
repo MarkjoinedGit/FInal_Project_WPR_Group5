@@ -2,36 +2,32 @@
 
 namespace EnglishCentreManagement.Model
 {
-    class Teacher : Person
+    public class Teacher : Person
     {
         private long salary;
         private string bankAdd;
         private double level;
         public long Salary
         {
-            get { return this.salary; }
+            get => salary;
             set
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException($"{nameof(value)} must be greater than 0");
-                this.salary = value;
+                salary = value;
             }
         }
 
-        public string BankAdd
-        {
-            get { return this.bankAdd; }
-            set { this.bankAdd = value; }
-        }
+        public string BankAdd { get => bankAdd; set => bankAdd = value; }
 
         public double Level
         {
-            get { return this.Level; }
+            get => level;
             set
             {
                 if (value < 7.5)
                     throw new ArgumentOutOfRangeException($"{nameof(value)} must be greater than 7.5.");
-                this.Level = value;
+                level = value;
             }
         }
 

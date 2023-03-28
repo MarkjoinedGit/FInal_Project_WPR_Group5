@@ -4,56 +4,32 @@ namespace EnglishCentreManagement.Model
 {
     public class Person
     {
-        // Fields
-        protected Enterprise_Infor enter_Infor;
+        private Enterprise_Infor enter_Infor;
         // ... personal information
-        protected Name namePerson;
-        protected string phoneNum;
-        protected string gender;
-        protected string identityCard;
-        protected string permanentResidence;
-        protected string address;
-        protected DateTime dateBorn;
+        private Name namePerson;
+        private string phoneNum;
+        private string gender;
+        private string identityCard;
+        private string permanentResidence;
+        private string address;
+        private DateTime dateBorn;
+
+        public Enterprise_Infor Enter_Infor { get => enter_Infor; set => enter_Infor = value; }
+        public Name NamePerson { get => namePerson; set => namePerson = value; }
+        public string PhoneNum { get => phoneNum; set => phoneNum = value; }
+        public string Gender { get => gender; set => gender = value; }
+        public string IdentityCard { get => identityCard; set => identityCard = value; }
+        public string PermanentResidence { get => permanentResidence; set => permanentResidence = value; }
+        public string Address { get => address; set => address = value; }
+        public DateTime DateBorn { get => dateBorn; set => dateBorn=value; }
+
         // Properties
-        public Enterprise_Infor Enterprise_infor
-        {
-            get { return this.enter_Infor; }
-            set { this.enter_Infor = value; }
-        }
-        public Name NamePerson
-        {
-            get { return this.namePerson; }
-            set { this.namePerson = value; }
-        }
-        public string PhoneNum
-        {
-            get { return this.phoneNum; }
-            set { this.phoneNum = value; }
-        }
-        public string Gender
-        {
-            get { return this.gender; }
-            set { this.gender = value; }
-        }
-        public string IdentityCard
-        {
-            get { return this.identityCard; }
-            set { this.identityCard = value; }
-        }
-        public string Address
-        {
-            get { return this.address; }
-            set { this.address = value; }
-        }
-        public DateTime DateBorn
-        {
-            get { return this.dateBorn; }
-            set { this.dateBorn = value; }
-        }
+
+
         public Person(Enterprise_Infor Enter_Infor, Name NamePerson, string PhoneNum, string Gender,
             string IdentityCard, string Address, DateTime DateBorn)
         {
-            this.Enterprise_infor = Enter_Infor;
+            this.Enter_Infor = Enter_Infor;
             this.NamePerson = NamePerson;
             this.PhoneNum = PhoneNum;
             this.Gender = Gender;

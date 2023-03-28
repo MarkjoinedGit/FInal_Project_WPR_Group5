@@ -8,35 +8,13 @@
         private string email;
         private string userName;
         private string password;
-        // Properties 
-        public string ID
-        {
-            get { return this.id; }
-            set { this.id = value; }
-        }
-        public string Title
-        {
-            get { return this.title; }
-            set { this.title = value; }
-        }
-        public string Email
-        {
-            get { return this.email; }
-            set { this.email = value; }
-        }
-        public string UserName
-        {
-            get { return this.userName; }
-            set { this.userName = value; }
-        }
-        public string Password
-        {
-            get { return this.password; }
-            set { this.password = value; }
-        }
-        // Finalizers
-        ~Enterprise_Infor() { }
-        //Methods
+
+        public string ID { get => id; set => id = value; }
+        public string Title { get => title; set => title = value; }
+        public string Email { get => email; set => email = value; }
+        public string UserName { get => userName; set => userName = value; }
+        public string Password { get => password; set => password=value; }
+
         public Enterprise_Infor(string ID, string Title, string Email, string UserName, string Password)
         {
             this.ID = ID;

@@ -128,9 +128,12 @@
             </materialDesign:Card>
 
             <!--List classroom-->
-            <materialDesign:Card Grid.Column="1" Margin="10">
-                
-            </materialDesign:Card>
+            <ListView Grid.Column="1" Background="White" Margin="10">
+                <ListViewItem>
+                    <uc:TagUC></uc:TagUC>
+                </ListViewItem>
+            </ListView>
+         
         </Grid>
         
         <!--Button fields-->
@@ -140,21 +143,21 @@
                         Margin="80 0 80 0">
                 <Button Width="150"
                         Margin="0 0 92 0"
-                        Content="ADD CLASSROOM"
+                        Content="ADD"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                         ToolTip="Resource name: MaterialDesignRaisedLightButton" />
 
                 <Button Width="150" 
                           Margin="92 0 92 0"
-                        Content="DELETE CLASSROOM"
+                        Content="DELETE"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                         ToolTip="Resource name: MaterialDesignRaisedLightButton" />
 
                 <Button Width="150" 
                         Margin="92 0 0 0"
-                        Content="EDIT CLASSROOM"
+                        Content="EDIT"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                         ToolTip="Resource name: MaterialDesignRaisedLightButton" />

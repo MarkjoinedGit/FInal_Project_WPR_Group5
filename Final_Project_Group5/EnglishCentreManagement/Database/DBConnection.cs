@@ -7,39 +7,15 @@ namespace EnglishCentreManagement.Database
 {
     public class DBConnection
     {
-        public static SqlConnection conn
-        {
-            get; set;
-        }
-
-        private static DBConnection ins;
-        public static DBConnection Ins
-        {
-            get
-            {
-                if (ins == null)
-                    ins = new DBConnection();
-                return ins;
-            }
-            set { ins = value; }
-        }
-
-        private DBConnection()
-        {
-            conn = new SqlConnection(Properties.Settings.Default.connStr);
-            //DBConnection.ins.conn
-        }
-
-        public static DataTable getData(string sqlStr)
+        public static DataTable getData(SqlConnection conn, string sqlStr)
         {
             try
             {
                 conn.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(sqlStr, conn);
-                DataTable dtSinhVien = new DataTable();
-                adapter.Fill(dtSinhVien);
-
-                return dtSinhVien;
+                DataTable dttable = new DataTable();
+                adapter.Fill(dttable);
+                return dttable;
             }
 
             catch (Exception ex)
@@ -56,13 +32,13 @@ namespace EnglishCentreManagement.Database
 #pragma warning restore CS8603 // Possible null reference return.
         }
 
-        public static void ThucThi(string sqlStr)
+        public static void ThucThi(SqlConnection conn, string sqlStr)
         {
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                if (cmd.ExecuteNonQuery()>0)
+                if (cmd.ExecuteNonQuery() > 0)
                 {
                     MessageBox.Show("Thuc thi thanh cong");
 

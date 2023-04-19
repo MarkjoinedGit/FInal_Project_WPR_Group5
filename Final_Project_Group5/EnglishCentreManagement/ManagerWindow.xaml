@@ -9,10 +9,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:usercontrol="clr-namespace:EnglishCentreManagement.UserControlProject"
         xmlns:viewmodel="clr-namespace:EnglishCentreManagement.ViewModel"
-
-
-
-    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
@@ -23,8 +20,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
-        AllowsTransparency="True"
-        DataContext="{StaticResource ManagerVM}">
+        AllowsTransparency="True">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
@@ -88,7 +84,6 @@
                                FontWeight="Medium"
                                VerticalAlignment="Center"
                                Margin="10 0 0 0"/>
-
                 </StackPanel>
 
                 <RadioButton Style="{StaticResource menuButton}"
@@ -104,7 +99,7 @@
               
                 <RadioButton Style="{StaticResource menuButton}"
                              Tag="#37ef57"
-                              Command="{Binding ShowManageClassroomView}">
+                             Command="{Binding ShowManageClassroomView}">
 
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="GoogleClassroom" Style="{StaticResource menuButtonIcon}"/>
@@ -171,7 +166,7 @@
 
             <!--Main section-->
             <Grid Grid.Column="1">
-                
+
                 <Grid.RowDefinitions>
                     <!--Control Bar-->
                     <RowDefinition Height="25"/>
@@ -180,7 +175,7 @@
                     <!--Content section / childview-->
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <!--Control bar-->
                 <StackPanel x:Name="pnlControlBar"
                             Grid.Row="0"
@@ -211,14 +206,14 @@
                         <materialDesign:PackIcon Kind="BellOutline" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
                 </StackPanel>
-                
+
                 <!--Header / Caption-->
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!--Caption-->
                     <StackPanel Grid.Column="0"
                                 Orientation="Horizontal"
@@ -277,24 +272,20 @@
                     </StackPanel>
 
                 </Grid>
-                
+
                 <!--Content Section / Child views-->
                 <Border CornerRadius="10" 
                         Grid.Row="2" 
                         Margin="20">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="WhiteSmoke" Offset="0"></GradientStop>
+                            <GradientStop Color="Transparent" Offset="0"></GradientStop>
                         </LinearGradientBrush>
                     </Border.Background>
 
-                    <ContentControl Content="{Binding CurrentChildView}">
-
-                    </ContentControl>
+                    <ContentControl Content="{Binding CurrentChildView}"/>
                 </Border>
-
             </Grid>
-            
         </Grid>
     </Border>
 </Window>

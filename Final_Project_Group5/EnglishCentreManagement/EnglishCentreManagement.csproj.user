@@ -25,6 +25,9 @@
     <Compile Update="UserControlProject\AddTeacherUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlProject\BindablePasswordUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlProject\CalculateSalary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,10 +52,13 @@
     <Compile Update="UserControlProject\ControlScheduleUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlProject\CreateNewClass.xaml.cs">
+    <Compile Update="UserControlProject\DataGridUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlProject\HomeUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlProject\InforTagUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlProject\ManageClassroomUC.xaml.cs">
@@ -81,6 +87,9 @@
     <Page Update="ResourceXAML\ButtonStyleResource.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceXAML\ConverterResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -97,6 +106,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\AddTeacherUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\BindablePasswordUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\CalculateSalary.xaml">
@@ -123,10 +135,13 @@
     <Page Update="UserControlProject\ControlScheduleUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlProject\CreateNewClass.xaml">
+    <Page Update="UserControlProject\DataGridUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\HomeUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\InforTagUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\ManageClassroomUC.xaml">

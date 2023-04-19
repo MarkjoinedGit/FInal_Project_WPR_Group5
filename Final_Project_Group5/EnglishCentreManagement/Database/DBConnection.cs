@@ -32,21 +32,45 @@ namespace EnglishCentreManagement.Database
 #pragma warning restore CS8603 // Possible null reference return.
         }
 
-        public static void ThucThi(SqlConnection conn, string sqlStr)
+        public static void Execute(SqlConnection conn, string sqlStr)
         {
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                if (cmd.ExecuteNonQuery() > 0)
+                if (cmd.ExecuteNonQuery() <= 0)
                 {
-                    MessageBox.Show("Thuc thi thanh cong");
-
+                    MessageBox.Show("Execute successfully");
                 }
             }
             catch (Exception ex)
             {
 
+                MessageBox.Show("Execute failed: " + ex);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public static bool CheckValid(SqlConnection conn, string sqlStr)
+        {
+            bool valid;
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                if (cmd.ExecuteScalar() == null)
+                    valid = false;
+                else
+                    valid = true;
+                return valid;
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Thuc thi that bai" + ex);
             }
 
@@ -54,6 +78,9 @@ namespace EnglishCentreManagement.Database
             {
                 conn.Close();
             }
+
+            return false;
+            
         }
     }
 }

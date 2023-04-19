@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using EnglishCentreManagement.ViewModel;
+using System.Windows;
 
 namespace EnglishCentreManagement
 {
@@ -10,6 +11,7 @@ namespace EnglishCentreManagement
         public ManagerWindow()
         {
             InitializeComponent();
+            DataContext = new ManagerViewModel();
         }
     }
 }

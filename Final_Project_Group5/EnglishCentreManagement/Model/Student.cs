@@ -4,21 +4,18 @@ namespace EnglishCentreManagement.Model
 {
     public class Student : Person
     {
-        private string status;
-        private string classID;
-        private string rankLevel;
+        private double rankLevel;
 
-        public string Status { get => status; set => status = value; }
-        public string ClassID { get => classID; set => classID = value; }
-        public string RankLevel { get => rankLevel; set => rankLevel=value; }
+        public double RankLevel { get => rankLevel; set => rankLevel=value; }
 
-        public Student(Enterprise_Infor Enter_Infor, Name NamePerson, string PhoneNum, string Gender,
-            string IdentityCard, string Address, DateTime DateBorn, string Status, string RankLevel, string ClassID) : base(Enter_Infor, NamePerson, PhoneNum, Gender,
-            IdentityCard, Address, DateBorn)
+        public Student(Enterprise_Infor Enter_Infor, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel) : base(Enter_Infor, NamePerson, DateBorn, Gender, Address, PhoneNum, IdentityCard, BankNumber)
         {
-            this.Status = Status;
             this.RankLevel = RankLevel;
-            this.ClassID = ClassID;
+        }
+
+        public Student(string Enter_Infor_ID, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel) : base(Enter_Infor_ID, NamePerson, DateBorn, Gender, Address, PhoneNum, IdentityCard, BankNumber)
+        {
+            this.RankLevel = RankLevel;
         }
     }
 }

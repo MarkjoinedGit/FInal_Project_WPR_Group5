@@ -1,6 +1,6 @@
 ﻿namespace EnglishCentreManagement.Model
 {
-    public class Course
+    public class Course     
     {
         private string idCourse;
         private string nameCourse;
@@ -25,6 +25,10 @@
             this.InputLevel = InputLevel;
             this.OuputLevel = OuputLevel;
             this.RequestLevelOfTeacher = RequestLevelOfTeacher;
+        }
+
+        public Course()
+        {
         }
     }
 }

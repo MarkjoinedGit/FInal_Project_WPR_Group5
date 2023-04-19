@@ -23,5 +23,9 @@
             this.UserName = UserName;
             this.Password = Password;
         }
+
+        public Enterprise_Infor()
+        {
+        }
     }
 }

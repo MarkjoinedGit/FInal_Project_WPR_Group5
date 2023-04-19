@@ -15,6 +15,7 @@ namespace EnglishCentreManagement.ViewModel
             _canExecute = canExecute;
             _execute = execute;
         }
+        public RelayCommand(Action<T> execute) : this(null, execute) { }
 
         public bool CanExecute(object parameter)
         {

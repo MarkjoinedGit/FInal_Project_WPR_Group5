@@ -52,10 +52,8 @@ E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\HomeUC.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\HomeUC.baml
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\ResourceXAML\ButtonStyleResource.baml
-E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\CreateNewClass.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\ManageClassroomUC.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\ManageClassroomUC.baml
-E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\CreateNewClass.baml
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\ResourceXAML\StudentStyleResource.baml
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\CalculateSalary.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\ControlCancelCourseUC.g.cs
@@ -78,3 +76,10 @@ E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\AddTeacherUC.baml
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\TagUC.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\TagUC.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\DataGridUC.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\DataGridUC.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\ResourceXAML\ConverterResource.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\BindablePasswordUC.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\BindablePasswordUC.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\InforTagUC.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\InforTagUC.baml

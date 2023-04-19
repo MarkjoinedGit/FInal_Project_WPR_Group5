@@ -7,6 +7,7 @@ namespace EnglishCentreManagement.ViewModel
     {
         public ICommand UserInforCommand { get; set; }
         public ICommand CloseWindow { get; set; }
+
         public ControlBarViewModel()
         {
             UserInforCommand = new RelayCommand<object>((p) => { return true; }, (p) => { UserInformationWindow q = new UserInformationWindow(); q.ShowDialog(); });

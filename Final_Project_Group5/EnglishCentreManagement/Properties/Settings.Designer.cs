@@ -25,8 +25,8 @@ namespace EnglishCentreManagement.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=MNEnglishcentre;Integrated Sec" +
-            "urity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-AT4EIPLT;Initial Catalog=QLTrungTamTiengAnh;Integrated Securit" +
+            "y=True")]
         public string connStr {
             get {
                 return ((string)(this["connStr"]));

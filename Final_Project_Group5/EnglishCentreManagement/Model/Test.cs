@@ -15,7 +15,6 @@ namespace EnglishCentreManagement.Model
         public string IDTeacher { get => idTeacher; set => idTeacher = value; }
         public Dictionary<string, double> Point { get => point; set => point=value; }
 
-        ~Test() { }
         public Test(string IDTest, DateTime TimeTesting, string IDTeacher, Dictionary<string, double> Point)
         {
             this.IDTest = IDTest;

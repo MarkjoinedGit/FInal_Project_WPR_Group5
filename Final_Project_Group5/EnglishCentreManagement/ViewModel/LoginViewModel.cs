@@ -1,4 +1,9 @@
-﻿using System.Windows;
+﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Interfaces;
+using System;
+using System.Security.Principal;
+using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -6,48 +11,87 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
-        public bool IsLogin { get; set; }
         private string _username;
-        public string UserName
-        {
+        private string _password;
+        private string _errorMessage;
+        private string _role;
+        private bool _isViewVisible = true;
+        private IEnterprise_infoDAO enterprise_InfoDAO;
+
+        public ICommand LoginCommand { get; }
+        public ICommand ExitCommand { get; }
+        public ICommand ShowPasswordCommand { get; }
+        public ICommand RememberPasswordCommand { get; }
+
+        public string Username 
+        { 
             get => _username;
             set
             {
                 _username = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Username));
             }
         }
-
-        private string _password;
-        public string Password
-        {
+        public string Password 
+        { 
             get => _password;
             set
             {
                 _password = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Password));
             }
         }
-        public ICommand LoginCommand { get; set; }
-        public ICommand ExitCommand { get; set; }
-        public ICommand PasswordChangedCommand { get; set; }
-        public LoginViewModel()
-        {
-            IsLogin = false;
-            Password = "";
-            UserName = "";
-            ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
-            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { onClickLogin(p); });
-            PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
+        public string ErrorMessage 
+        { 
+            get => _errorMessage;
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
+            }
+        }
+        public bool IsViewVisible
+        { 
+            get => _isViewVisible;
+            set
+            {
+                _isViewVisible = value;
+                OnPropertyChanged(nameof(IsViewVisible));
+            }
         }
 
-        void onClickLogin(Window p)
-        {
-            if (p==null)
-                return;
+        public string Role { get => _role; set => _role=value; }
 
-            IsLogin = true;
-            p.Close();
+        //Constructors
+        public LoginViewModel()
+        {
+            enterprise_InfoDAO = new Enterprise_infoDAO();
+            LoginCommand = new RelayCommand<object>(CanExecuteLoginCommand, ExecuteLoginCommand);
+        }
+
+        private void ExecuteLoginCommand(object p)
+        {
+            var isValidUser = enterprise_InfoDAO.AuthenticateEnterpriseInfor(Username, Password);
+            if(isValidUser) 
+            {
+                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
+                IsViewVisible = false;
+            }
+
+            else
+            {
+                ErrorMessage = "* Username or Password is not correct";
+            }
+        }
+
+        private bool CanExecuteLoginCommand(object p)
+        {
+            bool validData;
+            if(string.IsNullOrWhiteSpace(Username) || Password == null)
+                validData = false;
+            else
+                validData = true;
+            return validData;
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Windows;
 
 namespace EnglishCentreManagement.Model
 {
     public class Teacher : Person
     {
         private long salary;
-        private string bankAdd;
-        private double level;
+        private double rankLevel;
         public long Salary
         {
             get => salary;
@@ -18,25 +18,22 @@ namespace EnglishCentreManagement.Model
             }
         }
 
-        public string BankAdd { get => bankAdd; set => bankAdd = value; }
-
-        public double Level
+        public double RankLevel
         {
-            get => level;
-            set
-            {
-                if (value < 7.5)
-                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be greater than 7.5.");
-                level = value;
-            }
+            get => rankLevel;
+            set => rankLevel = value;
         }
 
-        public Teacher(Enterprise_Infor Enterprise_Infor, Name NamePerson, string PhoneNum, string Gender, string IdentityCard, string Address, DateTime DateBorn, double Level, long Salary, string Bank)
-            : base(Enterprise_Infor, NamePerson, PhoneNum, Gender, IdentityCard, Address, DateBorn)
+        public Teacher(Enterprise_Infor Enter_Infor, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
+            : base(Enter_Infor, NamePerson, DateBorn, Gender, Address, PhoneNum, IdentityCard, BankNumber)
         {
-            this.Salary = Salary;
-            this.BankAdd = Bank;
-            this.Level = Level;
+            this.RankLevel = RankLevel;
+        }
+
+        public Teacher(string Enter_Infor_ID, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
+           : base(Enter_Infor_ID, NamePerson, DateBorn, Gender, Address, PhoneNum, IdentityCard, BankNumber)
+        {
+            this.RankLevel = RankLevel;
         }
 
     }

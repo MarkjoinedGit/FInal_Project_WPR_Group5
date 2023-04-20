@@ -78,7 +78,7 @@ namespace EnglishCentreManagement.ViewModel
         private void ExecuteShowRegisterClassView(object obj)
         {
 
-            CurrentChildView = new RegisterViewModel(CurrentStudent);
+            CurrentChildView = new RegisterViewModel(CurrentUser.Instance.CurrentStudent);
             Caption = "Register class";
             Icon = PackIconKind.ClipboardEditOutline;
         }

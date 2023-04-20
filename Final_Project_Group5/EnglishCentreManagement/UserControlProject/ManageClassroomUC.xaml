@@ -471,10 +471,10 @@
 
         <Border CornerRadius="10" Background="Aquamarine" Grid.Column="1" BorderBrush="#c34934"         
                 BorderThickness="5" Margin="5 0 0 0 ">
-            <StackPanel Orientation="Vertical">
-                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#4569eb" 
+            <!--<StackPanel Orientation="Vertical">
+                --><!--<Border CornerRadius="5" BorderThickness="2" BorderBrush="#4569eb" 
                         VerticalAlignment="Top" Height="35">
-                    <StackPanel Orientation="Horizontal">
+                    --><!--<StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Search" Width="20" Height="20"
                                                  Margin="5 1 5 1" VerticalAlignment="Bottom"/>
                         <TextBlock Text="Search: " Style="{StaticResource text}"
@@ -485,8 +485,8 @@
                                   materialDesign:HintAssist.Hint="Searching classroom"
                                   ItemsSource="{Binding List}" 
                                   Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
-                    </StackPanel>
-                </Border>
+                    </StackPanel>--><!--
+                </Border>-->
 
                 <ListView ItemsSource="{Binding ListClassrooms}"
                           SelectedItem="{Binding CurrentClassroom,Mode=TwoWay}">
@@ -498,12 +498,15 @@
                                            NumStudent="20"
                                            RoomNum="{Binding RoomNum, Mode=OneWay}"
                                            StartEnd="null"
-                                           Meet="{Binding StudyDate, Mode=OneWay}"/>
+                                           Meet="{Binding StudyDate, Mode=OneWay}"
+                                           Width="550"
+                                           SubWidth="490"
+                                           Margin="5"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
 
-            </StackPanel>
+            <!--</StackPanel>-->
         </Border>
     </Grid>
 </UserControl>

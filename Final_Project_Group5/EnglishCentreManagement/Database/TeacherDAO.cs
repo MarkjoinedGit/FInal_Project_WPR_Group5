@@ -1,4 +1,5 @@
-﻿using EnglishCentreManagement.Model;
+﻿using EnglishCentreManagement.Interfaces;
+using EnglishCentreManagement.Model;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,9 +7,10 @@ using System.Windows;
 
 namespace EnglishCentreManagement.Database
 {
-    public class TeacherDAO
+    public class TeacherDAO : ITeacherDao
     {
-        static SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+        SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+        IEnterprise_infoDAO enterprise_InfoDAO = new Enterprise_infoDAO();
 
         public void Add(Teacher Tea)
         {
@@ -28,31 +30,60 @@ namespace EnglishCentreManagement.Database
             DBConnection.Execute(conn, strSQL);
         }
 
-        public static Teacher? findTeacherByID(string id)
+        //public Teacher? findTeacherByID(string id)
+        //{
+        //    string strSQL = string.Format("SELECT * FROM GIAOVIEN WHERE MaGiaoVien = '{0}'", id);
+        //    try
+        //    {
+        //        DataTable dtTeacher = DBConnection.getData(conn, strSQL);
+        //        if (dtTeacher.Rows.Count > 0)
+        //        {
+        //            DataRow teacherRow = dtTeacher.Rows[0];
+        //            Teacher teacher = new Teacher(
+        //               teacherRow["MaGiaoVien"].ToString(),
+        //               teacherRow["TenGiaoVien"].ToString(),
+        //               Convert.ToDateTime(teacherRow["NgaySinh"]),
+        //               teacherRow["GioiTinh"].ToString(),
+        //               teacherRow["DiaChi"].ToString(),
+        //               teacherRow["SoDienThoai"].ToString(),
+        //               teacherRow["ChungMinhNhanDan"].ToString(),
+        //               teacherRow["SoTaiKhoan"].ToString(),
+        //               Convert.ToDouble(teacherRow["RankLevel"]));
+        //            return teacher;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Cannot find the information of the teacher or " + ex.Message);
+        //    }
+
+        //    return null;
+
+        //}
+
+        public Teacher? getByID(string id)
         {
-            string strSQL = string.Format("SELECT * FROM GIAOVIEN WHERE MaGiaoVien = '{0}'", id);
+            string sqlStr = string.Format("SELECT* FROM GIAOVIEN WHERE MaGiaoVien = '{0}'", id);
             try
             {
-                DataTable dtTeacher = DBConnection.getData(conn, strSQL);
-                if (dtTeacher.Rows.Count > 0)
+                DataTable dtUser = DBConnection.getData(conn, sqlStr);
+                return new Teacher
                 {
-                    DataRow teacherRow = dtTeacher.Rows[0];
-                    Teacher teacher = new Teacher(
-                       teacherRow["MaGiaoVien"].ToString(),
-                       teacherRow["TenGiaoVien"].ToString(),
-                       Convert.ToDateTime(teacherRow["NgaySinh"]),
-                       teacherRow["GioiTinh"].ToString(),
-                       teacherRow["DiaChi"].ToString(),
-                       teacherRow["SoDienThoai"].ToString(),
-                       teacherRow["ChungMinhNhanDan"].ToString(),
-                       teacherRow["SoTaiKhoan"].ToString(),
-                       Convert.ToDouble(teacherRow["RankLevel"]));
-                    return teacher;
-                }
+                    Enter_Infor = enterprise_InfoDAO.getById(dtUser.Rows[0]["MaGiaoVien"].ToString()),
+                    NamePerson = dtUser.Rows[0]["TenGiaoVien"].ToString(),
+                    DateBorn = new DateOnly(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
+                    Gender = dtUser.Rows[0]["GioiTinh"].ToString(),
+                    Address = dtUser.Rows[0]["DiaChi"].ToString(),
+                    PhoneNum = dtUser.Rows[0]["SoDienThoai"].ToString(),
+                    IdentityCard = dtUser.Rows[0]["ChungMinhNhanDan"].ToString(),
+                    BankNumber = dtUser.Rows[0]["SoTaiKhoan"].ToString(),
+                    RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
+                };
             }
-            catch (Exception ex)
+
+            catch
             {
-                MessageBox.Show("Cannot find the information of the teacher or " + ex.Message);
+                MessageBox.Show("Null data");
             }
 
             return null;

@@ -27,6 +27,7 @@ namespace EnglishCentreManagement.UserControlProject
         public static readonly DependencyProperty RoomNumProperty = DependencyProperty.Register("RoomNum", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
         public static readonly DependencyProperty StartEndProperty = DependencyProperty.Register("StartEnd", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
         public static readonly DependencyProperty MeetProperty = DependencyProperty.Register("Meet", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
+        public static readonly DependencyProperty SubWidthProperty = DependencyProperty.Register("SubWidth", typeof(int), typeof(InforTagUC), new PropertyMetadata(0));
 
         public string IdClassroom
         {
@@ -64,6 +65,12 @@ namespace EnglishCentreManagement.UserControlProject
         {
             get { return (string)GetValue(MeetProperty); }
             set { SetValue(MeetProperty, value); }
+        }
+
+        public int SubWidth
+        {
+            get { return (int)GetValue(SubWidthProperty); }
+            set { SetValue(SubWidthProperty, value); }
         }
 
         public InforTagUC()

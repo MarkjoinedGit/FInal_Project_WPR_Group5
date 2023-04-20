@@ -15,7 +15,7 @@ namespace EnglishCentreManagement
             {
                 if (loginWindow.IsVisible == false && loginWindow.IsLoaded)
                 {
-                    var managerWindow = new ManagerWindow();
+                    var managerWindow = new StudentWindow();
                     managerWindow.Show();
                     loginWindow.Close();
                 }

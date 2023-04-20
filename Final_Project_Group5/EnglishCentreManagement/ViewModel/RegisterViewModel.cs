@@ -1,4 +1,5 @@
 ﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace EnglishCentreManagement.ViewModel
         public ClassRoomDao classroomDao = new ClassRoomDao();
         private Student _currentStudent;
         private Classroom _currentClassroom;
+        private IRegisterDao registerDao = new RegisterDao();
 
         public ICommand RegisterClassroom { get; set; }
 
@@ -34,13 +36,16 @@ namespace EnglishCentreManagement.ViewModel
 
         private void ExecuteRegisterClassroom(object obj)
         {
-            throw new NotImplementedException();
+            registerDao.Add(CurrentStudent, CurrentClassroom);
         }
 
         private bool CanExecuteRegisterClassroom(object obj)
         {
-            if(_currentStudent.RankLevel < _currentClassroom.ClassCourse.InputLevel || _currentClassroom == null)
+            if(_currentClassroom == null) 
                 return false;
+            else if (_currentStudent.RankLevel < _currentClassroom.ClassCourse.InputLevel)
+                return false;
+           
             return true;
         }
     }

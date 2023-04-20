@@ -14,6 +14,7 @@ namespace EnglishCentreManagement.Database
     public class ClassRoomDao : IClassRoomDao
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+        ITeacherDao teacherDao = new TeacherDAO();
 
         public void Add(Classroom cls)
         {
@@ -53,7 +54,7 @@ namespace EnglishCentreManagement.Database
             {
                 Classroom classroom = new Classroom
                 {
-                    ClassTeacher = TeacherDAO.findTeacherByID(dr["MaGiaoVien"].ToString()),
+                    ClassTeacher = teacherDao.getByID(dr["MaGiaoVien"].ToString()),
                     IDClassroom = dr["MaLop"].ToString(),
                     RoomNum = dr["SoPhong"].ToString(),
                     MaxNumStudent = Convert.ToInt32(dr["SoHocSinh"]),

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EnglishCentreManagement.Model;
+using EnglishCentreManagement.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,19 +25,20 @@ namespace EnglishCentreManagement.UserControlProject
         public ControlRegisterForACourseUC()
         {
             InitializeComponent();
+            DataContext = new RegisterViewModel(CurrentUser.Instance.CurrentStudent);
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton==MouseButton.Left)
-            {
-                this.DragEnter();
-            }
-        }
+        //private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (e.ChangedButton==MouseButton.Left)
+        //    {
+        //        this.DragEnter();
+        //    }
+        //}
 
-        private void DragEnter()
-        {
-            throw new NotImplementedException();
-        }
+        //private void DragEnter()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

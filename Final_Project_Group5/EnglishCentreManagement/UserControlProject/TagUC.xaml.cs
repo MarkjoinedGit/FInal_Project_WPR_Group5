@@ -20,8 +20,7 @@ namespace EnglishCentreManagement.UserControlProject
     /// </summary>
     public partial class TagUC : UserControl
     {
-        public static readonly DependencyProperty TextProperty =
-     DependencyProperty.Register("Text", typeof(string), typeof(TagUC), new PropertyMetadata(string.Empty));
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(TagUC), new PropertyMetadata(string.Empty));
 
         public string Text
         {

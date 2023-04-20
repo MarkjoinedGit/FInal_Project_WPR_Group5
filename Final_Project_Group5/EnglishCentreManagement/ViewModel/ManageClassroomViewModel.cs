@@ -1,4 +1,5 @@
 ﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace EnglishCentreManagement.ViewModel
         public ObservableCollection<Classroom> ListClassrooms { get; set; }
         public ObservableCollection<string> ListShift { get; set; }
         public ObservableCollection<string> ListStudyDate { get; set; }
-        private ClassRoomDao classRoomDao = new ClassRoomDao();
+        private IClassRoomDao classRoomDao = new ClassRoomDao();
         private Classroom _currentClassroom = new Classroom();
         private string _idTeacher;
         private string _idCourse;
@@ -50,7 +51,8 @@ namespace EnglishCentreManagement.ViewModel
             set
             {
                 _idTeacher = value;
-                CurrentClassroom.ClassTeacher = TeacherDAO.findTeacherByID(IdTeacher);
+                ITeacherDao teacherDao = new TeacherDAO();
+                CurrentClassroom.ClassTeacher = teacherDao.getByID(IdTeacher);
                 OnPropertyChanged(nameof(IdTeacher));
             }
         }

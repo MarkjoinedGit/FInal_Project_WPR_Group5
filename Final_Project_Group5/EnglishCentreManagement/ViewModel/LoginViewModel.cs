@@ -1,5 +1,6 @@
 ﻿using EnglishCentreManagement.Database;
 using EnglishCentreManagement.Interfaces;
+using EnglishCentreManagement.Model;
 using System;
 using System.Security.Principal;
 using System.Threading;
@@ -17,6 +18,9 @@ namespace EnglishCentreManagement.ViewModel
         private string _role;
         private bool _isViewVisible = true;
         private IEnterprise_infoDAO enterprise_InfoDAO;
+        private IStudentDao studentDao = new StudentDAO();
+        private ITeacherDao teacherDao = new TeacherDAO();
+        private IManagerDao managerDao = new ManagerDAO();
 
         public ICommand LoginCommand { get; }
         public ICommand ExitCommand { get; }
@@ -74,7 +78,25 @@ namespace EnglishCentreManagement.ViewModel
             var isValidUser = enterprise_InfoDAO.AuthenticateEnterpriseInfor(Username, Password);
             if(isValidUser) 
             {
-                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
+                //Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
+                Window nextWindow = new Window();
+                CurrentUser.Instance.Enterprise_Infor = enterprise_InfoDAO.getByUserName(Username, Password);
+                if(CurrentUser.Instance.isStudent())
+                {
+                    CurrentUser.Instance.CurrentStudent = studentDao.getById(CurrentUser.Instance.Enterprise_Infor.ID);
+                    nextWindow = new StudentWindow();
+                }
+                else if(CurrentUser.Instance.isTeacher())
+                {
+                    CurrentUser.Instance.CurrentTeacher = teacherDao.getByID(CurrentUser.Instance.Enterprise_Infor.ID);
+                    nextWindow = new TeacherWindow();
+                }
+                else if(CurrentUser.Instance.isManager())
+                {
+                    CurrentUser.Instance.CurrentManager = managerDao.getById(CurrentUser.Instance.Enterprise_Infor.ID) ;
+                    nextWindow = new ManagerWindow();
+                }
+                nextWindow.Show();
                 IsViewVisible = false;
             }
 

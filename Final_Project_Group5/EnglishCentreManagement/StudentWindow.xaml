@@ -133,7 +133,7 @@
 
                 <RadioButton Style="{StaticResource menuButton}"
                              Tag="#37ef57"
-                             Command="{Binding ShowUserInforView}">
+                             Command="{Binding ShowUserInfoView}">
 
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="AccountBoxOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -168,7 +168,7 @@
                     <Button x:Name="btnClose"
                             Style="{StaticResource controlButton}"
                             Tag="#ffffff"
-                            Command="{Binding CloseWindow}"
+                            Command="{Binding CloseWindowCommand}"
                         CommandParameter="{Binding ElementName=managerWindow}"
                             >
                         <materialDesign:PackIcon Kind="Power" Style="{StaticResource controlButtonIcon}"/>
@@ -225,7 +225,7 @@
 
                         </Button>
 
-                        <TextBlock Text="Mark London"
+                        <TextBlock Text="{Binding CrtStudent.NamePerson}"
                                    Foreground="White"
                                    FontFamily="Montserrat"
                                    FontSize="12"

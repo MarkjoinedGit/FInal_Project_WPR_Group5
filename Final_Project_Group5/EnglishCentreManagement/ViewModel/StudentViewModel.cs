@@ -10,7 +10,7 @@ namespace EnglishCentreManagement.ViewModel
         private BaseViewModel _currentChildView;
         private string _caption;
         private PackIconKind _icon;
-        private Student _currentStudent;
+        private Student _crtStudent;
 
         public ICommand ShowHomeView { get; }
         public ICommand ShowRegisterClassView { get;}
@@ -21,11 +21,17 @@ namespace EnglishCentreManagement.ViewModel
 
         public StudentViewModel()
         {
+            LoadCurrentUser();
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewModel);
             ShowRegisterClassView = new RelayCommand<object>(ExecuteShowRegisterClassView);
             ShowUserInfoView = new RelayCommand<object>(ExecuteShowUserInfoView);
 
             ExecuteShowHomeViewModel(null);
+        }
+
+        private void LoadCurrentUser()
+        {
+            _crtStudent = CurrentUser.Instance.CurrentStudent;
         }
 
         public BaseViewModel CurrentChildView 
@@ -58,17 +64,17 @@ namespace EnglishCentreManagement.ViewModel
             }
         }
 
-        public Student CurrentStudent 
+        public Student CrtStudent 
         { 
-            get => _currentStudent; 
+            get => _crtStudent; 
             set
             {
-                _currentStudent = value;
-                OnPropertyChanged(nameof(CurrentStudent));
+                _crtStudent = value;
+                OnPropertyChanged(nameof(CrtStudent));
             }
         }
 
-        private void ExecuteShowHomeViewModel(object obj)
+        private void ExecuteShowHomeViewModel(object? obj)
         {
             CurrentChildView = new HomeViewModel();
             Caption = "Dashboard";
@@ -78,7 +84,7 @@ namespace EnglishCentreManagement.ViewModel
         private void ExecuteShowRegisterClassView(object obj)
         {
 
-            CurrentChildView = new RegisterViewModel(CurrentUser.Instance.CurrentStudent);
+            CurrentChildView = new RegisterViewModel();
             Caption = "Register class";
             Icon = PackIconKind.ClipboardEditOutline;
         }

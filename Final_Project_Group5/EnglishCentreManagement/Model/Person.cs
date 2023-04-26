@@ -12,6 +12,7 @@ namespace EnglishCentreManagement.Model
         private string? phoneNum;
         private string identityCard;
         private string? bankNumber;
+        private double rankLevel;
 
         public Enterprise_Infor Enter_Infor { get => enter_Infor; set => enter_Infor = value; }
         public string NamePerson { get => namePerson; set => namePerson = value; }
@@ -21,10 +22,11 @@ namespace EnglishCentreManagement.Model
         public string PhoneNum { get => phoneNum; set => phoneNum = value; }
         public string IdentityCard { get => identityCard; set => identityCard = value; }
         public string? BankNumber { get => bankNumber; set => bankNumber=value; }
+        public double RankLevel { get => rankLevel; set => rankLevel=value; }
 
         public Person() { }
 
-        public Person(Enterprise_Infor Enter_Infor, string NamePerson, DateOnly DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber)
+        public Person(Enterprise_Infor Enter_Infor, string NamePerson, DateOnly DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
         {
             this.Enter_Infor = Enter_Infor;
             this.NamePerson = NamePerson;
@@ -34,9 +36,10 @@ namespace EnglishCentreManagement.Model
             this.PhoneNum = PhoneNum;
             this.IdentityCard = IdentityCard;
             this.BankNumber = BankNumber;
+            this.RankLevel = RankLevel;
         }
 
-        public Person(string Enter_Infor_ID, string NamePerson, DateOnly DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber)
+        public Person(string Enter_Infor_ID, string NamePerson, DateOnly DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
         {
             this.Enter_Infor.ID = Enter_Infor_ID;
             this.NamePerson = NamePerson;
@@ -46,6 +49,8 @@ namespace EnglishCentreManagement.Model
             this.PhoneNum = PhoneNum;
             this.IdentityCard = IdentityCard;
             this.BankNumber = BankNumber;
+            this.RankLevel = RankLevel;
+
         }
 
     }

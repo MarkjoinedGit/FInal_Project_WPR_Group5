@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="/ResourceXAML/ButtonStyleResource.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceXAML/StudentStyleResource.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceXAML/ConverterResource.xaml"/>
+                <ResourceDictionary Source="/ResourceXAML/TextStyleResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

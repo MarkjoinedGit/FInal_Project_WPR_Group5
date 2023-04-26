@@ -188,8 +188,8 @@
                     <Button x:Name="btnClose"
                             Style="{StaticResource controlButton}"
                             Tag="#ffffff"
-                            Command="{Binding CloseWindow}"
-                        CommandParameter="{Binding ElementName=managerWindow}"
+                            Command="{Binding CloseWindowCommand}"
+                            CommandParameter="{Binding ElementName=managerWindow}"
                             >
                         <materialDesign:PackIcon Kind="Power" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
@@ -245,7 +245,7 @@
 
                         </Button>
 
-                        <TextBlock Text="Mark London"
+                        <TextBlock Text="{Binding CrtManager.NamePerson}"
                                    Foreground="White"
                                    FontFamily="Montserrat"
                                    FontSize="12"

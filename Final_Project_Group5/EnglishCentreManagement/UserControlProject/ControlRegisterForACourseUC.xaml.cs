@@ -25,7 +25,7 @@ namespace EnglishCentreManagement.UserControlProject
         public ControlRegisterForACourseUC()
         {
             InitializeComponent();
-            DataContext = new RegisterViewModel(CurrentUser.Instance.CurrentStudent);
+            DataContext = new RegisterViewModel();
         }
 
         //private void Border_MouseDown(object sender, MouseButtonEventArgs e)

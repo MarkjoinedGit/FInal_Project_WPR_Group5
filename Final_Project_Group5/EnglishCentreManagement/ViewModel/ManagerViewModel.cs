@@ -11,11 +11,11 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class ManagerViewModel : BaseViewModel
     {
-        private UserAccount _currentUserAccount;
         private IEnterprise_infoDAO enterprise_InfoDAO;
         private BaseViewModel _currentChildView;
         private string _caption;
         private PackIconKind _icon;
+        private Manager _crtManager;
 
         public ICommand ShowHomeView { get; }
         public ICommand ShowManageClassroomView { get; }
@@ -25,8 +25,7 @@ namespace EnglishCentreManagement.ViewModel
 
         public ManagerViewModel()
         {
-            //enterprise_InfoDAO = new Enterprise_infoDAO();
-            //LoadUserCurrentData();
+            LoadUserCurrentData();
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewCommand);
             ShowUserInforView = new RelayCommand<object>(ExecuteShowUserInforViewCommand);
             ShowManageClassroomView = new RelayCommand<object>(ExecuteShowManageClassroomViewCommand);
@@ -35,6 +34,11 @@ namespace EnglishCentreManagement.ViewModel
 
             //Default view
             ExecuteShowHomeViewCommand(null);
+        }
+
+        private void LoadUserCurrentData()
+        {
+            _crtManager = CurrentUser.Instance.CurrentManager;
         }
 
         public BaseViewModel CurrentChildView 
@@ -67,28 +71,15 @@ namespace EnglishCentreManagement.ViewModel
             }
         }
 
-        public UserAccount CurrentUserAccount 
+        public Manager CrtManager 
         { 
-            get => _currentUserAccount;
+            get => _crtManager;
             set
             {
-                _currentUserAccount = value;
-                OnPropertyChanged(nameof(CurrentUserAccount));
+                _crtManager=value;
+                OnPropertyChanged(nameof(CrtManager));
             }
         }
-
-        //private void LoadUserCurrentData()
-        //{
-        //    var user = enterprise_InfoDAO.getByUserName(Thread.CurrentPrincipal.Identity.Name);
-        //    if(user  != null)
-        //    {
-        //        CurrentUserAccount = new UserAccount()
-        //        {
-        //            Username = user.UserName,
-        //            Displayname = user.getNameOfUser(),
-        //        }
-        //    }
-        //}
 
         private void ExecuteShowHomeViewCommand(object? p)
         {

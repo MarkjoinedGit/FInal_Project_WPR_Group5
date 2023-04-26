@@ -16,22 +16,20 @@ namespace EnglishCentreManagement.ViewModel
     {
         public ObservableCollection<Classroom> ListClassrooms { get; set; }
         public ClassRoomDao classroomDao = new ClassRoomDao();
-        private Student _currentStudent;
+        private Student _currentStudent = CurrentUser.Instance.CurrentStudent;
         private Classroom _currentClassroom;
         private IRegisterDao registerDao = new RegisterDao();
 
         public ICommand RegisterClassroom { get; set; }
 
-        public RegisterViewModel(Student currentStudent) 
+        public RegisterViewModel() 
         {
-            this._currentStudent = currentStudent;
-
             DataTable dtClassroom = classroomDao.getClassRoomDAO();
             ListClassrooms = new ObservableCollection<Classroom>(classroomDao.fillDataToListClassRoom(dtClassroom));
             RegisterClassroom = new RelayCommand<object>(CanExecuteRegisterClassroom, ExecuteRegisterClassroom);
         }
 
-        public Student CurrentStudent {  get => _currentStudent; set => _currentStudent = value; }
+        public Student CurrentStudent {  get => _currentStudent; }
         public Classroom CurrentClassroom { get => _currentClassroom; set => _currentClassroom=value; }
 
         private void ExecuteRegisterClassroom(object obj)

@@ -15,7 +15,8 @@
              TextOptions.TextRenderingMode="Auto"
              Background="Transparent"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             Height="588" Width="998">
+             Height="588" Width="998"
+             Name="manageClassroom">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
@@ -487,9 +488,19 @@
                                   Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
                     </StackPanel>--><!--
                 </Border>-->
-
+            <StackPanel>
+                <uc:InforTagUC IdClassroom="{Binding IDClassroom, Mode=OneWay}"
+                                           IdCourse="{Binding CurrentClassroom.ClassCourse.IdCourse, Mode=OneWay}"
+                                           NameTeacher="{Binding CurrentClassroom.ClassTeacher.NamePerson, Mode=OneWay}"
+                                           NumStudent="20"
+                                           RoomNum="{Binding CurrentClassroom.RoomNum, Mode=OneWay}"
+                                           StartEnd="null"
+                                           Meet="{Binding CurrentClassroom.StudyDate, Mode=OneWay}"
+                                           Width="550"
+                                           SubWidth="490"
+                                           Margin="5"/>
                 <ListView ItemsSource="{Binding ListClassrooms}"
-                          SelectedItem="{Binding CurrentClassroom,Mode=TwoWay}">
+                          SelectedItem="{Binding CurrentClassroom, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:InforTagUC IdClassroom="{Binding IDClassroom, Mode=OneWay}"
@@ -505,6 +516,10 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+              
+            </StackPanel>
+
+                
 
             <!--</StackPanel>-->
         </Border>

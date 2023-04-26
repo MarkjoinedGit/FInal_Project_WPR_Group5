@@ -4,9 +4,10 @@
 
     <viewmodel:MainViewModel x:Key="MainVM"/>
     <viewmodel:LoginViewModel x:Key="LoginVM"/>
-    <viewmodel:ControlBarViewModel x:Key="ControlBarVM"/>
     <viewmodel:ManagerViewModel x:Key="ManagerVM"/>
-    
-   
+    <viewmodel:ControlBarViewModel x:Key="ControlBarVM"/>
+    <viewmodel:ManageClassroomViewModel x:Key="ManageClassroomVM"/>
+
+
 
 </ResourceDictionary>

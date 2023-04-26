@@ -26,13 +26,13 @@ namespace EnglishCentreManagement.ViewModel
         public ICommand AddClassRoomCommand { get;set; }
         public ICommand DeleteClassRoomCommand { get; set; }
 
-
         public ManageClassroomViewModel()
         {
             DataTable dtClassroom = classRoomDao.getClassRoomDAO();
             ListClassrooms = new ObservableCollection<Classroom>(classRoomDao.fillDataToListClassRoom(dtClassroom));
             ListShift = new ObservableCollection<string>(ShiftDAO.getAllShiftID());
             AddClassRoomCommand = new RelayCommand<object>(CanExecuteAddClassroomCommand, ExecuteAddClassroomCommand);
+            DeleteClassRoomCommand = new RelayCommand<object>(ExecuteDeleteClassRoomCommand);
         }
 
         public Classroom CurrentClassroom
@@ -100,5 +100,14 @@ namespace EnglishCentreManagement.ViewModel
             return validValue;
         }
 
+        private void ExecuteDeleteClassRoomCommand(object obj)
+        {
+            classRoomDao.Delete(CurrentClassroom);
+            foreach (var classroom in ListClassrooms)
+            {
+                if(classroom.IDClassroom == CurrentClassroom.IDClassroom)
+                    ListClassrooms.Remove(classroom);
+            }
+        }
     }
 }

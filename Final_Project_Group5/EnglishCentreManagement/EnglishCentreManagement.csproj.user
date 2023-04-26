@@ -31,9 +31,6 @@
     <Compile Update="UserControlProject\CalculateSalary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlProject\ControlBarUC.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UserControlProject\ControlCancelCourseUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -70,9 +67,6 @@
     <Compile Update="UserControlProject\UserInformationUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserInformationWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="LoginWindow.xaml">
@@ -96,6 +90,9 @@
     <Page Update="ResourceXAML\StudentStyleResource.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceXAML\TextStyleResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="StudentWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -112,9 +109,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\CalculateSalary.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControlProject\ControlBarUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\ControlCancelCourseUC.xaml">
@@ -151,9 +145,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\UserInformationUC.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserInformationWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

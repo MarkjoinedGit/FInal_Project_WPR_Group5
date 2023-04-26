@@ -24,7 +24,7 @@ namespace EnglishCentreManagement.Database
 
         public void Delete(Classroom cls)
         {
-            string str = string.Format("DELETE FROM LOPHOC WHERE MaLop = '{0}')", cls.IDClassroom);
+            string str = string.Format("EXEC sp_XoaLopHoc '{0}'", cls.IDClassroom);
             DBConnection.Execute(conn, str);
         }
 

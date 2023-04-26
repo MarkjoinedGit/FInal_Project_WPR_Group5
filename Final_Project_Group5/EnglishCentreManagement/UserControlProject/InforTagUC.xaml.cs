@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EnglishCentreManagement.Model;
+using EnglishCentreManagement.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,5 +79,14 @@ namespace EnglishCentreManagement.UserControlProject
         {
             InitializeComponent();
         }
+
+        private void btnDelete_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (CurrentUser.Instance.isManager())
+                btnDelete.IsHitTestVisible = true;
+            else
+                btnDelete.IsHitTestVisible = false;
+        }
+
     }
 }

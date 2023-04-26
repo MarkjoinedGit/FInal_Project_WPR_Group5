@@ -296,11 +296,11 @@
                     <StackPanel Orientation="Vertical" >
                         <DockPanel>
                             <Border Width="60" Height="60" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" >
-                                <!--<Ellipse>
+                                <Ellipse>
                                     <Ellipse.Fill>
-                                        <ImageBrush ImageSource="/ResourceXAML/Image/graduating-student.png"/>
+                                        <ImageBrush ImageSource="E:/1THUMUCDAIHOC/HOC KY IV/Windows programing/Final_Project_Group5/Final_Project_Group5/EnglishCentreManagement/ResourceXAML/Image/graduating-student.png"/>
                                     </Ellipse.Fill>
-                                </Ellipse>-->
+                                </Ellipse>
                             </Border>
                         </DockPanel>
                         <TextBlock Text="Let's get you say up "

@@ -16,8 +16,7 @@
         <StackPanel Orientation="Horizontal" >
             <Border CornerRadius="5" BorderThickness="2" BorderBrush="Green">
                 <StackPanel Orientation="Vertical">
-                    <MaterialDesign:PackIcon Kind="GoogleClassroom" Width="40" Height="40" Margin="5"
-                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <MaterialDesign:PackIcon Kind="GoogleClassroom" Width="40" Height="40" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                     <Button x:Name="btnDetail"
                         Width="20" Height="20"
@@ -31,13 +30,13 @@
                     <Button x:Name="btnDelete"
                             DataContext="{StaticResource ManageClassroomVM}"
                             Command="{Binding DeleteClassRoomCommand}"
+                            CommandParameter="{Binding IdClassroom, ElementName=InforClass}"
                             Width="20" Height="20"
                             Margin="3"
                             MaterialDesign:ButtonProgressAssist.Value="50"
                             Content="{MaterialDesign:PackIcon DeleteForever}"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource  MaterialDesignFloatingActionMiniDarkButton}"   
-                            IsHitTestVisibleChanged="btnDelete_IsHitTestVisibleChanged" />
+                            Style="{StaticResource  MaterialDesignFloatingActionMiniDarkButton}"/>
                 </StackPanel>
             </Border>
 
@@ -75,7 +74,6 @@
 
                             <uc:TagUC Tag="SunClockOutline" Text="{Binding Meet, ElementName=InforClass}" Margin="{Binding Margin, ElementName=InforClass}" BorderBrush="Black" BorderThickness="2" />
                         </StackPanel>
-
                     </StackPanel>
                 </Border>
             </StackPanel>

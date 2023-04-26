@@ -80,13 +80,13 @@ namespace EnglishCentreManagement.UserControlProject
             InitializeComponent();
         }
 
-        private void btnDelete_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (CurrentUser.Instance.isManager())
-                btnDelete.IsHitTestVisible = true;
-            else
-                btnDelete.IsHitTestVisible = false;
-        }
+        //private void btnDelete_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (CurrentUser.Instance.isManager())
+        //        btnDelete.IsHitTestVisible = true;
+        //    else
+        //        btnDelete.IsHitTestVisible = false;
+        //}
 
     }
 }

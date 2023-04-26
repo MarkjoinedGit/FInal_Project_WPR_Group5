@@ -1,4 +1,5 @@
 ﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Dialog;
 using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using System;
@@ -8,13 +9,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace EnglishCentreManagement.ViewModel
 {
     public class ManageClassroomViewModel : BaseViewModel
     {
-        public ObservableCollection<Classroom> ListClassrooms { get; set; }
+        private ObservableCollection<Classroom> _listClassrooms;
         public ObservableCollection<string> ListShift { get; set; }
         public ObservableCollection<string> ListStudyDate { get; set; }
         private IClassRoomDao classRoomDao = new ClassRoomDao();
@@ -23,16 +26,16 @@ namespace EnglishCentreManagement.ViewModel
         private string _idCourse;
         private string _idShift;
 
-        public ICommand AddClassRoomCommand { get;set; }
         public ICommand DeleteClassRoomCommand { get; set; }
+        public ICommand ShowInputClassroomDialog {  get; set; }
 
         public ManageClassroomViewModel()
         {
-            DataTable dtClassroom = classRoomDao.getClassRoomDAO();
-            ListClassrooms = new ObservableCollection<Classroom>(classRoomDao.fillDataToListClassRoom(dtClassroom));
+            LoadClassroom();
             ListShift = new ObservableCollection<string>(ShiftDAO.getAllShiftID());
-            AddClassRoomCommand = new RelayCommand<object>(CanExecuteAddClassroomCommand, ExecuteAddClassroomCommand);
-            DeleteClassRoomCommand = new RelayCommand<object>(ExecuteDeleteClassRoomCommand);
+            ListStudyDate = new ObservableCollection<string>(classRoomDao.GetListStudyDate());
+            DeleteClassRoomCommand = new RelayCommand<string>(/*CanExecuteDeleteClassRoomCommand,*/ ExecuteDeleteClassRoomCommand);
+            ShowInputClassroomDialog = new RelayCommand<object>(ExecuteShowInputClassroomDialog);
         }
 
         public Classroom CurrentClassroom
@@ -79,10 +82,22 @@ namespace EnglishCentreManagement.ViewModel
             }
         }
 
+
+        public ObservableCollection<Classroom> ListClassrooms 
+        { 
+            get => _listClassrooms; 
+            set 
+            { 
+                _listClassrooms = value; 
+                OnPropertyChanged(nameof(ListClassrooms)); 
+            } 
+        }
+
         private void ExecuteAddClassroomCommand(object obj)
         {
             classRoomDao.Add(CurrentClassroom);
-            ListClassrooms.Add(ListClassrooms.Last());
+            LoadClassroom();
+            //ListClassrooms.Add(ListClassrooms.Last());
         }
 
         private bool CanExecuteAddClassroomCommand(object obj)
@@ -100,14 +115,29 @@ namespace EnglishCentreManagement.ViewModel
             return validValue;
         }
 
-        private void ExecuteDeleteClassRoomCommand(object obj)
+        private void ExecuteDeleteClassRoomCommand(string id)
         {
+            CurrentClassroom.IDClassroom = id;
             classRoomDao.Delete(CurrentClassroom);
-            foreach (var classroom in ListClassrooms)
-            {
-                if(classroom.IDClassroom == CurrentClassroom.IDClassroom)
-                    ListClassrooms.Remove(classroom);
-            }
+            Classroom? classroom = ListClassrooms.FirstOrDefault(obj => obj.IDClassroom.Equals(id));
+            LoadClassroom();
+        }
+
+        private bool CanExecuteDeleteClassRoomCommand(object obj)
+        {
+            return CurrentUser.Instance.isManager() ? true:false;
+        }
+
+        private void ExecuteShowInputClassroomDialog(object obj)
+        {
+            Window dialog = new InputClassroomDialog();
+            dialog.ShowDialog();
+        }
+
+        private void LoadClassroom()
+        {
+            DataTable dtClassroom = classRoomDao.getClassRoomDAO();
+            ListClassrooms = new ObservableCollection<Classroom>(classRoomDao.fillDataToListClassRoom(dtClassroom));
         }
     }
 }

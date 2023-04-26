@@ -18,6 +18,7 @@ namespace EnglishCentreManagement.Interfaces
         DataTable getClassRoomDAO();
         DataTable getStudentList(Classroom cls);
         List<Classroom> fillDataToListClassRoom(DataTable datatable);
+        List<string> GetListStudyDate();
 
 
     }

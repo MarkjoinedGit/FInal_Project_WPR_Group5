@@ -12,6 +12,7 @@ namespace EnglishCentreManagement.Interfaces
         void Add(Teacher Tea);
         void Delete(Teacher Tea);
         void Update(Teacher Tea);
-        Teacher getByID(string id);
+        bool canGetByID(string id);
+        Teacher? getByID(string id);
     }
 }

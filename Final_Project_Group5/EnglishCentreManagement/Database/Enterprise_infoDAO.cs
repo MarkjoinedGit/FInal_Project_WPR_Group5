@@ -35,7 +35,7 @@ namespace EnglishCentreManagement.Database
             throw new System.NotImplementedException();
         }
 
-        public Enterprise_Infor getById(string id)
+        public Enterprise_Infor? getById(string id)
         {
             string sqlStr = string.Format("SELECT* FROM DANGNHAP WHERE MaNguoiDangNhap = '{0}'", id);
             try

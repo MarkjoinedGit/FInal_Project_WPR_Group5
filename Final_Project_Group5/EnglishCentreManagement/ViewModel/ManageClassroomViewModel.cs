@@ -30,9 +30,10 @@ namespace EnglishCentreManagement.ViewModel
         {
             DataTable dtClassroom = classRoomDao.getClassRoomDAO();
             ListClassrooms = new ObservableCollection<Classroom>(classRoomDao.fillDataToListClassRoom(dtClassroom));
+            ListStudyDate = new ObservableCollection<string>(classRoomDao.GetListStudyDate());
             ListShift = new ObservableCollection<string>(ShiftDAO.getAllShiftID());
             AddClassRoomCommand = new RelayCommand<object>(CanExecuteAddClassroomCommand, ExecuteAddClassroomCommand);
-            DeleteClassRoomCommand = new RelayCommand<object>(ExecuteDeleteClassRoomCommand);
+            DeleteClassRoomCommand = new RelayCommand<object>(CanExecuteDeleteClassRoomCommand, ExecuteDeleteClassRoomCommand);
         }
 
         public Classroom CurrentClassroom
@@ -74,7 +75,8 @@ namespace EnglishCentreManagement.ViewModel
             set
             {
                 _idShift = value;
-                CurrentClassroom.ClassShift = ShiftDAO.findShiftByID(IdShift);
+               
+                    CurrentClassroom.ClassShift = ShiftDAO.findShiftByID(IdShift);
                 OnPropertyChanged(nameof(IdShift));
             }
         }
@@ -103,11 +105,17 @@ namespace EnglishCentreManagement.ViewModel
         private void ExecuteDeleteClassRoomCommand(object obj)
         {
             classRoomDao.Delete(CurrentClassroom);
-            foreach (var classroom in ListClassrooms)
+            string idClassToRemove = CurrentClassroom.IDClassroom.ToString();
+            Classroom? classRoomToRemove = ListClassrooms.FirstOrDefault(cls =>  cls.IDClassroom == idClassToRemove);
+            if(classRoomToRemove != null)
             {
-                if(classroom.IDClassroom == CurrentClassroom.IDClassroom)
-                    ListClassrooms.Remove(classroom);
+                ListClassrooms.Remove(classRoomToRemove);
             }
+        }
+
+        private bool CanExecuteDeleteClassRoomCommand(object obj)
+        {
+            return CanExecuteAddClassroomCommand(obj);
         }
     }
 }

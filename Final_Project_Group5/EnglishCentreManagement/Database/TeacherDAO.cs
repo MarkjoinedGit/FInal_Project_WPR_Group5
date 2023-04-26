@@ -30,37 +30,6 @@ namespace EnglishCentreManagement.Database
             DBConnection.Execute(conn, strSQL);
         }
 
-        //public Teacher? findTeacherByID(string id)
-        //{
-        //    string strSQL = string.Format("SELECT * FROM GIAOVIEN WHERE MaGiaoVien = '{0}'", id);
-        //    try
-        //    {
-        //        DataTable dtTeacher = DBConnection.getData(conn, strSQL);
-        //        if (dtTeacher.Rows.Count > 0)
-        //        {
-        //            DataRow teacherRow = dtTeacher.Rows[0];
-        //            Teacher teacher = new Teacher(
-        //               teacherRow["MaGiaoVien"].ToString(),
-        //               teacherRow["TenGiaoVien"].ToString(),
-        //               Convert.ToDateTime(teacherRow["NgaySinh"]),
-        //               teacherRow["GioiTinh"].ToString(),
-        //               teacherRow["DiaChi"].ToString(),
-        //               teacherRow["SoDienThoai"].ToString(),
-        //               teacherRow["ChungMinhNhanDan"].ToString(),
-        //               teacherRow["SoTaiKhoan"].ToString(),
-        //               Convert.ToDouble(teacherRow["RankLevel"]));
-        //            return teacher;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Cannot find the information of the teacher or " + ex.Message);
-        //    }
-
-        //    return null;
-
-        //}
-
         public Teacher? getByID(string id)
         {
             string sqlStr = string.Format("SELECT* FROM GIAOVIEN WHERE MaGiaoVien = '{0}'", id);
@@ -80,14 +49,15 @@ namespace EnglishCentreManagement.Database
                     RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
                 };
             }
-
-            catch
-            {
-                MessageBox.Show("Null data");
-            }
+            catch { }
 
             return null;
 
+        }
+
+        public bool canGetByID(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

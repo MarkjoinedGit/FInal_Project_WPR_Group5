@@ -28,7 +28,7 @@
                         Background="#007ac1"
                         Margin="3"/>
 
-                    <Button x:Name="btnDelete"
+                    <!--<Button x:Name="btnDelete"
                             DataContext="{StaticResource ManageClassroomVM}"
                             Command="{Binding DeleteClassRoomCommand}"
                             Width="20" Height="20"
@@ -37,7 +37,7 @@
                             Content="{MaterialDesign:PackIcon DeleteForever}"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource  MaterialDesignFloatingActionMiniDarkButton}"   
-                            IsHitTestVisibleChanged="btnDelete_IsHitTestVisibleChanged" />
+                            IsHitTestVisibleChanged="btnDelete_IsHitTestVisibleChanged" />-->
                 </StackPanel>
             </Border>
 

@@ -91,5 +91,13 @@ namespace EnglishCentreManagement.Database
             string sqlStr = string.Format("INSERT INTO HocVienTrongLop VALUES('{0}', '{1}')", cls.IDClassroom, st.Enter_Infor.ID);
             DBConnection.Execute(conn, sqlStr);
         }
+
+        public List<string> GetListStudyDate()
+        {
+            return new List<string>
+            {
+                "T2-T4-T6", "T3-T5-T7"
+            };
+        }
     }
 }

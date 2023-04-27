@@ -14,11 +14,10 @@ namespace EnglishCentreManagement.Database
     public class ClassRoomDao : IClassRoomDao
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
-        ITeacherDao teacherDao = new TeacherDAO();
 
         public void Add(Classroom cls)
         {
-            string str = string.Format("INSERT INTO LOPHOC VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", cls.ClassTeacher.Enter_Infor.ID, cls.IDClassroom, cls.RoomNum, cls.MaxNumStudent, cls.ClassCourse.IdCourse, cls.StartingDate, cls.EndingDate, cls.StudyDate, cls.ClassShift.IDShift);
+            string str = string.Format("INSERT INTO LOPHOC VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", cls.IDTeacher, cls.IDClassroom, cls.RoomNum, cls.MaxNumStudent, cls.IDCourse, cls.StartingDate, cls.EndingDate, cls.StudyDate, cls.IDShift);
             DBConnection.Execute(conn, str);
         }
 
@@ -30,7 +29,7 @@ namespace EnglishCentreManagement.Database
 
         public void Update(Classroom cls)
         {
-            string str = string.Format("UPDATE LOPHOC SET MaGiaoVien = '{0}', SoPhong = '{1}', SoHocSinh = '{2}', MaKhoaHoc = '{3}', NgayBatDau ='{4}', NgayKetThuc = '{5}', NgayHocTrongTuan ='{6}', MaCa = '{7}' WHERE  MaLop = '{8}'", cls.ClassTeacher.Enter_Infor.ID, cls.RoomNum, cls.MaxNumStudent, cls.ClassCourse.IdCourse, cls.StartingDate, cls.EndingDate, cls.StudyDate,  cls.ClassShift.IDShift, cls.IDClassroom);
+            string str = string.Format("UPDATE LOPHOC SET MaGiaoVien = '{0}', SoPhong = '{1}', SoHocSinh = '{2}', MaKhoaHoc = '{3}', NgayBatDau ='{4}', NgayKetThuc = '{5}', NgayHocTrongTuan ='{6}', MaCa = '{7}' WHERE  MaLop = '{8}'", cls.IDTeacher, cls.RoomNum, cls.MaxNumStudent, cls.IDCourse, cls.StartingDate, cls.EndingDate, cls.StudyDate,  cls.IDShift, cls.IDClassroom);
             DBConnection.Execute(conn, str);
         }
 
@@ -54,15 +53,15 @@ namespace EnglishCentreManagement.Database
             {
                 Classroom classroom = new Classroom
                 {
-                    ClassTeacher = teacherDao.getByID(dr["MaGiaoVien"].ToString()),
+                    IDTeacher = dr["MaGiaoVien"].ToString(),
                     IDClassroom = dr["MaLop"].ToString(),
                     RoomNum = dr["SoPhong"].ToString(),
                     MaxNumStudent = Convert.ToInt32(dr["SoHocSinh"]),
-                    ClassCourse = CourseDAO.findCourseByID(dr["MaKhoaHoc"].ToString()),
+                    IDCourse = dr["MaKhoaHoc"].ToString(),
                     StartingDate = new DateOnly(Convert.ToDateTime(dr["NgayBatDau"]).Year, Convert.ToDateTime(dr["NgayBatDau"]).Month, Convert.ToDateTime(dr["NgayBatDau"]).Day),
                     EndingDate = new DateOnly(Convert.ToDateTime(dr["NgayKetThuc"]).Year, Convert.ToDateTime(dr["NgayKetThuc"]).Month, Convert.ToDateTime(dr["NgayKetThuc"]).Day),
                     StudyDate = dr["NgayHocTrongTuan"].ToString(),
-                    ClassShift = ShiftDAO.findShiftByID(dr["MaCa"].ToString())
+                    IDShift = dr["MaCa"].ToString()
                 };
                 ListClassrooms.Add(classroom);
             }
@@ -76,7 +75,7 @@ namespace EnglishCentreManagement.Database
 
             if(cls != null)
             {
-                if (cls.ClassTeacher == null || cls.IDClassroom == null || cls.RoomNum == null || cls.MaxNumStudent.ToString() == null || cls.ClassCourse == null || cls.StartingDate.ToString() == null || cls.EndingDate.ToString() == null|| cls.StudyDate == null || cls.ClassShift == null)
+                if (cls.IDTeacher == null || cls.IDClassroom == null || cls.RoomNum == null || cls.MaxNumStudent.ToString() == null || cls.IDCourse == null || cls.StartingDate.ToString() == null || cls.EndingDate.ToString() == null|| cls.StudyDate == null || cls.IDShift == null)
                     validValue = false;
                 else
                     validValue = true;
@@ -98,6 +97,50 @@ namespace EnglishCentreManagement.Database
             {
                 "T2-T4-T6", "T3-T5-T7"
             };
+        }
+
+        public Classroom? getById(string id)
+        {
+            string sqlStr = string.Format("SELECT* FROM LOPHOC WHERE MaLop = '{0}'", id);
+            DataTable dt = DBConnection.getData(conn, sqlStr);
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                return new Classroom
+                {
+                    IDTeacher = dr["MaGiaoVien"].ToString(),
+                    IDClassroom = dr["MaLop"].ToString(),
+                    RoomNum = dr["SoPhong"].ToString(),
+                    MaxNumStudent = Convert.ToInt32(dr["SoHocSinh"]),
+                    IDCourse = dr["MaKhoaHoc"].ToString(),
+                    StartingDate = new DateOnly(Convert.ToDateTime(dr["NgayBatDau"]).Year, Convert.ToDateTime(dr["NgayBatDau"]).Month, Convert.ToDateTime(dr["NgayBatDau"]).Day),
+                    EndingDate = new DateOnly(Convert.ToDateTime(dr["NgayKetThuc"]).Year, Convert.ToDateTime(dr["NgayKetThuc"]).Month, Convert.ToDateTime(dr["NgayKetThuc"]).Day),
+                    StudyDate = dr["NgayHocTrongTuan"].ToString(),
+                    IDShift = dr["MaCa"].ToString()
+                };
+            }
+            else
+                return null;
+        }
+
+        public List<Classroom> GetListRegisteredClassroom(Student std)
+        {
+            string sqlStr = string.Format("SELECT MaLop FROM HocVienTrongLop WHERE MaHocVien = '{0}'", std.Enter_Infor.ID);
+            DataTable dt = DBConnection.getData(conn, sqlStr);
+            List<Classroom> listCls = new List<Classroom>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                Classroom? cls = getById(dr["MaLop"].ToString());
+                if (cls != null)
+                    listCls.Add(cls);
+            }
+            return listCls;
+        }
+
+        public void DeleteRegisteredClassroom(string stdID, string clsID)
+        {
+            string sqlStr = string.Format("DELETE FROM HocVienTrongLop WHERE MaHocVien = '{0}' AND MaLop = '{1}'", stdID, clsID);
+            DBConnection.Execute(conn, sqlStr);
         }
     }
 }

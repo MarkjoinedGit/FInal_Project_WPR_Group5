@@ -25,6 +25,7 @@ namespace EnglishCentreManagement.ViewModel
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewModel);
             ShowRegisterClassView = new RelayCommand<object>(ExecuteShowRegisterClassView);
             ShowUserInfoView = new RelayCommand<object>(ExecuteShowUserInfoView);
+            ShowYourClassView = new RelayCommand<object>(ExecuteYourClassView);
 
             ExecuteShowHomeViewModel(null);
         }
@@ -89,12 +90,20 @@ namespace EnglishCentreManagement.ViewModel
             Icon = PackIconKind.ClipboardEditOutline;
         }
 
+        private void ExecuteYourClassView(object obj)
+        {
+            CurrentChildView = new YourClassViewModel();
+            Caption = "Your Class";
+            Icon = PackIconKind.ClipboardEditOutline;
+        }
+
         private void ExecuteShowUserInfoView(object obj)
         {
             CurrentChildView = new UserInforViewModel();
             Caption = "User information";
             Icon = PackIconKind.AccountBoxOutline;
         }
+
 
     }
 }

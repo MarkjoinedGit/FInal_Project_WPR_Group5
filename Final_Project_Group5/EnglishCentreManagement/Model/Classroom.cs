@@ -6,38 +6,38 @@ namespace EnglishCentreManagement.Model
 {
     public class Classroom
     {
-        private Teacher classTeacher;
+        private string idTeacher;
         private string idClassroom;
         private string roomNum;
         private int maxNumStudent;
-        private Course classCourse;
+        private string idCourse;
         private DateOnly startingDate;
         private DateOnly endingDate;
         private string studyDate;
-        private Shift classShift;
+        private string idShift;
 
-        public Teacher ClassTeacher { get => classTeacher; set => classTeacher=value; }
+        public string IDTeacher { get => idTeacher; set => idTeacher=value; }
         public string IDClassroom { get => idClassroom; set => idClassroom = value; }
         public string RoomNum { get => roomNum; set => roomNum = value; }
         public int MaxNumStudent { get => maxNumStudent; set => maxNumStudent = value; }
-        public Course ClassCourse { get => classCourse; set => classCourse=value; }
+        public string IDCourse { get => idCourse; set => idCourse=value; }
         public DateOnly StartingDate { get => startingDate; set => startingDate = value; }
         public DateOnly EndingDate { get => endingDate; set => endingDate = value; }
         public string StudyDate { get => studyDate; set => studyDate=value; }
-        public Shift ClassShift { get => classShift; set => classShift=value; }
+        public string IDShift { get => idShift; set => idShift=value; }
 
-        public Classroom(Teacher ClassTeacher, string IDClassroom, string RoomNum, int NumStudent,
-        Course ClassCourse, DateOnly StartingDate, DateOnly EndingDate, string StudyDate, Shift ClassShift)
+        public Classroom(string IDTeacher, string IDClassroom, string RoomNum, int NumStudent,
+        string IDCourse, DateOnly StartingDate, DateOnly EndingDate, string StudyDate, string IDShift)
         {
-            this.ClassTeacher = ClassTeacher;
+            this.IDTeacher = IDTeacher; 
             this.IDClassroom = IDClassroom;
-            this.ClassCourse = ClassCourse;
+            this.IDCourse = IDCourse;
             this.RoomNum = RoomNum;
             this.EndingDate = EndingDate;
             this.StudyDate = StudyDate;
             this.StartingDate = StartingDate;
             this.MaxNumStudent = NumStudent;
-            this.ClassShift = ClassShift;
+            this.IDShift = IDShift;
         }
 
         public Classroom()

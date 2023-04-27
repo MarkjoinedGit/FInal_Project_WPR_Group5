@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Dialog\InputClassroomInformation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,8 +70,14 @@
     <Compile Update="UserControlProject\UserInformationUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlProject\YourClassUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Dialog\InputClassroomInformation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -145,6 +154,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\UserInformationUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\YourClassUC.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

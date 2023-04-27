@@ -26,7 +26,7 @@ namespace EnglishCentreManagement.Database
 
                     Course course = new Course
                     {
-                        IdCourse = dt["MaKhoaHoc"].ToString(),
+                        IDCourse = dt["MaKhoaHoc"].ToString(),
                         NameCourse = dt["TenKhoaHoc"].ToString(),
                         InputLevel = Convert.ToDouble(dt["LevelDauVao"]),
                         OuputLevel = Convert.ToDouble(dt["LevelDauRa"]),

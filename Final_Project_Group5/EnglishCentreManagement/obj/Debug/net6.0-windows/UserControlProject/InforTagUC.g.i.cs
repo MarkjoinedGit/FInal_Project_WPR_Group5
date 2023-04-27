@@ -72,7 +72,7 @@ namespace EnglishCentreManagement.UserControlProject {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;V1.0.0.0;component/usercontrolproject/infortaguc.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;component/usercontrolproject/infortaguc.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControlProject\InforTagUC.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

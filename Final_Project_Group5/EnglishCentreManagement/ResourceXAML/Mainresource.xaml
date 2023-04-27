@@ -7,6 +7,7 @@
     <viewmodel:ManagerViewModel x:Key="ManagerVM"/>
     <viewmodel:ControlBarViewModel x:Key="ControlBarVM"/>
     <viewmodel:ManageClassroomViewModel x:Key="ManageClassroomVM"/>
+    <viewmodel:YourClassViewModel x:Key="YourClassVM"/>
 
 
 

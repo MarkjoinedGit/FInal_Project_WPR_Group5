@@ -39,11 +39,17 @@ namespace EnglishCentreManagement.ViewModel
 
         private bool CanExecuteRegisterClassroom(object obj)
         {
-            if(_currentClassroom == null) 
+            if (_currentClassroom == null)
                 return false;
-            else if (_currentStudent.RankLevel < _currentClassroom.ClassCourse.InputLevel)
-                return false;
-           
+            else
+            {
+                Course? crs = CourseDAO.findCourseByID(CurrentClassroom.IDCourse);
+                if(crs! == null)
+                {
+                    if (_currentStudent.RankLevel < crs.InputLevel)
+                        return false;
+                } 
+            }
             return true;
         }
     }

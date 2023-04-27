@@ -30,7 +30,11 @@
         <DataTemplate DataType="{x:Type viewmodel:RegisterViewModel}">
             <usercontrol:ControlRegisterForACourseUC/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type viewmodel:YourClassViewModel}">
+            <usercontrol:YourClassUC/>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewmodel:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>

@@ -13,5 +13,6 @@ namespace EnglishCentreManagement.Interfaces
         void Delete(Student Std);
         void Update(Student Std);
         Student getById(string id);
+        List<Student> GetListStudent(Classroom cls);
     }
 }

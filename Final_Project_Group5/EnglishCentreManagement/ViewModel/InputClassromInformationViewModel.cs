@@ -15,7 +15,9 @@ namespace EnglishCentreManagement.ViewModel
     public class InputClassromInformationViewModel : BaseViewModel
     {
         private Classroom _currentClassroom = new Classroom(); 
+
         private IClassRoomDao classRoomDao = new ClassRoomDao();
+        private IShiftDAO shiftDAO = new ShiftDAO();
 
         public ObservableCollection<string> ListShift { get; set; }
         public ObservableCollection<string> ListStudyDate { get; set; }
@@ -25,7 +27,7 @@ namespace EnglishCentreManagement.ViewModel
         public InputClassromInformationViewModel()
         {
             ListStudyDate = new ObservableCollection<string>(classRoomDao.GetListStudyDate());
-            ListShift = new ObservableCollection<string>(ShiftDAO.getAllShiftID());
+            ListShift = new ObservableCollection<string>(shiftDAO.getAllShiftID());
             AddClassroomCommand = new RelayCommand<Window>(CanExecuteAddClassroomCommand, ExecuteAddClassroomCommand);
         }
 
@@ -46,18 +48,18 @@ namespace EnglishCentreManagement.ViewModel
 
         private bool CanExecuteAddClassroomCommand(Window obj)
         {
-            //bool validValue = false;
+            bool validValue = false;
 
-            //if (CurrentClassroom != null)
-            //{
-            //    if (CurrentClassroom.IDTeacher == null || CurrentClassroom.IDClassroom == null || CurrentClassroom.RoomNum == null || CurrentClassroom.MaxNumStudent.ToString() == null || CurrentClassroom.IDCourse == null || CurrentClassroom.StartingDate.ToString() == null || CurrentClassroom.EndingDate.ToString() == null|| CurrentClassroom.StudyDate == null || CurrentClassroom.IDShift == null)
-            //        validValue = false;
-            //    else
-            //        validValue = true;
-            //}
 
-            //return validValue;
-            return true;
+            if (CurrentClassroom != null)
+            {
+                if (CurrentClassroom.IDTeacher == null || CurrentClassroom.IDClassroom == null || CurrentClassroom.RoomNum == null || CurrentClassroom.MaxNumStudent.ToString() == null || CurrentClassroom.IDCourse == null || CurrentClassroom.StartingDate.ToString() == null || CurrentClassroom.EndingDate.ToString() == null|| CurrentClassroom.StudyDate == null || CurrentClassroom.IDShift == null)
+                    validValue = false;
+                else
+                    validValue = true;
+            }
+
+            return validValue;
         }
 
     }

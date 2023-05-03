@@ -10,15 +10,18 @@ namespace EnglishCentreManagement.Interfaces
 {
     public interface IClassRoomDao
     {
-        bool ValidateValue(Classroom cls);
         void Add(Classroom cls);
-        void Delete(Classroom cls);
-        void Update(Classroom cls);
         void AddStudent(Classroom cls, Student st);
+        void Delete(Classroom cls);
+        void DeleteRegisteredClassroom(string stdID, string clsID);
+        void Update(Classroom cls);
+        bool ValidateValue(Classroom cls);
+        Classroom? getById(string id);
         DataTable getClassRoomDAO();
         DataTable getStudentList(Classroom cls);
         List<Classroom> fillDataToListClassRoom(DataTable datatable);
         List<string> GetListStudyDate();
-
+        List<Classroom> GetListRegisteredClassroom(Student std);
+        List<Classroom> GetListTeacherClassroom(Teacher tea);
     }
 }

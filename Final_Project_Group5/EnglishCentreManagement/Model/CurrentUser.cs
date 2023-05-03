@@ -8,24 +8,13 @@ namespace EnglishCentreManagement.Model
 {
     public class CurrentUser
     {
-        private static CurrentUser? instance;
-        private Student? std;
-        private Teacher? tea;
-        private Manager? mng;
-        private Enterprise_Infor? enterprise_Infor;
+        private static CurrentUser instance = new CurrentUser();
+        private Student std = new Student();
+        private Teacher tea = new Teacher();
+        private Manager mng = new Manager();
+        private Enterprise_Infor enterprise_Infor = new Enterprise_Infor();
 
-        public static CurrentUser Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new CurrentUser();
-                }
-                return instance;
-            }
-        }
-
+        public static CurrentUser Instance { get => instance; set => instance=value; }
         public Student CurrentStudent { get => std; set => std = value; }
         public Teacher CurrentTeacher { get => tea; set => tea = value; }
         public Manager CurrentManager { get => mng; set => mng = value; }

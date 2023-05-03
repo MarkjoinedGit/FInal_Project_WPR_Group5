@@ -17,6 +17,16 @@ namespace EnglishCentreManagement.Database
             throw new System.NotImplementedException();
         }
 
+        public void Delete(Enterprise_Infor enterprise_Infor)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(Enterprise_Infor enterprise_Infor)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public bool AuthenticateEnterpriseInfor(string Username, string Password)
         {
             bool validUser;
@@ -25,12 +35,7 @@ namespace EnglishCentreManagement.Database
             return validUser;
         }
 
-        public void Delete(Enterprise_Infor enterprise_Infor)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<Enterprise_Infor> getAll()
+        public string getRole(string userName)
         {
             throw new System.NotImplementedException();
         }
@@ -56,7 +61,7 @@ namespace EnglishCentreManagement.Database
                 MessageBox.Show("Null data");
             }
 
-            return null;
+            return new Enterprise_Infor();
         }
 
         public Enterprise_Infor getByUserName(string Username, string Password)
@@ -80,22 +85,12 @@ namespace EnglishCentreManagement.Database
                 MessageBox.Show("Null data");
             }
 
-            return null;
+            return new Enterprise_Infor();
         }
 
-        public string getRole(string userName)
+        public IEnumerable<Enterprise_Infor> getAll()
         {
             throw new System.NotImplementedException();
         }
-
-        public void Update(Enterprise_Infor enterprise_Infor)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        //public string getNameById(string id)
-        //{
-        //    string sqlStr = string.Format("SELECT* FROM HOCVIEN, GIANGVIEN, QUANLY")
-        //}
     }
 }

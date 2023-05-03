@@ -1,4 +1,5 @@
-﻿using EnglishCentreManagement.Interfaces;
+﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using MaterialDesignThemes.Wpf;
 using System;
@@ -8,19 +9,27 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class TeacherViewModel : BaseViewModel
     {
-        private IEnterprise_infoDAO enterprise_InfoDAO;
         private BaseViewModel _currentChildView;
         private string _caption;
         private PackIconKind _icon;
         private Teacher _crtTeacher;
 
+        private IEnterprise_infoDAO enterprise_InfoDAO = new Enterprise_infoDAO();
+
         public ICommand ShowHomeView { get; }
+        public ICommand ShowYourClassView { get; }
         public ICommand ShowUserInforView { get; }
 
         public TeacherViewModel()
         {
+            _currentChildView = new BaseViewModel();
+            _caption = "";
+            _icon = new PackIconKind();
+            _crtTeacher = new Teacher();
+
             LoadUserCurrentData();
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewCommand);
+            ShowYourClassView = new RelayCommand<object>(ExcuteShowYourClassView);
             ShowUserInforView = new RelayCommand<object>(ExecuteShowUserInforViewCommand);
 
             //Default view
@@ -77,6 +86,13 @@ namespace EnglishCentreManagement.ViewModel
             CurrentChildView = new HomeViewModel();
             Caption = "Dashboard";
             Icon = PackIconKind.Home;
+        }
+
+        private void ExcuteShowYourClassView(object obj)
+        {
+            CurrentChildView = new ManageTeacherClassRoomViewModel();
+            Caption = "Your class";
+            Icon = PackIconKind.ClipboardEditOutline;
         }
 
         private void ExecuteShowUserInforViewCommand(object? p)

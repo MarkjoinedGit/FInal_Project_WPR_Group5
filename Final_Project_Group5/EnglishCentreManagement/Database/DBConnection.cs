@@ -17,19 +17,16 @@ namespace EnglishCentreManagement.Database
                 adapter.Fill(dttable);
                 return dttable;
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
             finally
             {
                 conn.Close();
             }
-#pragma warning disable CS8603 // Possible null reference return.
-            return null;
-#pragma warning restore CS8603 // Possible null reference return.
+
+            return new DataTable();
         }
 
         public static void Execute(SqlConnection conn, string sqlStr)
@@ -38,7 +35,7 @@ namespace EnglishCentreManagement.Database
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                if (cmd.ExecuteNonQuery() <= 0)
+                if (cmd.ExecuteNonQuery() > 0)
                 {
                     MessageBox.Show("Execute successfully");
                 }
@@ -46,9 +43,9 @@ namespace EnglishCentreManagement.Database
             catch (Exception ex)
             {
 
-                MessageBox.Show("Execute failed: " + ex);
+                MessageBox.Show("Execute failed: \n" + ex);
+                
             }
-
             finally
             {
                 conn.Close();
@@ -73,14 +70,12 @@ namespace EnglishCentreManagement.Database
             {
                 MessageBox.Show("Thuc thi that bai" + ex);
             }
-
             finally
             {
                 conn.Close();
             }
 
             return false;
-            
         }
     }
 }

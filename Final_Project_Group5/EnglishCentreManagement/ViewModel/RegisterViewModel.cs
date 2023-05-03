@@ -14,42 +14,67 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class RegisterViewModel : BaseViewModel
     {
+        private string _errMsg;
         public ObservableCollection<Classroom> ListClassrooms { get; set; }
-        public ClassRoomDao classroomDao = new ClassRoomDao();
         private Student _currentStudent = CurrentUser.Instance.CurrentStudent;
         private Classroom _currentClassroom;
+
+        public IClassRoomDao classroomDao = new ClassRoomDao();
         private IRegisterDao registerDao = new RegisterDao();
+        private ICourseDAO courseDao = new CourseDAO();
+
 
         public ICommand RegisterClassroom { get; set; }
 
         public RegisterViewModel() 
         {
+            _errMsg = "";
+            _currentClassroom = new Classroom();
+
             DataTable dtClassroom = classroomDao.getClassRoomDAO();
             ListClassrooms = new ObservableCollection<Classroom>(classroomDao.fillDataToListClassRoom(dtClassroom));
             RegisterClassroom = new RelayCommand<object>(CanExecuteRegisterClassroom, ExecuteRegisterClassroom);
         }
 
         public Student CurrentStudent {  get => _currentStudent; }
-        public Classroom CurrentClassroom { get => _currentClassroom; set => _currentClassroom=value; }
+        public Classroom CurrentClassroom 
+        { 
+            get => _currentClassroom;
+            set
+            {
+                _currentClassroom=value;
+                OnPropertyChanged(nameof(CurrentClassroom));
+            }
+        }
+        public string ErrMsg 
+        { 
+            get => _errMsg == null ? "" : _errMsg;
+            set
+            {
+                _errMsg=value;
+                OnPropertyChanged(nameof(ErrMsg));
+            }
+        }
 
         private void ExecuteRegisterClassroom(object obj)
         {
-            registerDao.Add(CurrentStudent, CurrentClassroom);
+            Course crs = courseDao.findCourseByID(CurrentClassroom.IDCourse);
+            if (crs != null)
+            {
+                if (_currentStudent.RankLevel < crs.InputLevel)
+                    ErrMsg = "* You cannot sign up for this class as your rank level does not meet the classroom's input level";
+                else
+                {
+                    ErrMsg = "";
+                    registerDao.Add(CurrentStudent, CurrentClassroom);
+                }
+            }
         }
 
         private bool CanExecuteRegisterClassroom(object obj)
         {
-            if (_currentClassroom == null)
+            if (_currentClassroom.IsHaveNullValue())
                 return false;
-            else
-            {
-                Course? crs = CourseDAO.findCourseByID(CurrentClassroom.IDCourse);
-                if(crs! == null)
-                {
-                    if (_currentStudent.RankLevel < crs.InputLevel)
-                        return false;
-                } 
-            }
             return true;
         }
     }

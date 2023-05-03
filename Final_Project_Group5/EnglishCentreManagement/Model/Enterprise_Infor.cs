@@ -2,7 +2,6 @@
 {
     public class Enterprise_Infor
     {
-        // Fields - Information that's used in organization
         private string id;
         private string title;
         private string email;
@@ -17,15 +16,20 @@
 
         public Enterprise_Infor(string ID, string Title, string Email, string UserName, string Password)
         {
-            this.ID = ID;
-            this.Title = Title;
-            this.Email = Email;
-            this.UserName = UserName;
-            this.Password = Password;
+            this.id = ID;
+            this.title = Title;
+            this.email = Email;
+            this.userName = UserName;
+            this.password = Password;
         }
 
         public Enterprise_Infor()
         {
+            id = "";
+            title = "";
+            email = "";
+            userName = "";
+            password = "";
         }
     }
 }

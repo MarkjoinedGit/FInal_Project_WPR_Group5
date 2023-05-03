@@ -6,21 +6,32 @@ namespace EnglishCentreManagement.Model
     public class Test
     {
         private string idTest;
-        private DateTime timeTesting;
-        private string idTeacher;
-        private Dictionary<string, double> point;
+        private string idClassRoom;
+        private string timeTesting;
+        private DateTime dateTesting;
+        private string description;
 
         public string IDTest { get => idTest; set => idTest = value; }
-        public DateTime TimeTesting { get => timeTesting; set => timeTesting = value; }
-        public string IDTeacher { get => idTeacher; set => idTeacher = value; }
-        public Dictionary<string, double> Point { get => point; set => point=value; }
+        public string IDClassRoom { get => idClassRoom; set => idClassRoom = value; }
+        public string TimeTesting { get => timeTesting; set => timeTesting = value; }
+        public DateTime DateTesting { get => dateTesting; set => dateTesting = value; }
+        public string Description { get => description; set => description=value; }
 
-        public Test(string IDTest, DateTime TimeTesting, string IDTeacher, Dictionary<string, double> Point)
+        public Test()
         {
-            this.IDTest = IDTest;
-            this.TimeTesting = TimeTesting;
-            this.IDTeacher = IDTeacher;
-            this.Point = Point;
+            idTest = "";
+            idClassRoom = "";
+            timeTesting = "";
+            description = "";
+        }
+
+        public Test(string IDTest, string IDClassRoom, string TimeTesting, DateTime DateTesting, string Description)
+        {
+            this.idTest = IDTest;
+            this.idClassRoom = IDClassRoom;
+            this.timeTesting = TimeTesting;
+            this.dateTesting = DateTesting;
+            this.description = Description;
         }
     }
 }

@@ -11,8 +11,8 @@ namespace EnglishCentreManagement.Model
         private string roomNum;
         private int maxNumStudent;
         private string idCourse;
-        private DateOnly startingDate;
-        private DateOnly endingDate;
+        private DateTime startingDate;
+        private DateTime endingDate;
         private string studyDate;
         private string idShift;
 
@@ -21,28 +21,43 @@ namespace EnglishCentreManagement.Model
         public string RoomNum { get => roomNum; set => roomNum = value; }
         public int MaxNumStudent { get => maxNumStudent; set => maxNumStudent = value; }
         public string IDCourse { get => idCourse; set => idCourse=value; }
-        public DateOnly StartingDate { get => startingDate; set => startingDate = value; }
-        public DateOnly EndingDate { get => endingDate; set => endingDate = value; }
+        public DateTime StartingDate { get => startingDate; set => startingDate = value; }
+        public DateTime EndingDate { get => endingDate; set => endingDate = value; }
         public string StudyDate { get => studyDate; set => studyDate=value; }
         public string IDShift { get => idShift; set => idShift=value; }
 
         public Classroom(string IDTeacher, string IDClassroom, string RoomNum, int NumStudent,
-        string IDCourse, DateOnly StartingDate, DateOnly EndingDate, string StudyDate, string IDShift)
+        string IDCourse, DateTime StartingDate, DateTime EndingDate, string StudyDate, string IDShift)
         {
-            this.IDTeacher = IDTeacher; 
-            this.IDClassroom = IDClassroom;
-            this.IDCourse = IDCourse;
-            this.RoomNum = RoomNum;
-            this.EndingDate = EndingDate;
-            this.StudyDate = StudyDate;
-            this.StartingDate = StartingDate;
-            this.MaxNumStudent = NumStudent;
-            this.IDShift = IDShift;
+            this.idTeacher = IDTeacher; 
+            this.idClassroom = IDClassroom;
+            this.idCourse = IDCourse;
+            this.roomNum = RoomNum;
+            this.endingDate = EndingDate;
+            this.studyDate = StudyDate;
+            this.startingDate = StartingDate;
+            this.endingDate= EndingDate;
+            this.maxNumStudent = NumStudent;
+            this.idShift = IDShift;
         }
 
         public Classroom()
         {
+            this.idTeacher = "";
+            this.idClassroom = "";
+            this.roomNum = "";
+            this.idCourse = "";
+            this.studyDate = "";
+            this.startingDate = DateTime.Now;
+            this.endingDate = DateTime.Now;
+            this.idShift = "";
+        }
 
+        public bool IsHaveNullValue()
+        {
+            if(idTeacher == "" || idClassroom == "" || roomNum == "" || idCourse == "" || studyDate == "" || idShift == "")
+                return true;
+            return false;
         }
     }
 }

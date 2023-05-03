@@ -1,4 +1,5 @@
-﻿using EnglishCentreManagement.Model;
+﻿using EnglishCentreManagement.Interfaces;
+using EnglishCentreManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,11 +11,11 @@ using System.Windows;
 
 namespace EnglishCentreManagement.Database
 {
-    public class CourseDAO
+    public class CourseDAO : ICourseDAO
     {
         static SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
 
-        public static Course? findCourseByID(string id)
+        public Course findCourseByID(string id)
         {
             string strSQL = string.Format("SELECT * FROM KHOAHOC WHERE MaKhoaHoc = '{0}'", id);
             try
@@ -36,14 +37,12 @@ namespace EnglishCentreManagement.Database
                     return course;
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Cannot find the information of the teacher or " + ex.Message);
             }
 
             return null;
-
         }
     }
 }

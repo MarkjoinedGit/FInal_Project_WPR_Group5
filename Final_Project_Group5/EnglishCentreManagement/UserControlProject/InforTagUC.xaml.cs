@@ -27,7 +27,7 @@ namespace EnglishCentreManagement.UserControlProject
         public static readonly DependencyProperty NameTeacherProperty = DependencyProperty.Register("NameTeacher", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
         public static readonly DependencyProperty NumStudentProperty = DependencyProperty.Register("NumStudent", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
         public static readonly DependencyProperty RoomNumProperty = DependencyProperty.Register("RoomNum", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
-        public static readonly DependencyProperty StartEndProperty = DependencyProperty.Register("StartEnd", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
+        public static readonly DependencyProperty InputLevelProperty = DependencyProperty.Register("InputLevel", typeof(double), typeof(InforTagUC), new PropertyMetadata(0.0));
         public static readonly DependencyProperty MeetProperty = DependencyProperty.Register("Meet", typeof(string), typeof(InforTagUC), new PropertyMetadata(string.Empty));
         public static readonly DependencyProperty SubWidthProperty = DependencyProperty.Register("SubWidth", typeof(int), typeof(InforTagUC), new PropertyMetadata(0));
 
@@ -58,10 +58,10 @@ namespace EnglishCentreManagement.UserControlProject
             get { return (string)GetValue(RoomNumProperty); }
             set { SetValue(RoomNumProperty, value); }
         }
-        public string StartEnd
+        public double InputLevel
         {
-            get { return (string)GetValue(StartEndProperty); }
-            set { SetValue(StartEndProperty, value); }
+            get { return (double)GetValue(InputLevelProperty); }
+            set { SetValue(InputLevelProperty, value); }
         }
         public string Meet
         {

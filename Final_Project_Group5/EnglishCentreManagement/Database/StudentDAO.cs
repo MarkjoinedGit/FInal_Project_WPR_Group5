@@ -1,6 +1,7 @@
 ﻿using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
@@ -30,7 +31,7 @@ namespace EnglishCentreManagement.Database
             DBConnection.Execute(conn, str);
         }
 
-        public Student? getById(string id)
+        public Student getById(string id)
         {
             string sqlStr = string.Format("SELECT* FROM HOCVIEN WHERE MaHocVien = '{0}'", id);
             try
@@ -40,7 +41,7 @@ namespace EnglishCentreManagement.Database
                 {
                     Enter_Infor = enterprise_InfoDAO.getById(dtUser.Rows[0]["MaHocVien"].ToString()),
                     NamePerson = dtUser.Rows[0]["TenHocVien"].ToString(),
-                    DateBorn = new DateOnly(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
+                    DateBorn = new DateTime(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
                     Gender = dtUser.Rows[0]["GioiTinh"].ToString(),
                     Address = dtUser.Rows[0]["DiaChi"].ToString(),
                     PhoneNum = dtUser.Rows[0]["SoDienThoai"].ToString(),
@@ -55,7 +56,21 @@ namespace EnglishCentreManagement.Database
                 MessageBox.Show("Null data");
             }
 
-            return null;
+            return new Student();
+        }
+
+        public List<Student> GetListStudent(Classroom cls)
+        {
+            string strSql = string.Format("SELECT MaHocVien FROM fn_LayDanhSachHocVienTrongLop('{0}')", cls.IDClassroom);
+            DataTable dt = DBConnection.getData(conn, strSql);
+            List<Student> listStd = new List<Student>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                Student? std = getById(dr["MaHocVien"].ToString());
+                if (cls != null)
+                    listStd.Add(std);
+            }
+            return listStd;
         }
     }
 }

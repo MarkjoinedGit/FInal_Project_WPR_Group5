@@ -16,13 +16,16 @@ namespace EnglishCentreManagement.Model
         public TimeSpan StartingTime { get => startingTime; set => startingTime = value; }
         public TimeSpan Endingtime { get => endingtime; set => endingtime=value; }
 
-        public Shift() { }
+        public Shift() 
+        {
+            idShift = "";
+        }
 
         public Shift(string IDShift, TimeSpan StartingTime, TimeSpan Endingtime)
         {
-            this.IDShift = IDShift;
-            this.StartingTime = StartingTime;
-            this.Endingtime = Endingtime;
+            this.idShift = IDShift;
+            this.startingTime = StartingTime;
+            this.endingtime = Endingtime;
         }
     }
 }

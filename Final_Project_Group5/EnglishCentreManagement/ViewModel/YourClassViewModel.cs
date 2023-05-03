@@ -11,8 +11,9 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class YourClassViewModel : BaseViewModel
     {
+        private List<Classroom> _listRegisteredClassroom = new List<Classroom>();
+
         private ClassRoomDao clsDao = new ClassRoomDao();
-        private List<Classroom> _listRegisteredClassroom;
 
         public ICommand DeleteRegisteredClassroomCommand { get; set; }
 

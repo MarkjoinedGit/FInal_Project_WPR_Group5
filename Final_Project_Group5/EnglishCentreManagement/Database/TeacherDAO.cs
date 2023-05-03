@@ -30,7 +30,7 @@ namespace EnglishCentreManagement.Database
             DBConnection.Execute(conn, strSQL);
         }
 
-        public Teacher? getByID(string id)
+        public Teacher getByID(string id)
         {
             string sqlStr = string.Format("SELECT* FROM GIAOVIEN WHERE MaGiaoVien = '{0}'", id);
             try
@@ -40,7 +40,7 @@ namespace EnglishCentreManagement.Database
                 {
                     Enter_Infor = enterprise_InfoDAO.getById(dtUser.Rows[0]["MaGiaoVien"].ToString()),
                     NamePerson = dtUser.Rows[0]["TenGiaoVien"].ToString(),
-                    DateBorn = new DateOnly(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
+                    DateBorn = new DateTime(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
                     Gender = dtUser.Rows[0]["GioiTinh"].ToString(),
                     Address = dtUser.Rows[0]["DiaChi"].ToString(),
                     PhoneNum = dtUser.Rows[0]["SoDienThoai"].ToString(),
@@ -51,13 +51,7 @@ namespace EnglishCentreManagement.Database
             }
             catch { }
 
-            return null;
-
-        }
-
-        public bool canGetByID(string id)
-        {
-            throw new NotImplementedException();
+            return new Teacher();
         }
     }
 }

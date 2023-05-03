@@ -10,289 +10,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="598" d:DesignWidth="1008">
     <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="698"/>
-        </Grid.ColumnDefinitions>
-
-        <Border Background="#ffd500" Padding="10" CornerRadius="10" BorderThickness="3" BorderBrush="Black">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="280"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Vertical" Grid.Row="0">
-                    <DockPanel>
-                        <Border Height="150" Width="150" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10 20 0 0 ">
-                            <Ellipse>
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="/ResourceXAML/Image/graduating-student.png"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        </Border>
-                    </DockPanel>
-
-                    <TextBlock Text="Let's get you say up "
-                           TextAlignment="Center"
-                           FontWeight="SemiBold"
-                           FontSize="28"
-                           Foreground="#363636"
-                           />
-                    <TextBlock TextWrapping="Wrap" 
-                           FontSize="16" 
-                           FontStyle="Oblique"
-                           TextAlignment="Center" 
-                           Foreground="#363636"
-                           Margin="0 20 0 20"
-                           Text="it should only a couple of minutes to pair with you watch"/>
-                </StackPanel>
-
-                <Border Grid.Row="1"  CornerRadius="10" Height="272" VerticalAlignment="Top" Padding="5"
-                        Margin="0,10,0,0">
-                    <StackPanel>
-                        <Grid Margin="0 5 0 5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <uc:TagUC Tag="Adjust" FontSize="18" FontFamily="Montserrat" VerticalAlignment="Bottom" Grid.Column="0" HorizontalAlignment="Left" Text="Registering Status: "/>
-                            <TextBlock Grid.Column="1" Text="{Binding RegisterStatus}"/>
-                        </Grid>
-
-
-                        <Grid Margin="0 8 0 8">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <materialDesign:Badged Badge="Register" BadgeColorZoneMode="Inverted" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button x:Name="Register"
-                                        Grid.Column="0"
-                                        Margin="5,0,0,0"
-                                        Background="#176ec6"
-                                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding IsSaving}"
-                                        materialDesign:ButtonProgressAssist.Value="{Binding SaveProgress}"
-                                        Command="{Binding SaveCommand}"
-                                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                        Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                                    <materialDesign:PackIcon Width="30" Height="30">
-                                        <materialDesign:PackIcon.Style>
-                                            <Style TargetType="materialDesign:PackIcon">
-                                                <Setter Property="Kind" Value="ContentSaveEdit" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding IsSaveComplete}"
-                                                         Value="True">
-                                                        <Setter Property="Kind" Value="Check" />
-                                                        <DataTrigger.EnterActions>
-                                                            <BeginStoryboard>
-                                                                <Storyboard>
-                                                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"
-                                                                              From="0"
-                                                                              To="1"
-                                                                              Duration="0:0:0.8" />
-                                                                </Storyboard>
-                                                            </BeginStoryboard>
-                                                        </DataTrigger.EnterActions>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </materialDesign:PackIcon.Style>
-                                    </materialDesign:PackIcon>
-                                </Button>
-
-                            </materialDesign:Badged>
-
-                            <materialDesign:Badged Grid.Column="1" Badge="Refresh" BadgeColorZoneMode="Inverted" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button x:Name="Refresh"
-                                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                                        materialDesign:ButtonProgressAssist.Value="100"
-                                        Content="{materialDesign:PackIcon RefreshCircle,Size=30}"
-                                        Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}" />
-                            </materialDesign:Badged>
-
-                            <materialDesign:Badged Grid.Column="2" Badge="Filter" BadgeColorZoneMode="Inverted" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button x:Name="btnFilter"
-                                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                                        materialDesign:ButtonProgressAssist.Value="100"
-                                        Content="{materialDesign:PackIcon RefreshCircle,Size=30}"
-                                        Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}" Background="#67daff" />
-                            </materialDesign:Badged>
-
-                        </Grid>
-
-                    </StackPanel>
-
-                </Border>
-            </Grid>
-        </Border>
-
-
-        <Border Grid.Column="1" 
-                Padding="5"
-                Background="#ffffff"
-                BorderBrush="#de3627"
-                BorderThickness="3"
-                CornerRadius="10">
-            <StackPanel Orientation="Vertical">
-
-                <Border Height="360" Margin=" 0 0 0 1">
-                    <ListView x:Name="lsClassroom">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                -->
-        <!--<uc:RegisterTag></uc:RegisterTag>-->
-        <!--
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Border>
-
-                <Border HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="2" Margin="0 1 0 0">
-                    <StackPanel Orientation="Vertical">
-                        <Grid Margin="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="170"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <uc:TagUC Grid.Column="0" Tag="CastEducation" Text="Course" Width="170" FontSize="20"  HorizontalAlignment="Left" Margin="2 0 0 0"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-
-                                <ComboBox x:Name="cbCourseInputLev" 
-                                materialDesign:HintAssist.Hint="Input Level"
-                                materialDesign:TextFieldAssist.HasClearButton="True"
-                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                Width="160" HorizontalAlignment="Left"
-                                      Margin="0 0 10 0" >
-                                    <ComboBox.SelectedItem>
-                                        <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
-                                        </Binding>
-                                    </ComboBox.SelectedItem>
-                                </ComboBox>
-
-                                <ComboBox
-                                          MinWidth="72"
-                                          materialDesign:HintAssist.FontFamily="Verdana"
-                                          materialDesign:HintAssist.Hint="(Change fontfamily float hint)"
-                                          ItemsSource="{Binding LongStringList}"
-                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
-
-
-                                <ComboBox x:Name="cbCourseName" 
-                                materialDesign:HintAssist.Hint="Choose Reliable Course"
-                                materialDesign:TextFieldAssist.HasClearButton="True"
-                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                Width="270" Height="45" HorizontalAlignment="Left">
-                                    <ComboBox.SelectedItem>
-                                        <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
-                                        </Binding>
-                                    </ComboBox.SelectedItem>
-                                </ComboBox>
-
-                            </StackPanel>
-
-                        </Grid>
-
-                        <Grid Margin="0 2 0 2 ">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="170"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <uc:TagUC Grid.Column="0" Tag="HumanMaleBoard" Text="Teacher Name"
-                                  FontSize="20" HorizontalAlignment="Left" Width="170" />
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <TextBox Width="300" x:Name="TeacherName"
-                                     Margin="2"
-                                     materialDesign:HintAssist.Hint=" Reliable Teacher"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding Teacher}"/>
-                                <materialDesign:DialogHost Margin="10 0 0 0">
-                                    <materialDesign:DialogHost.DialogContent>
-                                        <Grid>
-                                            <ListView>
-                                                <ListView.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Button Content="{Binding }"></Button>
-                                                    </DataTemplate>
-                                                </ListView.ItemTemplate>
-                                            </ListView>
-                                        </Grid>
-                                    </materialDesign:DialogHost.DialogContent>
-                                    <Button x:Name="OpenDialog"
-                                    Grid.Row="0"
-                                    Margin="5"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
-                                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                                    Content="{materialDesign:PackIcon Kind=Plus, Size=22}"
-                                    Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"/>
-                                </materialDesign:DialogHost>
-                            </StackPanel>
-                        </Grid>
-
-                        <Grid Margin="0 1 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="170"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <uc:TagUC Grid.Column="0" Tag="ProjectorScreenOutline" Text="Studying meet"
-                                  FontSize="20" HorizontalAlignment="Left" Width="170" />
-
-                            <ComboBox x:Name="cbMeet" Grid.Column="1" 
-                                materialDesign:HintAssist.Hint="Choose Reliable Meets"
-                                materialDesign:TextFieldAssist.HasClearButton="True"
-                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                Width="360" Height="45" HorizontalAlignment="Left">
-                                <ComboBox.SelectedItem>
-                                    <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
-                                    </Binding>
-                                </ComboBox.SelectedItem>
-                            </ComboBox>
-
-                        </Grid>
-
-                        <Grid Margin="0 5 0 3 ">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="170"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <uc:TagUC Grid.Column="0" Tag="WrenchClock" Text="Studying shift"
-                                  FontSize="20" HorizontalAlignment="Left" Width="170" />
-
-                            <ComboBox x:Name="cbShift" Grid.Column="1" 
-                                materialDesign:HintAssist.Hint="Choose Reliable Shift"
-                                materialDesign:TextFieldAssist.HasClearButton="True"
-                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                Width="360" Height="45" HorizontalAlignment="Left">
-                                <ComboBox.SelectedItem>
-                                    <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
-                                    </Binding>
-                                </ComboBox.SelectedItem>
-                            </ComboBox>
-
-                        </Grid>
-
-
-
-                    </StackPanel>
-                </Border>
-
-            </StackPanel>
-
-
-
-
-        </Border>-->
-
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
             <RowDefinition Height="434"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <Grid Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <Border Background="#ffd500" Padding="10" CornerRadius="10" Width="110" Margin="0 0 1 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="1.3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="#ffd500" Padding="10" CornerRadius="10" Grid.Column="0" Margin="0 0 1 0">
                     <StackPanel Orientation="Vertical" >
                         <DockPanel>
                             <Border Width="60" Height="60" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" >
@@ -311,75 +43,68 @@
                     </StackPanel>
                 </Border>
 
+                <Border Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="0 0 1 0">
+                    <StackPanel Orientation="Vertical">
 
-                <Border Margin="1">
-                    <Grid Width="908">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="5" Margin="0 0 1 0">
-                            <StackPanel Orientation="Vertical">
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="115"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <uc:TagUC Grid.Column="0" Tag="CastEducation" Text="Course:" Width="100" FontSize="20" VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal">
 
-                                <Grid Margin="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="115"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <uc:TagUC Grid.Column="0" Tag="CastEducation" Text="Course:" Width="100" FontSize="20" VerticalAlignment="Center"/>
-                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-
-                                        <ComboBox x:Name="cbCourseInputLev" 
+                                <ComboBox x:Name="cbCourseInputLev" 
                                 materialDesign:HintAssist.Hint="Input Level"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                 Width="140"  Margin="0 0 10 0" >
-                                        </ComboBox>
+                                </ComboBox>
 
 
-                                        <ComboBox x:Name="cbCourseName" 
+                                <ComboBox x:Name="cbCourseName" 
                                 materialDesign:HintAssist.Hint="Choose Reliable Course"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                 Width="220">
-                                            <ComboBox.SelectedItem>
-                                                <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
-                                                </Binding>
-                                            </ComboBox.SelectedItem>
-                                        </ComboBox>
-                                    </StackPanel>
-                                </Grid>
+                                    <ComboBox.SelectedItem>
+                                        <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
+                                        </Binding>
+                                    </ComboBox.SelectedItem>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
 
-                                <Grid Margin="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="115"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <uc:TagUC Grid.Column="0" Tag="HumanMaleBoard" Text="Teacher:"
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="115"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <uc:TagUC Grid.Column="0" Tag="HumanMaleBoard" Text="Teacher:"
                                   FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="115" />
-                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                        <TextBox Width="200" x:Name="TeacherName"
+                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                <TextBox Width="200" x:Name="TeacherName"
                                      materialDesign:HintAssist.Hint=" Reliable Teacher"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      Text="{Binding Teacher}"/>
-                                        <materialDesign:DialogHost Margin="10 0 0 0">
-                                            <materialDesign:DialogHost.DialogContent>
-                                                <StackPanel Orientation="Vertical">
-                                                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" Content="{materialDesign:PackIcon ArrowRightCircleOutline}">
-                                                    </Button>
-                                                    <Grid>
-                                                        <ListView x:Name="lstTeacher">
-                                                            <ListView.ItemTemplate>
-                                                                <DataTemplate>
-                                                                    <uc:TagUC Text="{Binding}" ></uc:TagUC>
-                                                                </DataTemplate>
-                                                            </ListView.ItemTemplate>
-                                                        </ListView>
-                                                    </Grid>
-                                                </StackPanel>
+                                <materialDesign:DialogHost Margin="10 0 0 0">
+                                    <materialDesign:DialogHost.DialogContent>
+                                        <StackPanel Orientation="Vertical">
+                                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" Content="{materialDesign:PackIcon ArrowRightCircleOutline}">
+                                            </Button>
+                                            <Grid>
+                                                <ListView x:Name="lstTeacher">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <uc:TagUC Text="{Binding}" ></uc:TagUC>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </Grid>
+                                        </StackPanel>
 
-                                            </materialDesign:DialogHost.DialogContent>
-                                            <Button x:Name="OpenDialog"
+                                    </materialDesign:DialogHost.DialogContent>
+                                    <Button x:Name="OpenDialog"
                                                 Grid.Row="0"
                                                 Margin="5"
                                                 HorizontalAlignment="Right"
@@ -387,59 +112,58 @@
                                                 Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                                                 Content="{materialDesign:PackIcon Kind=Plus, Size=22}"
                                                 Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"/>
-                                        </materialDesign:DialogHost>
-                                    </StackPanel>
-                                </Grid>
-
+                                </materialDesign:DialogHost>
                             </StackPanel>
-                        </Border>
+                        </Grid>
 
-                        <Border Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="1 0 0 0">
-                            <StackPanel Orientation="Vertical">
+                    </StackPanel>
+                </Border>
 
-                                <Grid Margin="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="168"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <uc:TagUC Grid.Column="0" Tag="ProjectorScreenOutline" Text="Studying meet" VerticalAlignment="Center"
-                                  FontSize="20" Width="168" />
+                <Border Grid.Column="2" Background="White" CornerRadius="10" Padding="5" Margin="1 0 0 0">
+                    <StackPanel Orientation="Vertical">
 
-                                    <ComboBox x:Name="cbMeet" Grid.Column="1" 
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="233"/>
+                            </Grid.ColumnDefinitions>
+                            <uc:TagUC Grid.Column="0" Tag="ProjectorScreenOutline" Text="Studying meet" VerticalAlignment="Center"
+                                  FontSize="15" />
+
+                            <ComboBox x:Name="cbMeet" Grid.Column="1" 
                                 materialDesign:HintAssist.Hint="Choose Reliable Meets"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                 Width="210" HorizontalAlignment="Left">
-                                    </ComboBox>
-                                </Grid>
+                            </ComboBox>
+                        </Grid>
 
-                                <Grid Margin="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="167"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <uc:TagUC Grid.Column="0" Tag="WrenchClock" Text="Studying shift"
-                                  FontSize="20" HorizontalAlignment="Left" Width="170" VerticalAlignment="Center" />
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <uc:TagUC Grid.Column="0" Tag="WrenchClock" Text="Studying shift"
+                                  FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="3" />
 
-                                    <ComboBox x:Name="cbShift" Grid.Column="1" 
+                            <ComboBox x:Name="cbShift" Grid.Column="2" 
                                 materialDesign:HintAssist.Hint="Choose Reliable Shift"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                 Width="210" HorizontalAlignment="Left">
-                                        <ComboBox.SelectedItem>
-                                            <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
-                                            </Binding>
-                                        </ComboBox.SelectedItem>
-                                    </ComboBox>
+                                <ComboBox.SelectedItem>
+                                    <Binding Mode="TwoWay" Path="SelectedCourse"  UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                            </ComboBox>
 
-                                </Grid>
+                        </Grid>
 
-                            </StackPanel>
-                        </Border>
-                    </Grid>
+                    </StackPanel>
                 </Border>
-            </StackPanel>
+            </Grid>
         </Grid>
+        
         <Border Grid.Row="1" Margin="2" CornerRadius="10" Background="AliceBlue">
             <Grid>
                 <ListView x:Name="lstClassroom" 
@@ -449,11 +173,10 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:InforTagUC IdClassroom="{Binding IDClassroom, Mode=OneWay}"
-                                           IdCourse="{Binding ClassCourse.IdCourse, Mode=OneWay}"
-                                           NameTeacher="{Binding ClassTeacher.NamePerson, Mode=OneWay}"
+                                           IdCourse="{Binding IDCourse, Mode=OneWay}"
+                                           NameTeacher="{Binding IDTeacher, Mode=OneWay}"
                                            NumStudent="20"
                                            RoomNum="{Binding RoomNum, Mode=OneWay}"
-                                           StartEnd="null"
                                            Meet="{Binding StudyDate, Mode=OneWay}"
                                            Width="550"
                                            SubWidth="490"
@@ -464,33 +187,32 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" Background="#79B700">
-            <Grid HorizontalAlignment="Right" Width="300">
-                <!--<Button
-                     materialDesign:ButtonProgressAssist.IndicatorBackground="#ffcc80"
-                     materialDesign:ButtonProgressAssist.IndicatorForeground="#e65100"
-                     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                     materialDesign:ButtonProgressAssist.Value="25"
-                     Background="#81d4fa"
-                     BorderBrush="#81d4fa"
-                     Width="30"
-                     Height="30"
-                     Content="{materialDesign:PackIcon DotsHorizontal}"
-                     Foreground="#DD000000"
-                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                     Style="{StaticResource MaterialDesignFloatingActionButton}" />-->
-
+        <Border Grid.Row="2" Background="AntiqueWhite" CornerRadius="10">
+            <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
                 </Grid.ColumnDefinitions>
 
+                <TextBlock Text="{Binding ErrMsg, UpdateSourceTrigger=PropertyChanged}"
+                           Foreground="#D7596D"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"   
+                           Margin="5"
+                           TextWrapping="Wrap"/>
 
-                <materialDesign:Badged Badge="regist" Grid.Column="0" BadgeColorZoneMode="Inverted" Margin="4"
+                <Grid HorizontalAlignment="Right" Width="300" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Badged Badge="regist" Grid.Column="0" BadgeColorZoneMode="Inverted" Margin="4"
                                        BadgeForeground="LightYellow" HorizontalAlignment="Center" VerticalAlignment="Bottom">
 
-                    <Button x:Name="btnRegister" Width="30" Height="30"
+                        <Button x:Name="btnRegister" Width="30" Height="30"
                                         Grid.Column="0"
                                         Margin="8,0,0,0"
                                         Background="#176ec6"
@@ -499,51 +221,62 @@
                                         Command="{Binding RegisterClassroom}"
                                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                         Style="{StaticResource MaterialDesignFloatingActionLightButton}">
-                        <materialDesign:PackIcon Width="20" Height="20">
-                            <materialDesign:PackIcon.Style>
-                                <Style TargetType="materialDesign:PackIcon">
-                                    <Setter Property="Kind" Value="ContentSaveEdit" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding IsSaveComplete}"
+                            <materialDesign:PackIcon Width="20" Height="20">
+                                <materialDesign:PackIcon.Style>
+                                    <Style TargetType="materialDesign:PackIcon">
+                                        <Setter Property="Kind" Value="ContentSaveEdit" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsSaveComplete}"
                                                          Value="True">
-                                            <Setter Property="Kind" Value="Check" />
-                                            <DataTrigger.EnterActions>
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <DoubleAnimation  Storyboard.TargetProperty="Opacity"
+                                                <Setter Property="Kind" Value="Check" />
+                                                <DataTrigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation  Storyboard.TargetProperty="Opacity"
                                                                               From="0"
                                                                               To="1"
                                                                               Duration="0:0:0.8" />
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </DataTrigger.EnterActions>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </materialDesign:PackIcon.Style>
-                        </materialDesign:PackIcon>
-                    </Button>
-                </materialDesign:Badged>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </DataTrigger.EnterActions>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </materialDesign:PackIcon.Style>
+                            </materialDesign:PackIcon>
+                        </Button>
+                    </materialDesign:Badged>
 
 
-                <materialDesign:Badged Badge="Refresh" BadgeColorZoneMode="Inverted" Height="30" Width="30" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Center" Margin="4">
-                    <Button x:Name="btnRefresh" Width="30" Height="30"
+                    <materialDesign:Badged Badge="Refresh" BadgeColorZoneMode="Inverted" Height="30" Width="30" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Center" Margin="4">
+                        <Button x:Name="btnRefresh" Width="30" Height="30"
                                         materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                                         materialDesign:ButtonProgressAssist.Value="80"
                                         Content="{materialDesign:PackIcon RefreshCircle,Size=20}"
                                         Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}" />
-                </materialDesign:Badged>
+                    </materialDesign:Badged>
 
-
-
-                <materialDesign:Badged Grid.Column="2" Badge="Filter" BadgeColorZoneMode="Inverted" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="4">
-                    <Button x:Name="btnFilter" Width="30" Height="30"
+                    <materialDesign:Badged Grid.Column="2" Badge="Filter" BadgeColorZoneMode="Inverted" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="4">
+                        <Button x:Name="btnFilter" Width="30" Height="30"
                                         materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                                         materialDesign:ButtonProgressAssist.Value="100"
                                         Content="{materialDesign:PackIcon RefreshCircle,Size=20}"
                                         Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}" Background="#67daff" />
-                </materialDesign:Badged>
+                    </materialDesign:Badged>
+
+                    <TextBlock Text="{Binding ErrorMessage}"
+                               Foreground="#D7596D"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"                             
+                               Margin="0,0,0,0"
+                               TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+                </Grid>
+
             </Grid>
+            
         </Border>
 
     </Grid>

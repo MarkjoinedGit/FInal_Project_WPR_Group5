@@ -6,52 +6,58 @@ namespace EnglishCentreManagement.Model
     {
         private Enterprise_Infor enter_Infor = new Enterprise_Infor();
         private string namePerson;
-        private DateOnly dateBorn; 
+        private DateTime dateBorn; 
         private string gender;
         private string address;
-        private string? phoneNum;
+        private string phoneNum;
         private string identityCard;
-        private string? bankNumber;
+        private string bankNumber;
         private double rankLevel;
 
         public Enterprise_Infor Enter_Infor { get => enter_Infor; set => enter_Infor = value; }
         public string NamePerson { get => namePerson; set => namePerson = value; }
-        public DateOnly DateBorn { get => dateBorn; set => dateBorn = value; }
+        public DateTime DateBorn { get => dateBorn; set => dateBorn = value; }
         public string Gender { get => gender; set => gender = value; }
         public string Address { get => address; set => address = value; }
         public string PhoneNum { get => phoneNum; set => phoneNum = value; }
         public string IdentityCard { get => identityCard; set => identityCard = value; }
-        public string? BankNumber { get => bankNumber; set => bankNumber=value; }
+        public string BankNumber { get => bankNumber; set => bankNumber=value; }
         public double RankLevel { get => rankLevel; set => rankLevel=value; }
 
-        public Person() { }
-
-        public Person(Enterprise_Infor Enter_Infor, string NamePerson, DateOnly DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
+        public Person() 
         {
-            this.Enter_Infor = Enter_Infor;
-            this.NamePerson = NamePerson;
-            this.DateBorn = DateBorn;
-            this.Gender = Gender;
-            this.Address = Address;
-            this.PhoneNum = PhoneNum;
-            this.IdentityCard = IdentityCard;
-            this.BankNumber = BankNumber;
-            this.RankLevel = RankLevel;
+            namePerson = "";
+            gender = "";
+            address = "";
+            phoneNum = "";
+            identityCard = "";
+            bankNumber = "";
         }
 
-        public Person(string Enter_Infor_ID, string NamePerson, DateOnly DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
+        public Person(Enterprise_Infor Enter_Infor, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
         {
-            this.Enter_Infor.ID = Enter_Infor_ID;
-            this.NamePerson = NamePerson;
-            this.DateBorn = DateBorn;
-            this.Gender = Gender;
-            this.Address = Address;
-            this.PhoneNum = PhoneNum;
-            this.IdentityCard = IdentityCard;
-            this.BankNumber = BankNumber;
-            this.RankLevel = RankLevel;
-
+            this.enter_Infor = Enter_Infor;
+            this.namePerson = NamePerson;
+            this.dateBorn = DateBorn;
+            this.gender = Gender;
+            this.address = Address;
+            this.phoneNum = PhoneNum;
+            this.identityCard = IdentityCard;
+            this.bankNumber = BankNumber;
+            this.rankLevel = RankLevel;
         }
 
+        public Person(string Enter_Infor_ID, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
+        {
+            this.enter_Infor.ID = Enter_Infor_ID;
+            this.namePerson = NamePerson;
+            this.dateBorn = DateBorn;
+            this.gender = Gender;
+            this.address = Address;
+            this.phoneNum = PhoneNum;
+            this.identityCard = IdentityCard;
+            this.bankNumber = BankNumber;
+            this.rankLevel = RankLevel;
+        }
     }
 }

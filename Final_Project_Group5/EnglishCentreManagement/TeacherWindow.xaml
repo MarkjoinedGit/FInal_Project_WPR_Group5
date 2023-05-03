@@ -27,6 +27,10 @@
             <usercontrol:HomeUC/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewmodel:ManageTeacherClassRoomViewModel}">
+            <usercontrol:ManageTeacherClassRoomUC/>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewmodel:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>
@@ -84,7 +88,18 @@
                     </StackPanel>
 
                 </RadioButton>
-                
+
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#BADAFF"
+                             Command="{Binding ShowYourClassView}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ClipboardEditOutline" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Your class" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+
+                </RadioButton>
+
                 <RadioButton Style="{StaticResource menuButton}"
                              Tag="#37ef57"
                              Command="{Binding ShowUserInforView}">

@@ -11,6 +11,7 @@ namespace EnglishCentreManagement.ViewModel
     public class ControlBarViewModel
     {
         public ICommand CloseWindowCommand { get; set; }
+
         public ControlBarViewModel() 
         { 
             CloseWindowCommand = new RelayCommand<Window>((p) => { p.Close(); });

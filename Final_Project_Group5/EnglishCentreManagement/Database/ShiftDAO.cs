@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using EnglishCentreManagement.Interfaces;
 
 namespace EnglishCentreManagement.Database
 {
-    public class ShiftDAO
+    public class ShiftDAO : IShiftDAO
     {
-        static SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+        SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
 
-        public static Shift? findShiftByID(string id)
+        public Shift findShiftByID(string id)
         {
             string strSQL = string.Format("SELECT * FROM CA WHERE MaCa = '{0}'", id);
             try
@@ -24,13 +25,13 @@ namespace EnglishCentreManagement.Database
                 {
                     DataRow dt = dtShift.Rows[0];
 
-                    Shift course = new Shift
+                    Shift shift = new Shift
                     {
                         IDShift = dt["MaCa"].ToString(),
                         StartingTime = TimeSpan.Parse(dt["ThoiGianBatDau"].ToString()),
                         Endingtime = TimeSpan.Parse(dt["ThoiGianKetThuc"].ToString())
-                };
-                    return course;
+                    };
+                    return shift;
                 }
             }
             catch (Exception ex)
@@ -38,15 +39,16 @@ namespace EnglishCentreManagement.Database
                 MessageBox.Show("Cannot find the information of the teacher or " + ex.Message);
             }
 
-            return null;
+            return new Shift();
 
         }
 
-        public static List<string> getAllShiftID()
+        public List<string> getAllShiftID()
         {
             string sqlStr = string.Format("Select MaCa From Ca");
             DataTable dtShift =  DBConnection.getData(conn, sqlStr);
             List<string> list = new List<string>();
+
             foreach(DataRow dr in dtShift.Rows)
             {
                 list.Add(dr["MaCa"].ToString());    

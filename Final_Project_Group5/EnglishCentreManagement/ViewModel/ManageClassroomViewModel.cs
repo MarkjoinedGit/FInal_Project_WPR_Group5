@@ -16,12 +16,11 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class ManageClassroomViewModel : BaseViewModel
     {
-        private List<Classroom> _listClassrooms;
-    
-        private IClassRoomDao classRoomDao = new ClassRoomDao();
         private Classroom _currentClassroom = new Classroom();
+        private List<Classroom> _listClassrooms = new List<Classroom>();
 
-        //public ICommand AddClassRoomCommand { get;set; }
+        private IClassRoomDao classRoomDao = new ClassRoomDao();
+
         public ICommand DeleteClassRoomCommand { get; set; }
         public ICommand ShowInputClassroomDialog { get; set; }
 
@@ -29,8 +28,7 @@ namespace EnglishCentreManagement.ViewModel
         public ManageClassroomViewModel()
         {
             LoadClassroom();
-          
-            //AddClassRoomCommand = new RelayCommand<object>(CanExecuteAddClassroomCommand, ExecuteAddClassroomCommand);
+        
             DeleteClassRoomCommand = new RelayCommand<string>(CanExecuteDeleteClassRoomCommand, ExecuteDeleteClassRoomCommand);
             ShowInputClassroomDialog = new RelayCommand<object>(ExecuteShowInputClassroomDialog);
         }
@@ -54,27 +52,6 @@ namespace EnglishCentreManagement.ViewModel
                 OnPropertyChanged(nameof(ListClassrooms));  
             }
         }
-
-        //private void ExecuteAddClassroomCommand(object obj)
-        //{
-        //    classRoomDao.Add(CurrentClassroom);
-        //    LoadClassroom();
-        //}
-
-        //private bool CanExecuteAddClassroomCommand(object obj)
-        //{
-        //    bool validValue = false;
-
-        //    if (CurrentClassroom != null)
-        //    {
-        //        if (CurrentClassroom.IDTeacher == null || CurrentClassroom.IDClassroom == null || CurrentClassroom.RoomNum == null || CurrentClassroom.MaxNumStudent.ToString() == null || CurrentClassroom.IDCourse == null || CurrentClassroom.StartingDate.ToString() == null || CurrentClassroom.EndingDate.ToString() == null|| CurrentClassroom.StudyDate == null || CurrentClassroom.IDShift == null)
-        //            validValue = false;
-        //        else
-        //            validValue = true;
-        //    }
-
-        //    return validValue;
-        //}
 
         private void ExecuteDeleteClassRoomCommand(string id)
         {

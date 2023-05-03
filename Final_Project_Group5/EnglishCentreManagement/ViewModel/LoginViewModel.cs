@@ -15,17 +15,15 @@ namespace EnglishCentreManagement.ViewModel
         private string _username;
         private string _password;
         private string _errorMessage;
-        private string _role;
         private bool _isViewVisible = true;
-        private IEnterprise_infoDAO enterprise_InfoDAO;
+
+        private IEnterprise_infoDAO enterprise_InfoDAO = new Enterprise_infoDAO();
         private IStudentDao studentDao = new StudentDAO();
         private ITeacherDao teacherDao = new TeacherDAO();
         private IManagerDao managerDao = new ManagerDAO();
 
         public ICommand LoginCommand { get; }
         public ICommand ExitCommand { get; }
-        public ICommand ShowPasswordCommand { get; }
-        public ICommand RememberPasswordCommand { get; }
 
         public string Username 
         { 
@@ -64,18 +62,21 @@ namespace EnglishCentreManagement.ViewModel
             }
         }
 
-        public string Role { get => _role; set => _role=value; }
-
         //Constructors
         public LoginViewModel()
         {
-            enterprise_InfoDAO = new Enterprise_infoDAO();
+            _username = "";
+            _password = "";
+            _errorMessage = "";
+
             LoginCommand = new RelayCommand<object>(CanExecuteLoginCommand, ExecuteLoginCommand);
+            ExitCommand = new RelayCommand<Window>((p) => { p.Close(); });
         }
 
         private void ExecuteLoginCommand(object p)
         {
             var isValidUser = enterprise_InfoDAO.AuthenticateEnterpriseInfor(Username, Password);
+
             if(isValidUser) 
             {
                 //Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
@@ -99,7 +100,6 @@ namespace EnglishCentreManagement.ViewModel
                 nextWindow.Show();
                 IsViewVisible = false;
             }
-
             else
             {
                 ErrorMessage = "* Username or Password is not correct";
@@ -109,10 +109,12 @@ namespace EnglishCentreManagement.ViewModel
         private bool CanExecuteLoginCommand(object p)
         {
             bool validData;
-            if(string.IsNullOrWhiteSpace(Username) || Password == null)
+
+            if(string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
                 validData = false;
             else
                 validData = true;
+
             return validData;
         }
     }

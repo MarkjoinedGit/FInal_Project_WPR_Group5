@@ -10,8 +10,7 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class UserInforViewModel : BaseViewModel
     {
-
-        public Person CrtUser { get; set; }
+        public Person? CrtUser { get; set; }
 
         public UserInforViewModel() 
         {
@@ -28,7 +27,5 @@ namespace EnglishCentreManagement.ViewModel
                 CrtUser = CurrentUser.Instance.CurrentManager;
             }
         }
-
-
     }
 }

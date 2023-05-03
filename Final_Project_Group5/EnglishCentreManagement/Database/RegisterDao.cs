@@ -17,15 +17,7 @@ namespace EnglishCentreManagement.Database
         public void Add(Student std, Classroom cls)
         {
             string sqlStr = string.Format("INSERT INTO HocVienTrongLop VALUES('{0}', '{1}')", cls.IDClassroom, std.Enter_Infor.ID);
-            try
-            {
-                DBConnection.Execute(conn, sqlStr);
-                MessageBox.Show("Dang Ky thanh cong");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Dang ky that bai: " + ex);
-            }
+            DBConnection.Execute(conn, sqlStr);
         }
     }
 }

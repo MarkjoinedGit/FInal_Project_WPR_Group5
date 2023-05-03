@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Dialog\CreateScoreBoardDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialog\InputClassroomInformation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialog\ManageClassroomsDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LoginWindow.xaml.cs">
@@ -46,9 +52,6 @@
     <Compile Update="UserControlProject\ControlRegisterForACourseUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlProject\ControlResultTestingUC.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UserControlProject\ControlScheduleUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -64,6 +67,9 @@
     <Compile Update="UserControlProject\ManageClassroomUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlProject\ManageTeacherClassRoomUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlProject\TagUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -75,7 +81,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Dialog\CreateScoreBoardDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialog\InputClassroomInformation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\ManageClassroomsDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LoginWindow.xaml">
@@ -132,9 +144,6 @@
     <Page Update="UserControlProject\ControlRegisterForACourseUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlProject\ControlResultTestingUC.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="UserControlProject\ControlScheduleUC.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -148,6 +157,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\ManageClassroomUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\ManageTeacherClassRoomUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\TagUC.xaml">

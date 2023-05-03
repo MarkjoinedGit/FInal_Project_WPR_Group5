@@ -19,16 +19,19 @@
         public Course(string IDCourse, string NameCourse, int NumOfWeek, double InputLevel
             , double OuputLevel, double RequestLevelOfTeacher)
         {
-            this.IDCourse = IDCourse;
-            this.NameCourse = NameCourse;
-            this.NumOfWeek = NumOfWeek;
-            this.InputLevel = InputLevel;
-            this.OuputLevel = OuputLevel;
-            this.RequestLevelOfTeacher = RequestLevelOfTeacher;
+            this.idCourse = IDCourse;
+            this.nameCourse = NameCourse;
+            this.numOfWeek = NumOfWeek;
+            this.inputLevel = InputLevel;
+            this.ouputLevel = OuputLevel;
+            this.requestLevelOfTeacher = RequestLevelOfTeacher;
         }
 
-        public Course()
+        public Course() 
         {
+            idCourse = "";
+            nameCourse = "";
         }
+
     }
 }

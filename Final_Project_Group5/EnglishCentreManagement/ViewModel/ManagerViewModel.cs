@@ -11,11 +11,12 @@ namespace EnglishCentreManagement.ViewModel
 {
     public class ManagerViewModel : BaseViewModel
     {
-        private IEnterprise_infoDAO enterprise_InfoDAO;
         private BaseViewModel _currentChildView;
         private string _caption;
         private PackIconKind _icon;
         private Manager _crtManager;
+
+        private IEnterprise_infoDAO enterprise_InfoDAO = new Enterprise_infoDAO();
 
         public ICommand ShowHomeView { get; }
         public ICommand ShowManageClassroomView { get; }
@@ -25,6 +26,11 @@ namespace EnglishCentreManagement.ViewModel
 
         public ManagerViewModel()
         {
+            _currentChildView = new BaseViewModel();
+            _caption = "";
+            _icon = new PackIconKind();
+            _crtManager = new Manager();
+
             LoadUserCurrentData();
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewCommand);
             ShowUserInforView = new RelayCommand<object>(ExecuteShowUserInforViewCommand);
@@ -115,6 +121,5 @@ namespace EnglishCentreManagement.ViewModel
             Caption = "User information";
             Icon = PackIconKind.AccountBoxOutline;
         }
-
     }
 }

@@ -15,12 +15,17 @@ namespace EnglishCentreManagement.ViewModel
         public ICommand ShowHomeView { get; }
         public ICommand ShowRegisterClassView { get;}
         public ICommand ShowYourClassView { get;}
-        public ICommand ShowYourTestView { get;}
-        public ICommand ShowYourScheduleView { get;}
+        //public ICommand ShowYourTestView { get;}
+        //public ICommand ShowYourScheduleView { get;}
         public ICommand ShowUserInfoView { get;}
 
         public StudentViewModel()
         {
+            _currentChildView = new BaseViewModel();
+            _caption = "";
+            _icon = new PackIconKind();
+            _crtStudent = new Student();
+
             LoadCurrentUser();
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewModel);
             ShowRegisterClassView = new RelayCommand<object>(ExecuteShowRegisterClassView);

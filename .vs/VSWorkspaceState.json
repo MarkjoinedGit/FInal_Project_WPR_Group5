@@ -8,8 +8,9 @@
     "\\Final_Project_Group5\\EnglishCentreManagement\\Model",
     "\\Final_Project_Group5\\EnglishCentreManagement\\ResourceXAML",
     "\\Final_Project_Group5\\EnglishCentreManagement\\UserControlProject",
-    "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel"
+    "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel",
+    "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel\\MainView"
   ],
-  "SelectedNode": "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel\\CreateScoreBoardViewModel.cs",
+  "SelectedNode": "\\Final_Project_Group5\\EnglishCentreManagement\\Database\\ClassRoomDao.cs",
   "PreviewInSolutionExplorer": false
 }

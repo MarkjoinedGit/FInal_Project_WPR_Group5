@@ -1,4 +1,5 @@
 ﻿using EnglishCentreManagement.ViewModel;
+using EnglishCentreManagement.ViewModel.MainView;
 using System.Windows;
 
 namespace EnglishCentreManagement

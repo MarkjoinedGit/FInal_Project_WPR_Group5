@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace EnglishCentreManagement.Model
         public string IdStudent { get => idStudent; set => idStudent = value; }
         public string IdTest { get => idTest; set => idTest = value; }
         public double Point { get => point; set => point=value; }
+        public Student StudentIns { get => new StudentDAO().getById(idStudent); }
 
         public TestResult()
         {

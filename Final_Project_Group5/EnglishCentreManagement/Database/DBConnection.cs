@@ -35,10 +35,9 @@ namespace EnglishCentreManagement.Database
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    MessageBox.Show("Execute successfully");
-                }
+                if (cmd.ExecuteNonQuery() <= 0)
+                    throw new Exception();
+                
             }
             catch (Exception ex)
             {

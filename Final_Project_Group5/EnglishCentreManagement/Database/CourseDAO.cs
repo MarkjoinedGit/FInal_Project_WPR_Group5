@@ -27,8 +27,8 @@ namespace EnglishCentreManagement.Database
 
                     Course course = new Course
                     {
-                        IDCourse = dt["MaKhoaHoc"].ToString(),
-                        NameCourse = dt["TenKhoaHoc"].ToString(),
+                        IDCourse = new string(dt["MaKhoaHoc"].ToString()),
+                        NameCourse = new string(dt["TenKhoaHoc"].ToString()),
                         InputLevel = Convert.ToDouble(dt["LevelDauVao"]),
                         OuputLevel = Convert.ToDouble(dt["LevelDauRa"]),
                         NumOfWeek = Convert.ToInt32(dt["SoTuanHoc"]),
@@ -42,7 +42,7 @@ namespace EnglishCentreManagement.Database
                 MessageBox.Show("Cannot find the information of the teacher or " + ex.Message);
             }
 
-            return null;
+            return new Course();
         }
     }
 }

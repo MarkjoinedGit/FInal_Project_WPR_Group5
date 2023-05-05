@@ -38,14 +38,14 @@ namespace EnglishCentreManagement.Database
                 DataTable dtUser = DBConnection.getData(conn, sqlStr);
                 return new Teacher
                 {
-                    Enter_Infor = enterprise_InfoDAO.getById(dtUser.Rows[0]["MaGiaoVien"].ToString()),
-                    NamePerson = dtUser.Rows[0]["TenGiaoVien"].ToString(),
+                    Enter_Infor = enterprise_InfoDAO.getById(new string(dtUser.Rows[0]["MaGiaoVien"].ToString())),
+                    NamePerson = new string (dtUser.Rows[0]["TenGiaoVien"].ToString()),
                     DateBorn = new DateTime(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
-                    Gender = dtUser.Rows[0]["GioiTinh"].ToString(),
-                    Address = dtUser.Rows[0]["DiaChi"].ToString(),
-                    PhoneNum = dtUser.Rows[0]["SoDienThoai"].ToString(),
-                    IdentityCard = dtUser.Rows[0]["ChungMinhNhanDan"].ToString(),
-                    BankNumber = dtUser.Rows[0]["SoTaiKhoan"].ToString(),
+                    Gender = new string(dtUser.Rows[0]["GioiTinh"].ToString()),
+                    Address = new string(dtUser.Rows[0]["DiaChi"].ToString()),
+                    PhoneNum = new string(dtUser.Rows[0]["SoDienThoai"].ToString()),
+                    IdentityCard = new string(dtUser.Rows[0]["ChungMinhNhanDan"].ToString()),
+                    BankNumber = new string(dtUser.Rows[0]["SoTaiKhoan"].ToString()),
                     RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
                 };
             }

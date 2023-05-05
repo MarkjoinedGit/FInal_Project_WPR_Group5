@@ -1,5 +1,6 @@
 ﻿using EnglishCentreManagement.Model;
 using EnglishCentreManagement.ViewModel;
+using EnglishCentreManagement.ViewModel.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace EnglishCentreManagement.Dialog
         public ManageClassroomsDialog(Classroom CurrentClassroom)
         {
             InitializeComponent();
-            DataContext = new ManageTeacherClassroomsViewModel(CurrentClassroom);
+            DataContext = new EditTeacherClassroomsViewModel(CurrentClassroom);
         }
     }
 }

@@ -23,8 +23,8 @@ namespace EnglishCentreManagement.Database
             {
                 TestResult rsl = new TestResult 
                 { 
-                    IdTest = new string(Convert.ToString(dr["MaBaiKiemTra"])),
-                    IdStudent = new string(Convert.ToString(dr["MaHocVien"])),
+                    IdTest = new string(dr["MaBaiKiemTra"].ToString()),
+                    IdStudent = new string(dr["MaHocVien"].ToString()),
                     Point = Convert.ToDouble(dr["Diem"])
                 };
                 if (rsl != null)

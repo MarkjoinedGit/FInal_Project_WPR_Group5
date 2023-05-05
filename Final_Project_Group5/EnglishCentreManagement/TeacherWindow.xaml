@@ -9,6 +9,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:usercontrol="clr-namespace:EnglishCentreManagement.UserControlProject"
         xmlns:viewmodel="clr-namespace:EnglishCentreManagement.ViewModel"
+        xmlns:viewmodelUserControl="clr-namespace:EnglishCentreManagement.ViewModel.UserControl"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -23,15 +24,15 @@
         AllowsTransparency="True">
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
+        <DataTemplate DataType="{x:Type viewmodelUserControl:HomeViewModel}">
             <usercontrol:HomeUC/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewmodel:ManageTeacherClassRoomViewModel}">
+        <DataTemplate DataType="{x:Type viewmodelUserControl:ManageTeacherClassRoomViewModel}">
             <usercontrol:ManageTeacherClassRoomUC/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewmodel:UserInforViewModel}">
+        <DataTemplate DataType="{x:Type viewmodelUserControl:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>
     </Window.Resources>

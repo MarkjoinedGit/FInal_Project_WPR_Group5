@@ -9,19 +9,19 @@ namespace EnglishCentreManagement.Model
     public class Shift
     {
         private string idShift;
-        private TimeSpan startingTime;
-        private TimeSpan endingtime;
+        private TimeOnly startingTime;
+        private TimeOnly endingtime;
 
         public string IDShift { get => idShift; set => idShift = value; }
-        public TimeSpan StartingTime { get => startingTime; set => startingTime = value; }
-        public TimeSpan Endingtime { get => endingtime; set => endingtime=value; }
+        public TimeOnly StartingTime { get => startingTime; set => startingTime = value; }
+        public TimeOnly Endingtime { get => endingtime; set => endingtime=value; }
 
         public Shift() 
         {
             idShift = "";
         }
 
-        public Shift(string IDShift, TimeSpan StartingTime, TimeSpan Endingtime)
+        public Shift(string IDShift, TimeOnly StartingTime, TimeOnly Endingtime)
         {
             this.idShift = IDShift;
             this.startingTime = StartingTime;

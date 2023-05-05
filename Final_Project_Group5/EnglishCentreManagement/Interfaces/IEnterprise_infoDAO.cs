@@ -14,7 +14,7 @@ namespace EnglishCentreManagement.Interfaces
         void Update(Enterprise_Infor enterprise_Infor);
         bool AuthenticateEnterpriseInfor(string username, string password);
         string getRole(string userName);
-        Enterprise_Infor? getById(string id);
+        Enterprise_Infor getById(string id);
         Enterprise_Infor getByUserName(string userName, string password);
         IEnumerable<Enterprise_Infor> getAll();
     }

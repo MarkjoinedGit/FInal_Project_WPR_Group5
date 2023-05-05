@@ -37,18 +37,19 @@ namespace EnglishCentreManagement.Database
             try
             {
                 DataTable dtUser = DBConnection.getData(conn, sqlStr);
-                return new Student
-                {
-                    Enter_Infor = enterprise_InfoDAO.getById(dtUser.Rows[0]["MaHocVien"].ToString()),
-                    NamePerson = dtUser.Rows[0]["TenHocVien"].ToString(),
-                    DateBorn = new DateTime(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
-                    Gender = dtUser.Rows[0]["GioiTinh"].ToString(),
-                    Address = dtUser.Rows[0]["DiaChi"].ToString(),
-                    PhoneNum = dtUser.Rows[0]["SoDienThoai"].ToString(),
-                    IdentityCard = dtUser.Rows[0]["ChungMinhNhanDan"].ToString(),
-                    BankNumber = dtUser.Rows[0]["SoTaiKhoan"].ToString(),
-                    RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
-                };
+                if (dtUser.Rows.Count > 0)
+                    return new Student
+                    {
+                        Enter_Infor = enterprise_InfoDAO.getById(new string(dtUser.Rows[0]["MaHocVien"].ToString())),
+                        NamePerson = new string(dtUser.Rows[0]["TenHocVien"].ToString()),
+                        DateBorn = new DateTime(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
+                        Gender = new string(dtUser.Rows[0]["GioiTinh"].ToString()),
+                        Address = new string(dtUser.Rows[0]["DiaChi"].ToString()),
+                        PhoneNum = new string(dtUser.Rows[0]["SoDienThoai"].ToString()),
+                        IdentityCard = new string(dtUser.Rows[0]["ChungMinhNhanDan"].ToString()),
+                        BankNumber = new string(dtUser.Rows[0]["SoTaiKhoan"].ToString()),
+                        RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
+                    };
             }
 
             catch
@@ -66,7 +67,7 @@ namespace EnglishCentreManagement.Database
             List<Student> listStd = new List<Student>();
             foreach (DataRow dr in dt.Rows)
             {
-                Student? std = getById(dr["MaHocVien"].ToString());
+                Student? std = getById(new string(dr["MaHocVien"].ToString()));
                 if (cls != null)
                     listStd.Add(std);
             }

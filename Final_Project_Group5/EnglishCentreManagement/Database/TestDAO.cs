@@ -35,11 +35,11 @@ namespace EnglishCentreManagement.Database
                 DataRow dr = dt.Rows[0];
                 return new Test
                 {
-                    IDTest = new string(Convert.ToString(dr["MaBaiKiemTra"])),
-                    IDClassRoom = new string(Convert.ToString(dr["MaLop"])),
-                    TimeTesting = new string(Convert.ToString(dr["ThoiGian"])),
+                    IDTest = new string(dr["MaBaiKiemTra"].ToString()),
+                    IDClassRoom = new string(dr["MaLop"].ToString()),
+                    TimeTesting = new string(dr["ThoiGian"].ToString()),
                     DateTesting = new DateTime(Convert.ToDateTime(dr["NgayKiemTra"]).Year, Convert.ToDateTime(dr["NgayKiemTra"]).Month, Convert.ToDateTime(dr["NgayKiemTra"]).Day),
-                    Description = new string(Convert.ToString(dr["MoTa"]))
+                    Description = new string(dr["MoTa"].ToString())
                 };
             }
             return null;
@@ -52,7 +52,7 @@ namespace EnglishCentreManagement.Database
             List<Test> listTst = new List<Test>();
             foreach (DataRow dr in dt.Rows)
             {
-                Test? tst = getTestByID(new string(Convert.ToString(dr["MaBaiKiemTra"])));
+                Test? tst = getTestByID(new string(dr["MaBaiKiemTra"].ToString()));
                 if (tst != null)
                     listTst.Add(tst);
             }

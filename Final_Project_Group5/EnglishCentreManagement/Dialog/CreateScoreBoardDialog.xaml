@@ -29,8 +29,8 @@
                   CanUserAddRows="False"
                   HeadersVisibility="All">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IdStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    Header="ID Student"/>
+                <DataGridTextColumn Binding="{Binding StudentIns.NamePerson, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    Header="Name"/>
 
                 <DataGridTextColumn Binding="{Binding IdTest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                     Header="ID Test"/>
@@ -42,6 +42,7 @@
         </DataGrid>
 
         <Button Content="Update Scoreboard" Grid.Row="1"
-                  Command="{Binding ElementName=Scoreboard,Path=DataContext.UpdateScoreBoardCommand}"/>
+                Command="{Binding ElementName=Scoreboard,Path=DataContext.UpdateScoreBoardCommand}"
+                />
     </Grid>
 </Window>

@@ -58,6 +58,9 @@
     <Compile Update="UserControlProject\DataGridUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlProject\EditTeacherClassroomUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlProject\HomeUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -148,6 +151,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\DataGridUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\EditTeacherClassroomUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\HomeUC.xaml">

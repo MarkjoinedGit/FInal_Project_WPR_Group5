@@ -40,7 +40,7 @@ namespace EnglishCentreManagement.Database
             throw new System.NotImplementedException();
         }
 
-        public Enterprise_Infor? getById(string id)
+        public Enterprise_Infor getById(string id)
         {
             string sqlStr = string.Format("SELECT* FROM DANGNHAP WHERE MaNguoiDangNhap = '{0}'", id);
             try
@@ -48,11 +48,11 @@ namespace EnglishCentreManagement.Database
                 DataTable dtUser = DBConnection.getData(conn, sqlStr);
                 return new Enterprise_Infor
                 {
-                    ID = dtUser.Rows[0]["MaNguoiDangNhap"].ToString(),
-                    Title = dtUser.Rows[0]["ChucVu"].ToString(),
-                    Email = dtUser.Rows[0]["Email"].ToString(),
-                    UserName = dtUser.Rows[0]["TenDangNhap"].ToString(),
-                    Password = dtUser.Rows[0]["MatKhau"].ToString()
+                    ID = new string(dtUser.Rows[0]["MaNguoiDangNhap"].ToString()),
+                    Title = new string (dtUser.Rows[0]["ChucVu"].ToString()),
+                    Email = new string(dtUser.Rows[0]["Email"].ToString()),
+                    UserName = new string(dtUser.Rows[0]["TenDangNhap"].ToString()),
+                    Password = new string(dtUser.Rows[0]["MatKhau"].ToString())
                 };
             }
 
@@ -72,11 +72,11 @@ namespace EnglishCentreManagement.Database
                 DataTable dtUser = DBConnection.getData(conn, sqlStr);
                 return new Enterprise_Infor
                 {
-                    ID = dtUser.Rows[0]["MaNguoiDangNhap"].ToString(),
-                    Title = dtUser.Rows[0]["ChucVu"].ToString(),
-                    Email = dtUser.Rows[0]["Email"].ToString(),
-                    UserName = dtUser.Rows[0]["TenDangNhap"].ToString(),
-                    Password = dtUser.Rows[0]["MatKhau"].ToString()
+                    ID = new string(dtUser.Rows[0]["MaNguoiDangNhap"].ToString()),
+                    Title = new string(dtUser.Rows[0]["ChucVu"].ToString()),
+                    Email = new string(dtUser.Rows[0]["Email"].ToString()),
+                    UserName = new string(dtUser.Rows[0]["TenDangNhap"].ToString()),
+                    Password = new string(dtUser.Rows[0]["MatKhau"].ToString())
                 };
             }
 

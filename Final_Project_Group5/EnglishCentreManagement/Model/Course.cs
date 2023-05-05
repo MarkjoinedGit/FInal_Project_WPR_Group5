@@ -33,5 +33,12 @@
             nameCourse = "";
         }
 
+        public bool isNullValue()
+        {
+            if (idCourse == "" || nameCourse == "")
+                return true;
+            return false;
+        }
+
     }
 }

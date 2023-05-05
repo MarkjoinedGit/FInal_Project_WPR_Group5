@@ -40,14 +40,15 @@ namespace EnglishCentreManagement.Database
                 if(dtUser.Rows.Count > 0)
                     return new Manager
                     {
-                        Enter_Infor = enterprise_InfoDAO.getById(dtUser.Rows[0]["MaNguoiQuanLy"].ToString()),
-                        NamePerson = dtUser.Rows[0]["TenNguoiQuanLy"].ToString(),
+                        Enter_Infor = enterprise_InfoDAO.getById(new string(dtUser.Rows[0]["MaNguoiQuanLy"].ToString())),
+                        NamePerson = new string(dtUser.Rows[0]["TenNguoiQuanLy"].ToString()),
                         DateBorn = new DateTime(Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Year, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Month, Convert.ToDateTime(dtUser.Rows[0]["NgaySinh"]).Day),
-                        Gender = dtUser.Rows[0]["GioiTinh"].ToString(),
-                        Address = dtUser.Rows[0]["DiaChi"].ToString(),
-                        PhoneNum = dtUser.Rows[0]["SoDienThoai"].ToString(),
-                        IdentityCard = dtUser.Rows[0]["ChungMinhNhanDan"].ToString(),
-                        BankNumber = dtUser.Rows[0]["SoTaiKhoan"].ToString(),
+                        Gender = new string(dtUser.Rows[0]["GioiTinh"].ToString()),
+                        Address = new string(dtUser.Rows[0]["DiaChi"].ToString()),
+                        PhoneNum = new string(dtUser.Rows[0]["SoDienThoai"].ToString()),
+                        IdentityCard = new string(dtUser.Rows[0]["ChungMinhNhanDan"].ToString()),
+                        BankNumber = new string(dtUser.Rows[0]["SoTaiKhoan"].ToString()),
+                        RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
                     };
             }
 

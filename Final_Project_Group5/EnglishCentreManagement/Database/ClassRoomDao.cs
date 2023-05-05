@@ -70,15 +70,15 @@ namespace EnglishCentreManagement.Database
                 DataRow dr = dt.Rows[0];
                 return new Classroom
                 {
-                    IDTeacher = dr["MaGiaoVien"].ToString(),
-                    IDClassroom = dr["MaLop"].ToString(),
-                    RoomNum = dr["SoPhong"].ToString(),
+                    IDTeacher = new string(dr["MaGiaoVien"].ToString()),
+                    IDClassroom = new string(dr["MaLop"].ToString()),
+                    RoomNum = new string(dr["SoPhong"].ToString()),
                     MaxNumStudent = Convert.ToInt32(dr["SoHocSinh"]),
-                    IDCourse = dr["MaKhoaHoc"].ToString(),
+                    IDCourse = new string(dr["MaKhoaHoc"].ToString()),
                     StartingDate = new DateTime(Convert.ToDateTime(dr["NgayBatDau"]).Year, Convert.ToDateTime(dr["NgayBatDau"]).Month, Convert.ToDateTime(dr["NgayBatDau"]).Day),
                     EndingDate = new DateTime(Convert.ToDateTime(dr["NgayKetThuc"]).Year, Convert.ToDateTime(dr["NgayKetThuc"]).Month, Convert.ToDateTime(dr["NgayKetThuc"]).Day),
-                    StudyDate = dr["NgayHocTrongTuan"].ToString(),
-                    IDShift = dr["MaCa"].ToString()
+                    StudyDate = new string(dr["NgayHocTrongTuan"].ToString()),
+                    IDShift = new string(dr["MaCa"].ToString())
                 };
             }
             return null;
@@ -104,15 +104,15 @@ namespace EnglishCentreManagement.Database
             {
                 Classroom classroom = new Classroom
                 {
-                    IDTeacher = dr["MaGiaoVien"].ToString(),
-                    IDClassroom = dr["MaLop"].ToString(),
-                    RoomNum = dr["SoPhong"].ToString(),
+                    IDTeacher = new string(dr["MaGiaoVien"].ToString()),
+                    IDClassroom = new string(dr["MaLop"].ToString()),
+                    RoomNum = new string(dr["SoPhong"].ToString()),
                     MaxNumStudent = Convert.ToInt32(dr["SoHocSinh"]),
-                    IDCourse = dr["MaKhoaHoc"].ToString(),
+                    IDCourse = new string(dr["MaKhoaHoc"].ToString()),
                     StartingDate = new DateTime(Convert.ToDateTime(dr["NgayBatDau"]).Year, Convert.ToDateTime(dr["NgayBatDau"]).Month, Convert.ToDateTime(dr["NgayBatDau"]).Day),
                     EndingDate = new DateTime(Convert.ToDateTime(dr["NgayKetThuc"]).Year, Convert.ToDateTime(dr["NgayKetThuc"]).Month, Convert.ToDateTime(dr["NgayKetThuc"]).Day),
-                    StudyDate = dr["NgayHocTrongTuan"].ToString(),
-                    IDShift = dr["MaCa"].ToString()
+                    StudyDate = new string(dr["NgayHocTrongTuan"].ToString()),
+                    IDShift = new string(dr["MaCa"].ToString())
                 };
                 ListClassrooms.Add(classroom);
             }
@@ -135,7 +135,7 @@ namespace EnglishCentreManagement.Database
             List<Classroom> listCls = new List<Classroom>();
             foreach (DataRow dr in dt.Rows)
             {
-                Classroom? cls = getById(dr["MaLop"].ToString());
+                Classroom? cls = getById(new string(dr["MaLop"].ToString()));
                 if (cls != null)
                     listCls.Add(cls);
             }

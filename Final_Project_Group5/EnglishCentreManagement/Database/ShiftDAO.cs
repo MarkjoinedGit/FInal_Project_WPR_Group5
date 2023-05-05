@@ -27,9 +27,9 @@ namespace EnglishCentreManagement.Database
 
                     Shift shift = new Shift
                     {
-                        IDShift = dt["MaCa"].ToString(),
-                        StartingTime = TimeSpan.Parse(dt["ThoiGianBatDau"].ToString()),
-                        Endingtime = TimeSpan.Parse(dt["ThoiGianKetThuc"].ToString())
+                        IDShift = new string(dt["MaCa"].ToString()),
+                        StartingTime = new TimeOnly( Convert.ToDateTime(dt["ThoiGianBatDau"]).Hour, Convert.ToDateTime(dt["ThoiGianBatDau"]).Minute, Convert.ToDateTime(dt["ThoiGianBatDau"]).Second),
+                        Endingtime = new TimeOnly(Convert.ToDateTime(dt["ThoiGianKetThuc"]).Hour, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Minute, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Second)
                     };
                     return shift;
                 }
@@ -51,7 +51,7 @@ namespace EnglishCentreManagement.Database
 
             foreach(DataRow dr in dtShift.Rows)
             {
-                list.Add(dr["MaCa"].ToString());    
+                list.Add(new string(dr["MaCa"].ToString()));    
             }
 
             return list;

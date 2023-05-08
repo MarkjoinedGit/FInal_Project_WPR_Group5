@@ -29,9 +29,9 @@
                         <DockPanel>
                             <Border Width="60" Height="60" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" >
                                 <Ellipse>
-                                    <Ellipse.Fill>
+                                    <!--<Ellipse.Fill>
                                         <ImageBrush ImageSource="E:/1THUMUCDAIHOC/HOC KY IV/Windows programing/Final_Project_Group5/Final_Project_Group5/EnglishCentreManagement/ResourceXAML/Image/graduating-student.png"/>
-                                    </Ellipse.Fill>
+                                    </Ellipse.Fill>-->
                                 </Ellipse>
                             </Border>
                         </DockPanel>

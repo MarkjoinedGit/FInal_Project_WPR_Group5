@@ -34,6 +34,14 @@
         <DataTemplate DataType="{x:Type viewmodel:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodel:CalendarTeachingViewModel}">
+            <usercontrol:CalendarTeachingUC/>
+        </DataTemplate>
+        
+        
+        
+        
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -88,6 +96,19 @@
                     </StackPanel>
 
                 </RadioButton>
+
+
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#FFC4A4"
+                             Command="{Binding ShowYourCalendarView}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Calendar" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+
+                </RadioButton>
+
 
                 <RadioButton Style="{StaticResource menuButton}"
                              Tag="#BADAFF"

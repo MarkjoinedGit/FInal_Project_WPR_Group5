@@ -83,7 +83,6 @@ namespace EnglishCentreManagement.Database
             }
             return null;
         }
-
         public DataTable getClassRoomDAO()
         {
             string sqlStr = string.Format("SELECT* FROM LOPHOC");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace EnglishCentreManagement.UserControlProject
         public ControlScheduleUC()
         {
             InitializeComponent();
+            DataContext = new ControlScheduleViewModel();
         }
+        private void dtgSchedule_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        { }
     }
 }

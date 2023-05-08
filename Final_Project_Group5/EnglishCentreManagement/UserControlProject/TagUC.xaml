@@ -21,11 +21,12 @@
             CornerRadius="10" Width="{Binding Path=Width,ElementName=tagUC}">
         <StackPanel Orientation="Horizontal">
             <materialDesign:PackIcon Kind="{Binding Tag, ElementName=tagUC}" 
-                                     Width="30" Height="30" Margin="0 0 2 0"/>
+                                     Width="30" Height="30" Margin="0 0 2 0" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding Text, ElementName=tagUC}" 
                        Style="{StaticResource text}" 
                        FontSize="{Binding FontSize, ElementName=tagUC}"
-                       FontFamily="{Binding FontFamily, ElementName=tagUC}"/>
+                       FontFamily="{Binding FontFamily, ElementName=tagUC}"
+                       VerticalAlignment="Center"/>
         </StackPanel>
     </Border>
 

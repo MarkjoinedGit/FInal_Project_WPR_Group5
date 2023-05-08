@@ -37,7 +37,10 @@
     <Compile Update="UserControlProject\BindablePasswordUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlProject\CalculateSalary.xaml.cs">
+    <Compile Update="UserControlProject\CalculateSalaryUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlProject\CalendarTeachingUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlProject\ControlCancelCourseUC.xaml.cs">
@@ -105,6 +108,9 @@
     <Page Update="ResourceXAML\ConverterResource.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceXAML\ItemMenuResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -129,7 +135,10 @@
     <Page Update="UserControlProject\BindablePasswordUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlProject\CalculateSalary.xaml">
+    <Page Update="UserControlProject\CalculateSalaryUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\CalendarTeachingUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\ControlCancelCourseUC.xaml">

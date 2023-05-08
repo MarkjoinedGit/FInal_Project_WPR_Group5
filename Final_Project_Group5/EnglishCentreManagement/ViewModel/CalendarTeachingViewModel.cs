@@ -90,6 +90,7 @@ namespace EnglishCentreManagement.ViewModel
                         RoomNumSaturday=classroom.RoomNum,
                     });
                 }
+                count++;
             }
             
         }

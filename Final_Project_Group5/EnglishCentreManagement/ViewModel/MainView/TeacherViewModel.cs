@@ -19,6 +19,7 @@ namespace EnglishCentreManagement.ViewModel.MainView
 
         public ICommand ShowHomeView { get; }
         public ICommand ShowYourClassView { get; }
+        public ICommand ShowYourCalendarView { get; }
         public ICommand ShowUserInforView { get; }
 
         public TeacherViewModel()
@@ -31,6 +32,7 @@ namespace EnglishCentreManagement.ViewModel.MainView
             LoadUserCurrentData();
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewCommand);
             ShowYourClassView = new RelayCommand<object>(ExcuteShowYourClassView);
+            ShowYourCalendarView = new RelayCommand<object>(ExecuteShowYourCalendarView);
             ShowUserInforView = new RelayCommand<object>(ExecuteShowUserInforViewCommand);
 
             //Default view
@@ -94,6 +96,12 @@ namespace EnglishCentreManagement.ViewModel.MainView
             CurrentChildView = new ManageTeacherClassRoomViewModel();
             Caption = "Your class";
             Icon = PackIconKind.ClipboardEditOutline;
+        }
+        private void ExecuteShowYourCalendarView(object obj)
+        {
+            CurrentChildView= new CalendarTeachingViewModel();
+            Caption = "Calendar";
+            Icon= PackIconKind.Calendar;
         }
 
         private void ExecuteShowUserInforViewCommand(object? p)

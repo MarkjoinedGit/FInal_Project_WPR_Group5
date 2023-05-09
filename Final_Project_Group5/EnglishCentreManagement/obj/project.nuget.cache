@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "D601M/DRG+IiwQ0/BpGiN7X3KN2QWrBtAcQETwAvKIdlnAuFVW6sF2qdf+btiZhPvL0KBI2gC1ogvoP2o/Nc1Q==",
+  "dgSpecHash": "Q6iL0qEMH5BK7sPKtopNjTZG4AsLYL2S/VFbFpqHA9id3eKZY/BFJXvg/r5CrJVOp47uao4n92iuAJHLQLOjog==",
   "success": true,
   "projectFilePath": "E:\\1THUMUCDAIHOC\\HOC KY IV\\Windows programing\\Final_Project_Group5\\Final_Project_Group5\\EnglishCentreManagement\\EnglishCentreManagement.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\fontawesome\\4.7.0\\fontawesome.4.7.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\materialdesigncolors\\2.1.2\\materialdesigncolors.2.1.2.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\materialdesignthemes\\4.8.0\\materialdesignthemes.4.8.0.nupkg.sha512",

@@ -16,8 +16,8 @@ namespace EnglishCentreManagement.ViewModel.MainView
         public ICommand ShowHomeView { get; }
         public ICommand ShowRegisterClassView { get; }
         public ICommand ShowYourClassView { get; }
-        //public ICommand ShowYourTestView { get;}
-        //public ICommand ShowYourScheduleView { get;}
+        //public ICommand ShowYourTestView { get; }
+        public ICommand ShowYourScheduleView { get; }
         public ICommand ShowUserInfoView { get; }
 
         public StudentViewModel()
@@ -31,7 +31,8 @@ namespace EnglishCentreManagement.ViewModel.MainView
             ShowHomeView = new RelayCommand<object>(ExecuteShowHomeViewModel);
             ShowRegisterClassView = new RelayCommand<object>(ExecuteShowRegisterClassView);
             ShowUserInfoView = new RelayCommand<object>(ExecuteShowUserInfoView);
-            ShowYourClassView = new RelayCommand<object>(ExecuteYourClassView);
+            ShowYourClassView = new RelayCommand<object>(ExecuteYourClassView); 
+            ShowYourScheduleView = new RelayCommand<object>(ExcuteShowYourScheduleView);
 
             ExecuteShowHomeViewModel(null);
         }
@@ -101,6 +102,12 @@ namespace EnglishCentreManagement.ViewModel.MainView
             CurrentChildView = new YourClassViewModel();
             Caption = "Your Class";
             Icon = PackIconKind.ClipboardEditOutline;
+        }
+        private void ExcuteShowYourScheduleView(object obj)
+        {
+            CurrentChildView = new ControlScheduleViewModel();
+            Caption = "Schedule";
+            Icon = PackIconKind.GiftOutline;
         }
 
         private void ExecuteShowUserInfoView(object obj)

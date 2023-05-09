@@ -17,12 +17,12 @@ namespace EnglishCentreManagement.Database
 
         public Shift findShiftByID(string id)
         {
-            string strSQL = string.Format("SELECT * FROM CA WHERE MaCa = '{0}'", id);
             try
             {
+                string strSQL = string.Format("SELECT * FROM CA WHERE MaCa = '{0}'", id);
                 DataTable dtShift = DBConnection.getData(conn, strSQL);
-                if (dtShift.Rows.Count > 0)
-                {
+                //if (dtShift.Rows.Count > 0)
+                //{
                     DataRow dt = dtShift.Rows[0];
 
                     Shift shift = new Shift
@@ -32,7 +32,7 @@ namespace EnglishCentreManagement.Database
                         Endingtime = new TimeOnly(Convert.ToDateTime(dt["ThoiGianKetThuc"]).Hour, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Minute, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Second)
                     };
                     return shift;
-                }
+                //}
             }
             catch (Exception ex)
             {

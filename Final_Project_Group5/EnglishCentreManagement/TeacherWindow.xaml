@@ -32,6 +32,10 @@
             <usercontrol:ManageTeacherClassRoomUC/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewmodelUserControl:CalendarTeachingViewModel}">
+            <usercontrol:CalendarTeachingUC/>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewmodelUserControl:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>
@@ -99,6 +103,15 @@
                         <TextBlock Text="Your class" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
 
+                </RadioButton>
+                
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#FFC4A4"
+                             Command="{Binding ShowYourCalendarView}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Calendar" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource menuButton}"

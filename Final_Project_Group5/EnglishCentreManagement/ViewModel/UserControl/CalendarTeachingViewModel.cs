@@ -87,7 +87,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                         TxtDetailTimeEnd = _shiftDAO.findShiftByID(classroom.IDShift).Endingtime.ToString(),
 
                         RoomNumTuesday=classroom.RoomNum,
-                        RoomNumThusday=classroom.RoomNum,
+                        RoomNumThursday=classroom.RoomNum,
                         RoomNumSaturday=classroom.RoomNum,
                     });
                 }

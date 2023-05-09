@@ -13,17 +13,18 @@ namespace EnglishCentreManagement.Model
         public Shift ShiftTime { get; set; }
         public int IndexWeek { get; set; }
         // 
-        public string txtInforStu { get; set; }
+        public string TxtInforStu { get; set; }
         // 
         public int NumWeek { get; set; }
         //
-        public string txtTimeStudStart { get; set; }
-        public string txtTimeStudEnd { get; set; }
+        public string TxtTimeStudStart { get; set; }
+        public string TxtTimeStudEnd { get; set; }
         //
-        public string txtAbsent { get; set; }
+        public string TxtAbsent { get; set; }
         public string ShiftCode { get; set; }
-        public string txtDetailTimeStart { get; set; }
-        public string txtDetailTimeEnd { get; set; }
+        public string TxtDetailTimeStart { get; set; }
+        public string TxtDetailTimeEnd { get; set; }
+
         // Monday
         public string IdClassMonday { get; set; }
         public string NameTeacherMonday { get; set; }
@@ -39,15 +40,15 @@ namespace EnglishCentreManagement.Model
         public string NameTeacherWednesday { get; set; }
         public string RoomNumWednesday { get; set; }
 
+        // Thursday
+        public string IdClassThursday { get; set; }
+        public string NameTeacherThursday { get; set; }
+        public string RoomNumThursday { get; set; }
+
         // Friday
         public string IdClassFriday { get; set; }
         public string NameTeacherFriday { get; set; }
         public string RoomNumFriday { get; set; }
-
-        // Thusday
-        public string IdClassThusday { get; set; }
-        public string NameTeacherThusday { get; set; }
-        public string RoomNumThusday { get; set; }
 
         // Saturday
         public string IdClassSaturday { get; set; }
@@ -58,6 +59,38 @@ namespace EnglishCentreManagement.Model
         public string IdClassSunday { get; set; }
         public string NameTeacherSunday { get; set; }
         public string RoomNumSunday { get; set; }
-        public Schedule() { }
+
+        public Schedule() 
+        {
+            ShiftTime = new Shift();
+            TxtInforStu = "";
+            TxtTimeStudStart = "";
+            TxtTimeStudEnd = "";
+            TxtAbsent = "";
+            ShiftCode = "";
+            TxtDetailTimeStart = "";
+            TxtDetailTimeEnd = "";
+            IdClassMonday = "";
+            NameTeacherMonday = "";
+            RoomNumMonday = "";
+            IdClassTuesday = "";
+            NameTeacherTuesday = "";
+            RoomNumTuesday = "";
+            IdClassWednesday = "";
+            NameTeacherWednesday = "";
+            RoomNumWednesday = "";
+            IdClassThursday = "";
+            NameTeacherThursday = "";
+            RoomNumThursday = "";
+            IdClassFriday = "";
+            NameTeacherFriday = "";
+            RoomNumFriday = "";
+            IdClassSaturday = "";
+            NameTeacherSaturday = "";
+            RoomNumSaturday = "";
+            IdClassSunday = "";
+            NameTeacherSunday = "";
+            RoomNumSunday = "";
+        }
     }
 }

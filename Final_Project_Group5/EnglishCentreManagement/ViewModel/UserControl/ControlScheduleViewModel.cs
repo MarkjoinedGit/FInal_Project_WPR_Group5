@@ -84,12 +84,15 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             _listShifts = _scheduleDAO.FindShiftForClassByClass(_listClassrooms);
 
             _txtInforStu = _crtStudent.NamePerson + " - " + _crtStudent.Enter_Infor.ID;
-            _timeStudStart =  _listClassrooms[0].StartingDate;
-            _timeStudStart = _listClassrooms[0].EndingDate;
-            TxtAbsent = "0";
+            if(_listClassrooms.Count > 0)
+            {
+                _timeStudStart =  _listClassrooms[0].StartingDate;
+                _timeStudStart = _listClassrooms[0].EndingDate;
+                TxtAbsent = "0";
 
-            DataForComboBoxWeek(_listClassrooms[0]);
-            LoadDataGrid();
+                DataForComboBoxWeek(_listClassrooms[0]);
+                LoadDataGrid();
+            }
         }
 
         private void ExecuteShowYourScheduleOnWeek(Action obj)
@@ -138,8 +141,8 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                         Schedules.Add(new Schedule()
                         {
                             ShiftCode = classroom.IDShift,
-                            txtDetailTimeStart = _shiftDAO.findShiftByID(classroom.IDShift).StartingTime.ToString(),
-                            txtDetailTimeEnd = _shiftDAO.findShiftByID(classroom.IDShift).Endingtime.ToString(),
+                            TxtDetailTimeStart = _shiftDAO.findShiftByID(classroom.IDShift).StartingTime.ToString(),
+                            TxtDetailTimeEnd = _shiftDAO.findShiftByID(classroom.IDShift).Endingtime.ToString(),
 
                             IdClassMonday = classroom.IDClassroom,
                             NameTeacherMonday = _scheduleDAO.FindTeacherByIdClass(classroom.IDClassroom).NamePerson,
@@ -157,16 +160,16 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                         Schedules.Add(new Schedule()
                         {
                             ShiftCode = classroom.IDShift,
-                            txtDetailTimeStart = _shiftDAO.findShiftByID(classroom.IDShift).StartingTime.ToString(),
-                            txtDetailTimeEnd = _shiftDAO.findShiftByID(classroom.IDShift).Endingtime.ToString(),
+                            TxtDetailTimeStart = _shiftDAO.findShiftByID(classroom.IDShift).StartingTime.ToString(),
+                            TxtDetailTimeEnd = _shiftDAO.findShiftByID(classroom.IDShift).Endingtime.ToString(),
 
                             IdClassTuesday = classroom.IDClassroom,
                             NameTeacherTuesday = _scheduleDAO.FindTeacherByIdClass(classroom.IDClassroom).NamePerson,
                             RoomNumTuesday = classroom.RoomNum,
 
-                            IdClassThusday = classroom.IDClassroom,
-                            NameTeacherThusday =_scheduleDAO.FindTeacherByIdClass(classroom.IDClassroom).NamePerson,
-                            RoomNumThusday = classroom.RoomNum,
+                            IdClassThursday = classroom.IDClassroom,
+                            NameTeacherThursday =_scheduleDAO.FindTeacherByIdClass(classroom.IDClassroom).NamePerson,
+                            RoomNumThursday = classroom.RoomNum,
 
                             IdClassSaturday = classroom.IDClassroom,
                             NameTeacherSaturday = _scheduleDAO.FindTeacherByIdClass(classroom.IDClassroom).NamePerson,

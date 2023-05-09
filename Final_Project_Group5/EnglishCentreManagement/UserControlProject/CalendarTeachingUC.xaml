@@ -86,11 +86,11 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn Header="Thusday" IsReadOnly="True" CanUserResize="False" Width="*">
+                    <DataGridTemplateColumn Header="Thursday" IsReadOnly="True" CanUserResize="False" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="12" Text="{Binding RoomNumThusday}"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="12" Text="{Binding RoomNumThursday}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

@@ -25,8 +25,8 @@
                                     <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 10 0" Background="#ff5252">
                                         <TextBlock Text="{Binding ShiftCode}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" Style="{StaticResource txtInforMain}"/>
                                     </Border>
-                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding txtDetailTimeStart}" VerticalAlignment="Center" Foreground="Black"/>
-                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding txtDetailTimeEnd}" VerticalAlignment="Center" Foreground="Black"/>
+                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeStart}" VerticalAlignment="Center" Foreground="Black"/>
+                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeEnd}" VerticalAlignment="Center" Foreground="Black"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -66,13 +66,13 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn Header="Thusday" IsReadOnly="True" CanUserResize="False" Width="*">
+                    <DataGridTemplateColumn Header="Thursday" IsReadOnly="True" CanUserResize="False" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassThusday}"/>
-                                    <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherThusday}"/>
-                                    <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumThusday}"/>
+                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassThursday}"/>
+                                    <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherThursday}"/>
+                                    <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumThursday}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

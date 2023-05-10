@@ -17,419 +17,23 @@
              FontFamily="{DynamicResource MaterialDesignFont}"
              Height="588" Width="998"
              Name="manageClassroom">
-    <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>-->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-
-        <!--<Border Grid.Column="0" BorderThickness="1" Padding="5" CornerRadius="10" Background="#c34934">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="450"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <materialDesign:Card Grid.Row="0" Margin="5" UniformCornerRadius="5"
-                                     Background="Aquamarine">
-                    <StackPanel Orientation="Vertical" Margin="5">
-                        <Border Background="#f64721" Height="50" Margin="5" 
-                                CornerRadius="5">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Instagram"
-                                                         HorizontalAlignment="Right"
-                                                         VerticalAlignment="Center"
-                                                         Width="40"
-                                                         Height="40"
-                                                         Margin="10"/>
-
-                                <TextBlock Text="Information of class"
-                                           HorizontalAlignment="Center" 
-                                           VerticalAlignment="Center"
-                                           FontSize="20" Foreground="AntiqueWhite"
-                                           Margin="10"/>
-                            </StackPanel>
-                        </Border>
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" Grid.Column="0"
-                                        VerticalAlignment="Bottom" >
-                                <materialDesign:PackIcon Kind="GolfCourse" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="ID Course:" 
-                                       HorizontalAlignment="Left"     
-                                       VerticalAlignment="Center"     
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <TextBox Width="200" x:Name="IDCourse"
-                                     VerticalAlignment="Bottom" 
-                                     HorizontalAlignment="Center"
-                                     Grid.Column="1" 
-                                     Margin="2"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding IdCourse, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
-                        </Grid>
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="71*"/>
-                                <ColumnDefinition Width="167*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Top" Margin="0,16,0,0">
-                                <materialDesign:PackIcon Kind="GolfCourse" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-                                <Label Content="ID Classroom:" 
-                                       HorizontalAlignment="Left"     
-                                       VerticalAlignment="Center"      
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <TextBox Width="200" x:Name="IDClass"
-                                     VerticalAlignment="Center" 
-                                     HorizontalAlignment="Left"
-                                     Grid.Column="1" 
-                                     Margin="19,0,0,0"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.IDClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
-
-                        </Grid>
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Bottom">
-                                <materialDesign:PackIcon Kind="Teaching" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="ID Teacher:" 
-                                       HorizontalAlignment="Left"   
-                                       VerticalAlignment="Center"     
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-
-                            <TextBox Width="200" x:Name="IDTeacher"
-                                     VerticalAlignment="Center" 
-                                     HorizontalAlignment="Center"
-                                     Grid.Column="1" 
-                                     Margin="2"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding IdTeacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="36*"/>
-                                <ColumnDefinition Width="83*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Top" Margin="0,16,0,0">
-                                <materialDesign:PackIcon Kind="PlayRoom" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="Room num:" 
-                                       HorizontalAlignment="Left"    
-                                       VerticalAlignment="Center"    
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-
-                            <TextBox Width="200" x:Name="RoomNum"
-                                     VerticalAlignment="Center" 
-                                     HorizontalAlignment="Left"
-                                     Grid.Column="1" 
-                                     Margin="19,0,0,0"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.RoomNum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
-
-                        </Grid>
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Bottom">
-                                <materialDesign:PackIcon Kind="AccountStudentOutline" 
-                                                         Width="20" Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="Num student:" 
-                                       HorizontalAlignment="Left"   
-                                       VerticalAlignment="Center"     
-                                       FontFamily="Montserrat" 
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <TextBox Width="200" x:Name="NumStu"
-                                     VerticalAlignment="Center" 
-                                     HorizontalAlignment="Center"
-                                     Grid.Column="1" Margin="2"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.MaxNumStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="29*"/>
-                                <ColumnDefinition Width="209*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Top" 
-                                        Margin="0,16,0,0" >
-                                <materialDesign:PackIcon Kind="EventWeekBegin" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="Starting day:" 
-                                       HorizontalAlignment="Left"      
-                                       VerticalAlignment="Bottom"      
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <DatePicker Style="{StaticResource MaterialDesignDatePicker}" 
-                                        Grid.Column="1" HorizontalAlignment="Left"
-                                        Width="200"
-                                        SelectedDateFormat="Short"
-                                        DisplayDateStart="4/5/2023" 
-                                        DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
-                                        Margin="19,0,0,0"
-                                        SelectedDate="{Binding CurrentClassroom.StartingDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-
-                        <Grid Height="40" >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Bottom">
-                                <materialDesign:PackIcon Kind="EventWeekBegin" 
-                                                         Width="20" Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="Ending day:" 
-                                       HorizontalAlignment="Left"   
-                                       VerticalAlignment="Bottom"   
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <DatePicker Style="{StaticResource MaterialDesignDatePicker}" 
-                                        x:Name="Start"
-                                        Grid.Column="1"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        Width="200"
-                                        SelectedDate="{Binding CurrentClassroom.EndingDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        SelectedDateFormat="Short"
-                                        DisplayDateStart="4/5/2023" 
-                                        DisplayDateEnd="4/5/2024"/>
-                        </Grid>
-
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                                <materialDesign:PackIcon Kind="EventWeekBegin" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content=" Study date:" 
-                                       HorizontalAlignment="Left"                         
-                                       VerticalAlignment="Center"                        
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <ComboBox  Width="200" Height="40" Grid.Column="1" x:Name="meet" 
-                                       materialDesign:HintAssist.Hint="Meets"
-                                       materialDesign:TextFieldAssist.HasClearButton="True"
-                                       ItemsSource="{Binding ListStudyDate}"
-                                       Margin="0"
-                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                       >
-                                <ComboBox.SelectedItem >
-                                    <Binding Mode="TwoWay"
-                                             Path="CurrentClassroom.StudyDate"
-                                             UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </ComboBox.SelectedItem>
-                            </ComboBox>
-                        </Grid>
-
-                        <Grid Height="40" Margin="0 5 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Bottom">
-                                <materialDesign:PackIcon Kind="EventWeekBegin" 
-                                                         Width="20" Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-                                <Label Content=" Shift " 
-                                       HorizontalAlignment="Left"                         
-                                       VerticalAlignment="Center"                        
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <ComboBox  Width="200" Grid.Column="1" x:Name="shift"
-                                       materialDesign:HintAssist.Hint="Shift"
-                                       materialDesign:TextFieldAssist.HasClearButton="True"
-                                       ItemsSource="{Binding ListShift}"
-                                       Style="{StaticResource MaterialDesignOutlinedComboBox}">
-                                <ComboBox.SelectedItem >
-                                    <Binding Mode="TwoWay"
-                                             Path="IdShift"
-                                             UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </ComboBox.SelectedItem>
-                            </ComboBox>
-                        </Grid>
-                    </StackPanel>
-                </materialDesign:Card>
-
-                <materialDesign:Card Grid.Row="1" UniformCornerRadius="5" 
-                                     Background="#720932">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal" Margin="10">
-                            <materialDesign:PackIcon Kind="PencilPlusOutline"
-                                                     Width="20" 
-                                                     Height="20"/>
-
-                            <TextBlock Text="Operation Controls" Margin="2"
-                                       Style="{StaticResource text}"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       Foreground="#ffff72"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-
-                            <materialDesign:Badged Badge="new"
-                                                   BadgeColorZoneMode="Dark" Margin="5 5 25 5">
-                                <Button HorizontalAlignment="Left" Margin="5" Height="40" 
-                                        Command="{Binding AddClassRoomCommand}"
-                                        Width="40" 
-                                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-                                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                                        materialDesign:ButtonProgressAssist.Value="-1"
-                                        Content="{materialDesign:PackIcon PlusCircleOutline, Size=30}"
-                                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                        Style="{StaticResource MaterialDesignFloatingActionButton}"/>
-                            </materialDesign:Badged>
-
-                            <materialDesign:Badged Badge="Delete" 
-                                                   BadgeColorZoneMode="Dark" 
-                                                   Margin="25 5 25 0">
-                                <Button HorizontalAlignment="Left" Margin="5" Height="40" Width="40" 
-                                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                                        materialDesign:ButtonProgressAssist.Value="50"
-                                        Content="{materialDesign:PackIcon ContentSaveAllOutline, Size=30}"
-                                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                        Command="{Binding DeleteClassRoomCommand}"
-                                        CommandParameter="{Binding 
-                CurrentClassroom.IDClassroom}"
-                                        Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}" 
-                                        Background="#e4ff54"/>
-                            </materialDesign:Badged>
-
-                            <materialDesign:Badged  Badge="Manage"
-                                                    BadgeColorZoneMode="Inverted" Margin="25 5 30 5">
-                                <Button HorizontalAlignment="Left" Margin="5" Height="40" Width="40" 
-                                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                                        materialDesign:ButtonProgressAssist.Value="75"
-                                        Content="{materialDesign:PackIcon MicrosoftXboxControllerMenu, Size=30}"
-                                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" 
-                                        Background="#000051"/>
-                            </materialDesign:Badged>
-
-                            <materialDesign:Badged Badge="Refresh" BadgeColorZoneMode="Inverted" 
-                                                   Margin="20 5 30 5">
-                                <Button HorizontalAlignment="Left" Margin="5" Height="40" Width="40" 
-                                        materialDesign:ButtonProgressAssist.IndicatorBackground="#ffcc80"
-                                        materialDesign:ButtonProgressAssist.IndicatorForeground="#e65100"
-                                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                                        materialDesign:ButtonProgressAssist.Value="25"
-                                        Background="#81d4fa"
-                                        BorderBrush="#81d4fa"
-                                        Content="{materialDesign:PackIcon Refresh,Size=30}"
-                                        Foreground="#DD000000"
-                                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                        Style="{StaticResource MaterialDesignFloatingActionButton}" />
-                            </materialDesign:Badged>
-
-                        </StackPanel>
-                    </StackPanel>
-
-                </materialDesign:Card>
-            </Grid>
-        </Border>-->
-
-        <Border CornerRadius="10" Background="Aquamarine" Grid.Row="1" BorderBrush="#c34934"         
+    <Border CornerRadius="10" Background="white" Grid.Row="1"       
                 BorderThickness="5" Margin="5 0 0 0 ">
-            <!--<StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="10" Background="Aquamarine" Grid.Row="1" BorderBrush="#c34934"         
+                BorderThickness="5" Margin="5 0 0 0 ">
+                <!--<StackPanel Orientation="Vertical">
                 -->
-            <!--<Border CornerRadius="5" BorderThickness="2" BorderBrush="#4569eb" 
+                <!--<Border CornerRadius="5" BorderThickness="2" BorderBrush="#4569eb" 
                         VerticalAlignment="Top" Height="35">
                     -->
-            <!--<StackPanel Orientation="Horizontal">
+                <!--<StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Search" Width="20" Height="20"
                                                  Margin="5 1 5 1" VerticalAlignment="Bottom"/>
                         <TextBlock Text="Search: " Style="{StaticResource text}"
@@ -441,43 +45,37 @@
                                   ItemsSource="{Binding List}" 
                                   Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
                     </StackPanel>-->
-            <!--
+                <!--
                 </Border>-->
 
-            <ListView ItemsSource="{Binding ListClassrooms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ListView ItemsSource="{Binding ListClassrooms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding CurrentClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<uc:InforTagUC IdClassroom="{Binding IDClassroom, Mode=OneWay}"
-                                       IdCourse="{Binding IDCourse, Mode=OneWay}"
-                                       NameTeacher="{Binding IDTeacher, Mode=OneWay}"
-                                       NumStudent="20"
-                                       RoomNum="{Binding RoomNum, Mode=OneWay}"
-                                       StartEnd="null"
-                                       Meet="{Binding StudyDate, Mode=OneWay}"
-                                       Width="550"
-                                       SubWidth="490"
-                                       Margin="5"/>-->
-                        <Border CornerRadius="3" 
-            BorderThickness="3" 
-            Width="990" 
-            BorderBrush="#4569eb">
-                            <StackPanel Orientation="Horizontal" >
-                                <Border CornerRadius="5" BorderThickness="2" BorderBrush="Green">
-                                    <StackPanel Orientation="Vertical">
-                                        <materialDesign:PackIcon Kind="GoogleClassroom" Width="40" Height="40" Margin="5"
-                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
 
-                                        <Button x:Name="btnDetail"
-                        Width="20" Height="20"
-                        materialDesign:ButtonProgressAssist.Value="50"
-                        Content="{materialDesign:PackIcon EyeOutline}"
-                        IsEnabled="True"
-                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
-                        Background="#007ac1"
-                        Margin="3"/>
+                            <Border CornerRadius="3" 
+                                BorderThickness="3" 
+                                Width="990" 
+                                BorderBrush="#4569eb">
+                                <StackPanel Orientation="Horizontal" >
+                                    <Border CornerRadius="5" BorderThickness="2" BorderBrush="Green">
+                                        <StackPanel Orientation="Vertical">
+                                            <materialDesign:PackIcon Kind="GoogleClassroom" 
+                                                                 Width="40" Height="40" Margin="5"
+                                                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                                        <Button x:Name="btnDelete"
+                                            <Button x:Name="btnupdate"
+                                                Command="{Binding DataContext.UpdateClassRoomCommand, ElementName=manageClassroom}"
+                                                CommandParameter="{Binding IDClassroom}"
+                                                Width="20" Height="20"
+                                                materialDesign:ButtonProgressAssist.Value="50"
+                                                Content="{materialDesign:PackIcon EyeOutline}"
+                                                IsEnabled="True"
+                                                Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                                                Background="#007ac1"
+                                                Margin="3"/>
+
+                                            <Button x:Name="btnDelete"
                                                 Command="{Binding DataContext.DeleteClassRoomCommand, ElementName=manageClassroom}"
                                                 CommandParameter="{Binding IDClassroom}"
                                                 Width="20" Height="20"
@@ -486,62 +84,68 @@
                                                 Content="{materialDesign:PackIcon DeleteForever}"
                                                 IsEnabled="True"
                                                 Style="{StaticResource  MaterialDesignFloatingActionMiniDarkButton}" />
-
-                                    </StackPanel>
-                                </Border>
-                                
-                                <StackPanel Orientation="Vertical">
-                                    <Border Background="AntiqueWhite" 
-                        BorderThickness="2" BorderBrush="#c53414" 
-                        Width="550"
-                        CornerRadius="5"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center">
-                                        <uc:TagUC Tag="Class" Text="{Binding IDClassroom}"/>
-                                    </Border>
-
-                                    <Border CornerRadius="5" 
-                        BorderThickness="2" 
-                        BorderBrush="#ffff00"
-                        Width="490">
-                                        <StackPanel Orientation="Horizontal" >
-
-                                            <StackPanel>
-                                                <uc:TagUC Tag="GolfCourse" Text="{Binding IDCourse }" Margin="5" BorderBrush="Black" BorderThickness="2" />
-
-                                                <uc:TagUC Tag="HumanMaleBoard" Text="{Binding IDTeacher}" Margin="5" BorderBrush="Black" BorderThickness="2" />
-                                            </StackPanel>
-
-                                            <StackPanel>
-                                                <uc:TagUC Tag="Number0BoxMultipleOutline" Text="{Binding MaxNumStudent}" Margin="5" BorderBrush="Black" BorderThickness="2" />
-
-                                                <uc:TagUC Tag="Room" Text="{Binding RoomNum}" Margin="5" BorderBrush="Black" BorderThickness="2" />
-                                            </StackPanel>
-
-                                            <StackPanel>
-                                                <uc:TagUC Tag="SunClockOutline" Text="{Binding StartEnd}" Margin="5" BorderBrush="Black" BorderThickness="2"/>
-
-                                                <uc:TagUC Tag="SunClockOutline" Text="{Binding StudyDate}" Margin="5" BorderBrush="Black" BorderThickness="2" />
-                                            </StackPanel>
-
                                         </StackPanel>
                                     </Border>
+
+                                    <StackPanel Orientation="Vertical">
+                                        <Border Background="AntiqueWhite" 
+                                            BorderThickness="2" BorderBrush="#c53414" 
+                                            Width="550"
+                                            CornerRadius="5"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center">
+                                            <uc:TagUC Tag="Class" Text="{Binding IDClassroom}"/>
+                                        </Border>
+
+                                        <Border CornerRadius="5" 
+                                            BorderThickness="2" 
+                                            BorderBrush="#ffff00"
+                                            Width="490">
+                                            <StackPanel Orientation="Horizontal" >
+                                                <StackPanel>
+                                                    <uc:TagUC Tag="GolfCourse" Text="{Binding IDCourse }" Margin="5" BorderBrush="Black" BorderThickness="2" />
+
+                                                    <uc:TagUC Tag="HumanMaleBoard" Text="{Binding IDTeacher}" Margin="5" BorderBrush="Black" BorderThickness="2" />
+                                                </StackPanel>
+
+                                                <StackPanel>
+                                                    <uc:TagUC Tag="Number0BoxMultipleOutline" Text="{Binding MaxNumStudent}" Margin="5" BorderBrush="Black" BorderThickness="2" />
+
+                                                    <uc:TagUC Tag="Room" Text="{Binding RoomNum}" Margin="5" BorderBrush="Black" BorderThickness="2" />
+                                                </StackPanel>
+
+                                                <StackPanel>
+                                                    <uc:TagUC Tag="SunClockOutline" Text="{Binding StartEnd}" Margin="5" BorderBrush="Black" BorderThickness="2"/>
+
+                                                    <uc:TagUC Tag="SunClockOutline" Text="{Binding StudyDate}" Margin="5" BorderBrush="Black" BorderThickness="2" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
                                 </StackPanel>
-                            </StackPanel>
-                        </Border>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--</StackPanel>-->
+            </Border>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <!--</StackPanel>-->
-        </Border>
-
-        <Button Grid.Row="2" 
+            <!--<Button Grid.Row="2" 
                 materialDesign:RippleAssist.Feedback="#DD000000"
                 Content="Add Classroom"
                 Command="{Binding ShowInputClassroomDialog}"
-               
                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
-    </Grid>
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />-->
+
+            <Button Grid.Row="2" materialDesign:ButtonAssist.CornerRadius="25"
+                    Width="500"
+                    Height="45"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                    Content="{materialDesign:PackIcon Plus, Size=50}"
+                    Command="{Binding ShowInputClassroomDialog}">
+            </Button>
+        </Grid>
+    </Border>
 </UserControl>

@@ -16,7 +16,7 @@ namespace EnglishCentreManagement.Interfaces
         void DeleteRegisteredClassroom(string stdID, string clsID);
         void Update(Classroom cls);
         bool ValidateValue(Classroom cls);
-        Classroom? getById(string id);
+        Classroom getById(string id);
         DataTable getClassRoomDAO();
         DataTable getStudentList(Classroom cls);
         List<Classroom> fillDataToListClassRoom(DataTable datatable);

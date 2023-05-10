@@ -61,7 +61,7 @@ namespace EnglishCentreManagement.Database
 
         }
 
-        public Classroom? getById(string id)
+        public Classroom getById(string id)
         {
             string sqlStr = string.Format("SELECT* FROM LOPHOC WHERE MaLop = '{0}'", id);
             DataTable dt = DBConnection.getData(conn, sqlStr);
@@ -81,7 +81,7 @@ namespace EnglishCentreManagement.Database
                     IDShift = new string(dr["MaCa"].ToString())
                 };
             }
-            return null;
+            return new Classroom();
         }
 
         public DataTable getClassRoomDAO()

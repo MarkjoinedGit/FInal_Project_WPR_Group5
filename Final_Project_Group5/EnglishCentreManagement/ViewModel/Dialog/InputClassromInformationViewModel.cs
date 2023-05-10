@@ -15,6 +15,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
 {
     public class InputClassromInformationViewModel : BaseViewModel
     {
+        private bool _canReadonlyId = false;
         private Classroom _currentClassroom = new Classroom();
 
         private IClassRoomDao classRoomDao = new ClassRoomDao();
@@ -23,14 +24,10 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         public ObservableCollection<string> ListShift { get; set; }
         public ObservableCollection<string> ListStudyDate { get; set; }
 
-        public ICommand AddClassroomCommand { get; set; }
+        public ICommand AddOrUpdateClassroomCommand { get; }
+        public ICommand ExitCommand { get; }
 
-        public InputClassromInformationViewModel()
-        {
-            ListStudyDate = new ObservableCollection<string>(classRoomDao.GetListStudyDate());
-            ListShift = new ObservableCollection<string>(shiftDAO.getAllShiftID());
-            AddClassroomCommand = new RelayCommand<Window>(CanExecuteAddClassroomCommand, ExecuteAddClassroomCommand);
-        }
+        public bool CanReadonlId { get => _canReadonlyId; set => _canReadonlyId=value; }
 
         public Classroom CurrentClassroom
         {
@@ -42,25 +39,35 @@ namespace EnglishCentreManagement.ViewModel.Dialog
             }
         }
 
-        private void ExecuteAddClassroomCommand(Window obj)
+        public InputClassromInformationViewModel()
+        {
+            ListStudyDate = new ObservableCollection<string>(classRoomDao.GetListStudyDate());
+            ListShift = new ObservableCollection<string>(shiftDAO.getAllShiftID());
+            AddOrUpdateClassroomCommand = new RelayCommand<Window>(CanExecuteAddOrUpdateClassroomCommand, ExecuteAddOrUpdateClassroomCommand);
+            ExitCommand = new RelayCommand<Window>(ExcuteExitCommand);
+        }
+
+        private void ExecuteAddOrUpdateClassroomCommand(Window obj)
         {
             obj.Close();
         }
 
-        private bool CanExecuteAddClassroomCommand(Window obj)
+        private bool CanExecuteAddOrUpdateClassroomCommand(Window obj)
         {
             bool validValue = false;
 
-
-            if (CurrentClassroom != null)
-            {
-                if (CurrentClassroom.IDTeacher == null || CurrentClassroom.IDClassroom == null || CurrentClassroom.RoomNum == null || CurrentClassroom.MaxNumStudent.ToString() == null || CurrentClassroom.IDCourse == null || CurrentClassroom.StartingDate.ToString() == null || CurrentClassroom.EndingDate.ToString() == null || CurrentClassroom.StudyDate == null || CurrentClassroom.IDShift == null)
-                    validValue = false;
-                else
-                    validValue = true;
-            }
+            if (CurrentClassroom.IsHaveNullValue())
+                validValue = false;
+            else
+                validValue = true;
 
             return validValue;
+        }
+
+        private void ExcuteExitCommand(Window obj)
+        {
+            CurrentClassroom = new Classroom();
+            obj.Close();
         }
 
     }

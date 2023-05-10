@@ -55,7 +55,7 @@ namespace EnglishCentreManagement.Model
 
         public bool IsHaveNullValue()
         {
-            if(idTeacher == "" || idClassroom == "" || roomNum == "" || idCourse == "" || studyDate == "" || idShift == "")
+            if(String.IsNullOrEmpty(idTeacher.Trim()) ||  String.IsNullOrEmpty(idClassroom.Trim()) ||  String.IsNullOrEmpty(roomNum.Trim()) || String.IsNullOrEmpty(idCourse.Trim()) || String.IsNullOrEmpty(studyDate.Trim()) || String.IsNullOrEmpty(idShift.Trim()))
                 return true;
             return false;
         }

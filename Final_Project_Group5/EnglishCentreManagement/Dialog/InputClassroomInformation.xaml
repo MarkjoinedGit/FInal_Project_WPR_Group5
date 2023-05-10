@@ -20,13 +20,13 @@
         Width="397"
         Name="inputClassroom">
     <Grid>
-
         <Border Grid.Column="0" BorderThickness="1" Padding="5" CornerRadius="10" Background="#c34934">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="450"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                
                 <materialDesign:Card Grid.Row="0" Margin="5" UniformCornerRadius="5"
                                      Background="Aquamarine">
                     <StackPanel Orientation="Vertical" Margin="5">
@@ -73,13 +73,15 @@
                                      Grid.Column="1" 
                                      Margin="2"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.IDCourse, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
+                                     Text="{Binding CurrentClassroom.IDCourse, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                                     IsReadOnly="{Binding CanReadonlId}"/>
                         </Grid>
 
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="99*"/>
+                                <ColumnDefinition Width="136*"/>
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Orientation="Horizontal" 
@@ -94,14 +96,15 @@
                                        FontFamily="Montserrat"
                                        FontWeight="Bold" Width="130" Grid.Column="0"/>
                             </StackPanel>
-                            <TextBox Width="200"
-                                     VerticalAlignment="Bottom" 
-                                     HorizontalAlignment="Center"
-                                     Grid.Column="1" 
-                                     Margin="2"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.IDClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
 
+                            <TextBox Width="200"
+                                     VerticalAlignment="Center" 
+                                     HorizontalAlignment="Left"
+                                     Grid.Column="1" 
+                                     Margin="18,0,0,0"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding CurrentClassroom.IDClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"
+                                     IsReadOnly="{Binding CanReadonlId}"/>
                         </Grid>
 
                         <Grid Height="40">
@@ -352,11 +355,10 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
-
                             <materialDesign:Badged Badge="new"
                                                    BadgeColorZoneMode="Dark" Margin="5 5 25 5">
                                 <Button HorizontalAlignment="Left" Margin="5" Height="40" 
-                                        Command="{Binding AddClassroomCommand}"
+                                        Command="{Binding AddOrUpdateClassroomCommand}"
                                         CommandParameter="{Binding ElementName=inputClassroom}"
                                         Width="40" 
                                         materialDesign:ButtonProgressAssist.IsIndeterminate="True"
@@ -370,6 +372,8 @@
                             <materialDesign:Badged  Badge="Exit"
                                                     BadgeColorZoneMode="Inverted" Margin="25 5 30 5">
                                 <Button HorizontalAlignment="Left" Margin="5" Height="40" Width="40" 
+                                        Command="{Binding ExitCommand}"
+                                        CommandParameter="{Binding ElementName=inputClassroom}"
                                         materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                                         materialDesign:ButtonProgressAssist.Value="75"
                                         Content="{materialDesign:PackIcon ExitToApp, Size=30}"
@@ -378,24 +382,24 @@
                                         Background="#000051"/>
                             </materialDesign:Badged>
 
-                            <materialDesign:Badged Badge="Refresh" BadgeColorZoneMode="Inverted" 
+                            <materialDesign:Badged Badge="Update" BadgeColorZoneMode="Inverted" 
                                                    Margin="20 5 30 5">
-                                <Button HorizontalAlignment="Left" Margin="5" Height="40" Width="40" 
+                                <Button HorizontalAlignment="Left" Margin="5" Height="40" Width="40"  
+                                        Command="{Binding AddOrUpdateClassroomCommand}"
+                                        CommandParameter="{Binding ElementName=inputClassroom}"
                                         materialDesign:ButtonProgressAssist.IndicatorBackground="#ffcc80"
                                         materialDesign:ButtonProgressAssist.IndicatorForeground="#e65100"
                                         materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                                         materialDesign:ButtonProgressAssist.Value="25"
                                         Background="#81d4fa"
                                         BorderBrush="#81d4fa"
-                                        Content="{materialDesign:PackIcon Refresh,Size=30}"
+                                        Content="{materialDesign:PackIcon Update,Size=30}"
                                         Foreground="#DD000000"
                                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                         Style="{StaticResource MaterialDesignFloatingActionButton}" />
                             </materialDesign:Badged>
-
                         </StackPanel>
                     </StackPanel>
-
                 </materialDesign:Card>
             </Grid>
         </Border>

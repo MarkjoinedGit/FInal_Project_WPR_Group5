@@ -22,15 +22,17 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 
         private IClassRoomDao classRoomDao = new ClassRoomDao();
 
-        public ICommand DeleteClassRoomCommand { get; set; }
-        public ICommand ShowInputClassroomDialog { get; set; }
+        public ICommand DeleteClassRoomCommand { get; }
+        public ICommand UpdateClassRoomCommand { get; }
+        public ICommand ShowInputClassroomDialog { get; }
+
 
 
         public ManageClassroomViewModel()
         {
             LoadClassroom();
-
             DeleteClassRoomCommand = new RelayCommand<string>(CanExecuteDeleteClassRoomCommand, ExecuteDeleteClassRoomCommand);
+            UpdateClassRoomCommand = new RelayCommand<string>(ExcuteUpdateClassRoomCommand);
             ShowInputClassroomDialog = new RelayCommand<object>(ExecuteShowInputClassroomDialog);
         }
 
@@ -58,7 +60,6 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         {
             CurrentClassroom.IDClassroom = id;
             classRoomDao.Delete(CurrentClassroom);
-            Classroom? classroom = ListClassrooms.FirstOrDefault(obj => obj.IDClassroom.Equals(id));
             LoadClassroom();
         }
 
@@ -68,13 +69,29 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             return true;
         }
 
+        private void ExcuteUpdateClassRoomCommand(string id)
+        {
+            Window dialog = new InputClassroomInformation();
+            ((InputClassromInformationViewModel)dialog.DataContext).CanReadonlId = true;
+            ((InputClassromInformationViewModel)dialog.DataContext).CurrentClassroom = classRoomDao.getById(id);
+            dialog.ShowDialog();
+            CurrentClassroom = ((InputClassromInformationViewModel)dialog.DataContext).CurrentClassroom; 
+            if (!CurrentClassroom.IsHaveNullValue())
+            {
+                classRoomDao.Update(CurrentClassroom);
+            }
+            LoadClassroom() ;
+        }
 
         private void ExecuteShowInputClassroomDialog(object obj)
         {
             Window dialog = new InputClassroomInformation();
             dialog.ShowDialog();
             CurrentClassroom = ((InputClassromInformationViewModel)dialog.DataContext).CurrentClassroom;
-            classRoomDao.Add(CurrentClassroom);
+            if(!CurrentClassroom.IsHaveNullValue())
+            {
+                classRoomDao.Add(CurrentClassroom);
+            }
             LoadClassroom();
         }
 

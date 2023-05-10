@@ -25,6 +25,7 @@ namespace EnglishCentreManagement.Dialog
         {
             InitializeComponent();
             DataContext = new InputClassromInformationViewModel();
+           
         }
     }
 }

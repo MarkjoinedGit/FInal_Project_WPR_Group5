@@ -10,6 +10,12 @@
     <Compile Update="Dialog\CreateScoreBoardDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialog\CreateStudentDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialog\CreateTeacherDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialog\InputClassroomInformation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -91,6 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Dialog\CreateScoreBoardDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\CreateStudentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\CreateTeacherDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialog\InputClassroomInformation.xaml">

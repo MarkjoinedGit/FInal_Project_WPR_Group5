@@ -17,17 +17,26 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private DateTime _timeStudStart;
         private DateTime _timeStudEnd;
         private Student _crtStudent;
+        private DateTime _currentDate;
+
         private BaseViewModel _currentChildView;
         private List<Shift> _listShifts = new List<Shift>();
         private List<Classroom> _listClassrooms = new List<Classroom>();
         private List<Schedule> _listSchedules = new List<Schedule>();
-        
 
+        private List<Schedule> _schedules =new List<Schedule>();
 
         // DAO
         private ScheduleDAO _scheduleDAO = new ScheduleDAO();
         private ShiftDAO _shiftDAO = new ShiftDAO();
         private ClassRoomDao _classroomDAO = new ClassRoomDao();
+
+
+        public string TxtAbsent { get; set; }
+        public ICommand DownWeekCommand { get; set; }
+        public ICommand UpWeekCommand { get; set; }
+        public ICommand ShowYourScheduleOnWeek { get; set; }
+
         // Data Table for Schedule
         //... Binding
 
@@ -59,22 +68,53 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                 OnPropertyChanged(nameof(TimeStudEnd));
             }
         }
-        public string TxtAbsent { get; set; }
-        private List<string> _lstringComboBox = new List<string>();
-        private List<Schedule> _schedules = new List<Schedule>();
-        public ICommand ShowYourScheduleOnWeek { get; set; }
+
+        
 
 
         public string IndexWeek { get; set; }
-        public List<string> LstringComboBox { get => _lstringComboBox; set => _lstringComboBox = value; }
-        public List<Schedule> Schedules { get => _schedules; set => _schedules = value; }
-       
+        public List<Schedule> Schedules
+        { 
+            get => _schedules;
+            set
+            {
+                _schedules=value;
+                OnPropertyChanged(nameof(Schedules));   
+            } 
+        }
+        public DateTime CurrentDate 
+        { 
+            get => _currentDate;
+            set
+            {
+                _currentDate = value;
+                OnPropertyChanged(nameof(CurrentDate));
+            }
+        }
 
         public ControlScheduleViewModel()
         {
+            CurrentDate = DateTime.Now; 
+            GetMomentWeek();
             LoadSchedule();
-            ShowYourScheduleOnWeek = new RelayCommand<Action>(ExecuteShowYourScheduleOnWeek);
+            DownWeekCommand = new RelayCommand<Action>(ExecuteDownWeekCommand);
+            UpWeekCommand=new RelayCommand<Action>(ExecuteUpWeekCommand);   
         }
+
+        private void ExecuteUpWeekCommand(Action obj)
+        {
+            CurrentDate = CurrentDate.AddDays(7);
+            GetMomentWeek();
+            LoadDataGrid();
+        }
+
+        private void ExecuteDownWeekCommand(Action obj)
+        {
+            CurrentDate=CurrentDate.AddDays(-7);
+            GetMomentWeek();
+            LoadDataGrid();
+        }
+
         public void LoadSchedule()
         {
             //User
@@ -83,60 +123,32 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             _listClassrooms = _classroomDAO.GetListRegisteredClassroom(_crtStudent);
             _listShifts = _scheduleDAO.FindShiftForClassByClass(_listClassrooms);
 
-            _txtInforStu = _crtStudent.NamePerson + " - " + _crtStudent.Enter_Infor.ID;
+            TxtInforStu = _crtStudent.NamePerson + " - " + _crtStudent.Enter_Infor.ID;
+            Schedules.Clear();
             if(_listClassrooms.Count > 0)
             {
-                _timeStudStart =  _listClassrooms[0].StartingDate;
-                _timeStudStart = _listClassrooms[0].EndingDate;
-                TxtAbsent = "0";
-
-                DataForComboBoxWeek(_listClassrooms[0]);
                 LoadDataGrid();
             }
-        }
-
-        private void ExecuteShowYourScheduleOnWeek(Action obj)
-        {
-            int numWeek = int.Parse(IndexWeek);
-            int maxWeek = FindIndexWeek(_listClassrooms[0].StartingDate, _listClassrooms[0].EndingDate);
-            if (numWeek < 0) IndexWeek = "1";
-            else if (int.Parse(IndexWeek) > maxWeek) IndexWeek = maxWeek.ToString();
-            else
-            {
-                TimeStudStart = _listClassrooms[0].StartingDate.AddDays(7*numWeek);
-                TimeStudEnd = _listClassrooms[0].StartingDate.AddDays(7 * numWeek + 7);
-            }
+            TxtAbsent = "0";
         }
         private void LoadUserCurrentData()
         {
             _crtStudent = CurrentUser.Instance.CurrentStudent;
         }
-        public int FindIndexWeek(DateTime Start, DateTime Date)
+        public void GetMomentWeek()
         {
-            TimeSpan tspan = Date - Start;
-            return ((int)(tspan.Days) / 7);
-        }
-        public void DataForComboBoxWeek(Classroom classroom)
-        {
-            int maxWeek = FindIndexWeek(classroom.StartingDate, classroom.EndingDate);
-            for (int i = 1; i <= maxWeek; i++)
-            {
-                LstringComboBox.Add(i.ToString());
-            }
+            Schedule.GetWeekBoundaries(CurrentDate, out DateTime Start,out DateTime End);
+            TimeStudStart = Start;
+            TimeStudEnd=End;
         }
         public void LoadDataGrid()
         {
-            int indexWeek = FindIndexWeek(_listClassrooms[0].StartingDate, DateTime.Now);
-            int maxWeek = FindIndexWeek(_listClassrooms[0].StartingDate, _listClassrooms[0].EndingDate);
+            Schedules=new List<Schedule>();
             foreach (Classroom classroom in _listClassrooms)
             {
 
-                if (DateTime.Now > DateTime.Parse(classroom.EndingDate.ToString())) IndexWeek = "15";
-                else
+                if (CurrentDate > classroom.StartingDate && CurrentDate < classroom.EndingDate || CurrentDate == classroom.StartingDate || CurrentDate == classroom.EndingDate)
                 {
-                    if (DateTime.Now <= classroom.StartingDate) IndexWeek = "1";
-                    else if (indexWeek < maxWeek)
-                        IndexWeek = indexWeek.ToString();
                     if (classroom.StudyDate == "T2-T4-T6")
                         Schedules.Add(new Schedule()
                         {
@@ -168,7 +180,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                             RoomNumTuesday = classroom.RoomNum,
 
                             IdClassThursday = classroom.IDClassroom,
-                            NameTeacherThursday =_scheduleDAO.FindTeacherByIdClass(classroom.IDClassroom).NamePerson,
+                            NameTeacherThursday = _scheduleDAO.FindTeacherByIdClass(classroom.IDClassroom).NamePerson,
                             RoomNumThursday = classroom.RoomNum,
 
                             IdClassSaturday = classroom.IDClassroom,
@@ -177,6 +189,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                         });
 
                 }
+                else continue;
             }
         }
     }

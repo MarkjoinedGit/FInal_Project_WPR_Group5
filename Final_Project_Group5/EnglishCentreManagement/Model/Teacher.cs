@@ -5,9 +5,9 @@ namespace EnglishCentreManagement.Model
 {
     public class Teacher : Person
     {
-        private long? salary;
+        private double? salary;
 
-        public long? Salary { get => salary; set => salary=value; }
+        public double? Salary { get => salary; set => salary=value; }
 
         public Teacher() { }
     }

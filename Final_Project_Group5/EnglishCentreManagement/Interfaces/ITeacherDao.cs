@@ -13,5 +13,7 @@ namespace EnglishCentreManagement.Interfaces
         void Delete(Teacher Tea);
         void Update(Teacher Tea);
         Teacher getByID(string id);
+        List<Teacher> GetListAllTeacher();
+        List<Teacher> getListByName(string name);
     }
 }

@@ -92,5 +92,13 @@ namespace EnglishCentreManagement.Model
             NameTeacherSunday = "";
             RoomNumSunday = "";
         }
+        public static void GetWeekBoundaries(DateTime date,out DateTime firstDayOfWeek,out DateTime lastDayOfWeek)
+        {
+            DayOfWeek currentDayOfWeek = date.DayOfWeek;
+            int diff = currentDayOfWeek - DayOfWeek.Monday;
+
+            firstDayOfWeek = date.AddDays(-diff);
+            lastDayOfWeek = firstDayOfWeek.AddDays(7);
+        }
     }
 }

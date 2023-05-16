@@ -1,9 +1,11 @@
 ﻿using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace EnglishCentreManagement.Database
 {
@@ -14,19 +16,19 @@ namespace EnglishCentreManagement.Database
 
         public void Add(Teacher Tea)
         {
-            string strSQL = string.Format("INSERT INTO GIAOVIEN VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", Tea.Enter_Infor.ID,  Tea.NamePerson,  Tea.DateBorn, Tea.Gender, Tea.Address, Tea.PhoneNum, Tea.IdentityCard, Tea.BankNumber, Tea.RankLevel);
+            string strSQL = string.Format("INSERT INTO GIAOVIEN VALUES ('{0}', N'{1}', '{2}', N'{3}', N'{4}', '{5}', '{6}', '{7}', '{8}','{9}')", Tea.Enter_Infor.ID,  Tea.NamePerson,  Tea.DateBorn, Tea.Gender, Tea.Address, Tea.PhoneNum, Tea.IdentityCard, Tea.BankNumber, Tea.RankLevel,Tea.Salary);
             DBConnection.Execute(conn, strSQL);
         }
 
         public void Delete(Teacher Tea)
         {
-            string strSQL = string.Format("DELETE FROM GIAOVIEN  WHERE MaGiaoVien = '{0}')", Tea.Enter_Infor.ID);
+            string strSQL = string.Format("DELETE FROM GIAOVIEN  WHERE MaGiaoVien = '{0}'", Tea.Enter_Infor.ID);
             DBConnection.Execute(conn, strSQL);
         }
 
         public void Update(Teacher Tea)
         {
-            string strSQL = string.Format("UPDATE GIAOVIEN SET TenGiaoVien = '{0}', NgaySinh = '{1}', GioiTinh = '{2}', DiaChi = '{3}', SoDienThoai ='{4}' ChungMinhNhanDan ='{5}', SoTaiKhoan = '{6}', RankLevel = '{7}' WHERE MaGiaoVien = '{8}'", Tea.NamePerson, Tea.DateBorn, Tea.Gender, Tea.Address, Tea.PhoneNum, Tea.IdentityCard, Tea.BankNumber, Tea.RankLevel, Tea.Enter_Infor.ID);
+            string strSQL = string.Format("UPDATE GIAOVIEN SET TenGiaoVien = N'{0}', NgaySinh = '{1}', GioiTinh = N'{2}', DiaChi = N'{3}', SoDienThoai ='{4}',ChungMinhNhanDan ='{5}', SoTaiKhoan = '{6}', RankLevel = '{7}' WHERE MaGiaoVien = '{8}'", Tea.NamePerson, Tea.DateBorn, Tea.Gender, Tea.Address, Tea.PhoneNum, Tea.IdentityCard, Tea.BankNumber, Tea.RankLevel, Tea.Enter_Infor.ID);
             DBConnection.Execute(conn, strSQL);
         }
 
@@ -46,12 +48,38 @@ namespace EnglishCentreManagement.Database
                     PhoneNum = new string(dtUser.Rows[0]["SoDienThoai"].ToString()),
                     IdentityCard = new string(dtUser.Rows[0]["ChungMinhNhanDan"].ToString()),
                     BankNumber = new string(dtUser.Rows[0]["SoTaiKhoan"].ToString()),
-                    RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
+                    RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"]),
+                    Salary = Convert.ToInt64(dtUser.Rows[0]["Luong"])
                 };
             }
             catch { }
 
             return new Teacher();
+        }
+        public List<Teacher> getListByName(string name)
+        {
+            string sqlStr = string.Format("SELECT MaGiaoVien FROM GIAOVIEN WHERE TenGiaoVien = N'{0}'", name);
+            List<Teacher> list = new List<Teacher>();
+            DataTable dt = DBConnection.getData(conn, sqlStr);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Teacher? teacher = getByID(new string(dr["MaGiaoVien"].ToString()));
+                if (teacher != null)
+                    list.Add(teacher);
+            }
+            return list;
+        }
+        public List<Teacher> GetListAllTeacher()
+        {
+            List<Teacher> list=new List<Teacher>();
+            string strSQL = string.Format("SELECT * FROM GIAOVIEN ");
+            DataTable dt=DBConnection.getData(conn, strSQL);
+            foreach(DataRow dr in dt.Rows) 
+            {
+                Teacher? tea=getByID(new string(dr["MaGiaoVien"].ToString()));
+                list.Add(tea);
+            }
+            return list;
         }
     }
 }

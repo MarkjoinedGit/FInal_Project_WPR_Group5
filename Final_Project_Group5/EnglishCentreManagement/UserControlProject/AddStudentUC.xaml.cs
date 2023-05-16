@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.ViewModel.UserControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace EnglishCentreManagement.UserControlProject
         public AddStudentUC()
         {
             InitializeComponent();
+            DataContext = new AddStudentViewModel();
+        }
+
+        private void dtgStudy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

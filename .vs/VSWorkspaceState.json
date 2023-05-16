@@ -3,14 +3,14 @@
     "",
     "\\Final_Project_Group5",
     "\\Final_Project_Group5\\EnglishCentreManagement",
+    "\\Final_Project_Group5\\EnglishCentreManagement\\Database",
     "\\Final_Project_Group5\\EnglishCentreManagement\\Dialog",
     "\\Final_Project_Group5\\EnglishCentreManagement\\Model",
-    "\\Final_Project_Group5\\EnglishCentreManagement\\ResourceXAML",
     "\\Final_Project_Group5\\EnglishCentreManagement\\UserControlProject",
     "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel",
     "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel\\Dialog",
-    "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel\\MainView"
+    "\\Final_Project_Group5\\EnglishCentreManagement\\ViewModel\\UserControl"
   ],
-  "SelectedNode": "\\Final_Project_Group5\\EnglishCentreManagement\\UserControlProject\\UserInformationUC.xaml",
+  "SelectedNode": "\\Final_Project_Group5\\EnglishCentreManagement\\UserControlProject\\ControlScheduleUC.xaml",
   "PreviewInSolutionExplorer": false
 }

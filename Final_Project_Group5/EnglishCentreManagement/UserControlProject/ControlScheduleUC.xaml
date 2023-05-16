@@ -5,25 +5,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:EnglishCentreManagement.UserControlProject"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              xmlns:usercontrol="clr-namespace:EnglishCentreManagement.UserControlProject"
              d:DesignHeight="598" d:DesignWidth="1008">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="800"/>
-            <ColumnDefinition Width="208"/>
-        </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" CornerRadius="20" Background="#81d4fa" BorderBrush="#696969" BorderThickness="5" Margin="0 0 2.5 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1" CornerRadius="20" Background="#81d4fa" BorderBrush="#696969" BorderThickness="5" Margin="0 0 2.5 0">
 
             <DataGrid x:Name="dtgSchedule" Margin="10" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" SelectionChanged="dtgSchedule_SelectionChanged" Background="#fff8e1"
-                      ItemsSource="{Binding Schedules}">
+                      ItemsSource="{Binding Schedules,Mode=TwoWay}" FontWeight="Bold" >
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Shift" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
                                     <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 10 0" Background="#ff5252">
-                                        <TextBlock Text="{Binding ShiftCode}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" Style="{StaticResource txtInforMain}"/>
+                                        <TextBlock Text="{Binding ShiftCode}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" Style="{StaticResource txtInforMain}" FontWeight="SemiBold"/>
                                     </Border>
                                     <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeStart}" VerticalAlignment="Center" Foreground="Black"/>
                                     <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeEnd}" VerticalAlignment="Center" Foreground="Black"/>
@@ -36,7 +37,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassMonday}"/>
+                                    <TextBlock Foreground="Red" FontSize="15" FontWeight="SemiBold" Text="{Binding IdClassMonday}"/>
                                     <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherMonday}"/>
                                     <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumMonday}"/>
                                 </StackPanel>
@@ -47,7 +48,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassTuesday}"/>
+                                    <TextBlock Foreground="Red" FontWeight="SemiBold"  FontSize="15" Text="{Binding IdClassTuesday}"/>
                                     <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherTuesday}"/>
                                     <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumTuesday}"/>
                                 </StackPanel>
@@ -58,7 +59,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassWednesday}"/>
+                                    <TextBlock Foreground="Red" FontWeight="SemiBold"  FontSize="15" Text="{Binding IdClassWednesday}"/>
                                     <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherWednesday}"/>
                                     <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumWednesday}"/>
                                 </StackPanel>
@@ -70,7 +71,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassThursday}"/>
+                                    <TextBlock Foreground="Red" FontWeight="SemiBold"  FontSize="15" Text="{Binding IdClassThursday}"/>
                                     <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherThursday}"/>
                                     <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumThursday}"/>
                                 </StackPanel>
@@ -82,7 +83,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassFriday}"/>
+                                    <TextBlock Foreground="Red" FontWeight="SemiBold"  FontSize="15" Text="{Binding IdClassFriday}"/>
                                     <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherFriday}"/>
                                     <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumFriday}"/>
                                 </StackPanel>
@@ -94,7 +95,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassSaturday}"/>
+                                    <TextBlock Foreground="Red" FontWeight="SemiBold"  FontSize="15" Text="{Binding IdClassSaturday}"/>
                                     <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherSaturday}"/>
                                     <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumSaturday}"/>
                                 </StackPanel>
@@ -105,7 +106,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Foreground="Red" FontSize="15" Text="{Binding IdClassSunday}"/>
+                                    <TextBlock Foreground="Red" FontWeight="SemiBold"  FontSize="15" Text="{Binding IdClassSunday}"/>
                                     <TextBlock Foreground="Blue" FontSize="12" Text="{Binding NameTeacherSunday}"/>
                                     <TextBlock Foreground="Black" FontSize="12" Text="{Binding RoomNumSunday}"/>
                                 </StackPanel>
@@ -117,67 +118,89 @@
 
             </DataGrid>
         </Border>
-        <Border Grid.Column="1" Background="#81d4fa" BorderBrush="#696969" Margin="2.5 0 0 0" CornerRadius="20" BorderThickness="5">
-            <StackPanel Orientation="Vertical">
-                <DockPanel VerticalAlignment="Top" HorizontalAlignment="Center" ForceCursor="True">
-                    <Border Width="80" Height="80" Padding="3" Background="#9056c2" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" >
-                        <materialDesign:PackIcon Kind="BellBadgeOutline" Foreground="#ffff00" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50"/>
+        <Border Grid.Row="0" Background="#81d4fa" BorderBrush="#696969" Margin="2.5 0 0 0" CornerRadius="20" BorderThickness="5">
+            <StackPanel Orientation="Horizontal">
+                
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" ForceCursor="True">
+                    <Border Width="60" Height="60" Margin="10 0 10 0" Background="#9056c2" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="BellBadgeOutline" Foreground="#ffff00" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40"/>
                     </Border>
                 </DockPanel>
 
                 <Border CornerRadius="20" BorderBrush="Black" BorderThickness="2" Margin="2" Height="auto">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal" Margin="5 10 0 5 ">
-                            <DockPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Margin="5 10 10 5 ">
+                        <DockPanel VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <Border Width="40" Height="40" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" >
                                     <materialDesign:PackIcon Kind="AccountStudent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30"/>
                                 </Border>
                             </DockPanel>
-                            <TextBlock Text="{Binding TxtInforStu}" Style="{StaticResource txtInforMain}" VerticalAlignment="Center" Margin="5 0 0  0 " FontSize="11"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal"  Margin="5 10 0 2">
-                            <usercontrol:TagUC Width="auto" Tag="BullseyeArrow" Text="Week:" FontSize="12"/>
+                        <TextBlock Text="{Binding TxtInforStu}" Style="{StaticResource txtInforMain}" VerticalAlignment="Center" Margin="5 0 0  0 " FontSize="12" FontWeight="SemiBold"/>
+                    </StackPanel>
+                </Border>
+                
+                <Border CornerRadius="20" BorderBrush="Black" BorderThickness="2" Margin="2" Height="auto">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
+                            <usercontrol:TagUC Width="auto" Tag="BullseyeArrow" Text="Week:" FontSize="14"/>
+                            <Button Style="{StaticResource buttonCorrow}" Command="{Binding DownWeekCommand}" Margin="12 0 5 0">
+                                <fa:ImageAwesome Icon="AngleLeft" Style="{StaticResource angleCorrow}"/>
+                            </Button>
+
+
+                            <StackPanel Orientation="Vertical" Margin="10 0 0 10">
+
+                                <StackPanel Orientation="Horizontal" Margin=" 0 10 0 5">
+                                    <materialDesign:PackIcon Kind="CalendarStart" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding TimeStudStart, StringFormat=dd-MM-yyyy,Mode=TwoWay}" Margin="5 0 0 0 " VerticalAlignment="Center" FontWeight="SemiBold" FontSize="12" Style="{StaticResource txtInforMain}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin=" 0 5 0 5">
+                                    <materialDesign:PackIcon Kind="CalendarEnd" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding TimeStudEnd, StringFormat=dd-MM-yyyy,Mode=TwoWay}" Margin="5 0 0 0" FontSize="12" Style="{StaticResource txtInforMain}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+
+                                </StackPanel>
+                            </StackPanel>
+
+
+                            <Button Style="{StaticResource buttonCorrow}" Margin="12 0 5 0" Command="{Binding UpWeekCommand}">
+                                <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource angleCorrow}" />
+                            </Button>
                             
-                            <ComboBox x:Name="cbWeek" 
-                                materialDesign:HintAssist.Hint="Current"
-                                materialDesign:HintAssist.HelperTextFontSize="1"
-                                materialDesign:TextFieldAssist.HasClearButton="True"
-                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                Width="110"  Margin="5 0 0 0" ItemsSource="{Binding LstringComboBox}" Text="{Binding IndexWeek}">
-
-                            </ComboBox>
                         </StackPanel>
                         
-                        <StackPanel Orientation="Horizontal" Margin="10 2 0 2.5">
-                            <materialDesign:PackIcon Kind="CalendarStart" VerticalAlignment="Center"/>
-                            <TextBlock Text="{Binding TimeStudStart, StringFormat=dd-MM-yyyy}" Margin="5 0 0 0 " VerticalAlignment="Center" FontSize="12" Style="{StaticResource txtInforMain}"/>
-                        </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal" Margin="10 2.5 0 2">
-                            <materialDesign:PackIcon Kind="CalendarEnd" VerticalAlignment="Center"/>
-                            <TextBlock Text="{Binding TimeStudEnd, StringFormat=dd-MM-yyyy}" Margin="5 0 0 0" FontSize="12" Style="{StaticResource txtInforMain}" VerticalAlignment="Center"/>
+                        <!--<StackPanel Orientation="Vertical" Margin="10 0 0 10">
 
-                        </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin=" 0 10 0 5">
+                                <materialDesign:PackIcon Kind="CalendarStart" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding TimeStudStart, StringFormat=dd-MM-yyyy}" Margin="5 0 0 0 " VerticalAlignment="Center" FontWeight="SemiBold" FontSize="12" Style="{StaticResource txtInforMain}"/>
+                            </StackPanel>
 
+                            <StackPanel Orientation="Horizontal" Margin=" 0 5 0 5">
+                                <materialDesign:PackIcon Kind="CalendarEnd" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding TimeStudEnd, StringFormat=dd-MM-yyyy}" Margin="5 0 0 0" FontSize="12" Style="{StaticResource txtInforMain}" FontWeight="SemiBold" VerticalAlignment="Center"/>
 
-                        <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
-                            <usercontrol:TagUC Tag="MinusCircle" Foreground="#c82d33" Text="Absent" FontSize="11" />
-                            <TextBlock Style="{StaticResource txtInforMain}" FontSize="12" Text="{Binding TxtAbsent}" VerticalAlignment="Center" Margin="10 0 0 0 "/>
-                        </StackPanel>
+                            </StackPanel>
+                        </StackPanel>-->
 
-                        <Button x:Name="btnSee" Width="150" Height="30" materialDesign:RippleAssist.Feedback="#DD000000"
-                  Content="{materialDesign:PackIcon Kind=FolderSearchOutline, Size=20}"
+                        <!--<Button x:Name="btnSee" Width="120" Height="50" materialDesign:RippleAssist.Feedback="#DD000000"
+                  Content="{materialDesign:PackIcon Kind=FolderSearchOutline, Size=35}"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedDarkButton}"
                   ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" 
-                     Foreground="White" HorizontalAlignment="Center" Margin="10"
+                     Foreground="White" HorizontalAlignment="Center" Margin="15 0 15 0" 
                                 Command="{Binding ShowYourScheduleOnWeek}">
-
-                        </Button>
-
+                        </Button>-->
                     </StackPanel>
                 </Border>
 
+                <Border CornerRadius="20" BorderBrush="Black" BorderThickness="2" Margin="2" Height="auto">
+
+                    <StackPanel Orientation="Horizontal" Margin="10 0 10 0">
+                        <usercontrol:TagUC Tag="MinusCircle" Foreground="#c82d33" Text="Absent" FontSize="14" />
+                        <TextBlock Style="{StaticResource txtInforMain}" FontSize="12" Text="{Binding TxtAbsent}" VerticalAlignment="Center" Margin="10 0 0 0 "/>
+                    </StackPanel>
+                </Border>
+                
             </StackPanel>
 
         </Border>

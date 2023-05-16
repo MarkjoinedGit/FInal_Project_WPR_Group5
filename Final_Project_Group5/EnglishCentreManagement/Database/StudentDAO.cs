@@ -15,19 +15,19 @@ namespace EnglishCentreManagement.Database
 
         public void Add(Student Stu)
         {
-            string str = string.Format("INSERT INTO HOCSINH VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", Stu.Enter_Infor.ID, Stu.NamePerson, Stu.DateBorn, Stu.Gender, Stu.Address, Stu.PhoneNum, Stu.IdentityCard, Stu.BankNumber, Stu.RankLevel);
+            string str = string.Format("INSERT INTO HOCVIEN VALUES ('{0}', N'{1}', '{2}', N'{3}', N'{4}', '{5}', '{6}', '{7}', '{8}')", Stu.Enter_Infor.ID, Stu.NamePerson, Stu.DateBorn, Stu.Gender, Stu.Address, Stu.PhoneNum, Stu.IdentityCard, Stu.BankNumber, Stu.RankLevel);
             DBConnection.Execute(conn, str);
         }
 
         public void Delete(Student Stu)
         {
-            string str = string.Format("DELETE FROM HOCSINH WHERE MaHocVien = '{0}')", Stu.Enter_Infor.ID);
+            string str = string.Format("DELETE FROM HOCVIEN WHERE MaHocVien = '{0}'", Stu.Enter_Infor.ID);
             DBConnection.Execute(conn, str);
         }
 
         public void Update(Student Stu)
         {
-            string str = string.Format("UPDATE HOCSINH SET TenHocVien = '{0}', NgaySinh = '{1}', GioiTinh = '{2}', DiaChi = '{3}', SoDienThoai ='{4}', ChungMinhNhanDan ='{5}', SoTaiKhoan = '{6}', RankLevel = '{7}' WHERE  MaHocVien = '{8}'", Stu.NamePerson, Stu.DateBorn, Stu.Gender, Stu.Address, Stu.PhoneNum, Stu.IdentityCard, Stu.BankNumber, Stu.RankLevel, Stu.Enter_Infor.ID);
+            string str = string.Format("UPDATE HOCVIEN SET TenHocVien = '{0}', NgaySinh = '{1}', GioiTinh = '{2}', DiaChi = '{3}', SoDienThoai ='{4}', ChungMinhNhanDan ='{5}', SoTaiKhoan = '{6}', RankLevel = '{7}' WHERE  MaHocVien = '{8}'", Stu.NamePerson, Stu.DateBorn, Stu.Gender, Stu.Address, Stu.PhoneNum, Stu.IdentityCard, Stu.BankNumber, Stu.RankLevel, Stu.Enter_Infor.ID);
             DBConnection.Execute(conn, str);
         }
 
@@ -59,7 +59,19 @@ namespace EnglishCentreManagement.Database
 
             return new Student();
         }
-
+        public List<Student> getListByName(string name)
+        {
+            string sqlStr = string.Format("SELECT MaHocVien FROM HOCVIEN WHERE TenHocVien = N'{0}'", name);
+            List<Student> list = new List<Student>();
+            DataTable dt = DBConnection.getData(conn, sqlStr);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Student? student = getById(new string(dr["MaHocVien"].ToString()));
+                if (student != null)
+                    list.Add(student);
+            }
+            return list;
+        }
         public List<Student> GetListStudent(Classroom cls)
         {
             string strSql = string.Format("SELECT MaHocVien FROM fn_LayDanhSachHocVienTrongLop('{0}')", cls.IDClassroom);
@@ -72,6 +84,18 @@ namespace EnglishCentreManagement.Database
                     listStd.Add(std);
             }
             return listStd;
+        }
+        public List<Student> GetListAllStudent()
+        {
+            List<Student> list = new List<Student>();
+            string strSQL = string.Format("SELECT * FROM HOCVIEN ");
+            DataTable dt = DBConnection.getData(conn, strSQL);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Student? std = getById(new string(dr["MaHocVien"].ToString()));
+                list.Add(std);
+            }
+            return list;
         }
     }
 }

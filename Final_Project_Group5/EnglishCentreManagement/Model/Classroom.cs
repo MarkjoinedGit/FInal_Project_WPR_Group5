@@ -1,10 +1,11 @@
-﻿using System;
+﻿using EnglishCentreManagement.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
 namespace EnglishCentreManagement.Model
 {
-    public class Classroom
+    public class Classroom :IValueObject
     {
         private string idTeacher;
         private string idClassroom;

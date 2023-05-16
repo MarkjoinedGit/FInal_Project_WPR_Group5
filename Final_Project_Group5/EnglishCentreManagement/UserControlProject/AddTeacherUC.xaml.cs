@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.ViewModel.UserControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace EnglishCentreManagement.UserControlProject
         public AddTeacherUC()
         {
             InitializeComponent();
+            DataContext = new AddTeacherViewModel();
+        }
+
+        private void TagUC_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+        }
+
+        private void dtgTeach_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
         }
     }
 }

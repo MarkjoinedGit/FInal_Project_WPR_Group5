@@ -287,7 +287,7 @@
                                        ItemsSource="{Binding ListStudyDate}"
                                        Margin="0"
                                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                       >
+                                       > 
                                 <ComboBox.SelectedItem >
                                     <Binding Mode="TwoWay"
                                              Path="

@@ -20,16 +20,16 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
 
-                    <DataGridTemplateColumn Header="Course" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn Header="Course" CanUserResize="False" IsReadOnly="True" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding CourseID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+                                <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding CourseID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Margin="0 0 20 0"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
 
-                    <DataGridTemplateColumn Header="Class" IsReadOnly="True" Width="100">
+                    <DataGridTemplateColumn Header="Class" CanUserResize="False" IsReadOnly="True" Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
@@ -42,15 +42,15 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn Header="Time" IsReadOnly="True" Width="100">
+                    <DataGridTemplateColumn Header="Time" CanUserResize="False" IsReadOnly="True" Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Vertical" Margin="0 0 20 0">
                                     <Border Width="40" Height="40" CornerRadius="50" Background="#ff5252">
-                                        <TextBlock Text="{Binding ShiftCode}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" Style="{StaticResource txtInforMain}"/>
+                                        <TextBlock Text="{Binding ShiftCode}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0 0 0 1" Style="{StaticResource txtInforMain}"/>
                                     </Border>
-                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeStart}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
-                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeEnd}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeStart}" HorizontalAlignment="Center" Foreground="Black"/>
+                                    <TextBlock FontSize="11" Style="{StaticResource txtInforMain}" Text="{Binding TxtDetailTimeEnd}" HorizontalAlignment="Center" Foreground="Black"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -131,9 +131,9 @@
         </Border>
         <Border Grid.Row="0" Background="#6ff9ff" BorderBrush="#696969" Margin="2.5 0 0 0" CornerRadius="20" BorderThickness="5">
             <StackPanel Orientation="Horizontal">
-                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" ForceCursor="True">
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" ForceCursor="True" Margin=" 10 0 10 0 ">
                     <Border Width="50" Height="50" Padding="3" Background="#ffff00" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="Black">
-                        <materialDesign:PackIcon Kind="BookEducationOutline" Foreground="#d63a2c" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <materialDesign:PackIcon Kind="BookEducationOutline" Foreground="#835cc7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30"/>
                     </Border>
                 </DockPanel>
 
@@ -147,8 +147,8 @@
 
                         <TextBlock FontSize="14" Text="{Binding txtInforTea}" Style="{StaticResource txtInforMain}" VerticalAlignment="Center"/>
 
-                        <Button x:Name="btnSee" Width="150" Height="30" materialDesign:RippleAssist.Feedback="#DD000000"
-                  Content="{materialDesign:PackIcon Kind=FolderSearchOutline, Size=20}" Margin="5 0 5 0"
+                        <Button x:Name="btnSee" Width="120" Height="30" Margin="10 0 10 0" materialDesign:RippleAssist.Feedback="#DD000000"
+                  Content="{materialDesign:PackIcon Kind=FolderSearchOutline, Size=20}"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedDarkButton}"
                   ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" 

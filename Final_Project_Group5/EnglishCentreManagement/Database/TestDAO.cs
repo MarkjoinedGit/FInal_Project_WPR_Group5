@@ -22,7 +22,9 @@ namespace EnglishCentreManagement.Database
 
         public void DeleteTestByID(string idTest)
         {
-            string sqlStr = string.Format("EXEC sp_XoaBaiKiem '{0}'", idTest);
+            ResultDAO rsDao = new ResultDAO();
+            rsDao.Delete(idTest);
+            string sqlStr = string.Format("DELETE FROM TEST WHERE MaBaiKiemTra ='{0}'", idTest);
             DBConnection.Execute(conn, sqlStr);
         }
 

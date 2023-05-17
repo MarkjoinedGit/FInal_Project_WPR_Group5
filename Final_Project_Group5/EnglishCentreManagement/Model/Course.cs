@@ -5,26 +5,26 @@
         private string idCourse;
         private string nameCourse;
         private double inputLevel;
-        private double ouputLevel;
+        private double outputLevel;
         private int numOfWeek;
-        private double requestLevelOfTeacher;
+        private double levelOfTeacher;
 
         public string IDCourse { get => idCourse; set => idCourse = value; }
         public string NameCourse { get => nameCourse; set => nameCourse = value; }
         public double InputLevel { get => inputLevel; set => inputLevel = value; }
-        public double OuputLevel { get => ouputLevel; set => ouputLevel = value; }
+        public double OutputLevel { get => outputLevel; set => outputLevel = value; }
         public int NumOfWeek { get => numOfWeek; set => numOfWeek = value; }
-        public double RequestLevelOfTeacher { get => requestLevelOfTeacher; set => requestLevelOfTeacher=value; }
+        public double LevelOfTeacher { get =>  levelOfTeacher; set => levelOfTeacher=value; }
 
         public Course(string IDCourse, string NameCourse, int NumOfWeek, double InputLevel
-            , double OuputLevel, double RequestLevelOfTeacher)
+            , double OutputLevel, double LevelOfTeacher)
         {
             this.idCourse = IDCourse;
             this.nameCourse = NameCourse;
             this.numOfWeek = NumOfWeek;
             this.inputLevel = InputLevel;
-            this.ouputLevel = OuputLevel;
-            this.requestLevelOfTeacher = RequestLevelOfTeacher;
+            this.outputLevel = OutputLevel;
+            this.levelOfTeacher = LevelOfTeacher;
         }
 
         public Course() 

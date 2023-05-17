@@ -7,7 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Dialog\AddNewTestDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialog\CreateScoreBoardDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialog\DisplayList\DisplayAllCourseDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialog\DisplayList\DisplayRoomAvailableDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialog\DisplayList\DisplayValidTeacherDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialog\InputClassroomInformation.xaml.cs">
@@ -73,6 +85,9 @@
     <Compile Update="UserControlProject\InforTagUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlProject\MakingStatisticsForTeacherUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlProject\ManageClassroomUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -90,7 +105,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Dialog\AddNewTestDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialog\CreateScoreBoardDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\DisplayList\DisplayAllCourseDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\DisplayList\DisplayRoomAvailableDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\DisplayList\DisplayValidTeacherDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialog\InputClassroomInformation.xaml">
@@ -175,6 +202,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\InforTagUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProject\MakingStatisticsForTeacherUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlProject\ManageClassroomUC.xaml">

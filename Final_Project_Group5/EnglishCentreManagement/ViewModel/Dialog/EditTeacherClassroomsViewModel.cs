@@ -24,6 +24,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         private IStudentDao stdDao = new StudentDAO();
         private ITestDAO testDAO = new TestDAO();
 
+        public ICommand ShowAddNewTestCommand { get; }
         public ICommand DeleteTestCommand { get; }
         public ICommand ShowCreatScoreBoardCommand { get; }
 
@@ -38,7 +39,6 @@ namespace EnglishCentreManagement.ViewModel.Dialog
                 OnPropertyChanged(nameof(CurrentTest));
             }
         }
-
         public List<Test> ListTest
         {
             get => listTest;
@@ -58,12 +58,12 @@ namespace EnglishCentreManagement.ViewModel.Dialog
             }
         }
 
-
         public EditTeacherClassroomsViewModel(Classroom CurrentClassroom)
         {
             _currentClassroom = CurrentClassroom;
             LoadStudent();
             Loadtest();
+            ShowAddNewTestCommand = new RelayCommand<object>(ExcuteShowAddNewTestCommand);
             DeleteTestCommand = new RelayCommand<string>(ExcuteDeleteTestCommand);
             ShowCreatScoreBoardCommand = new RelayCommand<string>(ExcuteShowCreatScoreBoardCommand);
         }
@@ -76,6 +76,14 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         private void Loadtest()
         {
             ListTest = testDAO.getListByIDClass(CurrentClassroom.IDClassroom);
+        }
+
+        private void ExcuteShowAddNewTestCommand(object obj)
+        {
+            Window dialog = new AddNewTestDialog();
+            ((AddNewTestViewModel)dialog.DataContext).CurrentTest.IDClassRoom = CurrentClassroom.IDClassroom;
+            dialog.ShowDialog();
+            Loadtest();
         }
 
         private void ExcuteShowCreatScoreBoardCommand(string idtest)

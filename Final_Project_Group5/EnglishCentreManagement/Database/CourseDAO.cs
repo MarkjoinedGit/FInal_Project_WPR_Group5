@@ -13,7 +13,7 @@ namespace EnglishCentreManagement.Database
 {
     public class CourseDAO : ICourseDAO
     {
-        static SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+        SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
 
         public Course findCourseByID(string id)
         {
@@ -30,9 +30,9 @@ namespace EnglishCentreManagement.Database
                         IDCourse = new string(dt["MaKhoaHoc"].ToString()),
                         NameCourse = new string(dt["TenKhoaHoc"].ToString()),
                         InputLevel = Convert.ToDouble(dt["LevelDauVao"]),
-                        OuputLevel = Convert.ToDouble(dt["LevelDauRa"]),
+                        OutputLevel = Convert.ToDouble(dt["LevelDauRa"]),
                         NumOfWeek = Convert.ToInt32(dt["SoTuanHoc"]),
-                        RequestLevelOfTeacher = Convert.ToDouble(dt["LevelCuaGiaoVien"])
+                        LevelOfTeacher = Convert.ToDouble(dt["LevelCuaGiaoVien"])
                     };
                     return course;
                 }
@@ -43,6 +43,29 @@ namespace EnglishCentreManagement.Database
             }
 
             return new Course();
+        }
+
+        public List<Course> findAllCourse()
+        {
+            string strSQl = string.Format("SELECT * FROM KHOAHOC");
+            DataTable dtCourse = DBConnection.getData(conn, strSQl);
+            List<Course> lsCourses = new List<Course>();
+
+            foreach(DataRow dr in dtCourse.Rows)
+            {
+                Course crs = new Course
+                {
+                    IDCourse = new string(dr["MaKhoaHoc"].ToString()),
+                    NameCourse = new string(dr["TenKhoaHoc"].ToString()),
+                    InputLevel = Convert.ToDouble(dr["LevelDauVao"]),
+                    OutputLevel = Convert.ToDouble(dr["LevelDauRa"]),
+                    NumOfWeek = Convert.ToInt32(dr["SoTuanHoc"]),
+                    LevelOfTeacher = Convert.ToDouble(dr["LevelCuaGiaoVien"])
+                };
+                lsCourses.Add(crs);
+            }
+
+            return lsCourses;
         }
     }
 }

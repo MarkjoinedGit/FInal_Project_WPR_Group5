@@ -50,6 +50,7 @@
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="7*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
@@ -66,22 +67,34 @@
                                        FontFamily="Montserrat"
                                        FontWeight="Bold" Width="130" Grid.Column="0"/>
                             </StackPanel>
-
-                            <TextBox Width="200" x:Name="IDCourse"
-                                     VerticalAlignment="Bottom" 
+                            
+                            <TextBox Width="170" x:Name="IDCourse"
+                                     VerticalAlignment="Center" 
                                      HorizontalAlignment="Center"
                                      Grid.Column="1" 
                                      Margin="2"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.IDCourse, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                                     Text="{Binding TidCourse, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                      IsReadOnly="{Binding CanReadonlId}"/>
+
+                                <Button IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                        Grid.Column="2"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                        Background="#c34934"
+                                        BorderBrush="Transparent"
+                                        ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                                        Width="20"
+                                        Height="20"
+                                        Command="{Binding ShowAllCourseDialogCommand}">
+                                    <materialDesign:PackIcon Kind="Plus" />
+                                </Button>
+
                         </Grid>
 
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="130"/>
                                 <ColumnDefinition Width="99*"/>
-                                <ColumnDefinition Width="136*"/>
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Orientation="Horizontal" 
@@ -99,15 +112,16 @@
 
                             <TextBox Width="200"
                                      VerticalAlignment="Center" 
-                                     HorizontalAlignment="Left"
+                                     HorizontalAlignment="Center"
                                      Grid.Column="1" 
-                                     Margin="18,0,0,0"
+                                     Margin="2"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.IDClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"
+                                     Text="{Binding TidClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"
                                      IsReadOnly="{Binding CanReadonlId}"/>
+                            
                         </Grid>
 
-                        <Grid Height="40">
+                        <!--<Grid Height="40">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="130"/>
                                 <ColumnDefinition/>
@@ -135,38 +149,7 @@
                                      Margin="2"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      Text="{Binding CurrentClassroom.IDTeacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Top" Margin="0,16,0,0">
-                                <materialDesign:PackIcon Kind="PlayRoom" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="Room num:" 
-                                       HorizontalAlignment="Left"    
-                                       VerticalAlignment="Center"    
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-
-                            <TextBox Width="200"
-                                     VerticalAlignment="Center" 
-                                     HorizontalAlignment="Center"
-                                     Grid.Column="1" 
-                                     Margin="2"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.RoomNum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
-
-                        </Grid>
+                        </Grid>-->
 
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
@@ -193,7 +176,7 @@
                                      HorizontalAlignment="Center"
                                      Grid.Column="1" Margin="2"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding    CurrentClassroom.MaxNumStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding TnumbStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
 
                         <Grid Height="40">
@@ -226,7 +209,7 @@
                                         DisplayDateStart="4/5/2023" 
                                         DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
                                         Margin="2"
-                                        SelectedDate="{Binding     CurrentClassroom.StartingDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        SelectedDate="{Binding TStartingDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
 
                         <Grid Height="40" >
@@ -255,7 +238,7 @@
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
                                         Width="200"
-                                        SelectedDate="{Binding    CurrentClassroom.EndingDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        SelectedDate="{Binding TEndingDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         SelectedDateFormat="Short"
                                         DisplayDateStart="4/5/2023" 
                                         DisplayDateEnd="4/5/2024"/>
@@ -281,17 +264,15 @@
                                        FontWeight="Bold" Width="130" Grid.Column="0"/>
                             </StackPanel>
 
-                            <ComboBox  Width="200" Height="40" Grid.Column="1" x:Name="meet" 
-                                       materialDesign:HintAssist.Hint="Meets"
-                                       materialDesign:TextFieldAssist.HasClearButton="True"
+                            <ComboBox   Grid.Column="1" x:Name="meet" 
+                                        Width="200"
                                        ItemsSource="{Binding ListStudyDate}"
                                        Margin="0"
-                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                        >
                                 <ComboBox.SelectedItem >
                                     <Binding Mode="TwoWay"
                                              Path="
-            CurrentClassroom.StudyDate"
+            TStudyDate"
                                              UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
 
@@ -321,13 +302,11 @@
                             </StackPanel>
 
                             <ComboBox  Width="200" Grid.Column="1" x:Name="shift"
-                                       materialDesign:HintAssist.Hint="Shift"
                                        materialDesign:TextFieldAssist.HasClearButton="True"
-                                       ItemsSource="{Binding ListShift}"
-                                       Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                                       ItemsSource="{Binding ListShift}">
                                 <ComboBox.SelectedItem >
                                     <Binding Mode="TwoWay"
-                                             Path="CurrentClassroom.IDShift"
+                                             Path="TidShift"
                                              UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
 
@@ -335,6 +314,50 @@
                                     </Binding>
                                 </ComboBox.SelectedItem>
                             </ComboBox>
+                        </Grid>
+
+                        <Grid Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" 
+                                        VerticalAlignment="Top" Margin="0,16,0,0">
+                                <materialDesign:PackIcon Kind="PlayRoom" Width="20" 
+                                                         Height="20" 
+                                                         VerticalAlignment="Center" 
+                                                         HorizontalAlignment="Left"/>
+
+                                <Label Content="Room num:" 
+                                       HorizontalAlignment="Left"    
+                                       VerticalAlignment="Center"    
+                                       FontFamily="Montserrat"
+                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
+                            </StackPanel>
+
+                            <TextBox Width="170"
+                                     VerticalAlignment="Center" 
+                                     HorizontalAlignment="Center"
+                                     Grid.Column="1" 
+                                     Margin="2"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding TroomNum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                            <Button IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                        Grid.Column="2"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                        Background="#c34934"
+                                        BorderBrush="Transparent"
+                                        ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                                        Width="20"
+                                        Height="20"
+                                        Command="{Binding ShowAvailableRoomCommand}">
+                                <materialDesign:PackIcon Kind="Plus" />
+                            </Button>
+
+
                         </Grid>
                     </StackPanel>
                 </materialDesign:Card>

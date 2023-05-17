@@ -16,20 +16,16 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private string _txtInforStu;
         private DateTime _timeStudStart;
         private DateTime _timeStudEnd;
-        private Student _crtStudent;
-        private BaseViewModel _currentChildView;
+        private Student _crtStudent = new Student();
         private List<Shift> _listShifts = new List<Shift>();
         private List<Classroom> _listClassrooms = new List<Classroom>();
-        private List<Schedule> _listSchedules = new List<Schedule>();
-        
+        private List<Schedule> _listSchedules = new List<Schedule>(); 
+        private List<string> _lstringComboBox = new List<string>(); 
+        private List<Schedule> _schedules = new List<Schedule>();
 
-
-        // DAO
         private ScheduleDAO _scheduleDAO = new ScheduleDAO();
         private ShiftDAO _shiftDAO = new ShiftDAO();
         private ClassRoomDao _classroomDAO = new ClassRoomDao();
-        // Data Table for Schedule
-        //... Binding
 
         public string TxtInforStu 
         { 
@@ -40,7 +36,6 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                 OnPropertyChanged(nameof(TxtInforStu));
             }
         }
-
         public DateTime TimeStudStart 
         { 
             get => _timeStudStart; 
@@ -60,11 +55,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             }
         }
         public string TxtAbsent { get; set; }
-        private List<string> _lstringComboBox = new List<string>();
-        private List<Schedule> _schedules = new List<Schedule>();
         public ICommand ShowYourScheduleOnWeek { get; set; }
-
-
         public string IndexWeek { get; set; }
         public List<string> LstringComboBox { get => _lstringComboBox; set => _lstringComboBox = value; }
         public List<Schedule> Schedules { get => _schedules; set => _schedules = value; }
@@ -72,14 +63,15 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 
         public ControlScheduleViewModel()
         {
+            _txtInforStu = "";
+            TxtAbsent = "";
+            IndexWeek = "";
+            LoadUserCurrentData();
             LoadSchedule();
             ShowYourScheduleOnWeek = new RelayCommand<Action>(ExecuteShowYourScheduleOnWeek);
         }
         public void LoadSchedule()
         {
-            //User
-            LoadUserCurrentData();
-            //Set Data
             _listClassrooms = _classroomDAO.GetListRegisteredClassroom(_crtStudent);
             _listShifts = _scheduleDAO.FindShiftForClassByClass(_listClassrooms);
 

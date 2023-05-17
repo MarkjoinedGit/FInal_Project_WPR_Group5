@@ -1,6 +1,7 @@
 ﻿using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
@@ -52,6 +53,25 @@ namespace EnglishCentreManagement.Database
             catch { }
 
             return new Teacher();
+        }
+
+        public List<Teacher> GetValidTeacherForAClass(Classroom cls)
+        {
+            string sqlStr = string.Format("SELECT * FROM GIAOVIEN");
+            DataTable dtTeacher = DBConnection.getData(conn, sqlStr);
+
+            List<Teacher> teachers = new List<Teacher>(); 
+
+            if(!cls.IsHaveNullValue())
+                foreach(DataRow dr in dtTeacher.Rows)
+                {
+                    Teacher tea = getByID(new string(dr["MaGiaoVien"].ToString()));
+                    List<Classroom> teaCls = new ClassRoomDao().GetListTeacherClassroom(tea);
+                    if(!cls.IsHaveSameTimeAsTheList(teaCls))
+                        teachers.Add(tea);
+                }
+
+            return teachers;
         }
     }
 }

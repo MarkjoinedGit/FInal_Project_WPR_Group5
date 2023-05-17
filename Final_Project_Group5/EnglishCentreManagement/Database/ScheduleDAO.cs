@@ -31,7 +31,7 @@ namespace EnglishCentreManagement.Database
             return ListShift;
         }
         // Find Teacher Name by classroomID
-        public Teacher? FindTeacherByIdClass(string ClassroomId)
+        public Teacher FindTeacherByIdClass(string ClassroomId)
         {
             string strSQL = String.Format("SELECT * FROM LOPHOC lp, GIAOVIEN gv WHERE MaLop = '{0}' AND gv.MaGiaoVien = lp.MaGiaoVien", ClassroomId);
             try
@@ -58,7 +58,7 @@ namespace EnglishCentreManagement.Database
             {
                 conn.Close();
             }
-            return null;
+            return new Teacher();
         }
     }
 }

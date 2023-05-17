@@ -75,8 +75,8 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private void ExecuteRemoveCommand(string id)
         {
             CrtStudent.Enter_Infor.ID = id;
-            studentDAO.Delete(CrtStudent);
             enter_inforDAO.Delete(CrtStudent.Enter_Infor);
+            studentDAO.Delete(CrtStudent);
             LoadStudents() ;
         }
 

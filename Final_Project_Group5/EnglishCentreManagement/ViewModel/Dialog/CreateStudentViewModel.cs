@@ -1,4 +1,5 @@
-﻿using EnglishCentreManagement.Model;
+﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Model;
 using EnglishCentreManagement.ViewModel.UserControl;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         private bool _canReadonlId = false;
         private bool _canReadonlyPassword = false;
         private bool _canReadonlyUserName = false;
+        private string studentId = "";
         public Person _person = new Person();
 
         private Student _currentStudent = new Student();
@@ -33,12 +35,24 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         public bool CanReadonlId { get => _canReadonlId; set => _canReadonlId = value; }
         public bool CanReadonlyPassword { get => _canReadonlyPassword; set => _canReadonlyPassword = value; }
         public bool CanReadonlyUserName { get => _canReadonlyUserName; set => _canReadonlyUserName = value; }
+        public string StudentId 
+        {
+            get => studentId; 
+            set
+            {
+                studentId = value;
+                CurrentStudent.Enter_Infor.ID = studentId;
+                OnPropertyChanged(nameof(StudentId));
+            }
+        }
 
         public ICommand AddCommand { get; }
         public ICommand CancelCommand { get; }
         public ICommand SaveCommand { get; }
+
         public CreateStudentViewModel()
         {
+            StudentId = AutogenerateID();
             ListGender = new List<string>();
             Levels = new List<double>();
             LoadStudent();
@@ -87,6 +101,15 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         {
             ListGender = _person.ListGender();
             Levels=_person.ListRankLevel();
+        }
+
+        public string AutogenerateID()
+        {
+            string studentID = "";
+            int number = new StudentDAO().GetListAllStudent().Count;
+            number++;
+            studentID = $"STU{number:0000}";
+            return studentID;
         }
     }
 }

@@ -147,5 +147,12 @@ namespace EnglishCentreManagement.Database
             DataTable dt = DBConnection.getData(conn, sqlStr);
             return fillDataToListClassRoom(dt);
         }
+
+        public List<Classroom> GetAllClassroomByIDCourse(string courseID)
+        {
+            string sqlStr = string.Format("SELECT * FROM LOPHOC WHERE MaKhoaHoc = '{0}'", courseID);
+            DataTable dt = DBConnection.getData(conn,sqlStr);
+            return fillDataToListClassRoom(dt);
+        }
     }
 }

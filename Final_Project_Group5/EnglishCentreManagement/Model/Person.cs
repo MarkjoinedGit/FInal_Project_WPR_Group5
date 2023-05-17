@@ -76,5 +76,12 @@ namespace EnglishCentreManagement.Model
             list.Add(9);
             return list;
         }
+
+        public virtual string AutogenerateID()
+        {
+            enter_Infor.ID = "";
+            return enter_Infor.ID;
+        }
+
     }
 }

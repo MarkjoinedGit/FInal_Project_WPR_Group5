@@ -51,16 +51,18 @@
                          HorizontalAlignment="Center"
                          Grid.Column="1" 
                          Margin="1"
+                         IsReadOnly="True"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                         Text="{Binding CurrentTest.IDTest, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                         Text="{Binding TestID, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
 
                 <TextBox Width="130"
                          VerticalAlignment="Bottom" 
                          HorizontalAlignment="Center"
                          Grid.Column="1" 
                          Margin="1"
+                         IsReadOnly="True"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                         Text="{Binding CurrentTest.IDClassRoom, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                         Text="{Binding ClassID, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
 
                 <TextBox Width="130"
                          VerticalAlignment="Bottom" 

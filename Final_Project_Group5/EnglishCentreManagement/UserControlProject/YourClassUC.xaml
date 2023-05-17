@@ -219,9 +219,9 @@
                                             <StackPanel Orientation="Horizontal" >
 
                                                 <StackPanel>
-                                                    <uc:TagUC Tag="GolfCourse" Text="{Binding IDCourse }" Margin="5" BorderBrush="Black" BorderThickness="2" />
+                                                    <uc:TagUC Tag="GolfCourse" Text="{Binding CourseIns.NameCourse }" Margin="5" BorderBrush="Black" BorderThickness="2" />
 
-                                                    <uc:TagUC Tag="HumanMaleBoard" Text="{Binding IDTeacher}" Margin="5" BorderBrush="Black" BorderThickness="2" />
+                                                    <uc:TagUC Tag="HumanMaleBoard" Text="{Binding TeacherIns.NamePerson}" Margin="5" BorderBrush="Black" BorderThickness="2" />
                                                 </StackPanel>
 
                                                 <StackPanel>
@@ -231,7 +231,7 @@
                                                 </StackPanel>
 
                                                 <StackPanel>
-                                                    <uc:TagUC Tag="SunClockOutline" Text="{Binding StartEnd}" Margin="5" BorderBrush="Black" BorderThickness="2"/>
+                                                    <uc:TagUC Tag="SunClockOutline" Text="{Binding ShiftIns.StartEnd}" Margin="5" BorderBrush="Black" BorderThickness="2"/>
 
                                                     <uc:TagUC Tag="SunClockOutline" Text="{Binding StudyDate}" Margin="5" BorderBrush="Black" BorderThickness="2" />
                                                 </StackPanel>

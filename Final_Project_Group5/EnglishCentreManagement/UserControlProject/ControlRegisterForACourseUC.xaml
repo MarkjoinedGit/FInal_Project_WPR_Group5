@@ -173,11 +173,12 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:InforTagUC IdClassroom="{Binding IDClassroom, Mode=OneWay}"
-                                           IdCourse="{Binding IDCourse, Mode=OneWay}"
-                                           NameTeacher="{Binding IDTeacher, Mode=OneWay}"
+                                           IdCourse="{Binding CourseIns.NameCourse, Mode=OneWay}"
+                                           NameTeacher="{Binding TeacherIns.NamePerson, Mode=OneWay}"
                                            NumStudent="20"
                                            RoomNum="{Binding RoomNum, Mode=OneWay}"
                                            Meet="{Binding StudyDate, Mode=OneWay}"
+                                           StartEnd="{Binding ShiftIns.StartEnd}"
                                            Width="550"
                                            SubWidth="490"
                                            Margin="5"/>

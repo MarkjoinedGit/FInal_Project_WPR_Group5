@@ -28,18 +28,5 @@ namespace EnglishCentreManagement.UserControlProject
             InitializeComponent();
             DataContext = new RegisterViewModel();
         }
-
-        //private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    if (e.ChangedButton==MouseButton.Left)
-        //    {
-        //        this.DragEnter();
-        //    }
-        //}
-
-        //private void DragEnter()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

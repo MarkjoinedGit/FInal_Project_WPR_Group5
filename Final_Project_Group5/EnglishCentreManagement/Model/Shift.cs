@@ -15,6 +15,7 @@ namespace EnglishCentreManagement.Model
         public string IDShift { get => idShift; set => idShift = value; }
         public TimeOnly StartingTime { get => startingTime; set => startingTime = value; }
         public TimeOnly Endingtime { get => endingtime; set => endingtime=value; }
+        public string StartEnd { get => $"{startingTime}-{endingtime}"; }
 
         public Shift() 
         {

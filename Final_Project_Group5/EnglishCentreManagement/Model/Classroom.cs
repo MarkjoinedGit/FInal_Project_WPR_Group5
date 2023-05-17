@@ -28,9 +28,9 @@ namespace EnglishCentreManagement.Model
         public string StudyDate { get => studyDate; set => studyDate=value; }
         public string IDShift { get => idShift; set => idShift=value; }
 
-        //public Teacher TeacherIns { get => new TeacherDAO().getByID(IDTeacher);}
-        //public Course CourseIns { get => new CourseDAO().findCourseByID(IDCourse); }
-        //public Shift ShiftIns { get => new ShiftDAO().findShiftByID(IDShift); }
+        public Teacher TeacherIns { get => new TeacherDAO().getByID(IDTeacher); }
+        public Course CourseIns { get => new CourseDAO().findCourseByID(IDCourse); }
+        public Shift ShiftIns { get => new ShiftDAO().findShiftByID(IDShift); }
 
         public Classroom(string IDTeacher, string IDClassroom, string RoomNum, int NumStudent,
         string IDCourse, DateTime StartingDate, DateTime EndingDate, string StudyDate, string IDShift)

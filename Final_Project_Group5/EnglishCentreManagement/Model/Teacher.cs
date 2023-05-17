@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.Database;
+using System;
 using System.Windows;
 
 namespace EnglishCentreManagement.Model

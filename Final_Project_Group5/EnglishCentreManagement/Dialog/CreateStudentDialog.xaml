@@ -165,7 +165,7 @@
                      VerticalAlignment="Bottom" 
                      HorizontalAlignment="Left"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding CurrentStudent.Enter_Infor.ID, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                     Text="{Binding StudentId, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
                      IsReadOnly="{Binding CanReadonlId}" Margin="0 15 0 0"/>
         </StackPanel>
 

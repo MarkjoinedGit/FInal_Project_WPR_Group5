@@ -65,7 +65,7 @@ namespace EnglishCentreManagement.UserControlProject {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;V1.0.0.0;component/usercontrolproject/taguc.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;component/usercontrolproject/taguc.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControlProject\TagUC.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -139,13 +140,16 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 
         public void LoadDataGrid()
         {
-            Schedules=new List<Schedule>();
+            //Schedules=new List<Schedule>();
+
+            List<Schedule> tempSchedules = new List<Schedule>();
+
             foreach (Classroom classroom in _listClassrooms)
             {
                 if (CurrentDate > classroom.StartingDate && CurrentDate < classroom.EndingDate || CurrentDate == classroom.StartingDate || CurrentDate == classroom.EndingDate)
                 {
                     if (classroom.StudyDate == "T2-T4-T6")
-                        Schedules.Add(new Schedule()
+                        tempSchedules.Add(new Schedule()
                         {
                             ShiftCode = classroom.IDShift,
                             TxtDetailTimeStart = _shiftDAO.findShiftByID(classroom.IDShift).StartingTime.ToString(),
@@ -165,7 +169,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                         });
 
                     if (classroom.StudyDate == "T3-T5-T7")
-                        Schedules.Add(new Schedule()
+                        tempSchedules.Add(new Schedule()
                         {
                             ShiftCode = classroom.IDShift,
                             TxtDetailTimeStart = _shiftDAO.findShiftByID(classroom.IDShift).StartingTime.ToString(),
@@ -184,8 +188,8 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                             RoomNumSaturday = classroom.RoomNum
                         });
                 }
-                else continue;
             }
+            Schedules = tempSchedules.ToList();
         }
     }
 

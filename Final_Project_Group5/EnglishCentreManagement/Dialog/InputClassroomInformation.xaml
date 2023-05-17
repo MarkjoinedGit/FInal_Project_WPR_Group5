@@ -18,12 +18,13 @@
         WindowStyle="None"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Width="397"
+        Height="600"
         Name="inputClassroom">
     <Grid>
         <Border Grid.Column="0" BorderThickness="1" Padding="5" CornerRadius="10" Background="#c34934">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="450"/>
+                    <RowDefinition Height="480"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 
@@ -262,13 +263,13 @@
                         </Grid>
 
 
-                        <Grid Height="40">
+                        <Grid Height="50">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="130"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <materialDesign:PackIcon Kind="EventWeekBegin" Width="20" 
                                                          Height="20" 
                                                          VerticalAlignment="Center" 
@@ -281,7 +282,7 @@
                                        FontWeight="Bold" Width="130" Grid.Column="0"/>
                             </StackPanel>
 
-                            <ComboBox  Width="200" Height="40" Grid.Column="1" x:Name="meet" 
+                            <ComboBox  Width="200" Grid.Column="1" x:Name="meet" 
                                        materialDesign:HintAssist.Hint="Meets"
                                        materialDesign:TextFieldAssist.HasClearButton="True"
                                        ItemsSource="{Binding ListStudyDate}"
@@ -301,14 +302,14 @@
                             </ComboBox>
                         </Grid>
 
-                        <Grid Height="40" Margin="0 5 0 0">
+                        <Grid Height="50" Margin="0 5 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="130"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Bottom">
+                                        VerticalAlignment="Center">
                                 <materialDesign:PackIcon Kind="EventWeekBegin" 
                                                          Width="20" Height="20" 
                                                          VerticalAlignment="Center" 

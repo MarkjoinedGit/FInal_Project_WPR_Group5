@@ -98,6 +98,8 @@ namespace EnglishCentreManagement.ViewModel.Dialog
                 tStartingDay = value;
                 CurrentClassroom.StartingDate = tStartingDay;
                 TroomNum = "";
+                int index = (CurrentClassroom.CourseIns.NumOfWeek - 1) * 7 + 4;
+                TEndingDay = TStartingDay.AddDays(index);
                 OnPropertyChanged(nameof(TStartingDay));
             }
         }
@@ -123,13 +125,15 @@ namespace EnglishCentreManagement.ViewModel.Dialog
                 Schedule.GetWeekBoundaries(DateTime.Now, out DateTime Start, out DateTime End);
                 if (tStudyDate.Equals("T2-T4-T6"))
                 {
-                    TStartingDay = TStartingDay > Start ? Start.AddDays(7) : Start ;
-                    TEndingDay = TStartingDay.AddDays(4);
+                    TStartingDay = TStartingDay > Start ? Start.AddDays(7) : Start;
+                    int index = (CurrentClassroom.CourseIns.NumOfWeek - 1) * 7 + 4;
+                    TEndingDay = TStartingDay.AddDays(index);
                 }
                 else
                 {
                     TStartingDay = TStartingDay > Start ? Start.AddDays(8) : Start;
-                    TEndingDay = TStartingDay.AddDays(4);
+                    int index = (CurrentClassroom.CourseIns.NumOfWeek - 1) * 7 + 4;
+                    TEndingDay = TStartingDay.AddDays(index);
                 }
                 OnPropertyChanged(nameof(TStudyDate));
             }

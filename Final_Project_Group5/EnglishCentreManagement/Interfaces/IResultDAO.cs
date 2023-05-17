@@ -9,6 +9,7 @@ namespace EnglishCentreManagement.Interfaces
 {
     public interface IResultDAO
     {
+        void Delete(string idTest);
         void UpdateTestResultByList(List<TestResult> results);
         List<TestResult> getResultByIdTest(string idTest);
     }

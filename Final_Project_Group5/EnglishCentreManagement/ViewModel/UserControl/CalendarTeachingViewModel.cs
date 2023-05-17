@@ -12,28 +12,29 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 {
     public class CalendarTeachingViewModel : BaseViewModel
     {
-        private Teacher _crtTeacher;
-        private BaseViewModel _currentChildView;
+        private Teacher _crtTeacher = new Teacher();
         private List<Classroom> _listClassrooms = new List<Classroom>();
         private List<Calendar> _calendars = new List<Calendar>();
         private List<Shift> _listShift = new List<Shift>();
-        private ICommand ShowYourCalendarOnWeek { get; set; }
-        // DAO
+
         private ScheduleDAO _scheduleDAO = new ScheduleDAO();
         private ShiftDAO _shiftDAO = new ShiftDAO();
         private TeacherDAO _teacherDAO = new TeacherDAO();
         private ClassRoomDao _classroomDAO = new ClassRoomDao();
-        // Binding
+
+        //public ICommand ShowYourCalendarOnWeek { get; set; }
+
         public string txtInforTea { get; set; }
         public List<Calendar> Calendars { get => _calendars; set => _calendars = value; }
         public CalendarTeachingViewModel()
         {
+            txtInforTea = "";
+            LoadUserCurrentData();
             LoadCalendar();
         }
         public void LoadCalendar()
         {
             //
-            LoadUserCurrentData();
             _listClassrooms = _classroomDAO.GetListTeacherClassroom(_crtTeacher);
             _listShift = _scheduleDAO.FindShiftForClassByClass(_listClassrooms);
 

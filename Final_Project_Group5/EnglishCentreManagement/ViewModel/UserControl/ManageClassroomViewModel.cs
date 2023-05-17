@@ -1,8 +1,10 @@
 ﻿using EnglishCentreManagement.Database;
 using EnglishCentreManagement.Dialog;
+using EnglishCentreManagement.Dialog.DisplayList;
 using EnglishCentreManagement.Interfaces;
 using EnglishCentreManagement.Model;
 using EnglishCentreManagement.ViewModel.Dialog;
+using EnglishCentreManagement.ViewModel.Dialog.DisplayList;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,8 +27,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         public ICommand DeleteClassRoomCommand { get; }
         public ICommand UpdateClassRoomCommand { get; }
         public ICommand ShowInputClassroomDialog { get; }
-
-
+        public ICommand ShowValidTeacherDialog { get; }
 
         public ManageClassroomViewModel()
         {
@@ -34,6 +35,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             DeleteClassRoomCommand = new RelayCommand<string>(CanExecuteDeleteClassRoomCommand, ExecuteDeleteClassRoomCommand);
             UpdateClassRoomCommand = new RelayCommand<string>(ExcuteUpdateClassRoomCommand);
             ShowInputClassroomDialog = new RelayCommand<object>(ExecuteShowInputClassroomDialog);
+            ShowValidTeacherDialog = new RelayCommand<object>(CanExecuteShowValidTeacherDialog, ExecuteShowValidTeacherDialog);
         }
 
         public Classroom CurrentClassroom
@@ -58,8 +60,8 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 
         private void ExecuteDeleteClassRoomCommand(string id)
         {
-            CurrentClassroom.IDClassroom = id;
-            classRoomDao.Delete(CurrentClassroom);
+            Classroom dltClassroom = new Classroom { IDClassroom = id };
+            classRoomDao.Delete(dltClassroom);
             LoadClassroom();
         }
 
@@ -93,6 +95,28 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                 classRoomDao.Add(CurrentClassroom);
             }
             LoadClassroom();
+        }
+
+        private void ExecuteShowValidTeacherDialog(object obj)
+        {
+            Window dialog = new DisplayValidTeacherDialog();
+            ((DisplayValidTeacherViewModel)dialog.DataContext).SelectedClassroom = CurrentClassroom;
+            dialog.ShowDialog();
+            CurrentClassroom.IDTeacher = ((DisplayValidTeacherViewModel)dialog.DataContext).SelectedTeacher.Enter_Infor.ID ;
+            if (!string.IsNullOrEmpty(CurrentClassroom.IDTeacher.Trim()))
+            {
+                classRoomDao.Update(CurrentClassroom);
+            }
+            LoadClassroom();
+        }
+
+        private bool CanExecuteShowValidTeacherDialog(object obj)
+        {
+            if(CurrentClassroom == null || CurrentClassroom.IsHaveNullValue())
+            {
+                return false;
+            }
+            return true;
         }
 
         private void LoadClassroom()

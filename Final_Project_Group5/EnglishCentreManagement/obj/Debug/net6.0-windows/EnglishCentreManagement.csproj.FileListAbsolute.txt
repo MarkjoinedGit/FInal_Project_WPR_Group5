@@ -95,3 +95,15 @@ E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\CalculateSalaryUC.baml
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\CalendarTeachingUC.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\CalendarTeachingUC.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\AddNewTestDialog.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\AddNewTestDialog.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\bin\Debug\net6.0-windows\LiveCharts.dll
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\MakingStatisticsForTeacherUC.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\UserControlProject\MakingStatisticsForTeacherUC.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayAllCourseDialog.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayAllCourseDialog.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayValidTeacherDialog.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayValidTeacherDialog.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayRoomAvailableDialog.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayRoomAvailableDialog.baml

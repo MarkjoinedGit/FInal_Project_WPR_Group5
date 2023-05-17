@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.Database;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -25,6 +26,10 @@ namespace EnglishCentreManagement.Model
         public DateTime EndingDate { get => endingDate; set => endingDate = value; }
         public string StudyDate { get => studyDate; set => studyDate=value; }
         public string IDShift { get => idShift; set => idShift=value; }
+
+        //public Teacher TeacherIns { get => new TeacherDAO().getByID(IDTeacher);}
+        //public Course CourseIns { get => new CourseDAO().findCourseByID(IDCourse); }
+        //public Shift ShiftIns { get => new ShiftDAO().findShiftByID(IDShift); }
 
         public Classroom(string IDTeacher, string IDClassroom, string RoomNum, int NumStudent,
         string IDCourse, DateTime StartingDate, DateTime EndingDate, string StudyDate, string IDShift)
@@ -55,8 +60,31 @@ namespace EnglishCentreManagement.Model
 
         public bool IsHaveNullValue()
         {
-            if(String.IsNullOrEmpty(idTeacher.Trim()) ||  String.IsNullOrEmpty(idClassroom.Trim()) ||  String.IsNullOrEmpty(roomNum.Trim()) || String.IsNullOrEmpty(idCourse.Trim()) || String.IsNullOrEmpty(studyDate.Trim()) || String.IsNullOrEmpty(idShift.Trim()))
+            if(String.IsNullOrEmpty(idClassroom.Trim()) ||  String.IsNullOrEmpty(roomNum.Trim()) || String.IsNullOrEmpty(idCourse.Trim()) || String.IsNullOrEmpty(studyDate.Trim()) || String.IsNullOrEmpty(idShift.Trim()))
                 return true;
+            return false;
+        }
+
+        public bool IsHaveSameTimeAsTheList(List<Classroom> classRooms)
+        {
+            foreach(Classroom classroom in classRooms)
+            {
+                if(IsHaveSameTime(classroom))
+                    return true;
+            }
+            return false;
+        }
+
+        public bool IsHaveSameTime(Classroom classroom)
+        {
+            DateOnly StartDate1 = new DateOnly(this.startingDate.Year, this.startingDate.Month, this.startingDate.Day);
+            DateOnly EndDate1 = new DateOnly(this.endingDate.Year, this.endingDate.Month, this.endingDate.Day);
+            DateOnly StartDate2 = new DateOnly(classroom.startingDate.Year, classroom.startingDate.Month, classroom.startingDate.Day);
+            DateOnly EndDate2 = new DateOnly(classroom.endingDate.Year, classroom.endingDate.Month, classroom.endingDate.Day);
+            if (StartDate1 <= EndDate2 && StartDate2 <= EndDate1)
+                if (this.StudyDate.Equals(classroom.StudyDate))
+                    if (this.idShift.Equals(classroom.IDShift))
+                        return true;
             return false;
         }
     }

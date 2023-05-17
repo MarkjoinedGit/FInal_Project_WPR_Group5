@@ -22,6 +22,7 @@ namespace EnglishCentreManagement.Model
             idTest = "";
             idClassRoom = "";
             timeTesting = "";
+            dateTesting = DateTime.Now;
             description = "";
         }
 
@@ -32,6 +33,13 @@ namespace EnglishCentreManagement.Model
             this.timeTesting = TimeTesting;
             this.dateTesting = DateTesting;
             this.description = Description;
+        }
+
+        public bool isHaveNullValue()
+        {
+            if (String.IsNullOrEmpty(IDTest.Trim()) || String.IsNullOrEmpty(IDClassRoom.Trim()) || String.IsNullOrEmpty(TimeTesting.Trim()))
+                return true;
+            return false;
         }
     }
 }

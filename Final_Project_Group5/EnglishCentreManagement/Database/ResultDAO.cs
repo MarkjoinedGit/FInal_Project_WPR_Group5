@@ -14,6 +14,12 @@ namespace EnglishCentreManagement.Database
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
 
+        public void Delete(string idTest)
+        {
+            string sqlStr = string.Format("DELETE FROM RESULT WHERE MaBaiKiemTra = '{0}'", idTest);
+            DBConnection.Execute(conn, sqlStr);
+        }
+
         public List<TestResult> getResultByIdTest(string idTest)
         {
             string sqlStr = string.Format("SELECT * FROM RESULT WHERE MaBaiKiemTra = '{0}'", idTest);

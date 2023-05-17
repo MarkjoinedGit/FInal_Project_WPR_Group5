@@ -18,6 +18,7 @@
         WindowStyle="None"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Width="397"
+        Height="580"
         Name="inputClassroom">
     <Grid>
         <Border Grid.Column="0" BorderThickness="1" Padding="5" CornerRadius="10" Background="#c34934">

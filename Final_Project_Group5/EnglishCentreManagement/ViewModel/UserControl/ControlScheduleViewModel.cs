@@ -139,6 +139,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 
         public void LoadDataGrid()
         {
+            Schedules=new List<Schedule>();
             foreach (Classroom classroom in _listClassrooms)
             {
                 if (CurrentDate > classroom.StartingDate && CurrentDate < classroom.EndingDate || CurrentDate == classroom.StartingDate || CurrentDate == classroom.EndingDate)

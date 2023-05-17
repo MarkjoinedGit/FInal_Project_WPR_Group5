@@ -17,7 +17,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Width="397"
+        Width="400"
         Height="600"
         Name="inputClassroom">
     <Grid>

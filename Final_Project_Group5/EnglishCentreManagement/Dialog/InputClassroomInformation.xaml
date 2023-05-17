@@ -75,7 +75,7 @@
                                      Margin="2"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      Text="{Binding TidCourse, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                                     IsReadOnly="{Binding CanReadonlId}"/>
+                                     IsReadOnly="True"/>
 
                                 <Button IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                         Grid.Column="2"
@@ -182,72 +182,6 @@
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Top" 
-                                        Margin="0,16,0,0" >
-                                <materialDesign:PackIcon Kind="EventWeekBegin" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="Starting day:" 
-                                       HorizontalAlignment="Left"      
-                                       VerticalAlignment="Bottom"      
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <DatePicker Style="{StaticResource MaterialDesignDatePicker}"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        Grid.Column="1"
-                                        Width="200"
-                                        SelectedDateFormat="Short"
-                                        DisplayDateStart="4/5/2023" 
-                                        DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
-                                        Margin="2"
-                                        SelectedDate="{Binding TStartingDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-
-                        <Grid Height="40" >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Bottom">
-                                <materialDesign:PackIcon Kind="EventWeekBegin" 
-                                                         Width="20" Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="Ending day:" 
-                                       HorizontalAlignment="Left"   
-                                       VerticalAlignment="Bottom"   
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-                            <DatePicker Style="{StaticResource MaterialDesignDatePicker}" 
-                                        x:Name="Start"
-                                        Grid.Column="1"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        Width="200"
-                                        SelectedDate="{Binding TEndingDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        SelectedDateFormat="Short"
-                                        DisplayDateStart="4/5/2023" 
-                                        DisplayDateEnd="4/5/2024"/>
-                        </Grid>
-
-
-                        <Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
@@ -314,6 +248,71 @@
                                     </Binding>
                                 </ComboBox.SelectedItem>
                             </ComboBox>
+                        </Grid>
+
+                        <Grid Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" 
+                                        VerticalAlignment="Top" 
+                                        Margin="0,16,0,0" >
+                                <materialDesign:PackIcon Kind="EventWeekBegin" Width="20" 
+                                                         Height="20" 
+                                                         VerticalAlignment="Center" 
+                                                         HorizontalAlignment="Left"/>
+
+                                <Label Content="Starting day:" 
+                                       HorizontalAlignment="Left"      
+                                       VerticalAlignment="Bottom"      
+                                       FontFamily="Montserrat"
+                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
+                            </StackPanel>
+
+                            <DatePicker Style="{StaticResource MaterialDesignDatePicker}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="1"
+                                        Width="200"
+                                        SelectedDateFormat="Short"
+                                        DisplayDateStart="4/5/2023" 
+                                        DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
+                                        Margin="2"
+                                        SelectedDate="{Binding TStartingDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+
+                        <Grid Height="40" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" 
+                                        VerticalAlignment="Bottom">
+                                <materialDesign:PackIcon Kind="EventWeekBegin" 
+                                                         Width="20" Height="20" 
+                                                         VerticalAlignment="Center" 
+                                                         HorizontalAlignment="Left"/>
+
+                                <Label Content="Ending day:" 
+                                       HorizontalAlignment="Left"   
+                                       VerticalAlignment="Bottom"   
+                                       FontFamily="Montserrat"
+                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
+                            </StackPanel>
+
+                            <DatePicker Style="{StaticResource MaterialDesignDatePicker}" 
+                                        x:Name="Start"
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Width="200"
+                                        SelectedDate="{Binding TEndingDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        SelectedDateFormat="Short"
+                                        DisplayDateStart="4/5/2023" 
+                                        DisplayDateEnd="4/5/2024"/>
                         </Grid>
 
                         <Grid Height="40">

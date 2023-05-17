@@ -23,5 +23,6 @@ namespace EnglishCentreManagement.Interfaces
         List<string> GetListStudyDate();
         List<Classroom> GetListRegisteredClassroom(Student std);
         List<Classroom> GetListTeacherClassroom(Teacher tea);
+        List<Classroom> GetAllClassroomByIDCourse(string courseID);
     }
 }

@@ -1,4 +1,5 @@
-﻿using EnglishCentreManagement.Model;
+﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Model;
 using EnglishCentreManagement.ViewModel.UserControl;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         private bool _canReadonlId = false;
         private bool _canReadonlyPassword = false;
         private bool _canReadonlyUserName = false;
+        private string _teacherId = "";
         public Person _person = new Person();
 
         private Teacher _currentTeacher = new Teacher();
@@ -34,11 +36,23 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         public bool CanReadonlId { get => _canReadonlId; set => _canReadonlId = value; }
         public bool CanReadonlyPassword { get => _canReadonlyPassword; set => _canReadonlyPassword = value; }
         public bool CanReadonlyUserName { get => _canReadonlyUserName; set => _canReadonlyUserName = value; }
+        public string TeacherId 
+        { 
+            get => _teacherId; 
+            set
+            {
+                _teacherId = value;
+                CurrentTeacher.Enter_Infor.ID = _teacherId;
+                OnPropertyChanged(nameof(TeacherId));
+            }
+        }
 
         public ICommand AddOrSaveCommand { get; }
         public ICommand CancelCommand { get; }
+
         public CreateTeacherViewModel()
         {
+            TeacherId = AutogenerateID();
             ListGender = new List<string>();
             Levels = new List<double>();
             LoadStudent();
@@ -70,6 +84,15 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         {
             ListGender = _person.ListGender();
             Levels=_person.ListRankLevel();
+        }
+
+        public string AutogenerateID()
+        {
+            string teacherID = "";
+            int number = new TeacherDAO().GetListAllTeacher().Count;
+            number++;
+            teacherID = $"TEA{number:0000}";
+            return teacherID;
         }
 
     }

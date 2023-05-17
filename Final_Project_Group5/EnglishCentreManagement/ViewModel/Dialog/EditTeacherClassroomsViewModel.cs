@@ -81,7 +81,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         private void ExcuteShowAddNewTestCommand(object obj)
         {
             Window dialog = new AddNewTestDialog();
-            ((AddNewTestViewModel)dialog.DataContext).CurrentTest.IDClassRoom = CurrentClassroom.IDClassroom;
+            ((AddNewTestViewModel)dialog.DataContext).ClassID = CurrentClassroom.IDClassroom;
             dialog.ShowDialog();
             Loadtest();
         }

@@ -32,7 +32,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         public ManageClassroomViewModel()
         {
             LoadClassroom();
-            DeleteClassRoomCommand = new RelayCommand<string>(CanExecuteDeleteClassRoomCommand, ExecuteDeleteClassRoomCommand);
+            DeleteClassRoomCommand = new RelayCommand<string>(ExecuteDeleteClassRoomCommand);
             UpdateClassRoomCommand = new RelayCommand<string>(ExcuteUpdateClassRoomCommand);
             ShowInputClassroomDialog = new RelayCommand<object>(ExecuteShowInputClassroomDialog);
             ShowValidTeacherDialog = new RelayCommand<object>(CanExecuteShowValidTeacherDialog, ExecuteShowValidTeacherDialog);
@@ -63,12 +63,6 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             Classroom dltClassroom = new Classroom { IDClassroom = id };
             classRoomDao.Delete(dltClassroom);
             LoadClassroom();
-        }
-
-        private bool CanExecuteDeleteClassRoomCommand(object obj)
-        {
-            //return CanExecuteAddClassroomCommand(obj);
-            return true;
         }
 
         private void ExcuteUpdateClassRoomCommand(string id)

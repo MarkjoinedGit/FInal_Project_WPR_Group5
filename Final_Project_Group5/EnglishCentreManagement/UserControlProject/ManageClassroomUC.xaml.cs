@@ -25,7 +25,7 @@ namespace EnglishCentreManagement.UserControlProject
         public ManageClassroomUC()
         {
             InitializeComponent();
-            this.DataContext = new ManageClassroomViewModel();
+            DataContext = new ManageClassroomViewModel();
         }
 
       

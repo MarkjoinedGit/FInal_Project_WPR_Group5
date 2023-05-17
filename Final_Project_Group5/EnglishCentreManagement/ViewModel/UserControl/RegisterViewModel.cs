@@ -15,7 +15,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
     public class RegisterViewModel : BaseViewModel
     {
         private string _errMsg;
-        public ObservableCollection<Classroom> ListClassrooms { get; set; }
+        public List<Classroom> ListClassrooms { get; set; }
         private Student _currentStudent = CurrentUser.Instance.CurrentStudent;
         private Classroom _currentClassroom;
 
@@ -32,7 +32,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             _currentClassroom = new Classroom();
 
             DataTable dtClassroom = classroomDao.getClassRoomDAO();
-            ListClassrooms = new ObservableCollection<Classroom>(classroomDao.fillDataToListClassRoom(dtClassroom));
+            ListClassrooms = new List<Classroom>(classroomDao.fillDataToListClassRoom(dtClassroom));
             RegisterClassroom = new RelayCommand<object>(CanExecuteRegisterClassroom, ExecuteRegisterClassroom);
         }
 
@@ -63,6 +63,8 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             {
                 if (_currentStudent.RankLevel < crs.InputLevel)
                     ErrMsg = "* You cannot sign up for this class as your rank level does not meet the classroom's input level";
+                else if(CurrentClassroom.IsHaveSameTimeAsTheList(classroomDao.GetListRegisteredClassroom(_currentStudent)))
+                    ErrMsg = "* You cannot sign up for this class because you have signed a class that have the same timespan of this class";
                 else
                 {
                     ErrMsg = "";

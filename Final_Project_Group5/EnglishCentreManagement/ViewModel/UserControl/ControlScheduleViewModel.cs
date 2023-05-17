@@ -97,6 +97,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private void ExecuteUpWeekCommand(Action obj)
         {
             CurrentDate = CurrentDate.AddDays(7);
+            Schedules = new List<Schedule>();
             GetMomentWeek();
             LoadDataGrid();
         }
@@ -104,6 +105,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private void ExecuteDownWeekCommand(Action obj)
         {
             CurrentDate=CurrentDate.AddDays(-7);
+            Schedules = new List<Schedule>();
             GetMomentWeek();
             LoadDataGrid();
         }
@@ -134,7 +136,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         {
             Schedule.GetWeekBoundaries(CurrentDate, out DateTime Start, out DateTime End);
             TimeStudStart = Start;
-            TimeStudEnd=End;
+            TimeStudEnd = End;
         }
 
         public void LoadDataGrid()

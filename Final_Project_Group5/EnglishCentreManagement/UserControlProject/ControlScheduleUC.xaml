@@ -21,7 +21,8 @@
                       CellStyle="{DynamicResource DataGridCellStyle1}" 
                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                       RowStyle="{DynamicResource DataGridRowStyle1}" SelectionChanged="dtgSchedule_SelectionChanged" 
-                      Background="#fff8e1" ItemsSource="{Binding Schedules,Mode=TwoWay}" 
+                      Background="#fff8e1" 
+                      ItemsSource="{Binding Schedules, UpdateSourceTrigger=PropertyChanged}" 
                       FontWeight="Bold">
 
                 <DataGrid.Columns>

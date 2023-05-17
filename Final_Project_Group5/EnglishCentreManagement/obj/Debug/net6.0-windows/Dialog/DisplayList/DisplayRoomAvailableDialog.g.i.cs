@@ -64,8 +64,8 @@ namespace EnglishCentreManagement.Dialog.DisplayList {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;V1.0.0.0;component/dialog/displaylist/displayroomavailab" +
-                    "ledialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;component/dialog/displaylist/displayroomavailabledialog." +
+                    "xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Dialog\DisplayList\DisplayRoomAvailableDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

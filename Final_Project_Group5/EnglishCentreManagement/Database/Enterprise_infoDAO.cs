@@ -14,17 +14,20 @@ namespace EnglishCentreManagement.Database
 
         public void Add(Enterprise_Infor enterprise_Infor)
         {
-            throw new System.NotImplementedException();
+            string sqlStr = String.Format("INSERT INTO DANGNHAP VALUES ('{0}','{1}','{2}','{3}','{4}')", enterprise_Infor.ID, enterprise_Infor.UserName, enterprise_Infor.Password, enterprise_Infor.Email, enterprise_Infor.Title);
+            DBConnection.Execute(conn, sqlStr);
         }
 
         public void Delete(Enterprise_Infor enterprise_Infor)
         {
-            throw new System.NotImplementedException();
+            string str = string.Format("DELETE FROM DANGNHAP WHERE MaNguoiDangNhap = '{0}'", enterprise_Infor.ID);
+            DBConnection.Execute(conn, str);
         }
 
         public void Update(Enterprise_Infor enterprise_Infor)
         {
-            throw new System.NotImplementedException();
+            string str = string.Format("UPDATE DANGNHAP SET TenDangNhap='{1}',MatKhau='{2}',Email='{3}',ChucVu='{4}' WHERE MaNguoiDangNhap='{0}'", enterprise_Infor.ID, enterprise_Infor.UserName, enterprise_Infor.Password, enterprise_Infor.Email, enterprise_Infor.Title);
+            DBConnection.Execute(conn, str);
         }
 
         public bool AuthenticateEnterpriseInfor(string Username, string Password)

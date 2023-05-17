@@ -9,7 +9,6 @@ namespace EnglishCentreManagement.Model
 {
     public class Schedule
     {
-
         public Shift ShiftTime { get; set; }
         public int IndexWeek { get; set; }
         // 
@@ -91,6 +90,14 @@ namespace EnglishCentreManagement.Model
             IdClassSunday = "";
             NameTeacherSunday = "";
             RoomNumSunday = "";
+        }
+
+        public static void GetWeekBoundaries(DateTime date, out DateTime firstDayOfWeek, out DateTime lastDayOfWeek)
+        {
+            DayOfWeek currentDayOfWeek = date.DayOfWeek;
+            int diff = currentDayOfWeek - DayOfWeek.Monday;
+            firstDayOfWeek = date.AddDays(-diff);
+            lastDayOfWeek = firstDayOfWeek.AddDays(7);
         }
     }
 }

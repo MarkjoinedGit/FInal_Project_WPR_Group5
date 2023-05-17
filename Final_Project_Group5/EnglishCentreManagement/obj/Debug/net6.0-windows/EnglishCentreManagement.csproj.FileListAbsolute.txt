@@ -107,3 +107,7 @@ E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayValidTeacherDialog.baml
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayRoomAvailableDialog.g.cs
 E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\DisplayList\DisplayRoomAvailableDialog.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\CreateStudentDialog.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\CreateTeacherDialog.g.cs
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\CreateStudentDialog.baml
+E:\1THUMUCDAIHOC\HOC KY IV\Windows programing\Final_Project_Group5\Final_Project_Group5\EnglishCentreManagement\obj\Debug\net6.0-windows\Dialog\CreateTeacherDialog.baml

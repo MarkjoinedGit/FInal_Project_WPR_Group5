@@ -40,7 +40,6 @@ namespace EnglishCentreManagement.Database
             }
 
             return new Shift();
-
         }
 
         public List<string> getAllShiftID()

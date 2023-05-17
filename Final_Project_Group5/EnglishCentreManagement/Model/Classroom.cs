@@ -1,11 +1,12 @@
 ﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 
 namespace EnglishCentreManagement.Model
 {
-    public class Classroom
+    public class Classroom : IValueObject
     {
         private string idTeacher;
         private string idClassroom;
@@ -68,10 +69,9 @@ namespace EnglishCentreManagement.Model
         public bool IsHaveSameTimeAsTheList(List<Classroom> classRooms)
         {
             foreach(Classroom classroom in classRooms)
-            {
                 if(IsHaveSameTime(classroom))
                     return true;
-            }
+
             return false;
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.Util;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
@@ -19,7 +20,7 @@ namespace EnglishCentreManagement.Database
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Log.Instance.Error(nameof(DBConnection), ex.Message);
             }
             finally
             {
@@ -41,8 +42,8 @@ namespace EnglishCentreManagement.Database
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Execute failed: \n" + ex);
+                //MessageBox.Show("Execute failed: \n" + ex);
+                Log.Instance.Error(nameof(DBConnection), ex.Message);
                 
             }
             finally
@@ -67,7 +68,7 @@ namespace EnglishCentreManagement.Database
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Thuc thi that bai" + ex);
+                Log.Instance.Error(nameof(DBConnection), ex.Message);
             }
             finally
             {

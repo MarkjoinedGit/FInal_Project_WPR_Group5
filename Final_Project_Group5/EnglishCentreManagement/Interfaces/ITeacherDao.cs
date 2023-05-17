@@ -10,9 +10,11 @@ namespace EnglishCentreManagement.Interfaces
     public interface ITeacherDao
     {
         void Add(Teacher Tea);
-        void Delete(Teacher Tea);
+        void Delete(string id);
         void Update(Teacher Tea);
         Teacher getByID(string id);
         List<Teacher> GetValidTeacherForAClass(Classroom cls);
+        List<Teacher> GetListAllTeacher();
+        List<Teacher> getListByName(string name);
     }
 }

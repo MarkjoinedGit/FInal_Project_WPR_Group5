@@ -1,8 +1,12 @@
-﻿using System;
+﻿using EnglishCentreManagement.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows.Documents;
 
 namespace EnglishCentreManagement.Model
 {
-    public class Person
+    public class Person : IValueObject
     {
         private Enterprise_Infor enter_Infor = new Enterprise_Infor();
         private string namePerson;
@@ -27,37 +31,50 @@ namespace EnglishCentreManagement.Model
         public Person() 
         {
             namePerson = "";
+            dateBorn = DateTime.Now;
             gender = "";
             address = "";
             phoneNum = "";
             identityCard = "";
             bankNumber = "";
         }
-
-        public Person(Enterprise_Infor Enter_Infor, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
+        
+        public bool IsHaveNullValue()
         {
-            this.enter_Infor = Enter_Infor;
-            this.namePerson = NamePerson;
-            this.dateBorn = DateBorn;
-            this.gender = Gender;
-            this.address = Address;
-            this.phoneNum = PhoneNum;
-            this.identityCard = IdentityCard;
-            this.bankNumber = BankNumber;
-            this.rankLevel = RankLevel;
+            if(string.IsNullOrEmpty(this.namePerson.Trim()) || string.IsNullOrEmpty(this.gender.Trim()) || string.IsNullOrEmpty(this.address.Trim()) || string.IsNullOrEmpty(this.identityCard.Trim())) 
+                return true;
+            return false;
         }
 
-        public Person(string Enter_Infor_ID, string NamePerson, DateTime DateBorn, string Gender, string Address, string PhoneNum, string IdentityCard, string BankNumber, double RankLevel)
+        public List<string> ListGender()
         {
-            this.enter_Infor.ID = Enter_Infor_ID;
-            this.namePerson = NamePerson;
-            this.dateBorn = DateBorn;
-            this.gender = Gender;
-            this.address = Address;
-            this.phoneNum = PhoneNum;
-            this.identityCard = IdentityCard;
-            this.bankNumber = BankNumber;
-            this.rankLevel = RankLevel;
+            List<string> list = new List<string>();
+            list.Add("Nam");
+            list.Add("Nữ");
+            return list;
+        }
+
+        public List<double> ListRankLevel()
+        {
+            List<double> list = new List<double>();
+            list.Add(1);
+            list.Add(1.5);
+            list.Add(2);
+            list.Add(2.5);
+            list.Add(3);
+            list.Add(3.5);
+            list.Add(4);
+            list.Add(4.5);
+            list.Add(5);
+            list.Add(5.5);
+            list.Add(6);
+            list.Add(6.5);
+            list.Add(7);
+            list.Add(7.5);
+            list.Add(8);
+            list.Add(8.5);
+            list.Add(9);
+            return list;
         }
     }
 }

@@ -32,21 +32,6 @@ namespace EnglishCentreManagement.Model
         public Course CourseIns { get => new CourseDAO().findCourseByID(IDCourse); }
         public Shift ShiftIns { get => new ShiftDAO().findShiftByID(IDShift); }
 
-        public Classroom(string IDTeacher, string IDClassroom, string RoomNum, int NumStudent,
-        string IDCourse, DateTime StartingDate, DateTime EndingDate, string StudyDate, string IDShift)
-        {
-            this.idTeacher = IDTeacher; 
-            this.idClassroom = IDClassroom;
-            this.idCourse = IDCourse;
-            this.roomNum = RoomNum;
-            this.endingDate = EndingDate;
-            this.studyDate = StudyDate;
-            this.startingDate = StartingDate;
-            this.endingDate= EndingDate;
-            this.maxNumStudent = NumStudent;
-            this.idShift = IDShift;
-        }
-
         public Classroom()
         {
             this.idTeacher = "";
@@ -56,6 +41,7 @@ namespace EnglishCentreManagement.Model
             this.studyDate = "";
             this.startingDate = DateTime.Now;
             this.endingDate = DateTime.Now;
+            this.maxNumStudent = 20;
             this.idShift = "";
         }
 

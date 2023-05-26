@@ -11,7 +11,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="ManageClassroomsDialog" Height="598" Width="1008"
+        Title="{Binding CurrentClassroom.IDClassroom}" Height="598" Width="1008"
         Name="ManageClassroom">
 
     <TabControl Width="1000"
@@ -27,19 +27,26 @@
                       ItemsSource="{Binding ListStudent, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Enter_Infor.ID}"
-                                    Header="ID Student"/>
+                                        Header="ID Student"
+                                        IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding NamePerson}"
-                                    Header="Name"/>
+                                        Header="Name"
+                                        IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding DateBorn,StringFormat=yyyy-MM-dd}"
-                                    Header="DateBorn"/>
+                                        Header="DateBorn"
+                                        IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding Gender}"
-                                    Header="Gender"/>
+                                        Header="Gender"
+                                        IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding Address}"
-                                    Header="Address"/>
+                                        Header="Address"
+                                        IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding PhoneNum}"
-                                    Header="Phone number"/>
+                                        Header="Phone number"
+                                        IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding RankLevel}"
-                                    Header="Level"/>
+                                        Header="Level"
+                                        IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
 

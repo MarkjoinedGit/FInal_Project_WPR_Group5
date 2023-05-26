@@ -22,7 +22,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private List<Classroom> _listClassrooms = new List<Classroom>();
         private List<Schedule> _listSchedules = new List<Schedule>();
 
-        private List<Schedule> _schedules = new List<Schedule>();
+        private ObservableCollection<Schedule> _schedules = new ObservableCollection<Schedule>();
 
         // DAO
         private ScheduleDAO _scheduleDAO = new ScheduleDAO();
@@ -63,7 +63,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         }
         public string IndexWeek { get; set; }
 
-        public List<Schedule> Schedules
+        public ObservableCollection<Schedule> Schedules
         {
             get => _schedules;
             set
@@ -97,7 +97,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private void ExecuteUpWeekCommand(Action obj)
         {
             CurrentDate = CurrentDate.AddDays(7);
-            Schedules = new List<Schedule>();
+            Schedules = new ObservableCollection<Schedule>();
             GetMomentWeek();
             LoadDataGrid();
         }
@@ -105,7 +105,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         private void ExecuteDownWeekCommand(Action obj)
         {
             CurrentDate=CurrentDate.AddDays(-7);
-            Schedules = new List<Schedule>();
+            Schedules = new ObservableCollection    <Schedule>();
             GetMomentWeek();
             LoadDataGrid();
         }

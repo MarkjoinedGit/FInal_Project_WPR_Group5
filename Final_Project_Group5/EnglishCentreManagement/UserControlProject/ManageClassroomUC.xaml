@@ -24,6 +24,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <Border CornerRadius="10" Background="Aquamarine" Grid.Row="0" BorderBrush="#c34934"         
@@ -134,6 +135,21 @@
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="HumanMaleBoard"/>
                     <TextBlock Text="Add teacher for a class"/>
+                </StackPanel>
+            </Button>
+            
+            <Button Grid.Row="3" materialDesign:ButtonAssist.CornerRadius="25"
+                    Width="980"
+                    Height="45"
+                    Foreground="White"
+                    Background="Green"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                    Command="{Binding ShowListStudentCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="HumanMaleBoard"/>
+                    <TextBlock Text="ManageClassroom"/>
                 </StackPanel>
             </Button>
         </Grid>

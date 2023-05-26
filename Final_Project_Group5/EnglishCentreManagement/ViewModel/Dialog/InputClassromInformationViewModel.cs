@@ -20,7 +20,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         private bool _canReadonlyId = false;
         private string tidCourse = "";
         private string tidClassroom = "";
-        private int tnumbStudent;
+        private int tnumbStudent = 20;
         private DateTime tStartingDay = DateTime.Now;
         private DateTime tEndingDay = DateTime.Now;
         private string tStudyDate = "";
@@ -165,7 +165,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
             ListStudyDate = new List<string>(classRoomDao.GetListStudyDate());
             ListShift = new List<string>(shiftDAO.getAllShiftID());
             AddOrUpdateClassroomCommand = new RelayCommand<Window>(CanExecuteAddOrUpdateClassroomCommand, ExecuteAddOrUpdateClassroomCommand);
-            ShowAllCourseDialogCommand = new RelayCommand<object>(ExecuteShowAllCourseDialogCommand);
+            ShowAllCourseDialogCommand = new RelayCommand<object>(CanExecuteShowAllCourseDialogCommand, ExecuteShowAllCourseDialogCommand);
             ShowAvailableRoomCommand = new RelayCommand<object>(ExecuteShowAvailableRoomCommand);
             ExitCommand = new RelayCommand<Window>(ExcuteExitCommand);
         }
@@ -194,6 +194,13 @@ namespace EnglishCentreManagement.ViewModel.Dialog
             Window dialog = new DisplayAllCourseDialog();
             dialog.ShowDialog();
             TidCourse = ((DisplayAllCourseViewModel)dialog.DataContext).SelectedCourse.IDCourse;
+        }
+
+        private bool CanExecuteShowAllCourseDialogCommand(object obj)
+        {
+            if (CanReadonlId)
+                return false;
+            return true;
         }
 
         private void ExecuteShowAvailableRoomCommand(object obj)

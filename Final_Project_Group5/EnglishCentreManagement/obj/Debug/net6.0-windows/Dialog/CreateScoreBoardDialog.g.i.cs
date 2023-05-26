@@ -65,7 +65,7 @@ namespace EnglishCentreManagement.Dialog {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;V1.0.0.0;component/dialog/createscoreboarddialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishCentreManagement;component/dialog/createscoreboarddialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Dialog\CreateScoreBoardDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

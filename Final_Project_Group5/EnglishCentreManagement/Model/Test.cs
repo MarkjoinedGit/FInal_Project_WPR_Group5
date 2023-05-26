@@ -41,5 +41,16 @@ namespace EnglishCentreManagement.Model
                 return true;
             return false;
         }
+
+        public static List<string> GetListTimeTesting()
+        {
+            return new List<string>
+            {
+                "15 minutes",
+                "1 hour",
+                "2 hours",
+                "Final",
+            };
+        }
     }
 }

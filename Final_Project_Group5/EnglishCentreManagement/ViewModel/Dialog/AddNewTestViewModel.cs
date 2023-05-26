@@ -16,7 +16,10 @@ namespace EnglishCentreManagement.ViewModel.Dialog
     {
         private string _testID = "";
         private string _classID = "";
+        private string _tTimeTesting = "";
+        private string _tDescription = "";
         private Test _currentTest;
+        private List<string> _timeTest = Test.GetListTimeTesting();
 
         private ITestDAO testDAO = new TestDAO();
 
@@ -29,7 +32,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
             {
                 _testID = value;
                 CurrentTest.IDTest = _testID;
-                OnPropertyChanged(nameof(CurrentTest));
+                OnPropertyChanged(nameof(TestID));
             }
         }
         public string ClassID 
@@ -42,6 +45,33 @@ namespace EnglishCentreManagement.ViewModel.Dialog
                 TestID = AutogenerateID();
                 OnPropertyChanged(nameof(ClassID));
             }
+        } 
+        public string TTimeTesting 
+        {
+            get => _tTimeTesting; 
+            set
+            {
+                _tTimeTesting = value;
+                CurrentTest.TimeTesting = _tTimeTesting;
+                if (_tTimeTesting.Equals("Final"))
+                {
+                    TestID = $"TESTFINAL_{CurrentTest.IDClassRoom}";
+                    TDescription = "This is final test";
+                }
+                else
+                    TDescription = $"This test takes {_tTimeTesting}";
+                OnPropertyChanged(nameof(TTimeTesting));
+            }
+        }
+        public string TDescription 
+        {
+            get => _tDescription; 
+            set
+            {
+                _tDescription = value;
+                CurrentTest.Description = _tDescription;
+                OnPropertyChanged(nameof(TDescription));
+            }
         }
         public Test CurrentTest 
         { 
@@ -53,6 +83,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
             }
         }
 
+        public List<string> TimeTest { get => _timeTest; set => _timeTest=value; }
 
         public AddNewTestViewModel()
         {

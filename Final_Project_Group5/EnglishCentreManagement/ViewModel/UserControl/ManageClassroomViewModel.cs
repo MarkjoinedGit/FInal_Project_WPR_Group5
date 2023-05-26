@@ -28,6 +28,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         public ICommand UpdateClassRoomCommand { get; }
         public ICommand ShowInputClassroomDialog { get; }
         public ICommand ShowValidTeacherDialog { get; }
+        public ICommand ShowListStudentCommand { get; }
 
         public ManageClassroomViewModel()
         {
@@ -36,7 +37,9 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             UpdateClassRoomCommand = new RelayCommand<string>(ExcuteUpdateClassRoomCommand);
             ShowInputClassroomDialog = new RelayCommand<object>(ExecuteShowInputClassroomDialog);
             ShowValidTeacherDialog = new RelayCommand<object>(CanExecuteShowValidTeacherDialog, ExecuteShowValidTeacherDialog);
+            ShowListStudentCommand = new RelayCommand<object>(ExecuteShowListStudentCommand);
         }
+
 
         public Classroom CurrentClassroom
         {
@@ -62,6 +65,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         {
             Classroom dltClassroom = new Classroom { IDClassroom = id };
             classRoomDao.Delete(dltClassroom);
+            MessageBox.Show("Delete successfully");
             LoadClassroom();
         }
 
@@ -102,6 +106,13 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                 classRoomDao.Update(CurrentClassroom);
             }
             LoadClassroom();
+        }
+
+
+        private void ExecuteShowListStudentCommand(object obj)
+        {
+            Window dialog = new ManageClassroomsDialog(CurrentClassroom);
+            dialog.ShowDialog();
         }
 
         private bool CanExecuteShowValidTeacherDialog(object obj)

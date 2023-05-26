@@ -34,7 +34,7 @@
             
             <uc:TagUC Tag="Account" Text=" Name :" FontFamily="Montserra" FontSize="13" Margin="5 7 5 5" />
             
-            <uc:TagUC Tag="CakeVariantOutline" Text=" Brith :" FontFamily="Montserra" FontSize="13" Margin="5"/>
+            <uc:TagUC Tag="CakeVariantOutline" Text=" Birth :" FontFamily="Montserra" FontSize="13" Margin="5"/>
             
             <uc:TagUC Tag="FilePhoneOutline" Text=" Phone :" FontFamily="Montserra" FontSize="13" Margin="5"/>
             

@@ -22,6 +22,16 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         public ICommand UpdateScoreBoardCommand { get; }
 
         public string IDTest { get => _idtest; set => _idtest = value; }
+        public bool CanReadOnly 
+        {
+            get
+            {
+                if (CurrentUser.Instance.isTeacher())
+                    return false;
+                else
+                    return true;
+            }
+        }
         public List<TestResult> Results
         {
             get => _results;
@@ -36,7 +46,14 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         {
             _idtest = idTest;
             LoadTestResult();
-            UpdateScoreBoardCommand = new RelayCommand<object>(ExcuteUpdateScoreBoardCommand);
+            UpdateScoreBoardCommand = new RelayCommand<object>(CanExcuteUpdateScoreBoardCommand, ExcuteUpdateScoreBoardCommand);
+        }
+
+        private bool CanExcuteUpdateScoreBoardCommand(object obj)
+        {
+            if (CanReadOnly)
+                return false;
+            return true;
         }
 
         private void LoadTestResult()

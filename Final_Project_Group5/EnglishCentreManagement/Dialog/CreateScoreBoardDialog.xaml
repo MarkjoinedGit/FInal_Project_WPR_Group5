@@ -29,13 +29,16 @@
                   HeadersVisibility="All">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding StudentIns.NamePerson, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    Header="Name"/>
+                                    Header="Name"
+                                    IsReadOnly="True"/>
 
                 <DataGridTextColumn Binding="{Binding IdTest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    Header="ID Test"/>
+                                    Header="ID Test"
+                                    IsReadOnly="True"/>
 
                 <DataGridTextColumn Binding="{Binding Point, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    Header="Point"/>
+                                    Header="Point"
+                                    IsReadOnly="{Binding CanReadOnly}"/>
 
             </DataGrid.Columns>
         </DataGrid>

@@ -1,87 +1,81 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using EnglishCentreManagement.Util;
+using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows;
 
 namespace EnglishCentreManagement.Database
 {
     public class DBConnection
     {
-        public static SqlConnection conn
-        {
-            get; set;
-        }
-
-        private static DBConnection ins;
-        public static DBConnection Ins
-        {
-            get
-            {
-                if(ins == null)
-                    ins = new DBConnection();
-                return ins;
-            }
-            set { ins = value; }
-        }
-
-        private DBConnection()
-        {
-             conn = new SqlConnection(Properties.Settings.Default.connStr);
-            //DBConnection.ins.conn
-        }
-
-        public static DataTable getData(string sqlStr)
+        public static DataTable getData(SqlConnection conn, string sqlStr)
         {
             try
             {
                 conn.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(sqlStr, conn);
-                DataTable dtSinhVien = new DataTable();
-                adapter.Fill(dtSinhVien);
-
-                return dtSinhVien;
+                DataTable dttable = new DataTable();
+                adapter.Fill(dttable);
+                return dttable;
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Log.Instance.Error(nameof(DBConnection), ex.Message);
             }
-
             finally
             {
                 conn.Close();
             }
-#pragma warning disable CS8603 // Possible null reference return.
-            return null;
-#pragma warning restore CS8603 // Possible null reference return.
+
+            return new DataTable();
         }
 
-        public static void ThucThi(string sqlStr)
+        public static void Execute(SqlConnection conn, string sqlStr)
         {
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                if (cmd.ExecuteNonQuery()>0)
-                {
-                    MessageBox.Show("Thuc thi thanh cong");
-
-                }
+                if (cmd.ExecuteNonQuery() <= 0)
+                    throw new Exception();
+                
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Thuc thi that bai" + ex);
+                //MessageBox.Show("Execute failed: \n" + ex);
+                Log.Instance.Error(nameof(DBConnection), ex.Message);
+                
             }
-
             finally
             {
                 conn.Close();
             }
+        }
+
+        public static bool CheckValid(SqlConnection conn, string sqlStr)
+        {
+            bool valid;
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                if (cmd.ExecuteScalar() == null)
+                    valid = false;
+                else
+                    valid = true;
+                return valid;
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.Error(nameof(DBConnection), ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return false;
         }
     }
 }

@@ -3,39 +3,54 @@ using System.Collections.Generic;
 
 namespace EnglishCentreManagement.Model
 {
-    class Test
+    public class Test
     {
         private string idTest;
-        private DateTime timeTesting;
-        private string idTeacher;
-        private Dictionary<string, double> point;
-        public string IDTest
+        private string idClassRoom;
+        private string timeTesting;
+        private DateTime dateTesting;
+        private string description;
+
+        public string IDTest { get => idTest; set => idTest = value; }
+        public string IDClassRoom { get => idClassRoom; set => idClassRoom = value; }
+        public string TimeTesting { get => timeTesting; set => timeTesting = value; }
+        public DateTime DateTesting { get => dateTesting; set => dateTesting = value; }
+        public string Description { get => description; set => description=value; }
+
+        public Test()
         {
-            get { return this.idTest; }
-            set { this.idTest = value; }
+            idTest = "";
+            idClassRoom = "";
+            timeTesting = "";
+            dateTesting = DateTime.Now;
+            description = "";
         }
-        public DateTime TimeTesting
+
+        public Test(string IDTest, string IDClassRoom, string TimeTesting, DateTime DateTesting, string Description)
         {
-            get { return this.timeTesting; }
-            set { this.timeTesting = value; }
+            this.idTest = IDTest;
+            this.idClassRoom = IDClassRoom;
+            this.timeTesting = TimeTesting;
+            this.dateTesting = DateTesting;
+            this.description = Description;
         }
-        public string IDTeacher
+
+        public bool isHaveNullValue()
         {
-            get { return this.idTeacher; }
-            set { this.idTeacher = value; }
+            if (String.IsNullOrEmpty(IDTest.Trim()) || String.IsNullOrEmpty(IDClassRoom.Trim()) || String.IsNullOrEmpty(TimeTesting.Trim()))
+                return true;
+            return false;
         }
-        public Dictionary<string, double> Point
+
+        public static List<string> GetListTimeTesting()
         {
-            get { return this.point; }
-            set { this.point = value; }
-        }
-        ~Test() { }
-        public Test(string IDTest, DateTime TimeTesting, string IDTeacher, Dictionary<string, double> Point)
-        {
-            this.IDTest = IDTest;
-            this.TimeTesting = TimeTesting;
-            this.IDTeacher = IDTeacher;
-            this.Point = Point;
+            return new List<string>
+            {
+                "15 minutes",
+                "1 hour",
+                "2 hours",
+                "Final",
+            };
         }
     }
 }

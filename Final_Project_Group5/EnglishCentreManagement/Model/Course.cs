@@ -1,46 +1,44 @@
 ﻿namespace EnglishCentreManagement.Model
 {
-    class Course
+    public class Course     
     {
         private string idCourse;
-        private double lowestLevel;
-        private double highestLevel;
+        private string nameCourse;
+        private double inputLevel;
+        private double outputLevel;
         private int numOfWeek;
-        private double requestLevelOfTeacher;
-        public string IdCourse
+        private double levelOfTeacher;
+
+        public string IDCourse { get => idCourse; set => idCourse = value; }
+        public string NameCourse { get => nameCourse; set => nameCourse = value; }
+        public double InputLevel { get => inputLevel; set => inputLevel = value; }
+        public double OutputLevel { get => outputLevel; set => outputLevel = value; }
+        public int NumOfWeek { get => numOfWeek; set => numOfWeek = value; }
+        public double LevelOfTeacher { get =>  levelOfTeacher; set => levelOfTeacher=value; }
+
+        public Course(string IDCourse, string NameCourse, int NumOfWeek, double InputLevel
+            , double OutputLevel, double LevelOfTeacher)
         {
-            get { return this.idCourse; }
-            set { this.idCourse = value; }
+            this.idCourse = IDCourse;
+            this.nameCourse = NameCourse;
+            this.numOfWeek = NumOfWeek;
+            this.inputLevel = InputLevel;
+            this.outputLevel = OutputLevel;
+            this.levelOfTeacher = LevelOfTeacher;
         }
-        public double LowestLevel
+
+        public Course() 
         {
-            get { return this.lowestLevel; }
-            set { this.lowestLevel = value; }
+            idCourse = "";
+            nameCourse = "";
         }
-        public double HighestLevel
+
+        public bool isNullValue()
         {
-            get { return this.highestLevel; }
-            set { this.highestLevel = value; }
+            if (idCourse == "" || nameCourse == "")
+                return true;
+            return false;
         }
-        public double RequestLevelOfTeacher
-        {
-            get { return this.requestLevelOfTeacher; }
-            set { this.requestLevelOfTeacher = value; }
-        }
-        public int NumOfWeek
-        {
-            get { return this.numOfWeek; }
-            set { this.numOfWeek = value; }
-        }
-        ~Course() { }
-        public Course(string IdCourse, int NumOfWeek, double LowestLevel
-            , double HighestLevel, double RequestLevelOfTeacher)
-        {
-            this.IdCourse = IdCourse;
-            this.NumOfWeek = NumOfWeek;
-            this.LowestLevel = LowestLevel;
-            this.HighestLevel = HighestLevel;
-            this.RequestLevelOfTeacher = RequestLevelOfTeacher;
-        }
+
     }
 }

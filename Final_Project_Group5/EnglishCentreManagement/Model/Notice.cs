@@ -2,35 +2,21 @@
 
 namespace EnglishCentreManagement.Model
 {
-    class Notice
+    public class Notice
     {
-        private string idSender;
-        private string idReceiver;
-        private string description;
-        public string IDSender
+        private Person sender;
+        private Person receiver;
+        private string content;
+
+        public Person Sender { get => sender; set => sender=value; }
+        public Person Receiver { get => receiver; set => receiver=value; }
+        public string Content { get => content; set => content = value; }
+
+        public Notice(Person Sender, Person Receiver, string Content)
         {
-            get { return this.idSender; }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be not null");
-                this.idSender = value;
-            }
-        }
-        public string IDReceiver
-        {
-            get { return this.idReceiver; }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be not null");
-                this.idReceiver = value;
-            }
-        }
-        public string Description
-        {
-            get { return this.description; }
-            set { this.description = value; }
+            this.sender = Sender;
+            this.receiver = Receiver;
+            this.content = Content;
         }
     }
 }

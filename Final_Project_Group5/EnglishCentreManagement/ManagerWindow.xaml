@@ -43,6 +43,13 @@
         <DataTemplate DataType="{x:Type viewmodelUsercontrol:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodelUsercontrol:CalculateSalaryViewModel}">
+            <usercontrol:CalculateSalaryUC/>
+        </DataTemplate>
+
+
+
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -133,7 +140,8 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#BADAFF">
+                             Tag="#BADAFF"
+                             Command="{Binding ShowCalculateSalaryView }">
 
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Cash" Style="{StaticResource menuButtonIcon}"/>

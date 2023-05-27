@@ -16,5 +16,6 @@ namespace EnglishCentreManagement.Interfaces
         List<Teacher> GetValidTeacherForAClass(Classroom cls);
         List<Teacher> GetListAllTeacher();
         List<Teacher> getListByName(string name);
+        void UpdateSalary(Teacher Tea);
     }
 }

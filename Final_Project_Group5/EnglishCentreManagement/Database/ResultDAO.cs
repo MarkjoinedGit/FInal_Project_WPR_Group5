@@ -48,5 +48,25 @@ namespace EnglishCentreManagement.Database
                 DBConnection.Execute(conn,sqlStr);
             }
         }
+        // GetListResultTest for 1 student
+        public List<TestResult> getListResultTest(Student student) 
+        {
+            string sqlStr = string.Format("SELECT * FROM RESULT WHERE MaHocVien = '{0}'", student.Enter_Infor.ID);
+            DataTable dt = DBConnection.getData(conn, sqlStr);
+            List<TestResult> listTst = new List<TestResult>();
+            foreach(DataRow dr in dt.Rows)
+            {
+                TestResult rsl = new TestResult
+                {
+                    IdTest = new string(dr["MaBaiKiemTra"].ToString()),
+                    IdStudent = new string(dr["MaHocVien"].ToString()),
+                    Point = Convert.ToDouble(dr["Diem"])
+                };
+                if (rsl != null)
+                    listTst.Add(rsl);
+            }
+            return listTst;
+        }
+        // 1 student has list Result of Test -> 1 AveragePointStudent -> Arrange 
     }
 }

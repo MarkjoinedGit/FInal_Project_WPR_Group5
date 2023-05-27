@@ -25,8 +25,8 @@ namespace EnglishCentreManagement.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-AT4EIPLT;Initial Catalog=QLTrungTamTiengAnh;Integrated Securit" +
-            "y=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-MG295MV\\HUUCONG;Initial Catalog=QLTrungTamTiengAnh;Integrated" +
+            " Security=True")]
         public string connStr {
             get {
                 return ((string)(this["connStr"]));

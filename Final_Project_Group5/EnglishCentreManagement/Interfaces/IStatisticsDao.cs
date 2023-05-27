@@ -10,5 +10,8 @@ namespace EnglishCentreManagement.Interfaces
     public interface IStatisticsDao
     {
         Statistics CreateStatistics(string idTeacher);
+        public void Add(TeacherSalary teac);
+        void ClearDatabaseStatistics();
+
     }
 }

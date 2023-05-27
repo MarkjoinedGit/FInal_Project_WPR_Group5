@@ -12,5 +12,6 @@ namespace EnglishCentreManagement.Interfaces
         void Delete(string idTest);
         void UpdateTestResultByList(List<TestResult> results);
         List<TestResult> getResultByIdTest(string idTest);
+        List<TestResult> getListResultTest(Student student);
     }
 }

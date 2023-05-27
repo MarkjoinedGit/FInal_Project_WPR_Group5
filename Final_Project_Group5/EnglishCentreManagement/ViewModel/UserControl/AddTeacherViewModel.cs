@@ -117,7 +117,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 
             CrtTeacher=teacherDAO.getByID(Name);
             Teachers.Add(CrtTeacher);
-            if (Teachers.Count == 0) { LoadDataGrid(); } else return;
+            if (Teachers.Count == 0) { LoadDataGrid(); } else LoadDataGrid();
         }
 
         public void LoadTeachers()

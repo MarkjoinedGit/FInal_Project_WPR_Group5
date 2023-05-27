@@ -111,7 +111,9 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         {
             foreach(Student st in listStudent)
             {
-                st.RankLevel = CurrentClassroom.CourseIns.OutputLevel;
+                FinalResult finalResult = new FinalResultDAO().GetFinalResult(st.Enter_Infor.ID, CurrentClassroom.IDClassroom);
+                if(finalResult.UpClass)
+                    st.RankLevel = CurrentClassroom.CourseIns.OutputLevel;
                 try
                 {
                     stdDao.Update(st);

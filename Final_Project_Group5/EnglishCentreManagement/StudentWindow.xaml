@@ -190,7 +190,7 @@
                             Style="{StaticResource controlButton}"
                             Tag="#ffffff"
                             Command="{Binding CloseWindowCommand}"
-                        CommandParameter="{Binding ElementName=managerWindow}"
+                        CommandParameter="{Binding ElementName=studentWindow}"
                             >
                         <materialDesign:PackIcon Kind="Power" Style="{StaticResource controlButtonIcon}"/>
                     </Button>

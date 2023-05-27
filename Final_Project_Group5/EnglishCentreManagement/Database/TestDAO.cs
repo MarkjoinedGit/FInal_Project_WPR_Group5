@@ -52,12 +52,14 @@ namespace EnglishCentreManagement.Database
             string sqlStr = string.Format("SELECT MaBaiKiemTra FROM TEST WHERE MaLop = '{0}'", idClassroom);
             DataTable dt = DBConnection.getData(conn, sqlStr);
             List<Test> listTst = new List<Test>();
+
             foreach (DataRow dr in dt.Rows)
             {
                 Test? tst = getTestByID(new string(dr["MaBaiKiemTra"].ToString()));
                 if (tst != null)
                     listTst.Add(tst);
             }
+
             return listTst;
         }
     }

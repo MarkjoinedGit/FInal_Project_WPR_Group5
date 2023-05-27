@@ -13,7 +13,6 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="{Binding CurrentClassroom.IDClassroom}" Height="598" Width="1008"
         Name="ManageClassroom">
-
     <TabControl Width="1000"
                 materialDesign:ColorZoneAssist.Background="{DynamicResource MaterialDesignCardBackground}"
                 materialDesign:ColorZoneAssist.Foreground="{DynamicResource PrimaryHueMidBrush}"
@@ -35,21 +34,27 @@
                         <DataGridTextColumn Binding="{Binding Enter_Infor.ID}"
                                         Header="ID Student"
                                         IsReadOnly="True"/>
+                        
                         <DataGridTextColumn Binding="{Binding NamePerson}"
                                         Header="Name"
                                         IsReadOnly="True"/>
+                        
                         <DataGridTextColumn Binding="{Binding DateBorn,StringFormat=yyyy-MM-dd}"
                                         Header="DateBorn"
                                         IsReadOnly="True"/>
+                        
                         <DataGridTextColumn Binding="{Binding Gender}"
                                         Header="Gender"
                                         IsReadOnly="True"/>
+                        
                         <DataGridTextColumn Binding="{Binding Address}"
                                         Header="Address"
                                         IsReadOnly="True"/>
+                        
                         <DataGridTextColumn Binding="{Binding PhoneNum}"
                                         Header="Phone number"
                                         IsReadOnly="True"/>
+                        
                         <DataGridTextColumn Binding="{Binding RankLevel}"
                                         Header="Level"
                                         IsReadOnly="True"/>
@@ -57,24 +62,24 @@
                 </DataGrid>
 
                 <Button Grid.Row="1"
-                Margin="50,0,50,0"
-                Width="200"
-                Height="30"
-                VerticalAlignment="Center"
-                Background="#e0f7fa"
-                Foreground="#00bfe5"
-                Command="{Binding UpdateStudentLevelCommand}"
-                materialDesign:ButtonAssist.CornerRadius="25"
-                BorderBrush="Transparent"
-                IsEnabled="{Binding ControlsEnabled}"
-                ToolTip="Edit" Grid.ColumnSpan="2">
+                        Margin="50,0,50,0"
+                        Width="200"
+                        Height="30"
+                        VerticalAlignment="Center"
+                        Background="#e0f7fa"
+                        Foreground="#00bfe5"
+                        Command="{Binding UpdateStudentLevelCommand}"
+                        materialDesign:ButtonAssist.CornerRadius="25"
+                        BorderBrush="Transparent"
+                        IsEnabled="{Binding ControlsEnabled}"
+                        ToolTip="Edit" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ArrowUpCircleOutline" />
+                        
                         <TextBlock Text="Update level student" FontFamily="Montserrat "/>
                     </StackPanel>
                 </Button>
             </Grid>
-
         </TabItem>
 
         <TabItem Header="Test">
@@ -129,17 +134,16 @@
                         Foreground="#00bfe5"
                         Command="{Binding ElementName=ManageClassroom,Path=DataContext.ShowAddNewTestCommand}"
                         CommandParameter="{Binding IDTest}"
-                         materialDesign:ButtonAssist.CornerRadius="25"
+                        materialDesign:ButtonAssist.CornerRadius="25"
                         IsEnabled="{Binding ControlsEnabled}"
                         ToolTip="Edit">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="PencilPlus" />
+                        
                         <TextBlock Text="Create a new test"/>
                     </StackPanel>
                 </Button>
-
             </Grid>
         </TabItem>
-        
     </TabControl>
 </Window>

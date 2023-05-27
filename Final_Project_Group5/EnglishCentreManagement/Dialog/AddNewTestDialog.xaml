@@ -20,6 +20,7 @@
             <ColumnDefinition Width="51*"/>
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
@@ -36,16 +37,19 @@
                         VerticalAlignment="Center"
                         Margin="10 25 0 10">
                 <TextBlock x:Name="txblIdTest" Text="ID Test:" Margin="10"/>
+                
                 <TextBlock Text="ID Classroom:" Margin="10"/>
+                
                 <TextBlock Text="Time testing:" Margin="10"/>
+                
                 <TextBlock Text="Date" Margin="10"/>
+                
                 <TextBlock Text="Description:" Margin="10"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        >
+                        VerticalAlignment="Center">
                 <TextBox Width="170"
                          VerticalAlignment="Bottom" 
                          HorizontalAlignment="Center"
@@ -63,43 +67,33 @@
                          IsReadOnly="True"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                          Text="{Binding ClassID, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
-
-                <!--<TextBox Width="130"
-                         VerticalAlignment="Bottom" 
-                         HorizontalAlignment="Center"
-                         Grid.Column="1" 
-                         Margin="1"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                         Text="{Binding CurrentTest.TimeTesting, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>-->
-                <ComboBox   Grid.Column="1" x:Name="meet" 
-                                        Width="170"
-                                       ItemsSource="{Binding TimeTest}"
-                                       Margin="0"
-                                       >
+                
+                <ComboBox Grid.Column="1" 
+                          x:Name="meet" 
+                          Width="170"
+                          ItemsSource="{Binding TimeTest}"
+                          Margin="0">
                     <ComboBox.SelectedItem >
                         <Binding Mode="TwoWay"
-                                             Path="
-            
-            TTimeTesting"
-                                             UpdateSourceTrigger="PropertyChanged">
+                                 Path="TTimeTesting"
+                                 UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
 
                             </Binding.ValidationRules>
                         </Binding>
                     </ComboBox.SelectedItem>
                 </ComboBox>
-
-
+                
                 <DatePicker Style="{StaticResource MaterialDesignDatePicker}"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        Grid.Column="1"
-                                        Width="170"
-                                        SelectedDateFormat="Short"
-                                        DisplayDateStart="4/5/2023" 
-                                        DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
-                                        Margin="2"
-                                        SelectedDate="{Binding     CurrentTest.DateTesting, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Grid.Column="1"
+                            Width="170"
+                            SelectedDateFormat="Short"
+                            DisplayDateStart="4/5/2023" 
+                            DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
+                            Margin="2"
+                            SelectedDate="{Binding CurrentTest.DateTesting, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBox Width="170"
                          VerticalAlignment="Bottom" 

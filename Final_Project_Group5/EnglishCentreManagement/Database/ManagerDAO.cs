@@ -11,6 +11,7 @@ namespace EnglishCentreManagement.Database
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
         IEnterprise_infoDAO enterprise_InfoDAO = new Enterprise_infoDAO();
+
         public void Add(Manager Mger)
         {
             string str = string.Format("INSERT INTO NGQUANLY VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", Mger.Enter_Infor.ID, Mger.NamePerson, Mger.DateBorn, Mger.Gender, Mger.Address, Mger.PhoneNum, Mger.IdentityCard, Mger.BankNumber);
@@ -28,8 +29,7 @@ namespace EnglishCentreManagement.Database
             string str = string.Format("UPDATE NGQUANLY SET TenNguoiQuanLy = '{0}', NgaySinh = '{1}', GioiTinh = '{2}', DiaChi ='{3}', SoDienThoai = '{4}', ChungMinhNhanDan ='{5}', SoTaiKhoan = '{6}' WHERE  MaNguoiQuanLy = '{7}'", Mger.NamePerson, Mger.DateBorn, Mger.Gender, Mger.Address, Mger.PhoneNum, Mger.IdentityCard, Mger.BankNumber, Mger.Enter_Infor.ID);
             DBConnection.Execute(conn, str);
         }
-
-
+        
         public Manager getById(string id)
         {
             string sqlStr = string.Format("SELECT* FROM NGQUANLY WHERE MaNguoiQuanLy = '{0}'", id);
@@ -57,7 +57,6 @@ namespace EnglishCentreManagement.Database
             }
 
             return new Manager();
-
         }
     }
 }

@@ -20,16 +20,35 @@ namespace EnglishCentreManagement.Database
             string sqlStr = String.Format("INSERT INTO FINALRESULT VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", finalResult.IdClassroom, finalResult.IdStudent, finalResult.ProcessPoint, finalResult.FinalTestPoint, finalResult.FinalPoint, finalResult.UpClass.GetHashCode());
             DBConnection.Execute(conn, sqlStr);
         }
+
         public void Update(FinalResult finalResult)
         {
             string sqlStr = String.Format("UPDATE FINALRESULT SET MaHocVien='{1}',DiemQuaTrinh='{2}',DiemCuoiKy='{3}',DiemTongKet='{4}',LenLop='{5}' WHERE Malop='{0}'", finalResult.IdClassroom, finalResult.IdStudent, finalResult.ProcessPoint, finalResult.FinalTestPoint, finalResult.FinalPoint, finalResult.UpClass.GetHashCode());
             DBConnection.Execute(conn, sqlStr);
         }
+
         public void Delete(FinalResult finalResult)
         {
             string sqlStr = String.Format("DELETE FROM FINALRESULT WHERE Malop='{0}'", finalResult.IdClassroom);
             DBConnection.Execute(conn, sqlStr);
         }
+
+        public double GraduateRate(Teacher teacher)
+        {
+            string sqlStr = string.Format("select * from FINALRESULT, LOPHOC WHERE FINALRESULT.MaLop=LOPHOC.MaLop AND MaGiaoVien='{0}'", teacher.Enter_Infor.ID);
+            DataTable dt = DBConnection.getData(conn, sqlStr);
+            if (dt.Rows.Count <= 0) return 0.0;
+            int count = 0;
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (Convert.ToBoolean(dr["LenLop"]) == true)
+                {
+                    count++;
+                }
+            }
+            return (double)count/(dt.Rows.Count);
+        }
+
         public List<FinalResult> GetListAllByIdClassroom(string IdClass)
         {
             List<FinalResult> list = new List<FinalResult>();
@@ -51,21 +70,6 @@ namespace EnglishCentreManagement.Database
                 }
             }
             return list;
-        }
-        public double GraduateRate(Teacher teacher)
-        {
-            string sqlStr = string.Format("select * from FINALRESULT, LOPHOC WHERE FINALRESULT.MaLop=LOPHOC.MaLop AND MaGiaoVien='{0}'", teacher.Enter_Infor.ID);
-            DataTable dt = DBConnection.getData(conn, sqlStr);
-            if (dt.Rows.Count <= 0) return 0.0;
-            int count = 0;
-            foreach (DataRow dr in dt.Rows)
-            {
-                if (Convert.ToBoolean(dr["LenLop"]) == true)
-                {
-                    count++;
-                }
-            }
-            return (double)count/(dt.Rows.Count);
         }
 
         public FinalResult GetFinalResult(string idStudent, string idClassroom)

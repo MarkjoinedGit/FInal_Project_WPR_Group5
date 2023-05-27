@@ -11,6 +11,7 @@ namespace EnglishCentreManagement.Database
     public class TeacherDAO : ITeacherDao
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+
         IEnterprise_infoDAO enterprise_InfoDAO = new Enterprise_infoDAO();
 
         public void Add(Teacher Tea)
@@ -92,12 +93,14 @@ namespace EnglishCentreManagement.Database
             string sqlStr = string.Format("SELECT MaGiaoVien FROM GIAOVIEN WHERE TenGiaoVien = N'{0}'", name);
             List<Teacher> list = new List<Teacher>();
             DataTable dt = DBConnection.getData(conn, sqlStr);
+
             foreach (DataRow dr in dt.Rows)
             {
                 Teacher teacher = getByID(new string(dr["MaGiaoVien"].ToString()));
                 if (!teacher.IsHaveNullValue())
                     list.Add(teacher);
             }
+
             return list;
         }
 
@@ -106,12 +109,14 @@ namespace EnglishCentreManagement.Database
             List<Teacher> list = new List<Teacher>();
             string strSQL = string.Format("SELECT * FROM GIAOVIEN ");
             DataTable dt = DBConnection.getData(conn, strSQL);
+
             foreach (DataRow dr in dt.Rows)
             {
                 Teacher tea = getByID(new string(dr["MaGiaoVien"].ToString()));
                 if(!tea.IsHaveNullValue())
                     list.Add(tea);
             }
+
             return list;
         }
     }

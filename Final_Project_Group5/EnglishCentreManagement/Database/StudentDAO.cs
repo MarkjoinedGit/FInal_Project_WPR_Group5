@@ -75,12 +75,14 @@ namespace EnglishCentreManagement.Database
             string sqlStr = string.Format("SELECT MaHocVien FROM HOCVIEN WHERE TenHocVien = N'{0}'", name);
             List<Student> list = new List<Student>();
             DataTable dt = DBConnection.getData(conn, sqlStr);
+
             foreach (DataRow dr in dt.Rows)
             {
                 Student student = getById(new string(dr["MaHocVien"].ToString()));
                 if (!student.IsHaveNullValue())
                     list.Add(student);
             }
+
             return list;
         }
 
@@ -89,12 +91,14 @@ namespace EnglishCentreManagement.Database
             string strSql = string.Format("SELECT MaHocVien FROM fn_LayDanhSachHocVienTrongLop('{0}')", cls.IDClassroom);
             DataTable dt = DBConnection.getData(conn, strSql);
             List<Student> listStd = new List<Student>();
+
             foreach (DataRow dr in dt.Rows)
             {
                 Student? std = getById(new string(dr["MaHocVien"].ToString()));
                 if (cls != null)
                     listStd.Add(std);
             }
+
             return listStd;
         }
 
@@ -103,12 +107,14 @@ namespace EnglishCentreManagement.Database
             List<Student> list = new List<Student>();
             string strSQL = string.Format("SELECT * FROM HOCVIEN ");
             DataTable dt = DBConnection.getData(conn, strSQL);
+
             foreach (DataRow dr in dt.Rows)
             {
                 Student std = getById(new string(dr["MaHocVien"].ToString()));
                 if(!std.IsHaveNullValue())
                     list.Add(std);
             }
+
             return list;
         }
     }

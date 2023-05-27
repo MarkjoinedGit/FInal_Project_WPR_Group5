@@ -21,18 +21,15 @@ namespace EnglishCentreManagement.Database
             {
                 string strSQL = string.Format("SELECT * FROM CA WHERE MaCa = '{0}'", id);
                 DataTable dtShift = DBConnection.getData(conn, strSQL);
-                //if (dtShift.Rows.Count > 0)
-                //{
-                    DataRow dt = dtShift.Rows[0];
+                DataRow dt = dtShift.Rows[0];
 
-                    Shift shift = new Shift
-                    {
-                        IDShift = new string(dt["MaCa"].ToString()),
-                        StartingTime = new TimeOnly( Convert.ToDateTime(dt["ThoiGianBatDau"]).Hour, Convert.ToDateTime(dt["ThoiGianBatDau"]).Minute, Convert.ToDateTime(dt["ThoiGianBatDau"]).Second),
-                        Endingtime = new TimeOnly(Convert.ToDateTime(dt["ThoiGianKetThuc"]).Hour, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Minute, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Second)
-                    };
-                    return shift;
-                //}
+                Shift shift = new Shift
+                {
+                    IDShift = new string(dt["MaCa"].ToString()),
+                    StartingTime = new TimeOnly( Convert.ToDateTime(dt["ThoiGianBatDau"]).Hour, Convert.ToDateTime(dt["ThoiGianBatDau"]).Minute, Convert.ToDateTime(dt["ThoiGianBatDau"]).Second),
+                    Endingtime = new TimeOnly(Convert.ToDateTime(dt["ThoiGianKetThuc"]).Hour, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Minute, Convert.ToDateTime(dt["ThoiGianKetThuc"]).Second)
+                };
+                return shift;
             }
             catch (Exception ex)
             {

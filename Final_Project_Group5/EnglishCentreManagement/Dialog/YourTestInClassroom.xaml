@@ -8,14 +8,12 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="YourTestInClassroom" Height="600" Width="900">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-
+        
         <Button Grid.Row="0"
                 Margin="50,0,50,0"
                 Width="200"
@@ -31,12 +29,13 @@
                 ToolTip="final rusult" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Plus"/>
+                
                 <TextBlock Text="Show final result"/>
             </StackPanel>
         </Button>
-
+        
         <ListView ItemsSource="{Binding Tests}"
-              Grid.Row="1">
+                  Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -44,22 +43,25 @@
                                FontSize="50" FontWeight="Bold"/>
 
                         <DataGrid ItemsSource="{Binding Results}"
-                              Width="900"
-                              AutoGenerateColumns="False"
-                              CanUserDeleteRows="False">
+                                  Width="900"
+                                  AutoGenerateColumns="False"
+                                  CanUserDeleteRows="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID Test"
                                                 MinWidth="200"
                                                 IsReadOnly="True"
                                                 Binding="{Binding IdTest}"/>
+                                
                                 <DataGridTextColumn Header="Time Span"
                                                 MinWidth="200"
                                                 IsReadOnly="True"
                                                 Binding="{Binding TestIns.TimeTesting}"/>
+                                
                                 <DataGridTextColumn Header="Description"
                                                 MinWidth="400"
                                                 IsReadOnly="True"
                                                 Binding="{Binding TestIns.Description}"/>
+                                
                                 <DataGridTextColumn Header="Point"
                                                 IsReadOnly="True"
                                                 Binding="{Binding Point}"/>

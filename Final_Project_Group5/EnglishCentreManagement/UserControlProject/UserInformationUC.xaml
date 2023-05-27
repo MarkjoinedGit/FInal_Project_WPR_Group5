@@ -65,6 +65,23 @@
                            Opacity="0.704"
                            />
 
+                <StackPanel VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                                Margin="10"
+                                Visibility="{Binding IsSalaryVisible}">
+                    <Label Content="Salary" Style="{StaticResource LableStyle}"/>
+
+                    <TextBox Height="50"
+                                 Text="{Binding Salary}" 
+                                 Width="200"
+                                 VerticalAlignment="Top"
+                                 AcceptsReturn="True"
+                                 IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto" />
+                </StackPanel>
+
             </StackPanel>
 
             <Grid Grid.Column="1" Margin="10" 

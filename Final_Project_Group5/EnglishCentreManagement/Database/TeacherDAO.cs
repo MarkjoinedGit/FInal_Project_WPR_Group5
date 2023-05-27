@@ -37,6 +37,12 @@ namespace EnglishCentreManagement.Database
             DBConnection.Execute(conn, strSQL);
         }
 
+        public void UpdateSalary(Teacher Tea)
+        {
+            string strSQL = string.Format("UPDATE GIAOVIEN SET TenGiaoVien = N'{0}', NgaySinh = '{1}', GioiTinh = N'{2}', DiaChi = N'{3}', SoDienThoai ='{4}',ChungMinhNhanDan ='{5}', SoTaiKhoan = '{6}', RankLevel = '{7}', Luong='{9}' WHERE MaGiaoVien = '{8}'", Tea.NamePerson, Tea.DateBorn, Tea.Gender, Tea.Address, Tea.PhoneNum, Tea.IdentityCard, Tea.BankNumber, Tea.RankLevel, Tea.Enter_Infor.ID, Tea.Salary);
+            DBConnection.Execute(conn, strSQL);
+        }
+
         public Teacher getByID(string id)
         {
             string sqlStr = string.Format("SELECT* FROM GIAOVIEN WHERE MaGiaoVien = '{0}'", id);
@@ -53,7 +59,8 @@ namespace EnglishCentreManagement.Database
                     PhoneNum = new string(dtUser.Rows[0]["SoDienThoai"].ToString()),
                     IdentityCard = new string(dtUser.Rows[0]["ChungMinhNhanDan"].ToString()),
                     BankNumber = new string(dtUser.Rows[0]["SoTaiKhoan"].ToString()),
-                    RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"])
+                    RankLevel = Convert.ToDouble(dtUser.Rows[0]["RankLevel"]),
+                    Salary = Convert.ToInt64(dtUser.Rows[0]["Luong"])
                 };
             }
             catch { }

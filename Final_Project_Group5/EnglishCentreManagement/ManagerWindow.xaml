@@ -43,6 +43,10 @@
         <DataTemplate DataType="{x:Type viewmodelUsercontrol:UserInforViewModel}">
             <usercontrol:UserInformationUC/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodelUsercontrol:CalculateSalaryViewModel}">
+            <usercontrol:CalculateSalaryUC/>
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -70,24 +74,30 @@
             </Grid.ColumnDefinitions>
             
             <!--Navigation menu-->
-            <StackPanel>
-                
-                <!--logo-->
-                <StackPanel Orientation="Horizontal"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+
+                    <!--logo-->
+                    <StackPanel Orientation="Horizontal"
                             Height="35"
                             Margin="15 25 0 40">
-                    <Image Source="/ResourceXAML/Image/EnglishLogo.png" />
+                        <Image Source="/ResourceXAML/Image/EnglishLogo.png" />
 
-                    <TextBlock Text="English"
+                        <TextBlock Text="English"
                                Foreground="WhiteSmoke"
                                FontSize="15"
                                FontFamily="Montserrat"
                                FontWeight="Medium"
                                VerticalAlignment="Center"
                                Margin="10 0 0 0"/>
-                </StackPanel>
+                    </StackPanel>
 
-                <!--<RadioButton Style="{StaticResource menuButton}"
+                    <!--<RadioButton Style="{StaticResource menuButton}"
                              Tag="#BADAFF"
                              Command="{Binding ShowHomeView}">
                     
@@ -98,72 +108,89 @@
                     
                 </RadioButton>-->
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#37ef57"
                              Command="{Binding ShowUserInforView}">
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="AccountBoxOutline" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="User information" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountBoxOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="User information" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
 
-                </RadioButton>
+                    </RadioButton>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#37ef57"
                              Command="{Binding ShowManageClassroomView}">
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="GoogleClassroom" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Manage classroom" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="GoogleClassroom" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Manage classroom" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
 
-                </RadioButton>
+                    </RadioButton>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#f5bd13"
                              Command="{Binding ShowAddStudentView}"
                              >
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="AccountSchoolOutline" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Add student" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountSchoolOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Add student" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
 
-                </RadioButton>
+                    </RadioButton>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#FBA2D0"
                              Command="{Binding ShowAddTeacherView}">
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="HumanMaleBoard" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Add teacher" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="HumanMaleBoard" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Add teacher" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
 
-                </RadioButton>
+                    </RadioButton>
 
-                <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#BADAFF">
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#BADAFF"
+                             Command="{Binding ShowCalculateSalaryView }">
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Cash" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Calculate Salary" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Cash" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Calculate Salary" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
 
-                </RadioButton>
+                    </RadioButton>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#FFC4A4">
 
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="GiftOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Set scholarship" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                </StackPanel>
+                
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#BADAFF"
+                             DataContext="{StaticResource ControlBarVM}"
+                            Command="{Binding CloseWindowCommand}"
+                        CommandParameter="{Binding ElementName=managerWindow}"
+                             Grid.Row="1">
+
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="GiftOutline" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Set scholarship" Style="{StaticResource menuButtonText}"/>
+                        <materialDesign:PackIcon Kind="LogoutVariant" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Log out" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
 
                 </RadioButton>
+            </Grid>
 
-            </StackPanel>
 
             <!--Main section-->
             <Grid Grid.Column="1">

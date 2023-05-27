@@ -13,8 +13,7 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        
+
         <DataGrid ItemsSource="{Binding LstCourse}"
                   Margin="10"
                   Grid.Row="0"
@@ -23,9 +22,7 @@
                   CanUserDeleteRows="False"
                   IsReadOnly="True"
                   HeadersVisibility="All"
-                  SelectedItem="{Binding SelectedCourse,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-                
-        </DataGrid>
+                  SelectedItem="{Binding SelectedCourse,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Grid.Row="1"
                 Margin="50,0,50,0"

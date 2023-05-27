@@ -1,10 +1,13 @@
 ﻿using EnglishCentreManagement.Database;
+using EnglishCentreManagement.Dialog;
 using EnglishCentreManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace EnglishCentreManagement.ViewModel.UserControl
@@ -15,7 +18,8 @@ namespace EnglishCentreManagement.ViewModel.UserControl
 
         private ClassRoomDao clsDao = new ClassRoomDao();
 
-        public ICommand DeleteRegisteredClassroomCommand { get; set; }
+        public ICommand DeleteRegisteredClassroomCommand { get; }
+        public ICommand ShowYourTestInClassroomCommand { get; }
 
         public List<Classroom> ListRegisteredClassroom
         {
@@ -31,13 +35,22 @@ namespace EnglishCentreManagement.ViewModel.UserControl
         {
             LoadRegisterdClassroom();
             DeleteRegisteredClassroomCommand = new RelayCommand<string>(ExecuteDeleteRegisteredClassroom);
+            ShowYourTestInClassroomCommand = new RelayCommand<ListView>(ExcuteShowYourTestInClassroomCommand);
         }
 
+        private void ExcuteShowYourTestInClassroomCommand(ListView lv)
+        {
+            Classroom? cls = lv.SelectedItem as Classroom;
+            Window dialog = new YourTestInClassroom();
+            if(cls != null)
+                ((YourTestInClassroomViewModel)dialog.DataContext).CurrentClassroom = cls;
+            dialog.ShowDialog();
+        }
 
         private void ExecuteDeleteRegisteredClassroom(string clsid)
         {
             clsDao.DeleteRegisteredClassroom(CurrentUser.Instance.CurrentStudent.Enter_Infor.ID, clsid);
-            Classroom? classroom = ListRegisteredClassroom.FirstOrDefault(obj => obj.IDClassroom.Equals(clsid));
+            MessageBox.Show("You have canceled a classroom!!!");
             LoadRegisterdClassroom();
         }
 

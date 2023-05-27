@@ -36,8 +36,8 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             DeleteClassRoomCommand = new RelayCommand<string>(ExecuteDeleteClassRoomCommand);
             UpdateClassRoomCommand = new RelayCommand<string>(ExcuteUpdateClassRoomCommand);
             ShowInputClassroomDialog = new RelayCommand<object>(ExecuteShowInputClassroomDialog);
-            ShowValidTeacherDialog = new RelayCommand<object>(CanExecuteShowValidTeacherDialog, ExecuteShowValidTeacherDialog);
-            ShowListStudentCommand = new RelayCommand<object>(ExecuteShowListStudentCommand);
+            ShowValidTeacherDialog = new RelayCommand<object>(IsClassroomNull, ExecuteShowValidTeacherDialog);
+            ShowListStudentCommand = new RelayCommand<object>(IsClassroomNull, ExecuteShowListStudentCommand);
         }
 
 
@@ -115,12 +115,10 @@ namespace EnglishCentreManagement.ViewModel.UserControl
             dialog.ShowDialog();
         }
 
-        private bool CanExecuteShowValidTeacherDialog(object obj)
+        private bool IsClassroomNull(object obj)
         {
             if(CurrentClassroom == null || CurrentClassroom.IsHaveNullValue())
-            {
                 return false;
-            }
             return true;
         }
 

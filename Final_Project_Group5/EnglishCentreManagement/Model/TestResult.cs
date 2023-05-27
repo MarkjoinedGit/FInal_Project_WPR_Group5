@@ -17,6 +17,7 @@ namespace EnglishCentreManagement.Model
         public string IdTest { get => idTest; set => idTest = value; }
         public double Point { get => point; set => point=value; }
         public Student StudentIns { get => new StudentDAO().getById(idStudent); }
+        public Test TestIns { get => new TestDAO().getTestByID(idTest); }
 
         public TestResult()
         {

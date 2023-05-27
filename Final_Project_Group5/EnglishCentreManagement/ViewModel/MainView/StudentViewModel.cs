@@ -34,7 +34,7 @@ namespace EnglishCentreManagement.ViewModel.MainView
             ShowYourClassView = new RelayCommand<object>(ExecuteYourClassView); 
             ShowYourScheduleView = new RelayCommand<object>(ExcuteShowYourScheduleView);
 
-            ExecuteShowHomeViewModel(null);
+            ExecuteShowUserInfoView(null);
         }
 
         private void LoadCurrentUser()
@@ -110,7 +110,7 @@ namespace EnglishCentreManagement.ViewModel.MainView
             Icon = PackIconKind.GiftOutline;
         }
 
-        private void ExecuteShowUserInfoView(object obj)
+        private void ExecuteShowUserInfoView(object? obj)
         {
             CurrentChildView = new UserInforViewModel();
             Caption = "User information";

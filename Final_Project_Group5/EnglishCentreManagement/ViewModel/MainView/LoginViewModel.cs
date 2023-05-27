@@ -13,9 +13,9 @@ namespace EnglishCentreManagement.ViewModel.MainView
 {
     public class LoginViewModel : BaseViewModel
     {
-        private string _username;
-        private string _password;
-        private string _errorMessage;
+        private string _username = "";
+        private string _password = "";
+        private string _errorMessage = "";
         private bool _isViewVisible = true;
 
         private IEnterprise_infoDAO enterprise_InfoDAO = new Enterprise_infoDAO();
@@ -66,15 +66,20 @@ namespace EnglishCentreManagement.ViewModel.MainView
         //Constructors
         public LoginViewModel()
         {
-            _username = "";
-            _password = "";
-            _errorMessage = "";
+            
 
-            LoginCommand = new RelayCommand<object>(CanExecuteLoginCommand, ExecuteLoginCommand);
+            LoginCommand = new RelayCommand<Window>(CanExecuteLoginCommand, ExecuteLoginCommand);
             ExitCommand = new RelayCommand<Window>((p) => { p.Close(); });
         }
 
-        private void ExecuteLoginCommand(object p)
+        private void RefreshAllTest()
+        {
+            Username = "";
+            Password = "";
+            ErrorMessage = "";
+        }
+
+        private void ExecuteLoginCommand(Window p)
         {
             var isValidUser = enterprise_InfoDAO.AuthenticateEnterpriseInfor(Username, Password);
 
@@ -98,8 +103,10 @@ namespace EnglishCentreManagement.ViewModel.MainView
                     CurrentUser.Instance.CurrentManager = managerDao.getById(CurrentUser.Instance.Enterprise_Infor.ID);
                     nextWindow = new ManagerWindow();
                 }
-                nextWindow.Show();
-                IsViewVisible = false;
+                p.Hide();
+                nextWindow.ShowDialog();
+                RefreshAllTest();
+                p.Show();   
             }
             else
             {

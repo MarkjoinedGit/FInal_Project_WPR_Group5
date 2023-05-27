@@ -14,9 +14,7 @@ namespace EnglishCentreManagement.Converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value != null && value.ToString() == "Not available")
-            {
                 return new SolidColorBrush(Colors.Red);
-            }
 
             return new SolidColorBrush(Colors.Green);
         }

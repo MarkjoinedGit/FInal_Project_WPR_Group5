@@ -1,4 +1,5 @@
 ﻿using EnglishCentreManagement.Model;
+using EnglishCentreManagement.Model.DisplayModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace EnglishCentreManagement.Interfaces
     public interface IStatisticsDao
     {
         Statistics CreateStatistics(string idTeacher);
+        void Add(TeacherSalary teac);
+        void ClearDatabaseStatistics();
     }
 }

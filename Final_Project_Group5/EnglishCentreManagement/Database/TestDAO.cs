@@ -28,7 +28,7 @@ namespace EnglishCentreManagement.Database
             DBConnection.Execute(conn, sqlStr);
         }
 
-        public Test? getTestByID(string idTest)
+        public Test getTestByID(string idTest)
         {
             string sqlStr = string.Format("SELECT* FROM TEST WHERE MaBaiKiemTra = '{0}'", idTest);
             DataTable dt = DBConnection.getData(conn, sqlStr);
@@ -44,7 +44,7 @@ namespace EnglishCentreManagement.Database
                     Description = new string(dr["MoTa"].ToString())
                 };
             }
-            return null;
+            return new Test();
         }
 
         public List<Test> getListByIDClass(string idClassroom)
@@ -52,12 +52,14 @@ namespace EnglishCentreManagement.Database
             string sqlStr = string.Format("SELECT MaBaiKiemTra FROM TEST WHERE MaLop = '{0}'", idClassroom);
             DataTable dt = DBConnection.getData(conn, sqlStr);
             List<Test> listTst = new List<Test>();
+
             foreach (DataRow dr in dt.Rows)
             {
                 Test? tst = getTestByID(new string(dr["MaBaiKiemTra"].ToString()));
                 if (tst != null)
                     listTst.Add(tst);
             }
+
             return listTst;
         }
     }

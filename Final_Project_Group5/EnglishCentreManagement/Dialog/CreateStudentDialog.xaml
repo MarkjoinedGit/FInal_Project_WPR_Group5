@@ -31,15 +31,15 @@
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
-            
             <uc:TagUC Tag="Account" Text=" Name :" FontFamily="Montserra" FontSize="13" Margin="5 7 5 5" />
-            
+
             <uc:TagUC Tag="CakeVariantOutline" Text=" Birth :" FontFamily="Montserra" FontSize="13" Margin="5"/>
             
             <uc:TagUC Tag="FilePhoneOutline" Text=" Phone :" FontFamily="Montserra" FontSize="13" Margin="5"/>
             
             <StackPanel Orientation="Horizontal" Margin="5">
                 <materialDesign:PackIcon Kind="GenderFemale" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                
                 <uc:TagUC Tag="GenderMale" Text="Gender : "  VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>
             
@@ -94,13 +94,13 @@
                      Text="{Binding CurrentStudent.NamePerson, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
             
             <DatePicker Style="{StaticResource MaterialDesignDatePicker}"
-                                        Margin="0 20 0 0"
-                                        HorizontalAlignment="Left"
-                                        Width="300"
-                                        SelectedDateFormat="Short"
-                                        DisplayDateStart="4/5/1950" 
-                                        DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
-                                        SelectedDate="{Binding CurrentStudent.DateBorn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        Margin="0 20 0 0"
+                        HorizontalAlignment="Left"
+                        Width="300"
+                        SelectedDateFormat="Short"
+                        DisplayDateStart="4/5/1950" 
+                        DisplayDateEnd="4/5/2024" Grid.ColumnSpan="2" 
+                        SelectedDate="{Binding CurrentStudent.DateBorn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             
             <TextBox Width="300" x:Name="Phone"
                      VerticalAlignment="Bottom" 
@@ -168,7 +168,5 @@
                      Text="{Binding StudentId, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
                      IsReadOnly="{Binding CanReadonlId}" Margin="0 15 0 0"/>
         </StackPanel>
-
-
     </Grid>
 </Window>

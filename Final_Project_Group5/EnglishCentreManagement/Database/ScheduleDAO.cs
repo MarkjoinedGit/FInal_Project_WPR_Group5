@@ -19,7 +19,6 @@ namespace EnglishCentreManagement.Database
         ShiftDAO _shiftDAO = new ShiftDAO();
         TeacherDAO TeacherDAO = new TeacherDAO();
 
-        // Each Classroom has a Idshift,
         public List<Shift> FindShiftForClassByClass(List<Classroom> ListClassroom)
         {
             List<Shift> ListShift = new List<Shift>();
@@ -30,7 +29,7 @@ namespace EnglishCentreManagement.Database
             }
             return ListShift;
         }
-        // Find Teacher Name by classroomID
+
         public Teacher FindTeacherByIdClass(string ClassroomId)
         {
             string strSQL = String.Format("SELECT * FROM LOPHOC lp, GIAOVIEN gv WHERE MaLop = '{0}' AND gv.MaGiaoVien = lp.MaGiaoVien", ClassroomId);

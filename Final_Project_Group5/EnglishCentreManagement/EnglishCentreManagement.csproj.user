@@ -25,6 +25,9 @@
     <Compile Update="Dialog\DisplayList\DisplayRoomAvailableDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialog\DisplayList\DisplayStudentTranscripts.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialog\DisplayList\DisplayValidTeacherDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -32,6 +35,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialog\ManageClassroomsDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialog\TeacherStatisticsDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialog\YourTestInClassroom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LoginWindow.xaml.cs">
@@ -129,6 +138,9 @@
     <Page Update="Dialog\DisplayList\DisplayRoomAvailableDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Dialog\DisplayList\DisplayStudentTranscripts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialog\DisplayList\DisplayValidTeacherDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -136,6 +148,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialog\ManageClassroomsDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\TeacherStatisticsDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\YourTestInClassroom.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LoginWindow.xaml">

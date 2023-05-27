@@ -1,5 +1,5 @@
 ﻿<Window x:Class="EnglishCentreManagement.Dialog.DisplayList.DisplayValidTeacherDialog"
-       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -38,10 +38,7 @@
 
                 <DataGridTextColumn Binding="{Binding DateBorn, StringFormat=yyyy-MM-dd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                     Header="Birthday"/>
-                
-
             </DataGrid.Columns>
-
         </DataGrid>
 
         <Button Grid.Row="1"

@@ -24,6 +24,7 @@ namespace EnglishCentreManagement.ViewModel.MainView
         public ICommand ShowUserInforView { get; }
         public ICommand ShowAddStudentView { get; }
         public ICommand ShowAddTeacherView { get; }
+        public ICommand ShowCalculateSalaryView { get; }
 
         public ManagerViewModel()
         {
@@ -38,9 +39,10 @@ namespace EnglishCentreManagement.ViewModel.MainView
             ShowManageClassroomView = new RelayCommand<object>(ExecuteShowManageClassroomViewCommand);
             ShowAddStudentView = new RelayCommand<object>(ExecuteShowAddStudentViewCommand);
             ShowAddTeacherView = new RelayCommand<object>(ExecuteShowAddTeacherViewCommand);
+            ShowCalculateSalaryView = new RelayCommand<object>(ExecuteShowCalculateSalaryViewCommand);
 
             //Default view
-            ExecuteShowHomeViewCommand(null);
+            ExecuteShowUserInforViewCommand(null);
         }
 
         private void LoadUserCurrentData()
@@ -121,6 +123,12 @@ namespace EnglishCentreManagement.ViewModel.MainView
             CurrentChildView = new UserInforViewModel();
             Caption = "User information";
             Icon = PackIconKind.AccountBoxOutline;
+        }
+        private void ExecuteShowCalculateSalaryViewCommand(object? p)
+        {
+            CurrentChildView = new CalculateSalaryViewModel();
+            Caption = "Calculate Salary";
+            Icon = PackIconKind.Cash;
         }
     }
 }

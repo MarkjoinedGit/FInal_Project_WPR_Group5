@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace EnglishCentreManagement.ViewModel.UserControl
@@ -68,6 +69,7 @@ namespace EnglishCentreManagement.ViewModel.UserControl
                 else
                 {
                     ErrMsg = "";
+                    MessageBox.Show("You have registered a classroom!!!");
                     registerDao.Add(CurrentStudent, CurrentClassroom);
                 }
             }

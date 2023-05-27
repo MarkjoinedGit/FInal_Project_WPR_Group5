@@ -103,6 +103,7 @@
                                                          Height="20" 
                                                          VerticalAlignment="Center" 
                                                          HorizontalAlignment="Left"/>
+
                                 <Label Content="ID Classroom:" 
                                        HorizontalAlignment="Left"     
                                        VerticalAlignment="Center"      
@@ -118,38 +119,8 @@
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      Text="{Binding TidClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"
                                      IsReadOnly="{Binding CanReadonlId}"/>
-                            
+
                         </Grid>
-
-                        <!--<Grid Height="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Orientation="Horizontal" 
-                                        VerticalAlignment="Bottom">
-                                <materialDesign:PackIcon Kind="Teaching" Width="20" 
-                                                         Height="20" 
-                                                         VerticalAlignment="Center" 
-                                                         HorizontalAlignment="Left"/>
-
-                                <Label Content="ID Teacher:" 
-                                       HorizontalAlignment="Left"   
-                                       VerticalAlignment="Center"     
-                                       FontFamily="Montserrat"
-                                       FontWeight="Bold" Width="130" Grid.Column="0"/>
-                            </StackPanel>
-
-
-                            <TextBox Width="200" x:Name="IDTeacher"
-                                     VerticalAlignment="Center" 
-                                     HorizontalAlignment="Center"
-                                     Grid.Column="1" 
-                                     Margin="2"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     Text="{Binding CurrentClassroom.IDTeacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>-->
 
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
@@ -198,15 +169,14 @@
                                        FontWeight="Bold" Width="130" Grid.Column="0"/>
                             </StackPanel>
 
-                            <ComboBox   Grid.Column="1" x:Name="meet" 
-                                        Width="200"
-                                       ItemsSource="{Binding ListStudyDate}"
-                                       Margin="0"
-                                       >
+                            <ComboBox Grid.Column="1" 
+                                      x:Name="meet" 
+                                      Width="200"
+                                      ItemsSource="{Binding ListStudyDate}"
+                                      Margin="0">
                                 <ComboBox.SelectedItem >
                                     <Binding Mode="TwoWay"
-                                             Path="
-            TStudyDate"
+                                             Path="TStudyDate"
                                              UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
 
@@ -228,6 +198,7 @@
                                                          Width="20" Height="20" 
                                                          VerticalAlignment="Center" 
                                                          HorizontalAlignment="Left"/>
+                                
                                 <Label Content=" Shift " 
                                        HorizontalAlignment="Left"                         
                                        VerticalAlignment="Center"                        
@@ -345,18 +316,16 @@
                                      Text="{Binding TroomNum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                             <Button IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                        Grid.Column="2"
-                                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                                        Background="#c34934"
-                                        BorderBrush="Transparent"
-                                        ToolTip="MaterialDesignFloatingActionMiniLightButton"
-                                        Width="20"
-                                        Height="20"
-                                        Command="{Binding ShowAvailableRoomCommand}">
+                                    Grid.Column="2"
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                    Background="#c34934"
+                                    BorderBrush="Transparent"
+                                    ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                                    Width="20"
+                                    Height="20"
+                                    Command="{Binding ShowAvailableRoomCommand}">
                                 <materialDesign:PackIcon Kind="Plus" />
                             </Button>
-
-
                         </Grid>
                     </StackPanel>
                 </materialDesign:Card>

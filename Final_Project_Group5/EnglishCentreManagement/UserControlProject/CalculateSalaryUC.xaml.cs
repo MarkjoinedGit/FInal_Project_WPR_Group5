@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCentreManagement.ViewModel.UserControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace EnglishCentreManagement.UserControlProject
         public CalculateSalaryUC()
         {
             InitializeComponent();
+            DataContext = new CalculateSalaryViewModel();
         }
         private void dtgSalary_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

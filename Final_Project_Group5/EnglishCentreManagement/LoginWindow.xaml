@@ -18,9 +18,9 @@
         Title="Login" Height="500" Width="700"
         Name="loginWindow">
 
-    <Window.Visibility>
+    <!--<Window.Visibility>
         <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
-    </Window.Visibility>
+    </Window.Visibility>-->
 
     <Grid>
         <Grid.Background>
@@ -52,6 +52,7 @@
                     <Button x:Name="btnLogin"
                             Content="Login"
                             Command="{Binding LoginCommand}"
+                            CommandParameter="{Binding ElementName=loginWindow}"
                             Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
                             ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
 

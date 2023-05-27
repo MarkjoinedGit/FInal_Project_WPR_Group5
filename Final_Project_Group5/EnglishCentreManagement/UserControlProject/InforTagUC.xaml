@@ -19,25 +19,6 @@
                     <MaterialDesign:PackIcon Kind="GoogleClassroom" Width="40" Height="40" Margin="5"
                                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                    <Button x:Name="btnDetail"
-                        Width="20" Height="20"
-                        MaterialDesign:ButtonProgressAssist.Value="50"
-                        Content="{MaterialDesign:PackIcon EyeOutline}"
-                        IsEnabled="True"
-                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
-                        Background="#007ac1"
-                        Margin="3"/>
-
-                    <!--<Button x:Name="btnDelete"
-                            DataContext="{StaticResource ManageClassroomVM}"
-                            Command="{Binding DeleteClassRoomCommand}"
-                            Width="20" Height="20"
-                            Margin="3"
-                            MaterialDesign:ButtonProgressAssist.Value="50"
-                            Content="{MaterialDesign:PackIcon DeleteForever}"
-                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource  MaterialDesignFloatingActionMiniDarkButton}"   
-                            IsHitTestVisibleChanged="btnDelete_IsHitTestVisibleChanged" />-->
                 </StackPanel>
             </Border>
 

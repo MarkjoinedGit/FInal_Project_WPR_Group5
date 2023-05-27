@@ -87,7 +87,7 @@
                                Margin="10 0 0 0"/>
                 </StackPanel>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                <!--<RadioButton Style="{StaticResource menuButton}"
                              Tag="#BADAFF"
                              Command="{Binding ShowHomeView}">
                     
@@ -96,8 +96,19 @@
                         <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                     
+                </RadioButton>-->
+
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#37ef57"
+                             Command="{Binding ShowUserInforView}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountBoxOutline" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="User information" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+
                 </RadioButton>
-              
+
                 <RadioButton Style="{StaticResource menuButton}"
                              Tag="#37ef57"
                              Command="{Binding ShowManageClassroomView}">
@@ -148,17 +159,6 @@
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="GiftOutline" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Set scholarship" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-
-                </RadioButton>
-
-                <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#37ef57"
-                             Command="{Binding ShowUserInforView}">
-
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="AccountBoxOutline" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="User information" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
 
                 </RadioButton>

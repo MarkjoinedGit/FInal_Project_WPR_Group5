@@ -8,7 +8,6 @@
         xmlns:uc="clr-namespace:EnglishCentreManagement.UserControlProject"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:usercontrol="clr-namespace:EnglishCentreManagement.UserControlProject"
-        xmlns:viewmodel="clr-namespace:EnglishCentreManagement.ViewModel"
         xmlns:viewmodelUserControl="clr-namespace:EnglishCentreManagement.ViewModel.UserControl"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -16,7 +15,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Name="managerWindow"
+        Name="teacherWindow"
         Title="Manager" Height="700" Width="1300"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -66,66 +65,88 @@
             </Grid.ColumnDefinitions>
 
             <!--Navigation menu-->
-            <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
 
-                <!--logo-->
-                <StackPanel Orientation="Horizontal"
+                <StackPanel>
+
+                    <!--logo-->
+                    <StackPanel Orientation="Horizontal"
                             Height="35"
                             Margin="15 25 0 40">
-                    <Image Source="/ResourceXAML/Image/EnglishLogo.png" />
+                        <Image Source="/ResourceXAML/Image/EnglishLogo.png" />
 
-                    <TextBlock Text="English"
+                        <TextBlock Text="English"
                                Foreground="WhiteSmoke"
                                FontSize="15"
                                FontFamily="Montserrat"
                                FontWeight="Medium"
                                VerticalAlignment="Center"
                                Margin="10 0 0 0"/>
-                </StackPanel>
+                    </StackPanel>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#BADAFF"
                              Command="{Binding ShowHomeView}">
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
 
-                </RadioButton>
+                    </RadioButton>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#BADAFF"
                              Command="{Binding ShowYourClassView}">
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="ClipboardEditOutline" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Your class" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ClipboardEditOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Your class" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
 
-                </RadioButton>
-                
-                <RadioButton Style="{StaticResource menuButton}"
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#FFC4A4"
                              Command="{Binding ShowYourCalendarView}">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Calendar" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-                </RadioButton>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Calendar" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
 
-                <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Style="{StaticResource menuButton}"
                              Tag="#37ef57"
                              Command="{Binding ShowUserInforView}">
 
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountBoxOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="User information" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                </StackPanel>
+                
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#BADAFF"
+                             DataContext="{StaticResource ControlBarVM}"
+                            Command="{Binding CloseWindowCommand}"
+                        CommandParameter="{Binding ElementName=teacherWindow}"
+                             Grid.Row="1">
+
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="AccountBoxOutline" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="User information" Style="{StaticResource menuButtonText}"/>
+                        <materialDesign:PackIcon Kind="LogoutVariant" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Log out" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
 
                 </RadioButton>
 
-            </StackPanel>
+            </Grid>
 
             <!--Main section-->
             <Grid Grid.Column="1">
@@ -152,7 +173,7 @@
                             Style="{StaticResource controlButton}"
                             Tag="#ffffff"
                             Command="{Binding CloseWindowCommand}"
-                        CommandParameter="{Binding ElementName=managerWindow}"
+                        CommandParameter="{Binding ElementName=teacherWindow}"
                             >
                         <materialDesign:PackIcon Kind="Power" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
@@ -223,7 +244,7 @@
                             </Ellipse.Fill>
                         </Ellipse>
 
-                        <Button Style="{StaticResource iconButton}"
+                        <!--<Button Style="{StaticResource iconButton}"
                                 Tag="#FFC4A4">
                             <materialDesign:PackIcon Kind="EmailOutline" Style="{StaticResource iconButtonIcon}"/>
                         </Button>
@@ -231,7 +252,7 @@
                         <Button Style="{StaticResource iconButton}"
                                 Tag="#37ef57">
                             <materialDesign:PackIcon Kind="ClockTimeNineOutline" Style="{StaticResource iconButtonIcon}"/>
-                        </Button>
+                        </Button>-->
                     </StackPanel>
 
                 </Grid>

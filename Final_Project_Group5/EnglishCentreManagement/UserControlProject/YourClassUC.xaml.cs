@@ -27,6 +27,5 @@ namespace EnglishCentreManagement.UserControlProject
             InitializeComponent();
             this.DataContext = new YourClassViewModel();
         }
-
     }
 }

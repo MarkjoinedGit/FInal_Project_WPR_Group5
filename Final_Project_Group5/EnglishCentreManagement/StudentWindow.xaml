@@ -119,17 +119,7 @@
                     </StackPanel>
 
                 </RadioButton>
-
-                <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#BADAFF">
-
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Cash" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Your test" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-
-                </RadioButton>
-
+                
                 <RadioButton Style="{StaticResource menuButton}"
                              Tag="#FFC4A4"
                              Command="{Binding ShowYourScheduleView}">

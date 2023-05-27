@@ -40,7 +40,7 @@ namespace EnglishCentreManagement.ViewModel.MainView
             ShowAddTeacherView = new RelayCommand<object>(ExecuteShowAddTeacherViewCommand);
 
             //Default view
-            ExecuteShowHomeViewCommand(null);
+            ExecuteShowUserInforViewCommand(null);
         }
 
         private void LoadUserCurrentData()

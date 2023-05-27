@@ -36,7 +36,7 @@ namespace EnglishCentreManagement.ViewModel.MainView
             ShowUserInforView = new RelayCommand<object>(ExecuteShowUserInforViewCommand);
 
             //Default view
-            ExecuteShowHomeViewCommand(null);
+            ExecuteShowUserInforViewCommand(null);
         }
 
         private void LoadUserCurrentData()

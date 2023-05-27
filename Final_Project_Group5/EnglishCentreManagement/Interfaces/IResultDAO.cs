@@ -1,4 +1,5 @@
 ﻿using EnglishCentreManagement.Model;
+using EnglishCentreManagement.Model.DisplayModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace EnglishCentreManagement.Interfaces
     {
         void Delete(string idTest);
         void UpdateTestResultByList(List<TestResult> results);
+        TestResult getResultByTestAndIDStudent(string idTest);
         List<TestResult> getResultByIdTest(string idTest);
+        List<TestsInWeek> getTestsInWeek(Classroom cls);
     }
 }

@@ -27,6 +27,7 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         public ICommand ShowAddNewTestCommand { get; }
         public ICommand DeleteTestCommand { get; }
         public ICommand ShowCreatScoreBoardCommand { get; }
+        public ICommand UpdateStudentLevelCommand { get; }
 
 
         public static Classroom CurrentClassroom { get => _currentClassroom; set => _currentClassroom = value; }
@@ -63,11 +64,12 @@ namespace EnglishCentreManagement.ViewModel.Dialog
             _currentClassroom = CurrentClassroom;
             LoadStudent();
             Loadtest();
-            ShowAddNewTestCommand = new RelayCommand<object>(ExcuteShowAddNewTestCommand);
+            ShowAddNewTestCommand = new RelayCommand<object>(CanExcuteShowAddNewTestCommand, ExcuteShowAddNewTestCommand);
             DeleteTestCommand = new RelayCommand<string>(ExcuteDeleteTestCommand);
             ShowCreatScoreBoardCommand = new RelayCommand<string>(ExcuteShowCreatScoreBoardCommand);
+            UpdateStudentLevelCommand = new RelayCommand<object>(IsClassroomNotEnded, ExecuteUpdateStudentLevelCommand);
         }
-
+        
         private void LoadStudent()
         {
             ListStudent = stdDao.GetListStudent(CurrentClassroom);
@@ -76,6 +78,13 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         private void Loadtest()
         {
             ListTest = testDAO.getListByIDClass(CurrentClassroom.IDClassroom);
+        }
+        
+        private bool CanExcuteShowAddNewTestCommand(object obj)
+        {
+            if(CurrentClassroom.IsHaveNullValue() || IsClassroomNotEnded(obj))
+                return false;
+            return true;
         }
 
         private void ExcuteShowAddNewTestCommand(object obj)
@@ -96,6 +105,33 @@ namespace EnglishCentreManagement.ViewModel.Dialog
         {
             testDAO.DeleteTestByID(idtest);
             Loadtest();
+        }
+
+        private void ExecuteUpdateStudentLevelCommand(object obj)
+        {
+            foreach(Student st in listStudent)
+            {
+                st.RankLevel = CurrentClassroom.CourseIns.OutputLevel;
+                try
+                {
+                    stdDao.Update(st);
+                }
+                catch
+                {
+                    MessageBox.Show("Update unsucessfully!!!");
+                    return;
+                }
+            }
+
+            MessageBox.Show("Update sucessfully!!!");
+            LoadStudent();
+        }
+
+        private bool IsClassroomNotEnded(object obj)
+        {
+            if (CurrentClassroom.EndingDate <= DateTime.Now)
+                return true;
+            return false;
         }
     }
 }

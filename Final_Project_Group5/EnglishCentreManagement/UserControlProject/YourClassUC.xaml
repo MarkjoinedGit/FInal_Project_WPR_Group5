@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:EnglishCentreManagement.UserControlProject"
              xmlns:uc="clr-namespace:EnglishCentreManagement.UserControlProject"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="598" d:DesignWidth="1008"
@@ -166,9 +167,18 @@
 
         <Border Grid.Row="1" Margin="2,2,2,2" CornerRadius="10" Background="AliceBlue" Grid.ColumnSpan="2">
             <Grid>
-                <ListView Background="#77ceff"
-                          ItemsSource="{Binding ListRegisteredClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ListView Name="listView"
+                          Background="#77ceff"
+                          ItemsSource="{Binding ListRegisteredClassroom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                           >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction 
+                                Command="{Binding ShowYourTestInClassroomCommand}"
+                                CommandParameter="{Binding ElementName=listView}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border CornerRadius="3" 
